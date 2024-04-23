@@ -11,6 +11,9 @@ public class _Sc_cerveau : MonoBehaviour
     //Inputs Variables
     bool LeftClick = false;
 
+    //Scripts Refs
+    _Sc_movement _sc_movement = null;
+
     private Rewired.Player player
     {
         get
@@ -41,13 +44,16 @@ public class _Sc_cerveau : MonoBehaviour
         }
 
         LeftClick = player.GetButton("LeftClick");
+
+        //
+        ProcessInputs();
     }
 
     private void ProcessInputs()
     {
         if(LeftClick == true)
         {
-            Debug.Log("LeftClick");
+            _sc_movement.getMouseLeftClick(ReInput.controllers.Mouse.screenPosition);
         }
     }
 
@@ -57,5 +63,7 @@ public class _Sc_cerveau : MonoBehaviour
         {
             inputManager = FindObjectOfType<InputManager>();
         }
+
+        _sc_movement = _Sc_movement.instance;
     }
 }
