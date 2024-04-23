@@ -47,11 +47,15 @@ public class _Sc_cameraMovement : MonoBehaviour
     public void AdjustCamPosition()
     {
         //Bound method
-        transform.position = new Vector3(Mathf.Clamp(Mathf.Lerp(transform.position.x, currentTarget.position.x, lerpSmooth), currentBound.bounds.min.x + cameraBox.size.x / 2, currentBound.bounds.max.x - cameraBox.size.x / 2),
+        /*transform.position = new Vector3(Mathf.Clamp(Mathf.Lerp(transform.position.x, currentTarget.position.x, lerpSmooth), currentBound.bounds.min.x + cameraBox.size.x / 2, currentBound.bounds.max.x - cameraBox.size.x / 2),
                                                  camHeight,
                                                  Mathf.Clamp(Mathf.Lerp(transform.position.z, currentTarget.position.z, lerpSmooth), currentBound.bounds.min.z + cameraBox.size.z / 2, currentBound.bounds.max.z - cameraBox.size.z / 2));
-
         
+         */
+        // Boundless method
+        transform.position = new Vector3(Mathf.Lerp(transform.position.x, currentTarget.position.x, lerpSmooth), camHeight, Mathf.Lerp(transform.position.z, currentTarget.position.z, lerpSmooth));        
+         
+        //DebugSpace between cam and target
         /*
         Debug.Log("cam X: " + transform.position.x + " target X: " + currentTarget.position.x);
         Debug.Log("cam Z: " + transform.position.z + " target Z: " + currentTarget.position.z);
