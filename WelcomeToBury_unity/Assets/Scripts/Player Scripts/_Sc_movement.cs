@@ -14,6 +14,7 @@ public class _Sc_movement : MonoBehaviour
 
     [SerializeField] float distanceFromPoint = 0.0f;
     [SerializeField] float distanceToRun = 15.0f;
+    [SerializeField] string layerName = "Walkable";
 
     public bool canSetSpeed = true;
 
@@ -31,7 +32,7 @@ public class _Sc_movement : MonoBehaviour
     {
         Debug.Log("LeftCLickReceived");
         Ray ray = cam.ScreenPointToRay(_mousePos);
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,LayerMask.GetMask(layerName)))
         {
             agent.SetDestination(hit.point);
         }
