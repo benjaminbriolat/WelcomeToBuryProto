@@ -87,10 +87,7 @@ public class _Sc_cameraMovement : MonoBehaviour
             rotating = true;
             
         }
-        if (rotating == true)
-        {
-            AdjustCamAngle();
-        }
+        
 
         //moveMethod3
         if(useBuffer == true)
@@ -141,7 +138,12 @@ public class _Sc_cameraMovement : MonoBehaviour
                     }
                 }                          
             }
-        }        
+        }
+
+        if (rotating == true)
+        {
+            AdjustCamAngle();
+        }
     }
 
     public void AdjustCamPosition()

@@ -14,8 +14,9 @@ public class _Sc_Debug_CamTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
+            Debug.Log("collPlayer");
             _sc_CameraMovement.CallAnimCam(true, camAngle, camSpeed);
         }
     }
