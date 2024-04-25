@@ -10,6 +10,7 @@ public class _Sc_cerveau : MonoBehaviour
 
     //Inputs Variables
     bool LeftClick = false;
+    [SerializeField] bool leftClickReleased = true;
 
     //Scripts Refs
     _Sc_movement _sc_movement = null;
@@ -44,6 +45,11 @@ public class _Sc_cerveau : MonoBehaviour
         }
 
         LeftClick = player.GetButton("LeftClick");
+        
+        if(player.GetButtonUp("LeftClick"))
+        {
+            leftClickReleased = true;
+        }
 
         //
         ProcessInputs();
@@ -53,7 +59,16 @@ public class _Sc_cerveau : MonoBehaviour
     {
         if(LeftClick == true)
         {
+            leftClickReleased = false;
             _sc_movement.getMouseLeftClick(ReInput.controllers.Mouse.screenPosition);
+        }
+        if(leftClickReleased == true)
+        {
+            _sc_movement.canSetSpeed = true;
+        }
+        else
+        {
+            _sc_movement.canSetSpeed = false;
         }
     }
 

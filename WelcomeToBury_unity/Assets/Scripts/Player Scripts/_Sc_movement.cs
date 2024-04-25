@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,13 @@ public class _Sc_movement : MonoBehaviour
     public static _Sc_movement instance = null;
     Camera cam = null;
     NavMeshAgent agent = null;
+    [SerializeField] float walkSpeed = 6.0f;
+    [SerializeField] float runSpeed = 12.0f;
+
+    [SerializeField] float distanceFromPoint = 0.0f;
+    [SerializeField] float distanceToRun = 15.0f;
+
+    public bool canSetSpeed = true;
 
     private void Awake()
     {
@@ -26,6 +34,19 @@ public class _Sc_movement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             agent.SetDestination(hit.point);
+        }
+
+        distanceFromPoint = Vector3.Distance(hit.point, this.transform.position);
+        if (distanceFromPoint > distanceToRun)
+        {
+            agent.speed = runSpeed;
+        }
+        else
+        {
+            if (canSetSpeed == true)
+            {
+                agent.speed = walkSpeed;
+            }
         }
     }
 }
