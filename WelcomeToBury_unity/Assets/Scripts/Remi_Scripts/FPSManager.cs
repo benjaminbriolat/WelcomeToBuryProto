@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class FPSManager : MonoBehaviour
 {
+    [SerializeField] int targetFPS = 120;
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = targetFPS;
         
     }
 
