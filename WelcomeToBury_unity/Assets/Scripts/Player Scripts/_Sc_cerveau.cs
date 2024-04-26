@@ -62,6 +62,7 @@ public class _Sc_cerveau : MonoBehaviour
             leftClickReleased = false;
             _sc_movement.getMouseLeftClick(ReInput.controllers.Mouse.screenPosition);
         }
+
         if(leftClickReleased == true)
         {
             _sc_movement.canSetSpeed = true;

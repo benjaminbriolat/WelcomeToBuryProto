@@ -18,10 +18,13 @@ public class _Sc_movement : MonoBehaviour
 
     public bool canSetSpeed = true;
 
+    _Sc_debugCharAnimations _sc_debugCharAnimations = null;
+
     private void Awake()
     {
         instance = this;
         agent = GetComponent<NavMeshAgent>();
+        _sc_debugCharAnimations = GetComponent<_Sc_debugCharAnimations>();
     }
     private void Start()
     {
@@ -35,19 +38,30 @@ public class _Sc_movement : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,LayerMask.GetMask(layerName)))
         {
             agent.SetDestination(hit.point);
-        }
+            setSpeed(hit);
+        }     
+    }
 
+    private void setSpeed(RaycastHit hit)
+    {
         distanceFromPoint = Vector3.Distance(hit.point, this.transform.position);
         if (distanceFromPoint > distanceToRun)
         {
             agent.speed = runSpeed;
+            //agent.speed = Mathf.Lerp(agent.speed, runSpeed, 1);
         }
         else
         {
             if (canSetSpeed == true)
             {
+                //agent.speed = Mathf.Lerp(agent.speed, walkSpeed, 1);
                 agent.speed = walkSpeed;
             }
         }
+    }
+
+    private void Update()
+    {
+        _sc_debugCharAnimations.setMoving(agent.velocity.magnitude);
     }
 }
