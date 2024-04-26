@@ -2,6 +2,8 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+using Unity.VisualScripting;
 
 public class _Sc_cameraMovement : MonoBehaviour
 {
@@ -15,37 +17,47 @@ public class _Sc_cameraMovement : MonoBehaviour
     [SerializeField] float lerpSmoothZoom = 1.0f;
     [SerializeField] float lerpSmoothRot = 0.01f;
     [SerializeField] float camHeight = 18;
-    [SerializeField] BoxCollider currentBound = null;
-    [SerializeField] BoxCollider cameraBox = null;
     [SerializeField] bool camFollowActive = true;
-    [SerializeField] Vector3 camZoomPosition1 = new Vector3(-15, 18, -13);
-    [SerializeField] Vector3 camZoomPosition2 = new Vector3(-11.73f, 13.37f, -9.73f);
+
+    [Header("RotationValues")]
     [SerializeField] Quaternion targetAngle = Quaternion.identity;
+    [SerializeField] float targetAngleX = 55;
+    [SerializeField] float targetAngleY = 45;
+    [SerializeField] float targetAngleZ = 0;
+
+    [Header("Zoom Values")]
+    [SerializeField] float camZoomPosition1 = 25;
+    [SerializeField] float camZoomPosition2 = 15;
+    [SerializeField] Vector3 deadZoneZoom = Vector3.zero;
+    [SerializeField] Vector3 deadZoneNoZoom = Vector3.zero;
+
 
     Vector3 moveTemp = Vector3.zero;
-    Transform cameraChild = null;
+    Transform camTransform = null;
+    CinemachineVirtualCamera virCam = null;
+    CinemachineFramingTransposer transposer = null;
     bool zoomed = false;
     bool zooming = false;
-    [SerializeField] bool rotating = false;
-  
 
-    //tempVariables
+
+    //tempVariables    
     float tempDistance = 0;
     Vector2 tempTargetPos = Vector2.zero;
     Vector2 tempCamPos = Vector2.zero;
     private void Awake()
     {
         instance = this;
-        AssignTarget(defaultTarget);
-        cameraChild = transform.GetChild(0);
+        camTransform = this.transform;
+        virCam = camTransform.GetComponent<CinemachineVirtualCamera>();
+        transposer = virCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        AssignTarget(defaultTarget);   
     }
 
     public void CallAnimCam(bool rotate = true, float rotValue = 0,float rotSpeed = 0)
     {
         if(rotate == true)
         {
-            AssignTargetAngle(rotValue, rotSpeed);
-            rotating = true;
+           
         }
     }
     private void Update()
@@ -61,124 +73,66 @@ public class _Sc_cameraMovement : MonoBehaviour
             AdjustCamZoom();
         }
 
-
-
         //DebugInputAngle
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            AssignTargetAngle(-15, 0.01f);
-            rotating = true;
+            targetAngleY = 30;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            AssignTargetAngle(0, 0.01f);
-            rotating = true;
+            targetAngleY = 45;
 
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            AssignTargetAngle(15, 0.01f);
-            rotating = true;
+            targetAngleY = 60;
 
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            AssignTargetAngle(20,0.01f);
-            rotating = true;
-            
+            targetAngleX = 35;
         }
-        
-
-        //moveMethod3
-        if(useBuffer == true)
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            if (camFollowActive == true)
-            {
-                if (currentTarget != null)
-                {
-                    tempCamPos = (new Vector2(transform.position.x, transform.position.z));
-                    tempTargetPos = (new Vector2(currentTarget.position.x, currentTarget.position.z));
-
-                    tempDistance = Vector2.Distance(tempTargetPos, tempCamPos);
-                    if (useBuffer == true)
-                    {
-                        if (tempDistance > bufferDistance)
-                        {
-                            moveTemp = currentTarget.position;
-                            moveTemp.y = camHeight;
-                            transform.position = Vector3.MoveTowards(transform.position, moveTemp, lerpSmoothFollow * Time.deltaTime);
-                        }
-                    }
-                    else if (tempDistance > 0)
-                    {
-                        moveTemp = currentTarget.position;
-                        moveTemp.y = camHeight;
-                        transform.position = Vector3.MoveTowards(transform.position, moveTemp, lerpSmoothFollow * Time.deltaTime);
-                    }
-                }
-            }
-        }               
-    }
-
-    private void LateUpdate()
-    {
-        if(camFollowActive == true)
-        {
-            if (currentTarget != null)
-            {
-                if(useBuffer == false)
-                {
-                    tempCamPos = (new Vector2(transform.position.x, transform.position.z));
-                    tempTargetPos = (new Vector2(currentTarget.position.x, currentTarget.position.z));
-
-                    tempDistance = Vector2.Distance(tempTargetPos, tempCamPos);
-                    if (tempDistance > 0)
-                    {
-                        AdjustCamPosition();
-                    }
-                }                          
-            }
+            targetAngleX = 55;
         }
 
-        if (rotating == true)
+        targetAngle = Quaternion.Euler(targetAngleX, targetAngleY, targetAngleZ);
+
+        if(camTransform.rotation != targetAngle)
         {
             AdjustCamAngle();
         }
-    }
-
-    public void AdjustCamPosition()
-    {
-        //moveMethod1
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, currentTarget.position.x, lerpSmoothFollow), camHeight, Mathf.Lerp(transform.position.z, currentTarget.position.z, lerpSmoothFollow));
     }
 
     public void AdjustCamZoom()
     {
         if(zoomed == true)
         {
-            cameraChild.localPosition = new Vector3(Mathf.Lerp(cameraChild.localPosition.x, camZoomPosition2.x, lerpSmoothZoom), Mathf.Lerp(cameraChild.localPosition.y, camZoomPosition2.y, lerpSmoothZoom), Mathf.Lerp(cameraChild.localPosition.z, camZoomPosition2.z, lerpSmoothZoom));
+            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition2, lerpSmoothZoom * Time.deltaTime);
+            transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneZoom.x, lerpSmoothZoom * Time.time);
+            transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneZoom.y, lerpSmoothZoom * Time.time);
+            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneZoom.z, lerpSmoothZoom * Time.time);
         }
         else
         {
-            cameraChild.localPosition = new Vector3(Mathf.Lerp(cameraChild.localPosition.x, camZoomPosition1.x, lerpSmoothZoom), Mathf.Lerp(cameraChild.localPosition.y, camZoomPosition1.y, lerpSmoothZoom), Mathf.Lerp(cameraChild.localPosition.z, camZoomPosition1.z, lerpSmoothZoom));
+            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition1, lerpSmoothZoom * Time.deltaTime); 
+            transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneNoZoom.x, lerpSmoothZoom * Time.time);
+            transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneNoZoom.y, lerpSmoothZoom * Time.time);
+            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneNoZoom.z, lerpSmoothZoom * Time.time);
         }
     }
 
     public void AdjustCamAngle()
     {
-        //Debug.Log("currentAngle : " + transform.eulerAngles.y + " targetAngle: " + targetAngle);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetAngle, lerpSmoothRot);              
+        Debug.Log("isUpdatingAngle");
+        camTransform.rotation = Quaternion.Slerp(camTransform.rotation, targetAngle, lerpSmoothRot * Time.deltaTime);
     }
-
 
     public void AssignTarget(Transform newtarget)
     {
         currentTarget = newtarget;
-    }
-
-    public void AssignTargetAngle(float newAngleValue,float rotSpeed)
-    {
-        lerpSmoothRot = rotSpeed;
-        targetAngle = Quaternion.Euler(transform.rotation.x, newAngleValue,transform.rotation.z);
-    }
+        
+    }    
 }

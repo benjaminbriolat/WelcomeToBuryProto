@@ -1182,7 +1182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8367530264371016655, guid: 15a2f681fce48874d8ad4d3128a03d8b, type: 3}
       propertyPath: useBuffer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8367530264371016655, guid: 15a2f681fce48874d8ad4d3128a03d8b, type: 3}
       propertyPath: defaultTarget
