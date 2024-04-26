@@ -38,6 +38,7 @@ public class _Sc_cameraMovement : MonoBehaviour
     CinemachineFramingTransposer transposer = null;
     bool zoomed = false;
     bool zooming = false;
+    bool isInclined = false;
 
 
     //tempVariables    
@@ -91,11 +92,16 @@ public class _Sc_cameraMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            targetAngleX = 35;
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            targetAngleX = 55;
+            if(isInclined == false)
+            {
+                isInclined = true;
+                targetAngleX = 35;
+            }
+            else
+            {
+                isInclined = false;
+                targetAngleX = 55;
+            }
         }
 
         targetAngle = Quaternion.Euler(targetAngleX, targetAngleY, targetAngleZ);
