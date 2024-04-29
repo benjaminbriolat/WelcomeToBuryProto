@@ -5,6 +5,7 @@ using UnityEngine;
 public class _Sc_debugCharAnimations : MonoBehaviour
 {
     private Animator animator;
+    private float dampTime = 0.075f;
 
     private void Awake()
     {
@@ -13,6 +14,6 @@ public class _Sc_debugCharAnimations : MonoBehaviour
 
     public void setMoving(float _value)
     {
-        animator.SetFloat("Idle Walk Run", _value);
+        animator.SetFloat("Idle Walk Run", _value, dampTime, Time.deltaTime);
     }
 }
