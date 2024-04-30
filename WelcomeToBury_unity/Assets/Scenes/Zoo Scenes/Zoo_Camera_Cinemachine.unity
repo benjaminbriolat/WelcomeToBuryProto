@@ -2350,7 +2350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1092127559408677978, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.12
       objectReference: {fileID: 0}
     - target: {fileID: 1092127559408677978, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2358,7 +2358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092127559408677978, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 1092127559408677978, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2794,7 +2794,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6907d96f03485794e81eaf619c2c84e5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3a8d06cf650e11047b4d39d280e4dc01, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1936935007
 Transform:
@@ -3225,7 +3225,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
