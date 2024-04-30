@@ -9,8 +9,7 @@ public class _Sc_cameraMovement : MonoBehaviour
 {
      
     public static _Sc_cameraMovement instance = null;
-    [SerializeField] Transform currentTarget = null;
-    [SerializeField] Transform defaultTarget = null;
+    [SerializeField] _SO_VirtualCameraMovements defaultVirtualCamData = null;
     [SerializeField] bool useBuffer = false;
     [SerializeField] float bufferDistance = 10.0f;
     [SerializeField] float lerpSmoothFollow = 1.0f;
@@ -18,12 +17,16 @@ public class _Sc_cameraMovement : MonoBehaviour
     [SerializeField] float lerpSmoothRot = 0.01f;
     [SerializeField] float camHeight = 18;
     [SerializeField] bool camFollowActive = true;
-
+    [SerializeField] bool camZoomActive = true;
+    [SerializeField] bool camInclineActive = true;
+    [SerializeField] bool camRotateActive = true;
     [Header("RotationValues")]
     [SerializeField] Quaternion targetAngle = Quaternion.identity;
     [SerializeField] float targetAngleX = 55;
     [SerializeField] float targetAngleY = 45;
     [SerializeField] float targetAngleZ = 0;
+    [SerializeField] float inclinaisonOrigin = 0;
+    [SerializeField] float inclinaisonDestination = 0;
 
     [Header("Zoom Values")]
     [SerializeField] float camZoomPosition1 = 25;
@@ -51,7 +54,30 @@ public class _Sc_cameraMovement : MonoBehaviour
         camTransform = this.transform;
         virCam = camTransform.GetComponent<CinemachineVirtualCamera>();
         transposer = virCam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        AssignTarget(defaultTarget);   
+        LoadVirtualCamData(false,defaultVirtualCamData);
+    }
+
+    public void LoadVirtualCamData(bool useDefault ,_SO_VirtualCameraMovements virCamData = null)
+    {
+        if(useDefault == false)
+        {
+            inclinaisonOrigin = virCamData.inclinaisonValueOrigin;
+            inclinaisonDestination = virCamData.inclinaisonValueDestination;
+            camZoomPosition1 = virCamData.zoomValueOrigin;
+            camZoomPosition2 = virCamData.zoomValueDestination;
+            camFollowActive = true;
+            camZoomActive = true;
+            camInclineActive = true;
+            camRotateActive = true;
+        }
+        else
+        {
+            inclinaisonOrigin = defaultVirtualCamData.inclinaisonValueOrigin;
+            inclinaisonDestination = defaultVirtualCamData.inclinaisonValueDestination;
+            camZoomPosition1 = defaultVirtualCamData.zoomValueOrigin;
+            camZoomPosition2 = defaultVirtualCamData.zoomValueDestination;
+        }
+        
     }
 
     public void CallAnimCam(bool rotate = true, float rotValue = 0,float rotSpeed = 0)
@@ -64,34 +90,49 @@ public class _Sc_cameraMovement : MonoBehaviour
 
     public void ZoomPressed()
     {
-        zoomed = !zoomed;
-        zooming = true;
+        if(camZoomActive == true)
+        {
+            zoomed = !zoomed;
+            zooming = true;
+        }       
     }
 
     public void InclinePressed()
     {
-        if (isInclined == false)
+        if(camInclineActive == true)
         {
-            isInclined = true;
-            targetAngleX = 35;
-        }
-        else
-        {
-            isInclined = false;
-            targetAngleX = 55;
-        }
+            if (isInclined == false)
+            {
+                isInclined = true;
+                targetAngleX = inclinaisonDestination;
+            }
+            else
+            {
+                isInclined = false;
+                targetAngleX = inclinaisonOrigin;
+            }
+        }        
     }
     public void LeftArrowPressed()
     {
-        targetAngleY = 30;
+        if(camRotateActive == true)
+        {
+            targetAngleY = 30;
+        }
     }
     public void DownArrowPressed()
     {
-        targetAngleY = 45;
+        if (camRotateActive == true)
+        {
+            targetAngleY = 45;
+        }
     }
     public void RightArrowPressed()
     {
-        targetAngleY = 60;
+        if (camRotateActive == true)
+        {
+            targetAngleY = 60;
+        }
     }
     private void Update()
     {
@@ -130,11 +171,5 @@ public class _Sc_cameraMovement : MonoBehaviour
     {
         Debug.Log("isUpdatingAngle");
         camTransform.rotation = Quaternion.Slerp(camTransform.rotation, targetAngle, lerpSmoothRot * Time.deltaTime);
-    }
-
-    public void AssignTarget(Transform newtarget)
-    {
-        currentTarget = newtarget;
-        
-    }    
+    } 
 }
