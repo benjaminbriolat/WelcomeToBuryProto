@@ -39,7 +39,8 @@ public class _Sc_movement : MonoBehaviour
         {
             agent.SetDestination(hit.point);
             setSpeed(hit);
-        }     
+            Debug.Log("SetDestination");
+        }
     }
 
     private void setSpeed(RaycastHit hit)
@@ -48,14 +49,14 @@ public class _Sc_movement : MonoBehaviour
         if (distanceFromPoint > distanceToRun)
         {
             agent.speed = runSpeed;
-            //agent.speed = Mathf.Lerp(agent.speed, runSpeed, 1);
+            Debug.Log("Run");
         }
         else
         {
             if (canSetSpeed == true)
             {
-                //agent.speed = Mathf.Lerp(agent.speed, walkSpeed, 1);
                 agent.speed = walkSpeed;
+                Debug.Log("Walk");
             }
         }
     }
