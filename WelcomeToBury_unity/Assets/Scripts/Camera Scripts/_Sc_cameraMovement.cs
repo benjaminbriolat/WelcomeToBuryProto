@@ -61,47 +61,43 @@ public class _Sc_cameraMovement : MonoBehaviour
            
         }
     }
+
+    public void ZoomPressed()
+    {
+        zoomed = !zoomed;
+        zooming = true;
+    }
+
+    public void InclinePressed()
+    {
+        if (isInclined == false)
+        {
+            isInclined = true;
+            targetAngleX = 35;
+        }
+        else
+        {
+            isInclined = false;
+            targetAngleX = 55;
+        }
+    }
+    public void LeftArrowPressed()
+    {
+        targetAngleY = 30;
+    }
+    public void DownArrowPressed()
+    {
+        targetAngleY = 45;
+    }
+    public void RightArrowPressed()
+    {
+        targetAngleY = 60;
+    }
     private void Update()
     {
-        //DebugInputZoom
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            zoomed = !zoomed;
-            zooming = true;
-        }
         if (zooming == true)
         {
             AdjustCamZoom();
-        }
-
-        //DebugInputAngle
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            targetAngleY = 30;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            targetAngleY = 45;
-
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            targetAngleY = 60;
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            if(isInclined == false)
-            {
-                isInclined = true;
-                targetAngleX = 35;
-            }
-            else
-            {
-                isInclined = false;
-                targetAngleX = 55;
-            }
         }
 
         targetAngle = Quaternion.Euler(targetAngleX, targetAngleY, targetAngleZ);

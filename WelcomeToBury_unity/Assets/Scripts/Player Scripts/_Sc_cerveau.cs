@@ -11,10 +11,15 @@ public class _Sc_cerveau : MonoBehaviour
     //Inputs Variables
     bool LeftClick = false;
     [SerializeField] bool leftClickReleased = true;
+    bool FkeyPress = false;
+    bool GkeyPress = false;
+    bool leftArrowPress = false;
+    bool rightArrowPress = false;
+    bool downArrowPress = false;
 
     //Scripts Refs
     _Sc_movement _sc_movement = null;
-
+    _Sc_cameraMovement _sc_cameraMovement = null;
     private Rewired.Player player
     {
         get
@@ -51,6 +56,11 @@ public class _Sc_cerveau : MonoBehaviour
             leftClickReleased = true;
         }
 
+        FkeyPress = player.GetButtonDown("F");
+        GkeyPress = player.GetButtonDown("G");
+        leftArrowPress = player.GetButtonDown("LeftArrow");
+        rightArrowPress = player.GetButtonDown("RightArrow");
+        downArrowPress = player.GetButtonDown("DownArrow");
         //
         ProcessInputs();
     }
@@ -71,6 +81,27 @@ public class _Sc_cerveau : MonoBehaviour
         {
             _sc_movement.canSetSpeed = false;
         }
+
+        if(FkeyPress == true)
+        {
+            _sc_cameraMovement.ZoomPressed();
+        }
+        if(GkeyPress == true)
+        {
+            _sc_cameraMovement.InclinePressed();
+        }
+        if(leftArrowPress == true)
+        {
+            _sc_cameraMovement.LeftArrowPressed();
+        }
+        if(rightArrowPress == true)
+        {
+            _sc_cameraMovement.RightArrowPressed();
+        }
+        if(downArrowPress == true)
+        {
+            _sc_cameraMovement.DownArrowPressed();
+        }
     }
 
     private void getRefs()
@@ -81,5 +112,6 @@ public class _Sc_cerveau : MonoBehaviour
         }
 
         _sc_movement = _Sc_movement.instance;
+        _sc_cameraMovement = _Sc_cameraMovement.instance;
     }
 }

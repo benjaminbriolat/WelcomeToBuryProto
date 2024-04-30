@@ -65,7 +65,7 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 6.5
   distanceFromPoint: 15.201937
-  distanceToRun: 12
+  distanceToRun: 8
   layerName: Walkable
   canSetSpeed: 1
 --- !u!114 &2526932127261564635
