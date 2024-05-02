@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Remi_Scenes/00_MenuScene.unity
-    guid: bb08eb2078a2b484dbc21cf7634153d9
-  - enabled: 1
-    path: Assets/Scenes/Remi_Scenes/01_InterieurMaisonToDemon.unity
-    guid: 4000685fb4c4e45f4be9ad3e76325bdb
-  - enabled: 1
-    path: Assets/Scenes/Remi_Scenes/03_ExterieurJour.unity
-    guid: a466f1e95b7344b259f7685d3af54d15
+    path: Assets/Scenes/Zoo Scenes/Zoo_Camera_Cinemachine.unity
+    guid: becc4280f56ce6a47930ac112a1a8b8f
   m_configObjects: {}

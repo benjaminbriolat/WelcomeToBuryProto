@@ -9,17 +9,16 @@ public class _Sc_cameraMovement : MonoBehaviour
 {
      
     public static _Sc_cameraMovement instance = null;
+    [SerializeField] CinemachineBrain cinemachineBrain = null;
     [SerializeField] _SO_VirtualCameraMovements defaultVirtualCamData = null;
+    [SerializeField] Transform defaultCamera = null;
     [SerializeField] bool useBuffer = false;
     [SerializeField] float bufferDistance = 10.0f;
-    [SerializeField] float lerpSmoothFollow = 1.0f;
     [SerializeField] float lerpSmoothZoom = 1.0f;
     [SerializeField] float lerpSmoothRot = 0.01f;
-    [SerializeField] float camHeight = 18;
-    [SerializeField] bool camFollowActive = true;
     [SerializeField] bool camZoomActive = true;
     [SerializeField] bool camInclineActive = true;
-    [SerializeField] bool camRotateActive = true;
+
     [Header("RotationValues")]
     [SerializeField] Quaternion targetAngle = Quaternion.identity;
     [SerializeField] float targetAngleX = 55;
@@ -51,31 +50,43 @@ public class _Sc_cameraMovement : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        camTransform = this.transform;
-        virCam = camTransform.GetComponent<CinemachineVirtualCamera>();
-        transposer = virCam.GetCinemachineComponent<CinemachineFramingTransposer>();
-        LoadVirtualCamData(false,defaultVirtualCamData);
+        LoadVirtualCamData(true,null,null);
     }
 
-    public void LoadVirtualCamData(bool useDefault ,_SO_VirtualCameraMovements virCamData = null)
+    public void LoadVirtualCamData(bool useDefault ,_SO_VirtualCameraMovements virCamData, Transform targetCamera)
     {
-        if(useDefault == false)
+        zoomed = false;
+        if (useDefault == false)
         {
+            camTransform = targetCamera;
+            virCam = camTransform.GetComponent<CinemachineVirtualCamera>();
+            transposer = virCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+
             inclinaisonOrigin = virCamData.inclinaisonValueOrigin;
             inclinaisonDestination = virCamData.inclinaisonValueDestination;
             camZoomPosition1 = virCamData.zoomValueOrigin;
             camZoomPosition2 = virCamData.zoomValueDestination;
-            camFollowActive = true;
-            camZoomActive = true;
-            camInclineActive = true;
-            camRotateActive = true;
+            camZoomActive = virCamData.zoomActive;
+            camInclineActive = virCamData.inclineActive;
+            targetAngleX = virCamData.defaultAngleX;
+            targetAngleY = virCamData.defaultAngleY;
+            targetAngleZ = virCamData.defaultAngleZ;
+
         }
         else
         {
+            camTransform = defaultCamera;
+            virCam = camTransform.GetComponent<CinemachineVirtualCamera>();
+            transposer = virCam.GetCinemachineComponent<CinemachineFramingTransposer>();
             inclinaisonOrigin = defaultVirtualCamData.inclinaisonValueOrigin;
             inclinaisonDestination = defaultVirtualCamData.inclinaisonValueDestination;
             camZoomPosition1 = defaultVirtualCamData.zoomValueOrigin;
             camZoomPosition2 = defaultVirtualCamData.zoomValueDestination;
+            camZoomActive = defaultVirtualCamData.zoomActive;
+            camInclineActive = defaultVirtualCamData.inclineActive;
+            targetAngleX = defaultVirtualCamData.defaultAngleX;
+            targetAngleY = defaultVirtualCamData.defaultAngleY;
+            targetAngleZ = defaultVirtualCamData.defaultAngleZ;
         }
         
     }
@@ -115,24 +126,15 @@ public class _Sc_cameraMovement : MonoBehaviour
     }
     public void LeftArrowPressed()
     {
-        if(camRotateActive == true)
-        {
-            targetAngleY = 30;
-        }
+        targetAngleY = 30;
     }
     public void DownArrowPressed()
     {
-        if (camRotateActive == true)
-        {
-            targetAngleY = 45;
-        }
+        targetAngleY = 45;
     }
     public void RightArrowPressed()
     {
-        if (camRotateActive == true)
-        {
-            targetAngleY = 60;
-        }
+        targetAngleY = 60;
     }
     private void Update()
     {
@@ -151,25 +153,31 @@ public class _Sc_cameraMovement : MonoBehaviour
 
     public void AdjustCamZoom()
     {
-        if(zoomed == true)
+        if (cinemachineBrain.IsBlending == false)
         {
-            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition2, lerpSmoothZoom * Time.deltaTime);
-            transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneZoom.x, lerpSmoothZoom * Time.time);
-            transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneZoom.y, lerpSmoothZoom * Time.time);
-            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneZoom.z, lerpSmoothZoom * Time.time);
-        }
-        else
-        {
-            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition1, lerpSmoothZoom * Time.deltaTime); 
-            transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneNoZoom.x, lerpSmoothZoom * Time.time);
-            transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneNoZoom.y, lerpSmoothZoom * Time.time);
-            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneNoZoom.z, lerpSmoothZoom * Time.time);
+            if (zoomed == true)
+            {
+                transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition2, lerpSmoothZoom * Time.deltaTime);
+                transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneZoom.x, lerpSmoothZoom * Time.time);
+                transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneZoom.y, lerpSmoothZoom * Time.time);
+                transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneZoom.z, lerpSmoothZoom * Time.time);
+            }
+            else
+            {
+                transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, camZoomPosition1, lerpSmoothZoom * Time.deltaTime);
+                transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, deadZoneNoZoom.x, lerpSmoothZoom * Time.time);
+                transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, deadZoneNoZoom.y, lerpSmoothZoom * Time.time);
+                transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, deadZoneNoZoom.z, lerpSmoothZoom * Time.time);
+            }
         }
     }
 
     public void AdjustCamAngle()
     {
         Debug.Log("isUpdatingAngle");
-        camTransform.rotation = Quaternion.Slerp(camTransform.rotation, targetAngle, lerpSmoothRot * Time.deltaTime);
+        if(cinemachineBrain.IsBlending == false)
+        {
+            camTransform.rotation = Quaternion.Slerp(camTransform.rotation, targetAngle, lerpSmoothRot * Time.deltaTime);
+        }
     } 
 }
