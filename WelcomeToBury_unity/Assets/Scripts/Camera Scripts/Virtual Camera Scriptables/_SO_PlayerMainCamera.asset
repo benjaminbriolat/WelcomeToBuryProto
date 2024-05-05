@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followActive: 1
   zoomActive: 1
-  zoomValueOrigin: 50
-  zoomValueDestination: 10
+  zoomValueOrigin: 23
+  zoomValueDestination: 13
   inclineActive: 1
   inclinaisonValueOrigin: 55
   inclinaisonValueDestination: 35
