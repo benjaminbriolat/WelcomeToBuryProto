@@ -20,6 +20,11 @@ public class _Sc_movement : MonoBehaviour
 
     _Sc_debugCharAnimations _sc_debugCharAnimations = null;
 
+    //Debug
+    float defaultWalkSpeed;
+    float defaultRunSpeed;
+    float defaultRunDistance;
+
     private void Awake()
     {
         instance = this;
@@ -29,6 +34,11 @@ public class _Sc_movement : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
+
+        defaultWalkSpeed = walkSpeed;
+        defaultRunSpeed = runSpeed;
+        defaultRunDistance = distanceToRun;
+
     }
 
     public void getMouseLeftClick(Vector2 _mousePos)
@@ -65,4 +75,20 @@ public class _Sc_movement : MonoBehaviour
     {
         _sc_debugCharAnimations.setMoving(agent.velocity.magnitude);
     }
+
+    
+    /// Debug ///
+    public void OnValuesChanged(float _newWalkSpeed, float _newRunSpeed, float _newRunDistance)
+    {
+        walkSpeed = _newWalkSpeed;
+        runSpeed = _newWalkSpeed;
+        distanceToRun = _newRunDistance;
+    }
+    public void OnResetValues()
+    {
+        walkSpeed = defaultWalkSpeed;
+        runSpeed = defaultRunSpeed;
+        distanceToRun = defaultRunDistance;
+    }
+    /// End Debug ///
 }
