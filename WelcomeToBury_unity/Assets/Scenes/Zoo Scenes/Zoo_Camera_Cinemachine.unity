@@ -5141,6 +5141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2197546966744703971, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
+      propertyPath: myLayerMask.m_Bits
+      value: 1056
+      objectReference: {fileID: 0}
     - target: {fileID: 3116365468716079420, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6185,6 +6189,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122053343907190518, guid: 5184f9410a33d9b48922d29e3667c675, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771503364673793089, guid: 5184f9410a33d9b48922d29e3667c675, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7860853426704991086, guid: 5184f9410a33d9b48922d29e3667c675, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8552953636821774001, guid: 5184f9410a33d9b48922d29e3667c675, type: 3}

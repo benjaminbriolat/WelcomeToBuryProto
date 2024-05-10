@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class _Sc_movement : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class _Sc_movement : MonoBehaviour
 
     [SerializeField] float distanceFromPoint = 0.0f;
     [SerializeField] float distanceToRun = 15.0f;
+    [SerializeField] LayerMask myLayerMask;
     [SerializeField] string layerName = "Walkable";
+    private int LayerGround;
 
     public bool canSetSpeed = true;
 
@@ -35,6 +38,7 @@ public class _Sc_movement : MonoBehaviour
     {
         cam = Camera.main;
 
+        LayerGround = LayerMask.NameToLayer(layerName);
         defaultWalkSpeed = walkSpeed;
         defaultRunSpeed = runSpeed;
         defaultRunDistance = distanceToRun;
@@ -43,13 +47,23 @@ public class _Sc_movement : MonoBehaviour
 
     public void getMouseLeftClick(Vector2 _mousePos)
     {
-        Debug.Log("LeftCLickReceived");
-        Ray ray = cam.ScreenPointToRay(_mousePos);
-        if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,LayerMask.GetMask(layerName)))
+        //Debug.Log("LeftCLickReceived");
+        if (EventSystem.current.IsPointerOverGameObject())
         {
-            agent.SetDestination(hit.point);
-            setSpeed(hit);
-            Debug.Log("SetDestination");
+            //Pointer over UI, dont walk
+        }
+        else
+        {
+            Ray ray = cam.ScreenPointToRay(_mousePos);
+            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,myLayerMask))
+            {
+                if(hit.transform.gameObject.layer == LayerGround)
+                {
+                    agent.SetDestination(hit.point);
+                    setSpeed(hit);
+                    //Debug.Log("SetDestination");
+                }
+            }
         }
     }
 
@@ -59,14 +73,14 @@ public class _Sc_movement : MonoBehaviour
         if (distanceFromPoint > distanceToRun)
         {
             agent.speed = runSpeed;
-            Debug.Log("Run");
+            //Debug.Log("Run");
         }
         else
         {
             if (canSetSpeed == true)
             {
                 agent.speed = walkSpeed;
-                Debug.Log("Walk");
+                //Debug.Log("Walk");
             }
         }
     }
