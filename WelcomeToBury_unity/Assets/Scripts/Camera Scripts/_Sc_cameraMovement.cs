@@ -81,6 +81,7 @@ public class _Sc_cameraMovement : MonoBehaviour
             targetAngleX = virCamData.defaultAngleX;
             targetAngleY = virCamData.defaultAngleY;
             targetAngleZ = virCamData.defaultAngleZ;
+            targetZoomPosition = camZoomPosition1;
         }
         else
         {
@@ -98,9 +99,12 @@ public class _Sc_cameraMovement : MonoBehaviour
             targetAngleZ = defaultVirtualCamData.defaultAngleZ;
             inclineRatio = (float)inclinaisonDestination / inclinaisonOrigin;
             zoomRatio = (float)camZoomPosition2 / camZoomPosition1;
-            if(camSliders != null)
+            targetZoomPosition = camZoomPosition1;
+            deadZoneNoZoom = 3;
+            deadZoneZoom = 1;
+            if (camSliders != null)
             {
-                camSliders.SetSliders(camZoomPosition1, inclinaisonOrigin, zoomRatio, inclineRatio);
+                camSliders.SetSliders(camZoomPosition1, inclinaisonOrigin, zoomRatio, inclineRatio,deadZoneNoZoom);
             }
         }
         
@@ -119,42 +123,84 @@ public class _Sc_cameraMovement : MonoBehaviour
     ///////
     public void OnchangedValueAngle(Slider newAngle)
     {
-        inclinaisonOrigin = newAngle.value;
-        inclinaisonDestination = newAngle.value * inclineRatio;
-        targetAngleX = inclinaisonOrigin;
+        if(camTransform == defaultCamera)
+        {
+            inclinaisonOrigin = newAngle.value;
+            inclinaisonDestination = newAngle.value * inclineRatio;
+            targetAngleX = inclinaisonOrigin;
+        }       
     }
     public void OnchangedValueZoom(Slider newZoom)
     {
-        camZoomPosition1 = newZoom.value;
-        camZoomPosition2 = newZoom.value * zoomRatio;
-        zoomed = false;
-        targetDeadZone = deadZoneNoZoom;
-        targetZoomPosition = camZoomPosition1;
+        if (camTransform == defaultCamera)
+        {
+            camZoomPosition1 = newZoom.value;
+            camZoomPosition2 = newZoom.value * zoomRatio;
+            
+            targetDeadZone = deadZoneNoZoom;
+            if(zoomed == false)
+            {
+                targetZoomPosition = camZoomPosition1;
+            }
+            else
+            {
+                targetZoomPosition = camZoomPosition2;
+            }
+        }        
     }
 
     public void changeZoomRatio(Slider ratio)
     {
-        zoomRatio = ratio.value;
-        camZoomPosition2 = camZoomPosition1 * zoomRatio;
-        if(zoomed == true)
+        if (camTransform == defaultCamera)
         {
-            targetZoomPosition = camZoomPosition2;
-        }
+            zoomRatio = ratio.value;
+            camZoomPosition2 = camZoomPosition1 * zoomRatio;
+            if (zoomed == true)
+            {
+                targetZoomPosition = camZoomPosition2;
+            }
+        }       
     }
 
     public void changeInclineRatio(Slider ratio)
     {
-        inclineRatio = ratio.value;
-        inclinaisonDestination = inclinaisonOrigin * inclineRatio;
-        if (isInclined == true)
+        if (camTransform == defaultCamera)
         {
-            targetAngleX = inclinaisonDestination;
-        }
+            inclineRatio = ratio.value;
+            inclinaisonDestination = inclinaisonOrigin * inclineRatio;
+            if (isInclined == true)
+            {
+                targetAngleX = inclinaisonDestination;
+            }
+        }       
+    }
+
+    public void changeDamping(Slider newDamp)
+    {
+        if (camTransform == defaultCamera)
+        {
+            deadZoneNoZoom = newDamp.value;
+            deadZoneZoom = (float)newDamp.value / 3;
+            if (zoomed == false)
+            {
+                targetDeadZone = deadZoneNoZoom;
+            }
+            else
+            {
+                targetDeadZone = deadZoneZoom;
+                transposer.m_XDamping = deadZoneZoom;
+                transposer.m_YDamping = deadZoneZoom;
+                transposer.m_ZDamping = deadZoneZoom;
+            }
+        }        
     }
 
     public void resetCamValues()
     {
-        LoadVirtualCamData(true, null, null);
+        if (camTransform == defaultCamera)
+        {
+            LoadVirtualCamData(true, null, null);
+        }
     }
     ///////
 
@@ -225,7 +271,8 @@ public class _Sc_cameraMovement : MonoBehaviour
     public void AdjustCamZoom()
     {
         if (cinemachineBrain.IsBlending == false)
-        {            
+        {
+            Debug.Log("adjustDamp");
             transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, targetZoomPosition, lerpSmoothZoom * Time.deltaTime);
             transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, targetDeadZone, lerpSmoothZoom * Time.time);
             transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, targetDeadZone, lerpSmoothZoom * Time.time);
