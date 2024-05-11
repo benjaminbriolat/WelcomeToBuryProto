@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using TMPro;
+using UnityEngine.UI;
 
 public class _Sc_movement : MonoBehaviour
 {
@@ -22,6 +24,16 @@ public class _Sc_movement : MonoBehaviour
     public bool canSetSpeed = true;
 
     _Sc_debugCharAnimations _sc_debugCharAnimations = null;
+
+    [SerializeField] Transform walkSpeedUi;
+    [SerializeField] Transform walkSpeedSliderUi;
+
+    [SerializeField] Transform runSpeedUi;
+    [SerializeField] Transform runSpeedSliderUi;
+
+    [SerializeField] Transform runDistanceUi;
+    [SerializeField] Transform runDistanceSliderUi;
+
 
     //Debug
     float defaultWalkSpeed;
@@ -43,6 +55,7 @@ public class _Sc_movement : MonoBehaviour
         defaultRunSpeed = runSpeed;
         defaultRunDistance = distanceToRun;
 
+        SetUiDebugValues();
     }
 
     public void getMouseLeftClick(Vector2 _mousePos)
@@ -92,17 +105,37 @@ public class _Sc_movement : MonoBehaviour
 
     
     /// Debug ///
-    public void OnValuesChanged(float _newWalkSpeed, float _newRunSpeed, float _newRunDistance)
+    public void SetUiDebugValues()
+    {
+        walkSpeedUi.GetComponent<TextMeshProUGUI>().text = walkSpeed.ToString("F1");
+        runSpeedUi.GetComponent<TextMeshProUGUI>().text = runSpeed.ToString("F1");
+        runDistanceUi.GetComponent<TextMeshProUGUI>().text = distanceToRun.ToString("F1");
+
+        walkSpeedSliderUi.GetComponent<Slider>().value = walkSpeed;
+        runSpeedSliderUi.GetComponent<Slider>().value = runSpeed;
+        runDistanceSliderUi.GetComponent<Slider>().value = distanceToRun;
+    }
+
+    public void OnWalkValueChanged(float _newWalkSpeed)
     {
         walkSpeed = _newWalkSpeed;
-        runSpeed = _newWalkSpeed;
+    }
+    public void OnRunValueChanged(float _newRunSpeed)
+    {
+        runSpeed = _newRunSpeed;
+    }
+    public void OnDistanceValueChanged(float _newRunDistance)
+    {
         distanceToRun = _newRunDistance;
     }
+
     public void OnResetValues()
     {
         walkSpeed = defaultWalkSpeed;
         runSpeed = defaultRunSpeed;
         distanceToRun = defaultRunDistance;
+
+        SetUiDebugValues();
     }
     /// End Debug ///
 }
