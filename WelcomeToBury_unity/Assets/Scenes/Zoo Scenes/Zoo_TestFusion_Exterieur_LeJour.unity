@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -1434,72 +1434,6 @@ Transform:
   - {fileID: 1415333659}
   - {fileID: 1260939034}
   m_Father: {fileID: 133572925}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &441387671
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 441387673}
-  - component: {fileID: 441387672}
-  m_Layer: 0
-  m_Name: CameraManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &441387672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441387671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfd3ac9859f5a064b8cad443f09e2087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cinemachineBrain: {fileID: 0}
-  defaultVirtualCamData: {fileID: 11400000, guid: b1ced8d6c38829e43b7a920e13c41883, type: 2}
-  defaultCamera: {fileID: 1530512915}
-  useBuffer: 0
-  bufferDistance: 5
-  lerpSmoothZoom: 2
-  lerpSmoothRot: 1
-  camZoomActive: 1
-  camInclineActive: 1
-  camSliders: {fileID: 0}
-  targetAngle: {x: 0, y: 0, z: 0, w: 1}
-  targetAngleX: 55
-  targetAngleY: 45
-  targetAngleZ: 0
-  inclinaisonOrigin: 0
-  inclinaisonDestination: 0
-  camZoomPosition1: 23
-  camZoomPosition2: 13
-  deadZoneZoom: 1
-  deadZoneNoZoom: 3
-  targetZoomPosition: 0
-  targetDeadZone: 0
---- !u!4 &441387673
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441387671}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 141.38954, y: -279.97433, z: 213.96138}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516018665
 GameObject:
@@ -9260,7 +9194,6 @@ SceneRoots:
   - {fileID: 1507737017230526884}
   - {fileID: 1747985409}
   - {fileID: 1835664027}
-  - {fileID: 441387673}
   - {fileID: 2104214344}
   - {fileID: 1137445923}
   - {fileID: 1303532308}

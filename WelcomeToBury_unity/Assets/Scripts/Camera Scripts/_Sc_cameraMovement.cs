@@ -56,7 +56,19 @@ public class _Sc_cameraMovement : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        LoadVirtualCamData(true,null,null);
+        
+    }
+    private void Start()
+    {
+        if(defaultCamera == null)
+        {
+            GameObject newCam = GameObject.Find("VirtualCamera_Player01");
+            if(newCam != null)
+            {
+                defaultCamera = newCam.transform;
+            }
+        }
+        LoadVirtualCamData(true, null, null);
         targetZoomPosition = camZoomPosition1;
         targetDeadZone = deadZoneNoZoom;
         inclineRatio = (float)35 / 55;
@@ -106,9 +118,23 @@ public class _Sc_cameraMovement : MonoBehaviour
             {
                 camSliders.SetSliders(camZoomPosition1, inclinaisonOrigin, zoomRatio, inclineRatio,deadZoneNoZoom);
             }
-        }
-        
+        }       
+    }
+    
+    private void Update()
+    {
+        if (transposer.m_CameraDistance != targetZoomPosition)
+        {
+            AdjustCamZoom();
 
+        }
+
+        targetAngle = Quaternion.Euler(targetAngleX, targetAngleY, targetAngleZ);
+
+        if (camTransform.rotation != targetAngle)
+        {
+            AdjustCamAngle();
+        }
     }
 
     public void CallAnimCam(bool rotate = true, float rotValue = 0,float rotSpeed = 0)
@@ -240,39 +266,13 @@ public class _Sc_cameraMovement : MonoBehaviour
             }
         }        
     }
-    public void LeftArrowPressed()
-    {
-        targetAngleY = 30;
-    }
-    public void DownArrowPressed()
-    {
-        targetAngleY = 45;
-    }
-    public void RightArrowPressed()
-    {
-        targetAngleY = 60;
-    }
-    private void Update()
-    {
-        if (transposer.m_CameraDistance != targetZoomPosition)
-        {
-            AdjustCamZoom();
-
-        }
-
-        targetAngle = Quaternion.Euler(targetAngleX, targetAngleY, targetAngleZ);
-
-        if(camTransform.rotation != targetAngle)
-        {
-            AdjustCamAngle();
-        }
-    }
+    
 
     public void AdjustCamZoom()
     {
         if (cinemachineBrain.IsBlending == false)
         {
-            Debug.Log("adjustDamp");
+            //Debug.Log("adjustDamp");
             transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, targetZoomPosition, lerpSmoothZoom * Time.deltaTime);
             transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, targetDeadZone, lerpSmoothZoom * Time.time);
             transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, targetDeadZone, lerpSmoothZoom * Time.time);
@@ -282,10 +282,23 @@ public class _Sc_cameraMovement : MonoBehaviour
 
     public void AdjustCamAngle()
     {
-        Debug.Log("isUpdatingAngle");
+        //Debug.Log("isUpdatingAngle");
         if(cinemachineBrain.IsBlending == false)
         {
             camTransform.rotation = Quaternion.Slerp(camTransform.rotation, targetAngle, lerpSmoothRot * Time.deltaTime);
         }
-    } 
+    }
+
+    public void LeftArrowPressed()
+    {
+        //targetAngleY = 30;
+    }
+    public void DownArrowPressed()
+    {
+        //targetAngleY = 45;
+    }
+    public void RightArrowPressed()
+    {
+        //targetAngleY = 60;
+    }
 }
