@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Zoo Scenes/Zoo_Camera_Cinemachine.unity
-    guid: becc4280f56ce6a47930ac112a1a8b8f
+    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_InterieurMaison.unity
+    guid: 32be3e5200c9e7541a55679bec4b21b5
+  - enabled: 1
+    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_Exterieur_LeJour.unity
+    guid: 859c9c2aee725894ab654e7c3ed237ec
+  - enabled: 1
+    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_Exterieur_LeJourLong.unity
+    guid: 74e91d80b2aae2d4b96f7954f98cfe60
   m_configObjects: {}

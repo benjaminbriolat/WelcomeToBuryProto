@@ -135,6 +135,11 @@ public class _Sc_cameraMovement : MonoBehaviour
         {
             AdjustCamAngle();
         }
+
+        if(transposer.m_XDamping != targetDeadZone)
+        {
+            AdjustDamp();
+        }
     }
 
     public void CallAnimCam(bool rotate = true, float rotValue = 0,float rotSpeed = 0)
@@ -273,10 +278,17 @@ public class _Sc_cameraMovement : MonoBehaviour
         if (cinemachineBrain.IsBlending == false)
         {
             //Debug.Log("adjustDamp");
-            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, targetZoomPosition, lerpSmoothZoom * Time.deltaTime);
+            transposer.m_CameraDistance = Mathf.Lerp(transposer.m_CameraDistance, targetZoomPosition, lerpSmoothZoom * Time.deltaTime);                      
+        }
+    }
+
+    public void AdjustDamp()
+    {
+        if(cinemachineBrain.IsBlending == false)
+        {
             transposer.m_XDamping = Mathf.Lerp(transposer.m_XDamping, targetDeadZone, lerpSmoothZoom * Time.time);
             transposer.m_YDamping = Mathf.Lerp(transposer.m_YDamping, targetDeadZone, lerpSmoothZoom * Time.time);
-            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, targetDeadZone, lerpSmoothZoom * Time.time);          
+            transposer.m_ZDamping = Mathf.Lerp(transposer.m_ZDamping, targetDeadZone, lerpSmoothZoom * Time.time);
         }
     }
 
@@ -291,14 +303,14 @@ public class _Sc_cameraMovement : MonoBehaviour
 
     public void LeftArrowPressed()
     {
-        //targetAngleY = 30;
+        targetAngleY = 70;
     }
     public void DownArrowPressed()
     {
-        //targetAngleY = 45;
+        targetAngleY = 45;
     }
     public void RightArrowPressed()
     {
-        //targetAngleY = 60;
+        targetAngleY = 20;
     }
 }
