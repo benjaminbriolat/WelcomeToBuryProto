@@ -5231,10 +5231,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 807545802}
     - target: {fileID: 2197546966744703971, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
-      propertyPath: myLayerMask.m_Bits
-      value: 1056
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197546966744703971, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: runDistanceSliderUi
       value: 
       objectReference: {fileID: 1677110937}

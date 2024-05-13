@@ -19,26 +19,35 @@ public class _Sc_DebugMovementSliders : MonoBehaviour
 
     public void setWalkValue()
     {
-        _sc_movements.OnWalkValueChanged(mySlider.value);
-        if(myValueText != null)
+        if(_sc_movements != null)
         {
-            myValueText.text = mySlider.value.ToString("F1");
+            _sc_movements.OnWalkValueChanged(mySlider.value);
+            if(myValueText != null)
+            {
+                myValueText.text = mySlider.value.ToString("F1");
+            }
         }
     }
     public void setRunValue()
     {
-        _sc_movements.OnRunValueChanged(mySlider.value);
-        if(myValueText != null)
+        if(_sc_movements != null)
         {
-            myValueText.text = mySlider.value.ToString("F1");
+            _sc_movements.OnRunValueChanged(mySlider.value);
+            if(myValueText != null)
+            {
+                myValueText.text = mySlider.value.ToString("F1");
+            }
         }
     }
     public void setDistanceValue()
     {
-        _sc_movements.OnDistanceValueChanged(mySlider.value);
-        if(myValueText != null)
+        if(_sc_movements != null)
         {
-            myValueText.text = mySlider.value.ToString("F1");
+            _sc_movements.OnDistanceValueChanged(mySlider.value);
+            if(myValueText != null)
+            {
+                myValueText.text = mySlider.value.ToString("F1");
+            }
         }
     }
 

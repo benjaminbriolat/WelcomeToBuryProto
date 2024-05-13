@@ -66,8 +66,17 @@ MonoBehaviour:
   runSpeed: 6.5
   distanceFromPoint: 15.201937
   distanceToRun: 8
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 1056
   layerName: Walkable
   canSetSpeed: 1
+  walkSpeedUi: {fileID: 0}
+  walkSpeedSliderUi: {fileID: 0}
+  runSpeedUi: {fileID: 0}
+  runSpeedSliderUi: {fileID: 0}
+  runDistanceUi: {fileID: 0}
+  runDistanceSliderUi: {fileID: 0}
 --- !u!114 &2526932127261564635
 MonoBehaviour:
   m_ObjectHideFlags: 0
