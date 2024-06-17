@@ -17,6 +17,7 @@ public class _Sc_pnjState : MonoBehaviour
     public _So_pnjInfos _so_pnjInfos;
 
     public int GroupLevel = 0;
+    public bool capTrustReached = false;
 
     [Header("-Symptomes")]
     public bool symptome1 = false;
@@ -84,7 +85,16 @@ public class _Sc_pnjState : MonoBehaviour
         myPnjGroup = pnjGroupsParent.GetChild((int)_so_pnjInfos.pnjGroup);
         myPnjGroup.GetComponent<_Sc_pnjGroup>().pnjGroup.Add(this.transform);
 
+        
         GroupLevel = myPnjGroup.GetComponent<_Sc_pnjGroup>().groupTrustLevel;
+        if (GroupLevel >= myPnjGroup.GetComponent<_Sc_pnjGroup>().capTrustLevel)
+        {
+            capTrustReached = true;
+        }
+        else
+        {
+            capTrustReached = false;
+        }
     }
 
     public void onSymptomeChange()
@@ -193,23 +203,73 @@ public class _Sc_pnjState : MonoBehaviour
     {
         symptome1 = false;
         onSymptomeChange();
+        UpdateTrustLevel();
     }
     [Button]
     private void HealSymptome2()
     {
         symptome2 = false;
         onSymptomeChange();
+        UpdateTrustLevel();
     }
     [Button]
     private void HealSymptome3()
     {
         symptome3 = false;
         onSymptomeChange();
+        UpdateTrustLevel();
     }
     [Button]
     private void HealSymptome4()
     {
         symptome4 = false;
         onSymptomeChange();
+        UpdateTrustLevel();
+    }
+
+    /// bouron soin + care
+    [Button]
+    private void HealSymptome1Care()
+    {
+        if (capTrustReached == true)
+        {
+            symptome1 = false;
+            onSymptomeChange();
+            UpdateTrustLevel();
+        }       
+    }
+    [Button]
+    private void HealSymptome2Care()
+    {
+        if (capTrustReached == true)
+        {
+            symptome2 = false;
+            onSymptomeChange();
+            UpdateTrustLevel();
+        }        
+    }
+    [Button]
+    private void HealSymptome3Care()
+    {
+        if (capTrustReached == true)
+        {
+            symptome3 = false;
+            onSymptomeChange();
+            UpdateTrustLevel();
+        }        
+    }
+    [Button]
+    private void HealSymptome4Care()
+    {
+        if(capTrustReached == true)
+        {
+            symptome4 = false;
+            onSymptomeChange();
+            UpdateTrustLevel();
+        }        
+    }
+    public void UpdateTrustLevel()
+    {
+        myPnjGroup.GetComponent<_Sc_pnjGroup>().UpdateTrustLevel();
     }
 }
