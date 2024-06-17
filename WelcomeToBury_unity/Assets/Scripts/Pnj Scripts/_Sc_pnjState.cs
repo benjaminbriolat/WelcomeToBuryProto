@@ -41,23 +41,44 @@ public class _Sc_pnjState : MonoBehaviour
     _Sc_pnjColor _sc_pnjColor = null;
 
     Transform symptomeLayoutGroup = null;
+    Transform pnjActionsUiParent = null;
 
     _Sc_selectPnj _sc_SelectPnj = null;
+
+    public bool DialogueOk = false;
+    public bool SoucierOk = false;
+
+    //Buttons booleans
+    public bool CanDialogue = true;
+    public bool CanSoucier = false;
+    public bool CanRemede = false;
+    public bool CanGesteSoin = false;
+
+    _Sc_pnjActionsParent _sc_PnjActionsParent = null;
 
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
         _sc_pnjColor = transform.GetChild(0).GetComponent<_Sc_pnjColor>();
-        symptomeLayoutGroup = transform.GetChild(1).GetChild(0);
+        symptomeLayoutGroup = transform.GetChild(1).GetChild(1);
+        pnjActionsUiParent = transform.GetChild(1).GetChild(3);
+        _sc_PnjActionsParent = GetComponentInChildren<_Sc_pnjActionsParent>();
     }
     private void Start()
     {
         pnjGroupsParent = _Sc_pnjGroupParent.instance.transform;
         _sc_SelectPnj = _Sc_selectPnj.Instance;
+        pnjActionsUiParent.gameObject.SetActive(false);
         AddPnjToGroup();
         setSymptomeIcon();
+        SetButtonsState();
     }
 
+    public void SetButtonsState()
+    {
+        int _amitie = myPnjGroup.GetComponent<_Sc_pnjGroup>().groupTrustLevel;
+        _sc_PnjActionsParent.GetButtonsState(CanDialogue, CanSoucier, CanRemede, CanGesteSoin, _amitie);
+    }
     private void AddPnjToGroup()
     {
         myPnjGroup = pnjGroupsParent.GetChild((int)_so_pnjInfos.pnjGroup);
@@ -96,10 +117,10 @@ public class _Sc_pnjState : MonoBehaviour
 
         setSymptomeIcon();
 
-        if(_sc_SelectPnj.lastPnjState == this)
+        /*if(_sc_SelectPnj.lastPnjState == this)
         {
             _sc_SelectPnj.SetFichePatient();
-        }
+        }*/
     }
 
     private void setSymptomeIcon()
@@ -139,6 +160,11 @@ public class _Sc_pnjState : MonoBehaviour
         {
             symptomeLayoutGroup.GetChild(3).gameObject.SetActive(false);
         }
+    }
+
+    public void SetActionsUi(bool _value)
+    {
+        pnjActionsUiParent.gameObject.SetActive(_value);
     }
     //DEBUG//
     [Button] private void GiveSymptome1()
