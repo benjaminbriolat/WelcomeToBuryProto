@@ -72,7 +72,7 @@ public class _Sc_selectPnj : MonoBehaviour
         }      
     }
 
-    public void UnSelectPnj()
+    public void UnSelectPnj(bool _fromUI = false)
     {
         if (lastPnjState != null)
         {
@@ -86,9 +86,12 @@ public class _Sc_selectPnj : MonoBehaviour
         }
         lastPnjState = null;
 
-        if(_sc_fichePatientUI != null)
+        if(_fromUI == false)
         {
-            _sc_fichePatientUI.setCanvas(false);
+            if (_sc_fichePatientUI != null)
+            {
+                _sc_fichePatientUI.setCanvas(false);
+            }
         }
     }
     private void SetUnitState(Transform _pnjTransform)

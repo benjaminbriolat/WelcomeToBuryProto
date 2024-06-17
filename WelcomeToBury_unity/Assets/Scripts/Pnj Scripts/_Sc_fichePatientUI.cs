@@ -50,7 +50,11 @@ public class _Sc_fichePatientUI : MonoBehaviour
         setCanvas(false);
     }
 
-    public void setCanvas(bool _state)
+    public void setCanvasFromUI()
+    {
+        setCanvas(false, true);
+    }
+    public void setCanvas(bool _state, bool fromUI = false)
     {
         if (_state == true)
         {
@@ -61,7 +65,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             myCanvasGroup.alpha = 0f;
             if(_sc_SelectPnj != null)
             {
-                _sc_SelectPnj.UnSelectPnj();
+                _sc_SelectPnj.UnSelectPnj(fromUI);
             }
         }
     }
