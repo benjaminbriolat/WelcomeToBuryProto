@@ -50,16 +50,24 @@ public class _Sc_Calendier : MonoBehaviour
         {
             currentDay += 1;
             currentPlage = 1;
+            //Envoyer propagation maladie
             if (_sc_epidemicManager != null)
             {
                 _sc_epidemicManager.AdvancedDay(currentDay);
+            }
+
+            //envoyer progression statut aux PNJS
+            for (int i = 0; i < pnjs.Count; i++)
+            {
+                pnjs[i].GetComponent<_Sc_pnjState>().OnDayChange();
             }
         }
         dayText.text = currentDay.ToString();
         plageText.text = currentPlage.ToString();
 
         //envoyer repousse au ressources de CROPS
-        //envoyer progression statut aux PNJS
+        
+        
         //envoyer progression aux ressource de l'inventaire
     }
 

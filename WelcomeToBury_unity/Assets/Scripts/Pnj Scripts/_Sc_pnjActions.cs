@@ -6,6 +6,8 @@ public class _Sc_pnjActions : MonoBehaviour
 {
     _Sc_pnjState _sc_pnjState = null;
     _Sc_selectPnj _sc_selectPnj = null;
+    _Sc_cookbook _sc_cookBook = null;
+    _Sc_Calendier _sc_calendrier = null;
 
     private void Awake()
     {
@@ -15,6 +17,8 @@ public class _Sc_pnjActions : MonoBehaviour
     private void Start()
     {
         _sc_selectPnj = _Sc_selectPnj.Instance;
+        _sc_calendrier = _Sc_Calendier.instance;
+        _sc_cookBook = _Sc_cookbook.instance;
     }
 
     public void PnjDialogue(bool _passTime)
@@ -40,11 +44,28 @@ public class _Sc_pnjActions : MonoBehaviour
 
         _sc_selectPnj.SetFichePatient();
 
-        //si symptome inconnu => progress decouverte
+        if (_sc_pnjState.symptome1 == true)
+        {
+            _sc_cookBook.AdvanceDiscovery("treatment1");
+        }
+        else if (_sc_pnjState.symptome2 == true)
+        {
+            _sc_cookBook.AdvanceDiscovery("treatment2");
+        }
+        else if (_sc_pnjState.symptome3 == true)
+        {
+            _sc_cookBook.AdvanceDiscovery("treatment3");
+        }
+        else if (_sc_pnjState.symptome4 == true)
+        {
+            _sc_cookBook.AdvanceDiscovery("treatment4");
+        }
+        _sc_selectPnj.SetFichePatient();
 
         if (_passTime == true)
         {
-            //Send passage de temps
+            Debug.Log("careCallTime");
+            _sc_calendrier.AdvanceCalendar();
         }
     }
 

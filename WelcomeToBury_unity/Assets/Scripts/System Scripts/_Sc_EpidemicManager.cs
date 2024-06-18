@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class _Sc_EpidemicManager : MonoBehaviour
 {
@@ -39,9 +40,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
     }
     private void Start()
     {
-        CreateHealthyPop();
-       
-
+               
         for (int i = 0; i < symptoms.Count; i++)
         {
             if(i >0)
@@ -99,7 +98,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
                 }
                
 
-                healthPnjs[value].GetComponent<_Sc_DebugPnjStatus>().setStatus(true,chosenSymptom);
+                healthPnjs[value].GetComponent<_Sc_pnjState>().SymptomProgress(true,chosenSymptom);
 
                 sickPnjs.Add(healthPnjs[value]);
                 healthPnjs.Remove(healthPnjs[value]);
@@ -115,9 +114,24 @@ public class _Sc_EpidemicManager : MonoBehaviour
     {
         for (int i = 0; i < pnjs.Count; i++)
         {
-            if (pnjs[i].GetComponent<_Sc_DebugPnjStatus>().isSick == false)
+            if (pnjs[i].GetComponent<_Sc_pnjState>().state <= 0)
             {
-                healthPnjs.Add(pnjs[i]);
+                if(healthPnjs.Contains(pnjs[i])== false)
+                {
+                    healthPnjs.Add(pnjs[i]);
+                }
+            }
+        }
+    }
+    public void getNewSymptom( _Sc_pnjState patient)
+    {
+        for(int i = 0; i < symptoms.Count; i++)
+        {
+            if (patient.symptomes[i] == false)
+            {
+                symptoms[i].isActive = true;
+                patient.SymptomProgress(true, i);
+                break;
             }
         }
     }
@@ -129,6 +143,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
        if(pnjs.Contains(newPnj) == false)
        {
            pnjs.Add(newPnj);
-       }
+           CreateHealthyPop();
+        }
     }
 }

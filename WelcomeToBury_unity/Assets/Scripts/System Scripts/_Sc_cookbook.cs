@@ -18,6 +18,7 @@ public class _Sc_cookbook : MonoBehaviour
     public class Receipe
     {
         public string name = null;
+        public string ailmentName = null;
         public string formula = null;
         public List<Ingredients> ingredients = null;
         public int discoveryProgress = 0;
@@ -54,7 +55,7 @@ public class _Sc_cookbook : MonoBehaviour
         {
             if (receipes[i].name == targetTreatment)
             {
-                if(receipes[i].discovered == false)
+                if (receipes[i].discovered == false)
                 {
                     receipes[i].discoveryProgress += 1;
                     if (receipes[i].discoveryProgress >= receipes[i].discoveryCap)
@@ -64,5 +65,27 @@ public class _Sc_cookbook : MonoBehaviour
                 }                
             }
         }
+    }
+
+    public bool getDiscoveredSymptom(int symptom)
+    {
+        return receipes[symptom].discovered;
+    }
+
+    public string getAilmentName(int symptom)
+    {
+        return receipes[symptom].ailmentName;
+    }
+
+    public void GetCraftResult(string newReceipe)
+    {
+        for(int i = 0; i < receipes.Count; i++)
+        {
+            if(newReceipe == receipes[i].formula)
+            {
+
+            }
+        }
+
     }
 }

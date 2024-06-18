@@ -20,6 +20,7 @@ public class _Sc_pnjSelectSprite : MonoBehaviour
     {
         selectedImage.SetActive(true);
     }
+
     public void UnSelected()
     {
         selectedImage.SetActive(false);

@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static _Sc_EpidemicManager;
 
 public class _Sc_pnjState : MonoBehaviour
 {
@@ -24,6 +25,13 @@ public class _Sc_pnjState : MonoBehaviour
     public bool symptome2 = false;
     public bool symptome3 = false;
     public bool symptome4 = false;
+    public List<bool> symptomes = new List<bool>();
+
+    [Header("-Progression")]
+    public int progressionCap = 5;
+    public int currentProgression = 0;
+    public int maxSymptoms = 4;
+    public int currentSymptoms = 0;
 
     [Header("-Recidives")]
     public bool recidive1 = false;
@@ -45,6 +53,8 @@ public class _Sc_pnjState : MonoBehaviour
     Transform pnjActionsUiParent = null;
 
     _Sc_selectPnj _sc_SelectPnj = null;
+    _Sc_EpidemicManager _sc_epidemiManager = null;
+    _Sc_Calendier _sc_calendrier = null;
 
     public bool DialogueOk = false;
     public bool SoucierOk = false;
@@ -69,10 +79,14 @@ public class _Sc_pnjState : MonoBehaviour
     {
         pnjGroupsParent = _Sc_pnjGroupParent.instance.transform;
         _sc_SelectPnj = _Sc_selectPnj.Instance;
+        _sc_epidemiManager = _Sc_EpidemicManager.instance;
+        _sc_calendrier = _Sc_Calendier.instance;
         pnjActionsUiParent.gameObject.SetActive(false);
         AddPnjToGroup();
         setSymptomeIcon();
         SetButtonsState();
+        _sc_calendrier.AddPnj(this.transform);
+        _sc_epidemiManager.AddPnj(this.transform);
     }
 
     public void SetButtonsState()
@@ -94,6 +108,30 @@ public class _Sc_pnjState : MonoBehaviour
         else
         {
             capTrustReached = false;
+        }
+    }
+
+    public void SymptomProgress(bool newlySick, int symptom)
+    {
+        if(newlySick)
+        {
+            if(symptom == 0)
+            {
+                GiveSymptome1();
+            }
+            if (symptom == 1)
+            {
+                GiveSymptome2();
+            }
+            if (symptom == 2)
+            {
+                GiveSymptome3();
+            }
+            if (symptom == 3)
+            {
+                GiveSymptome4();
+            }
+            currentSymptoms += 1;
         }
     }
 
@@ -176,25 +214,46 @@ public class _Sc_pnjState : MonoBehaviour
     {
         pnjActionsUiParent.gameObject.SetActive(_value);
     }
+
+    public void OnDayChange()
+    {
+        if(state == 1)
+        {
+            currentProgression += 1;
+            if (currentProgression > progressionCap)
+            {
+                if(currentSymptoms < maxSymptoms)
+                {
+                    _sc_epidemiManager.getNewSymptom(this);
+                    currentProgression = 0;
+                }
+            }
+        }      
+    }
+
     //DEBUG//
     [Button] private void GiveSymptome1()
     {
         symptome1 = true;
+        symptomes[0] = true;
         onSymptomeChange();
     }
     [Button]private void GiveSymptome2()
     {
         symptome2 = true;
+        symptomes[1] = true;
         onSymptomeChange();
     }
     [Button]private void GiveSymptome3()
     {
         symptome3 = true;
+        symptomes[2] = true;
         onSymptomeChange();
     }
     [Button]private void GiveSymptome4()
     {
         symptome4 = true;
+        symptomes[3] = true;
         onSymptomeChange();
     }
 

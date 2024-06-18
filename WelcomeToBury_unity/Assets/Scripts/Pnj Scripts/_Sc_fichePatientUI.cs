@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class _Sc_fichePatientUI : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
     Transform symptome4 = null;
 
     _Sc_DebugSymptomeManager _sc_debugSymptomeManager = null;
+    _Sc_cookbook _sc_cookBook = null;
     
     CanvasGroup myCanvasGroup = null;
     _Sc_selectPnj _sc_SelectPnj = null;
@@ -49,6 +51,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
         _sc_SelectPnj = _Sc_selectPnj.Instance;
         setCanvas(false);
     }
+    
 
     public void setCanvasFromUI()
     {
@@ -73,6 +76,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
     private void Start()
     {
         _sc_debugSymptomeManager = _Sc_DebugSymptomeManager.Instance;
+        _sc_cookBook = _Sc_cookbook.instance;
     }
 
     public void SetFicheValues(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel, bool _symptome1, bool _symptome2, bool _symptome3, bool _symptome4)
@@ -202,9 +206,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if (_symptome1)
         {
             symptome1.gameObject.SetActive(true);
-            if(_sc_debugSymptomeManager.Symptome1Discovered)
+            if(_sc_cookBook.getDiscoveredSymptom(0))
             {
-                symptome1.GetComponent<TextMeshProUGUI>().text = _sc_debugSymptomeManager.symptome1Name;
+                symptome1.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
             }
         }
         else
@@ -215,9 +219,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if (_symptome2)
         {
             symptome2.gameObject.SetActive(true);
-            if (_sc_debugSymptomeManager.Symptome2Discovered)
+            if (_sc_cookBook.getDiscoveredSymptom(1))
             {
-                symptome2.GetComponent<TextMeshProUGUI>().text = _sc_debugSymptomeManager.symptome2Name;
+                symptome2.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
             }
         }
         else
@@ -228,9 +232,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if (_symptome3)
         {
             symptome3.gameObject.SetActive(true);
-            if (_sc_debugSymptomeManager.Symptome3Discovered)
+            if (_sc_cookBook.getDiscoveredSymptom(2))
             {
-                symptome3.GetComponent<TextMeshProUGUI>().text = _sc_debugSymptomeManager.symptome3Name;
+                symptome3.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
             }
         }
         else
@@ -241,9 +245,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if (_symptome4)
         {
             symptome4.gameObject.SetActive(true);
-            if (_sc_debugSymptomeManager.Symptome4Discovered)
+            if (_sc_cookBook.getDiscoveredSymptom(3))
             {
-                symptome4.GetComponent<TextMeshProUGUI>().text = _sc_debugSymptomeManager.symptome4Name;
+                symptome4.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
             }
         }
         else
