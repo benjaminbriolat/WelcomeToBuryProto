@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 3566137643825739442}
   - component: {fileID: 3107082772650941315}
   - component: {fileID: 938333245318382121}
+  - component: {fileID: 4640130485919523124}
   m_Layer: 0
   m_Name: Canvas_Calendar
   m_TagString: Untagged
@@ -489,6 +490,22 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &4640130485919523124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981205356023285510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b74f4ec97cf8614e87cf2c9180719a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayText: {fileID: 3003365611332800819}
+  plageText: {fileID: 7895108750434826321}
+  pnjs: []
+  crops: []
 --- !u!1 &3068672374917322120
 GameObject:
   m_ObjectHideFlags: 0
