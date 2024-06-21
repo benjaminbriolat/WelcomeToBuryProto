@@ -22,6 +22,10 @@ public class _Sc_cerveau : MonoBehaviour
     _Sc_movement _sc_movement = null;
     _Sc_cameraMovement _sc_cameraMovement = null;
     _Sc_selectPnj _sc_selectPnj = null;
+
+    public bool canMove = true;
+    public Vector3 mousePos;
+    public Ray mouseRay;
     private Rewired.Player player
     {
         get
@@ -64,6 +68,9 @@ public class _Sc_cerveau : MonoBehaviour
         leftArrowPress = player.GetButtonDown("LeftArrow");
         rightArrowPress = player.GetButtonDown("RightArrow");
         downArrowPress = player.GetButtonDown("DownArrow");
+
+        mousePos = ReInput.controllers.Mouse.screenPosition;
+        mouseRay = Camera.main.ScreenPointToRay(mousePos);
         //
         ProcessInputs();
     }
@@ -73,12 +80,15 @@ public class _Sc_cerveau : MonoBehaviour
         if(LeftClick == true)
         {
             leftClickReleased = false;
-            _sc_movement.getMouseLeftClick(ReInput.controllers.Mouse.screenPosition);      
+            if(canMove == true)
+            {
+                _sc_movement.getMouseLeftClick(mousePos);
+            }
         }
 
         if (leftClickRelease == true)
         {
-            _sc_selectPnj.getMouseLeftClick(ReInput.controllers.Mouse.screenPosition);
+            _sc_selectPnj.getMouseLeftClick(mousePos);
         }
 
         if (leftClickReleased == true)

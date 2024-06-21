@@ -14,11 +14,11 @@ public class _Sc_fichePatientUI : MonoBehaviour
     TextMeshProUGUI groupText = null;
     TextMeshProUGUI currentEtatText = null;
 
-    Transform symptomeHorGroup = null;
-    Transform symptome1 = null;
-    Transform symptome2 = null;
-    Transform symptome3 = null;
-    Transform symptome4 = null;
+    [SerializeField] Transform symptomeHorGroup = null;
+    [SerializeField] Transform symptome1 = null;
+    [SerializeField] Transform symptome2 = null;
+    [SerializeField] Transform symptome3 = null;
+    [SerializeField] Transform symptome4 = null;
 
     _Sc_DebugSymptomeManager _sc_debugSymptomeManager = null;
     _Sc_cookbook _sc_cookBook = null;
