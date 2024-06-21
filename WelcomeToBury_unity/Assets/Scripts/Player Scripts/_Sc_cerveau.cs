@@ -22,6 +22,7 @@ public class _Sc_cerveau : MonoBehaviour
     _Sc_movement _sc_movement = null;
     _Sc_cameraMovement _sc_cameraMovement = null;
     _Sc_selectPnj _sc_selectPnj = null;
+    _Sc_selectObjectManager _sc_selectObjectManager = null;
 
     public bool canMove = true;
     public Vector3 mousePos;
@@ -89,6 +90,10 @@ public class _Sc_cerveau : MonoBehaviour
         if (leftClickRelease == true)
         {
             _sc_selectPnj.getMouseLeftClick(mousePos);
+            if (_sc_selectObjectManager != null)
+            {
+                _sc_selectObjectManager.OnCLick();
+            }
         }
 
         if (leftClickReleased == true)
@@ -120,6 +125,11 @@ public class _Sc_cerveau : MonoBehaviour
         {
             _sc_cameraMovement.DownArrowPressed();
         }
+
+        if (_sc_selectObjectManager != null)
+        {
+            _sc_selectObjectManager.getMousePos(ReInput.controllers.Mouse.screenPosition);
+        }
     }
 
     private void getRefs()
@@ -132,5 +142,6 @@ public class _Sc_cerveau : MonoBehaviour
         _sc_movement = _Sc_movement.instance;
         _sc_cameraMovement = _Sc_cameraMovement.instance;
         _sc_selectPnj = _Sc_selectPnj.Instance;
+        _sc_selectObjectManager = _Sc_selectObjectManager.instance;
     }
 }

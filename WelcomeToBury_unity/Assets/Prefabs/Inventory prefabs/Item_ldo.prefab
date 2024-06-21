@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 3252897998571868087}
   - component: {fileID: 5266289618086831841}
   - component: {fileID: 8908694825674488650}
+  - component: {fileID: 1685808733526310918}
   m_Layer: 12
   m_Name: selectable trigger
   m_TagString: Untagged
@@ -117,6 +118,20 @@ MonoBehaviour:
   Delay: 0
   header: 
   content: 
+--- !u!114 &1685808733526310918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4384634432159982505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d7296c742c3e54eaff9a7fe8ca842f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 0}
+  hasBeenSelected: 0
 --- !u!1 &5238988406267722702
 GameObject:
   m_ObjectHideFlags: 0

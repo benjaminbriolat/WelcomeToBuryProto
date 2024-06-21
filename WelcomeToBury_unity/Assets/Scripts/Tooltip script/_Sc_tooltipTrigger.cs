@@ -20,9 +20,25 @@ public class _Sc_tooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerE
         _Sc_tooltipSystem.Hide();
     }
 
+    private void OnDisable()
+    {
+        if(_Sc_tooltipSystem.lastTooltipTrigger == this)
+        {
+            _Sc_tooltipSystem.Hide();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (_Sc_tooltipSystem.lastTooltipTrigger == this)
+        {
+            _Sc_tooltipSystem.Hide();
+        }
+    }
+
     private IEnumerator ShowDelay()
     {
         yield return new WaitForSeconds(Delay);
         _Sc_tooltipSystem.Show(header, content);
+        _Sc_tooltipSystem.lastTooltipTrigger = this;
     }
 }

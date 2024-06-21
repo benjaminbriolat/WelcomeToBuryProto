@@ -86,24 +86,43 @@ public class _Sc_movement : MonoBehaviour
         if (distanceFromPoint > distanceToRun)
         {
             agent.speed = runSpeed;
-            //Debug.Log("Run");
         }
         else
         {
             if (canSetSpeed == true)
             {
                 agent.speed = walkSpeed;
-                //Debug.Log("Walk");
             }
         }
     }
-
+    private void setSpeedFromNavHit(NavMeshHit hit)
+    {
+        distanceFromPoint = Vector3.Distance(hit.position, this.transform.position);
+        if (distanceFromPoint > distanceToRun)
+        {
+            agent.speed = runSpeed;
+        }
+        else
+        {
+            if (canSetSpeed == true)
+            {
+                agent.speed = walkSpeed;
+            }
+        }
+    }
     private void Update()
     {
         _sc_debugCharAnimations.setMoving(agent.velocity.magnitude);
     }
 
-    
+    public void setClosestDestination(Transform _target)
+    {
+        NavMeshHit hit;
+        NavMesh.SamplePosition(_target.position, out hit, 5.0f, NavMesh.AllAreas);
+        agent.SetDestination(hit.position);
+        setSpeedFromNavHit(hit);
+    }
+
     /// Debug ///
     public void SetUiDebugValues()
     {
