@@ -35,7 +35,6 @@ public class _Sc_selectObjectManager : MonoBehaviour
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer(SelectableObjectLayer))
             {
                 OnObjectHighlight(hit.transform);
-                Debug.Log("OnObjectHighlight");
             }
             else
             {

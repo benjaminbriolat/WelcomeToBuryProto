@@ -24,7 +24,10 @@ public class _Sc_itemLdo : MonoBehaviour
 
     public void GetItem()
     {
-        _inventoryManager.AddItem(_item, count);
-        Destroy(gameObject);
+        if(_Sc_inventoryManager.instance.inventoryFull == false)
+        {
+            _inventoryManager.AddItem(_item, count);
+            Destroy(gameObject);
+        }
     }
 }

@@ -50,4 +50,4 @@ MonoBehaviour:
   SelectableObjectLayer: SelectableObject
   HightlightedObjectTransform: {fileID: 0}
   SelectedObjectTransform: {fileID: 0}
-  RessourceMinDistance: 1
+  RessourceMinDistance: 1.5

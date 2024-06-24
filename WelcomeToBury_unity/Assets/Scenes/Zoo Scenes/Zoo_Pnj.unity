@@ -2023,6 +2023,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!225 &673702179 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1717524384480486202, guid: edd91cc5dc7f69246a821bcaab4c58cc, type: 3}
+  m_PrefabInstance: {fileID: 6122806491281993311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &676509919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5433,6 +5438,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1933175615418662673, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
+      propertyPath: DebugGiveItemCanvasGroup
+      value: 
+      objectReference: {fileID: 673702179}
     - target: {fileID: 2103504803334841884, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6819,14 +6828,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_DebugItem
       objectReference: {fileID: 0}
-    - target: {fileID: 6595153803714872090, guid: edd91cc5dc7f69246a821bcaab4c58cc, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6595153803714872090, guid: edd91cc5dc7f69246a821bcaab4c58cc, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 8622010805966371791, guid: edd91cc5dc7f69246a821bcaab4c58cc, type: 3}
       propertyPath: _sc_inventoryManager
       value: 
@@ -7369,10 +7370,6 @@ PrefabInstance:
     - target: {fileID: 542180039903374719, guid: 8c801d301aedada46848da031f562a81, type: 3}
       propertyPath: m_Name
       value: SelectableObjectManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3142005332702654890, guid: 8c801d301aedada46848da031f562a81, type: 3}
-      propertyPath: RessourceMinDistance
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4822296348089144209, guid: 8c801d301aedada46848da031f562a81, type: 3}
       propertyPath: m_LocalPosition.x

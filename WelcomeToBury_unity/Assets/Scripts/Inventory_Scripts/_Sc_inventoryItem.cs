@@ -100,8 +100,6 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     private void DropItem()
     {
-        Debug.Log("DropItem");
-
         _sc_cerveau.canMove = true;
 
         GameObject _itemSpawned = Instantiate(itemLdo, RandomPointInCircle(_sc_cerveau.transform.position, spawnMaxRadius), _sc_cerveau.transform.rotation);
@@ -117,7 +115,14 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         _sc_itemLdo._item = _item;
         _sc_itemLdo.count = count;
 
+        //StartCoroutine(_Sc_inventoryManager.instance.CheckInventoryDelay());
+
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        _Sc_inventoryManager.instance.CheckInventory();
     }
 
     public Vector3 RandomPointInCircle(Vector3 origin, float maxRadius)

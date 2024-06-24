@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337e2b2309cee7249a6fd4caef7b8d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStackItem: 10
+  maxStackItem: 1
   inventorySlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -72,3 +72,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   iventoryItemPrefab: {fileID: 8188064801653898868, guid: d170990edd09bc445b359195ddec6b81, type: 3}
+  inventoryFull: 0

@@ -24,6 +24,7 @@ public class _Sc_selectableObject : MonoBehaviour, ISelectable
         {
             if(Vector3.Distance(_cerveau.transform.position, transform.position) <= _sc_SelectObjectManager.RessourceMinDistance)
             {
+                //Check if InventoryFull
                 _sc_ItemLdo.GetItem();
                 hasBeenSelected = false;
             }
