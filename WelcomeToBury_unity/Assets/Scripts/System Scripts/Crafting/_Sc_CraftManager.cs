@@ -27,6 +27,8 @@ public class _Sc_CraftManager : MonoBehaviour
     [SerializeField] Transform receipesParent = null;
      List<_Sc_receipe> receipes = null;
     _Sc_inventoryManager _sc_iventoryManager = null;
+
+    [SerializeField] bool canHandRemoveIngredients = false;
     private void Awake()
     {
         instance = this;
@@ -176,22 +178,24 @@ public class _Sc_CraftManager : MonoBehaviour
 
     public void OnMouseDownSlot(_Sc_craftSlot slot)
     {
-        if (currentItem == null)
+        if (canHandRemoveIngredients)
         {
-            if(slot._item != null)
+            if (currentItem == null)
             {
-                currentItem = slot._item;
-                customCursor.gameObject.SetActive(true);
-                customCursor.sprite = currentItem.image;
+                if (slot._item != null)
+                {
+                    currentItem = slot._item;
+                    customCursor.gameObject.SetActive(true);
+                    customCursor.sprite = currentItem.image;
 
-                slot.GetComponent<Image>().sprite = null;
-                slot.gameObject.SetActive(false);
-                slot._item = null; ;
-                
+                    slot.GetComponent<Image>().sprite = null;
+                    slot.gameObject.SetActive(false);
+                    slot._item = null; ;
+
+                }
+
             }
-            
         }
-
     }
 
     public void ClearCraftTable(bool cancel)
