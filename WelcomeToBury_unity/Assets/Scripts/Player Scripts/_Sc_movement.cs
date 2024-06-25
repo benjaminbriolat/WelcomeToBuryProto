@@ -24,6 +24,7 @@ public class _Sc_movement : MonoBehaviour
     public bool canSetSpeed = true;
 
     _Sc_debugCharAnimations _sc_debugCharAnimations = null;
+    _Sc_cerveau _sc_cerveau = null;
 
     [SerializeField] Transform walkSpeedUi;
     [SerializeField] Transform walkSpeedSliderUi;
@@ -49,7 +50,7 @@ public class _Sc_movement : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-
+        _sc_cerveau = _Sc_cerveau.instance;
         LayerGround = LayerMask.NameToLayer(layerName);
         defaultWalkSpeed = walkSpeed;
         defaultRunSpeed = runSpeed;
@@ -117,10 +118,13 @@ public class _Sc_movement : MonoBehaviour
 
     public void setClosestDestination(Transform _target)
     {
-        NavMeshHit hit;
-        NavMesh.SamplePosition(_target.position, out hit, 5.0f, NavMesh.AllAreas);
-        agent.SetDestination(hit.position);
-        setSpeedFromNavHit(hit);
+        if(_sc_cerveau.isInMenu == false)
+        {
+            NavMeshHit hit;
+            NavMesh.SamplePosition(_target.position, out hit, 5.0f, NavMesh.AllAreas);
+            agent.SetDestination(hit.position);
+            setSpeedFromNavHit(hit);
+        }        
     }
 
     /// Debug ///

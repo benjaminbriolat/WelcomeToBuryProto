@@ -64,68 +64,74 @@ public class _Sc_CraftManager : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetMouseButtonUp(0))
+        if(isOpen)
         {
-            if (currentItem != null)
+            if (Input.GetMouseButtonUp(0))
             {
-                customCursor.gameObject.SetActive(false);
-                _Sc_craftSlot nearestSlot = null;
-                float shortestDistance = float.MaxValue;
-
-                foreach(_Sc_craftSlot slot in craftingSlots)
+                if (currentItem != null)
                 {
-                    float dist = Vector2.Distance(Input.mousePosition, slot.transform.position);
+                    customCursor.gameObject.SetActive(false);
+                    _Sc_craftSlot nearestSlot = null;
+                    float shortestDistance = float.MaxValue;
 
-                    if(dist < shortestDistance)
+                    foreach (_Sc_craftSlot slot in craftingSlots)
                     {
-                        shortestDistance = dist;
-                        nearestSlot = slot;
-                    }
-                }     
-                if(shortestDistance <= minDist)
-                {
-                    if(nearestSlot._item != null )
-                    {
-                        if(lastUsedSlot != null)
+                        float dist = Vector2.Distance(Input.mousePosition, slot.transform.position);
+
+                        if (dist < shortestDistance)
                         {
-                            lastUsedSlot.GetComponent<Image>().sprite = nearestSlot._item.image;
-                            lastUsedSlot.gameObject.SetActive(true);
-                            lastUsedSlot._item = nearestSlot._item;
-                            lastUsedSlot.transform.DORewind();
-                            lastUsedSlot.transform.DOKill();
-                            lastUsedSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
-                            lastUsedSlot = null;
+                            shortestDistance = dist;
+                            nearestSlot = slot;
+                        }
+                    }
+                    if (shortestDistance <= minDist)
+                    {
+                        if (nearestSlot._item != null)
+                        {
+                            if (lastUsedSlot != null)
+                            {
+                                lastUsedSlot.GetComponent<Image>().sprite = nearestSlot._item.image;
+                                lastUsedSlot.gameObject.SetActive(true);
+                                lastUsedSlot._item = nearestSlot._item;
+                                lastUsedSlot.SetTool();
+                                lastUsedSlot.transform.DORewind();
+                                lastUsedSlot.transform.DOKill();
+                                lastUsedSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+                                lastUsedSlot = null;
+                            }
+                            else
+                            {
+                                _sc_iventoryManager.AddItem(nearestSlot._item, 1);
+                            }
+                        }
+                        nearestSlot.GetComponent<Image>().sprite = currentItem.image;
+                        nearestSlot.gameObject.SetActive(true);
+                        nearestSlot._item = currentItem;
+                        nearestSlot.SetTool();
+                        nearestSlot.transform.DORewind();
+                        nearestSlot.transform.DOKill();
+                        nearestSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+                        if (lastUsedIventoryItem != null)
+                        {
+                            lastUsedIventoryItem.count -= 1;
+                            lastUsedIventoryItem.SetCount();
+                            lastUsedIventoryItem = null;
                         }
                         else
                         {
-                            _sc_iventoryManager.AddItem(nearestSlot._item, 1);
+                            StartCoroutine(removeFromInventoryDelay(currentItem));
                         }
+
                     }
-                    nearestSlot.GetComponent<Image>().sprite = currentItem.image;
-                    nearestSlot.gameObject.SetActive(true);
-                    nearestSlot._item = currentItem;
-                    nearestSlot.transform.DORewind();
-                    nearestSlot.transform.DOKill();
-                    nearestSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
-                    if (lastUsedIventoryItem != null)
-                    {
-                        lastUsedIventoryItem.count -= 1;
-                        lastUsedIventoryItem.SetCount();
-                        lastUsedIventoryItem = null;
-                    }
-                    else
-                    {
-                        StartCoroutine(removeFromInventoryDelay(currentItem));
-                    }
-                    
+
+                    currentItem = null;
+
                 }
-
-                currentItem = null;
-
+                lastUsedIventoryItem = null;
+                lastUsedSlot = null;
             }
-            lastUsedIventoryItem = null;
-            lastUsedSlot = null;
         }
+        
 
         //Debug openCanvas
         if(Input.GetKeyDown(KeyCode.C))
@@ -147,6 +153,8 @@ public class _Sc_CraftManager : MonoBehaviour
         }
         else
         {
+            lastUsedIventoryItem = null;
+            lastUsedSlot = null;
             _sc_cerveau.isInMenu = true;
             for (int i = 0; i < receipes.Count; i++)
             {

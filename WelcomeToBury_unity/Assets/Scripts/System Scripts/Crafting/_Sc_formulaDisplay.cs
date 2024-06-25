@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class _Sc_formulaDisplay : MonoBehaviour
 {
     public static _Sc_formulaDisplay instance = null;
-    [SerializeField] List<Image> ingredients = new List<Image>();
+    [SerializeField] List<_Sc_formulaItem> ingredients = new List<_Sc_formulaItem>();
     [SerializeField] List<Image> pluses = new List<Image>();
     CanvasGroup canvasGroup = null;
     bool isOpen = false;
@@ -15,9 +15,9 @@ public class _Sc_formulaDisplay : MonoBehaviour
         instance = this;
         canvasGroup = transform.GetComponent<CanvasGroup>();
     }
-    public void setDisplay(int index, Sprite newSprite)
+    public void setDisplay(int index, _So_item newItem)
     {
-        ingredients[index].sprite = newSprite;       
+        ingredients[index].SetItem(newItem);
     }
 
     public void OpenFormula(bool open)
@@ -43,10 +43,10 @@ public class _Sc_formulaDisplay : MonoBehaviour
         int ingredientTotal = 0;
         for( int i = 0; i < ingredients.Count; i++)
         {
-            if (ingredients[i].sprite != null)
+            if (ingredients[i]._item != null)
             {
                 ingredientTotal += 1;
-                ingredients[i].enabled = true;
+                ingredients[i].GetComponent<Image>().enabled = true;
             }
         }
         for(int i = 0; i < ingredientTotal-1; i++)
@@ -63,8 +63,8 @@ public class _Sc_formulaDisplay : MonoBehaviour
         }
         for (int i = 0; i < ingredients.Count; i++)
         {
-            ingredients[i].enabled = false;
-            ingredients[i].sprite = null;
+            ingredients[i].GetComponent<Image>().enabled = false;
+            ingredients[i]._item = null;
 
         }
     }

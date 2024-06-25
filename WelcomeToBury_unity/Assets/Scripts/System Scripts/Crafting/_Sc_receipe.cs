@@ -39,7 +39,7 @@ public class _Sc_receipe : MonoBehaviour
         _sc_formulaDisplay.ClearDisplay();
         for (int i = 0; i< items.Count; i++)
         {
-            _sc_formulaDisplay.setDisplay(i, items[i].image);
+            _sc_formulaDisplay.setDisplay(i, items[i]);
         }
         _sc_formulaDisplay.SetPluses();
         _sc_formulaDisplay.OpenFormula(true);
