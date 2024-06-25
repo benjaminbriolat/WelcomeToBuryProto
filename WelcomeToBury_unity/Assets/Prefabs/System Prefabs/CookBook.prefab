@@ -48,28 +48,52 @@ MonoBehaviour:
   - name: treatment1
     ailmentName: Symptome 1
     formula: 
-    ingredients: 0000000001000000020000000300000004000000
+    ingredients:
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: 056eb2b0f28e29b43afbc70b81dd7ee2, type: 2}
+    - {fileID: 11400000, guid: 0da67d035b55a5443a4e5613da0f4dc6, type: 2}
+    - {fileID: 11400000, guid: dfe3e001700af4a46a397e7a71ac5f6e, type: 2}
+    - {fileID: 11400000, guid: 132db4536a2b987428f9319fdab3efa2, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
     discovered: 0
+    resultItem: {fileID: 11400000, guid: 6f2d314d280616740ba2989df1118a09, type: 2}
   - name: treatment2
     ailmentName: Symptome 2
     formula: 
-    ingredients: 0000000001000000020000000300000004000000
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
     discovered: 0
+    resultItem: {fileID: 11400000, guid: d6c6b3c3257e5b249862aad22e0b2d7f, type: 2}
   - name: treatment3
     ailmentName: Symptome 3
     formula: 
-    ingredients: 0000000001000000020000000300000004000000
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
     discovered: 0
+    resultItem: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
   - name: treatment4
     ailmentName: Symptome 4
     formula: 
-    ingredients: 0000000001000000020000000300000004000000
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
     discovered: 0
+    resultItem: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
