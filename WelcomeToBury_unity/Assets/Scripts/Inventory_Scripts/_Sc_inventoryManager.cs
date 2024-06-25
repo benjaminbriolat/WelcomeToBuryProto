@@ -82,6 +82,22 @@ public class _Sc_inventoryManager : MonoBehaviour
         CheckInventory();
     }
 
+    public void RemoveItem(_So_item removalTarget)
+    {
+
+        for(int i = 0; i < inventorySlots.Length; i++)
+        {
+            if (inventorySlots[i].transform.childCount > 0)
+            {
+                if(inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>()._item == removalTarget)
+                {
+                    inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().count -= 1;
+                    inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().SetCount();
+                }
+            }
+        }
+    }
+
     public void CheckInventory()
     {
         for (int i = 0; i < inventorySlots.Length; i++)

@@ -24,6 +24,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     [SerializeField] GameObject itemLdo = null;
     [SerializeField] float spawnMaxRadius = 10.0f;
     _Sc_tooltipTrigger _sc_tolltipTrigger = null;
+    _Sc_CraftManager _sc_CraftManager = null;
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -35,6 +36,8 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         _sc_cerveau = _Sc_cerveau.instance;
         LayerGround = LayerMask.NameToLayer(layerName);
+        _sc_CraftManager = _Sc_CraftManager.instance;
+
     }
 
     public void InitializeItem(_So_item _newItem)
@@ -52,9 +55,13 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         {
             countText.gameObject.SetActive(true);
         }
+        else if( count > 0)
+        {
+            countText.gameObject.SetActive(false);            
+        }
         else
         {
-            countText.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
         VisualFeedback();
@@ -63,6 +70,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         {
             _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
         }
+       
     }
 
     private void VisualFeedback()
@@ -79,6 +87,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.parent.parent);
         transform.SetAsLastSibling();
+        _sc_CraftManager.OnMouseDownItem(_item);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -90,10 +99,12 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
+            Debug.Log("Drag EndSlot");
             EndMoveSlot();       
         }
         else
         {
+            Debug.Log("Drag Drop");
             DropItem();           
         }
     }

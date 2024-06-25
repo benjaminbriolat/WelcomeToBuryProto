@@ -10,6 +10,7 @@ public class _So_item : ScriptableObject
     public ItemType itemType;
     public bool stackable = true;
     public ActionType actionType;
+    public string formulaId = null;
 }
 
 public enum ItemType

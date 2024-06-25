@@ -6,6 +6,7 @@ using UnityEngine;
 public class _Sc_cookbook : MonoBehaviour
 {
     public static _Sc_cookbook instance = null;
+    [System.Serializable]
     public enum Ingredients
     {
         valerian,
@@ -20,10 +21,11 @@ public class _Sc_cookbook : MonoBehaviour
         public string name = null;
         public string ailmentName = null;
         public string formula = null;
-        public List<Ingredients> ingredients = null;
+        public List<_So_item> ingredients = null;
         public int discoveryProgress = 0;
         public int discoveryCap = 3;
         public bool discovered = false;
+        public _So_item resultItem = null;
     }
 
     [SerializeField] List<Receipe> receipes = new List<Receipe>();
@@ -37,7 +39,7 @@ public class _Sc_cookbook : MonoBehaviour
 
             for(int y = 0; y < receipes[i].ingredients.Count;y++)
             {
-                receipes[i].formula = receipes[i].formula + receipes[i].ingredients[y];
+                receipes[i].formula = receipes[i].formula + receipes[i].ingredients[y].formulaId;
             }
         }
     }
@@ -67,6 +69,58 @@ public class _Sc_cookbook : MonoBehaviour
         }
     }
 
+    public void SetReceipe(string treatmentName, _Sc_receipe targetReceipe)
+    {
+        Debug.Log("SetReceipe sentname = " + treatmentName);
+        int matchingRecipeIndex = 0;
+        bool matchfound = false;
+        for(int i = 0; i < receipes.Count; i++)
+        {
+            if (receipes[i].name == treatmentName)
+            {
+                matchingRecipeIndex = i;
+                matchfound = true;
+                break;
+            }
+        }
+        if(matchfound == true)
+        {
+            Debug.Log("SetReceipe sentname matchfound");
+            for (int i = 0; i < receipes[matchingRecipeIndex].ingredients.Count; i++)
+            {
+                Debug.Log("SetReceipe SendValue");
+                targetReceipe.AddIngredient(receipes[matchingRecipeIndex].ingredients[i]);
+            }
+            targetReceipe.SetNameAndPicto(receipes[matchingRecipeIndex].resultItem);
+        }
+    }
+
+    public bool CheckIfReceipeDiscovered(string treatmentName)
+    {
+        int matchingRecipeIndex = 0;
+        for (int i = 0; i < receipes.Count; i++)
+        {
+            if (receipes[i].name == treatmentName)
+            {
+                matchingRecipeIndex = i;
+                break;
+            }
+        }
+        return receipes[matchingRecipeIndex].discovered;
+    }
+    
+    public _So_item getMatchingReceipe(string newFormula)
+    {
+        _So_item matchingItem = null;
+        for (int i = 0; i < receipes.Count; i++)
+        {
+            if (receipes[i].formula == newFormula)
+            {
+                matchingItem = receipes[i].resultItem;
+            }
+        }
+        return matchingItem;
+    }
     public bool getDiscoveredSymptom(int symptom)
     {
         return receipes[symptom].discovered;
@@ -75,17 +129,5 @@ public class _Sc_cookbook : MonoBehaviour
     public string getAilmentName(int symptom)
     {
         return receipes[symptom].ailmentName;
-    }
-
-    public void GetCraftResult(string newReceipe)
-    {
-        for(int i = 0; i < receipes.Count; i++)
-        {
-            if(newReceipe == receipes[i].formula)
-            {
-
-            }
-        }
-
     }
 }

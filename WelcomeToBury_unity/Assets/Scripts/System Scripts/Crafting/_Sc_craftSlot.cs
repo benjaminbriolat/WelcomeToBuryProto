@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class _Sc_craftSlot : MonoBehaviour
 {
-    public _Sc_craftItem _sc_craftItem = null;
+    public _So_item _item = null;
     public int index = 0;
 }
