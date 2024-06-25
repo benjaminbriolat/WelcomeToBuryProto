@@ -180,16 +180,24 @@ public class _Sc_CraftManager : MonoBehaviour
         }
         else
         {
-            result = garbage;
-            resultSlot.sprite = garbage.image;
+            if(formula != null)
+            {
+                result = garbage;
+                resultSlot.sprite = garbage.image;
+            }
+            
         }
-        resultSlot.gameObject.SetActive(true);
-        resultSlot.transform.DORewind();
-        resultSlot.transform.DOKill();
-        resultSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+        if (formula != null)
+        {
+            resultSlot.gameObject.SetActive(true);
+            resultSlot.transform.DORewind();
+            resultSlot.transform.DOKill();
+            resultSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
 
-        ClearCraftTable(false);
-        StartCoroutine(DelaySendToInventory(result));
+            ClearCraftTable(false);
+            StartCoroutine(DelaySendToInventory(result));
+        }
+        
 
     }
 
