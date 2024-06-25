@@ -7,7 +7,7 @@ public class _Sc_pnjActions : MonoBehaviour
     _Sc_pnjState _sc_pnjState = null;
     _Sc_selectPnj _sc_selectPnj = null;
     _Sc_cookbook _sc_cookBook = null;
-    _Sc_Calendier _sc_calendrier = null;
+    _Sc_Calendrier _sc_calendrier = null;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class _Sc_pnjActions : MonoBehaviour
     private void Start()
     {
         _sc_selectPnj = _Sc_selectPnj.Instance;
-        _sc_calendrier = _Sc_Calendier.instance;
+        _sc_calendrier = _Sc_Calendrier.instance;
         _sc_cookBook = _Sc_cookbook.instance;
     }
 

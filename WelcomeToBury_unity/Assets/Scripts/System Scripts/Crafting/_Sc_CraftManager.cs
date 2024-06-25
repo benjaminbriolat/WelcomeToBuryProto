@@ -5,6 +5,7 @@ using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
+using DG.Tweening;
 
 public class _Sc_CraftManager : MonoBehaviour
 {
@@ -90,6 +91,9 @@ public class _Sc_CraftManager : MonoBehaviour
                             lastUsedSlot.GetComponent<Image>().sprite = nearestSlot._item.image;
                             lastUsedSlot.gameObject.SetActive(true);
                             lastUsedSlot._item = nearestSlot._item;
+                            lastUsedSlot.transform.DORewind();
+                            lastUsedSlot.transform.DOKill();
+                            lastUsedSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
                             lastUsedSlot = null;
                         }
                         else
@@ -100,7 +104,10 @@ public class _Sc_CraftManager : MonoBehaviour
                     nearestSlot.GetComponent<Image>().sprite = currentItem.image;
                     nearestSlot.gameObject.SetActive(true);
                     nearestSlot._item = currentItem;
-                    if(lastUsedIventoryItem != null)
+                    nearestSlot.transform.DORewind();
+                    nearestSlot.transform.DOKill();
+                    nearestSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+                    if (lastUsedIventoryItem != null)
                     {
                         lastUsedIventoryItem.count -= 1;
                         lastUsedIventoryItem.SetCount();
@@ -177,7 +184,10 @@ public class _Sc_CraftManager : MonoBehaviour
             resultSlot.sprite = garbage.image;
         }
         resultSlot.gameObject.SetActive(true);
-        
+        resultSlot.transform.DORewind();
+        resultSlot.transform.DOKill();
+        resultSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+
         ClearCraftTable(false);
         StartCoroutine(DelaySendToInventory(result));
 

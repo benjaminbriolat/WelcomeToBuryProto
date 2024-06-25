@@ -54,7 +54,7 @@ public class _Sc_pnjState : MonoBehaviour
 
     _Sc_selectPnj _sc_SelectPnj = null;
     _Sc_EpidemicManager _sc_epidemiManager = null;
-    _Sc_Calendier _sc_calendrier = null;
+    _Sc_Calendrier _sc_calendrier = null;
 
     public bool DialogueOk = false;
     public bool SoucierOk = false;
@@ -80,7 +80,7 @@ public class _Sc_pnjState : MonoBehaviour
         pnjGroupsParent = _Sc_pnjGroupParent.instance.transform;
         _sc_SelectPnj = _Sc_selectPnj.Instance;
         _sc_epidemiManager = _Sc_EpidemicManager.instance;
-        _sc_calendrier = _Sc_Calendier.instance;
+        _sc_calendrier = _Sc_Calendrier.instance;
         pnjActionsUiParent.gameObject.SetActive(false);
         AddPnjToGroup();
         setSymptomeIcon();

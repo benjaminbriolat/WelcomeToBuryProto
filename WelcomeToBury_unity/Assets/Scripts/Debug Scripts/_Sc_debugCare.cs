@@ -6,12 +6,12 @@ public class _Sc_debugCare : MonoBehaviour
 {
     [SerializeField] _Sc_pnjState targetpnj = null;
     _Sc_cookbook _sc_cookBook = null;
-    _Sc_Calendier _sc_calendrier = null;
+    _Sc_Calendrier _sc_calendrier = null;
 
     private void Start()
     {
         _sc_cookBook = _Sc_cookbook.instance;
-        _sc_calendrier = _Sc_Calendier.instance;
+        _sc_calendrier = _Sc_Calendrier.instance;
     }
     private void Update()
     {

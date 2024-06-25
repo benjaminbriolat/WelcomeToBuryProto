@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class _Sc_Calendier : MonoBehaviour
+public class _Sc_Calendrier : MonoBehaviour
 {
-    public static _Sc_Calendier instance = null;
+    public static _Sc_Calendrier instance = null;
     [Header("UI")]
     [SerializeField] TextMeshProUGUI dayText = null;
     [SerializeField] TextMeshProUGUI plageText = null;
