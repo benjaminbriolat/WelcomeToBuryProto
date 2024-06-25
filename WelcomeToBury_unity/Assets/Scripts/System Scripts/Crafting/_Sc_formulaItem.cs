@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class _Sc_craftSlot : MonoBehaviour
+public class _Sc_formulaItem : MonoBehaviour
 {
     public _So_item _item = null;
-    public int index = 0;
-
     _Sc_tooltipTrigger _sc_tolltipTrigger = null;
 
-    private void Awake()
+    private void Start()
     {
-        _sc_tolltipTrigger = transform.GetChild(0).GetComponent<_Sc_tooltipTrigger>();
+        _sc_tolltipTrigger = transform.GetComponentInChildren<_Sc_tooltipTrigger>();
+    }
+
+    public void SetItem(_So_item newItem)
+    {
+        _item = newItem;
+        transform.GetComponent<Image>().sprite = _item.image;
+        SetTool();
     }
 
     public void SetTool()
