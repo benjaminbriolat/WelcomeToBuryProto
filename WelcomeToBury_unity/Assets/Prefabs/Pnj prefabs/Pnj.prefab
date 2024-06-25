@@ -546,10 +546,16 @@ MonoBehaviour:
   CurrentState: 0
   _so_pnjInfos: {fileID: 11400000, guid: 251a594dea2e0094aae7cb0f6a3a8eb7, type: 2}
   GroupLevel: 0
+  capTrustReached: 0
   symptome1: 0
   symptome2: 0
   symptome3: 0
   symptome4: 0
+  symptomes: 00000000
+  progressionCap: 5
+  currentProgression: 0
+  maxSymptoms: 4
+  currentSymptoms: 0
   recidive1: 0
   recidive2: 0
   recidive3: 0
