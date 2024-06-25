@@ -51,7 +51,7 @@ public class _Sc_CraftManager : MonoBehaviour
         canvaGroup.alpha = 0;
         canvaGroup.interactable = false;
         canvaGroup.blocksRaycasts = false;
-        ClearCraftTable();
+        ClearCraftTable(false);
         isOpen = false;
 
     }
@@ -80,6 +80,7 @@ public class _Sc_CraftManager : MonoBehaviour
                     nearestSlot.GetComponent<Image>().sprite = currentItem.image;
                     nearestSlot.gameObject.SetActive(true);
                     nearestSlot._item = currentItem;
+                    StartCoroutine(removeFromInventoryDelay(currentItem));
                 }
 
                 currentItem = null;
@@ -101,7 +102,7 @@ public class _Sc_CraftManager : MonoBehaviour
             canvaGroup.alpha = 0;
             canvaGroup.interactable = false;
             canvaGroup.blocksRaycasts = false;
-            ClearCraftTable();
+            ClearCraftTable(true);
             isOpen = false;
             _sc_cerveau.canMove = true;
         }
@@ -144,14 +145,8 @@ public class _Sc_CraftManager : MonoBehaviour
             resultSlot.sprite = garbage.image;
         }
         resultSlot.gameObject.SetActive(true);
-        for (int i = 0; i < craftingSlots.Length; i++)
-        {
-            if (craftingSlots[i]._item != null)
-            {
-                _sc_iventoryManager.RemoveItem(craftingSlots[i]._item);
-            }
-        }
-        ClearCraftTable();
+        
+        ClearCraftTable(false);
         StartCoroutine(DelaySendToInventory(result));
 
     }
@@ -192,18 +187,27 @@ public class _Sc_CraftManager : MonoBehaviour
                 slot.GetComponent<Image>().sprite = null;
                 slot.gameObject.SetActive(false);
                 slot._item = null; ;
+                
             }
             
         }
+
     }
 
-    public void ClearCraftTable()
+    public void ClearCraftTable(bool cancel)
     {
         foreach (_Sc_craftSlot slot in craftingSlots)
         {
+            if (cancel)
+            {
+                if (slot._item != null)
+                {
+                    _sc_iventoryManager.AddItem(slot._item, 1);
+                }
+            }
             slot.GetComponent<Image>().sprite = null;
             slot.gameObject.SetActive(false);
-            slot._item = null; 
+            slot._item = null;       
         }
     }
 
@@ -215,5 +219,20 @@ public class _Sc_CraftManager : MonoBehaviour
         resultSlot.sprite = null;
         _sc_iventoryManager.AddItem(newItem, 1);
 
+    }
+
+    private IEnumerator removeFromInventoryDelay(_So_item _itemToRemove)
+    {
+        Debug.Log("RemoveItemSend");
+        yield return new WaitForSeconds(0.1f);
+        _sc_iventoryManager.RemoveItem(_itemToRemove);
+        Debug.Log("RemoveItemSend");
+        /*for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            if (craftingSlots[i]._item != null)
+            {
+                _sc_iventoryManager.RemoveItem(craftingSlots[i]._item);
+            }
+        }*/
     }
 }

@@ -7,7 +7,8 @@ public class _Sc_inventorySlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        if(transform.childCount == 0)
+        Debug.Log("RemoveItem PutBack");
+        if (transform.childCount == 0)
         {
             _Sc_inventoryItem _sc_inventoryItem = eventData.pointerDrag.GetComponent<_Sc_inventoryItem>();
             _sc_inventoryItem.parentAfterDrag = transform;

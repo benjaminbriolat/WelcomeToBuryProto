@@ -84,8 +84,8 @@ public class _Sc_inventoryManager : MonoBehaviour
 
     public void RemoveItem(_So_item removalTarget)
     {
-
-        for(int i = 0; i < inventorySlots.Length; i++)
+        Debug.Log("RemoveItem received");
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
             if (inventorySlots[i].transform.childCount > 0)
             {
@@ -93,6 +93,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                 {
                     inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().count -= 1;
                     inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().SetCount();
+                    Debug.Log("RemoveItem Done");
                 }
             }
         }
