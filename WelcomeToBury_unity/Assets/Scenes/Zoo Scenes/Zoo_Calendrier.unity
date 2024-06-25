@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Give Item 3
+  m_text: 'Give Item 5
 
 
 '
@@ -4896,7 +4896,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649867676}
   m_LocalRotation: {x: -0, y: 0.000000029802315, z: -0.000000014901158, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4904,7 +4904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -135}
+  m_AnchoredPosition: {x: -0, y: 89}
   m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649867679
@@ -12599,7 +12599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Give Item 3
+  m_text: 'Give Item 4
 
 
 '
@@ -13646,7 +13646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 69}
+  m_AnchoredPosition: {x: -0, y: 293}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2017410648
@@ -16007,7 +16007,9 @@ MonoBehaviour:
   resultSlot: {fileID: 649867679}
   garbage: {fileID: 11400000, guid: a4e2a1c07959c5f41a8827b7c248a35d, type: 2}
   receipesParent: {fileID: 46793423}
-  canHandRemoveIngredients: 0
+  canHandRemoveIngredients: 1
+  lastUsedIventoryItem: {fileID: 0}
+  lastUsedSlot: {fileID: 0}
 --- !u!81 &8621608328528993096
 AudioListener:
   m_ObjectHideFlags: 0

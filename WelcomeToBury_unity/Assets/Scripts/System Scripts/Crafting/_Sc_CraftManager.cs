@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -29,6 +30,9 @@ public class _Sc_CraftManager : MonoBehaviour
     _Sc_inventoryManager _sc_iventoryManager = null;
 
     [SerializeField] bool canHandRemoveIngredients = false;
+
+    public _Sc_inventoryItem lastUsedIventoryItem = null;
+    public _Sc_craftSlot lastUsedSlot = null;
     private void Awake()
     {
         instance = this;
@@ -79,15 +83,41 @@ public class _Sc_CraftManager : MonoBehaviour
                 }     
                 if(shortestDistance <= minDist)
                 {
+                    if(nearestSlot._item != null )
+                    {
+                        if(lastUsedSlot != null)
+                        {
+                            lastUsedSlot.GetComponent<Image>().sprite = nearestSlot._item.image;
+                            lastUsedSlot.gameObject.SetActive(true);
+                            lastUsedSlot._item = nearestSlot._item;
+                            lastUsedSlot = null;
+                        }
+                        else
+                        {
+                            _sc_iventoryManager.AddItem(nearestSlot._item, 1);
+                        }
+                    }
                     nearestSlot.GetComponent<Image>().sprite = currentItem.image;
                     nearestSlot.gameObject.SetActive(true);
                     nearestSlot._item = currentItem;
-                    StartCoroutine(removeFromInventoryDelay(currentItem));
+                    if(lastUsedIventoryItem != null)
+                    {
+                        lastUsedIventoryItem.count -= 1;
+                        lastUsedIventoryItem.SetCount();
+                        lastUsedIventoryItem = null;
+                    }
+                    else
+                    {
+                        StartCoroutine(removeFromInventoryDelay(currentItem));
+                    }
+                    
                 }
 
                 currentItem = null;
 
             }
+            lastUsedIventoryItem = null;
+            lastUsedSlot = null;
         }
 
         //Debug openCanvas
@@ -106,11 +136,11 @@ public class _Sc_CraftManager : MonoBehaviour
             canvaGroup.blocksRaycasts = false;
             ClearCraftTable(true);
             isOpen = false;
-            _sc_cerveau.canMove = true;
+            _sc_cerveau.isInMenu = false;
         }
         else
         {
-            _sc_cerveau.canMove = false;
+            _sc_cerveau.isInMenu = true;
             for (int i = 0; i < receipes.Count; i++)
             {
                 receipes[i].checkStatus();
@@ -184,14 +214,15 @@ public class _Sc_CraftManager : MonoBehaviour
             {
                 if (slot._item != null)
                 {
+                    lastUsedSlot = slot;
                     currentItem = slot._item;
                     customCursor.gameObject.SetActive(true);
                     customCursor.sprite = currentItem.image;
-
+                    _sc_iventoryManager.AddItem(currentItem, 1);
                     slot.GetComponent<Image>().sprite = null;
                     slot.gameObject.SetActive(false);
                     slot._item = null; ;
-
+                   
                 }
 
             }
@@ -228,9 +259,9 @@ public class _Sc_CraftManager : MonoBehaviour
     private IEnumerator removeFromInventoryDelay(_So_item _itemToRemove)
     {
         Debug.Log("RemoveItemSend");
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.0f);
         _sc_iventoryManager.RemoveItem(_itemToRemove);
-        Debug.Log("RemoveItemSend");
+        Debug.Log("RemoveItemSend 2");
         /*for (int i = 0; i < craftingSlots.Length; i++)
         {
             if (craftingSlots[i]._item != null)

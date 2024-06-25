@@ -24,6 +24,7 @@ public class _Sc_cerveau : MonoBehaviour
     _Sc_selectPnj _sc_selectPnj = null;
     _Sc_selectObjectManager _sc_selectObjectManager = null;
 
+    public bool isInMenu = false;
     public bool canMove = true;
     public Vector3 mousePos;
     public Ray mouseRay;
@@ -81,7 +82,7 @@ public class _Sc_cerveau : MonoBehaviour
         if(LeftClick == true)
         {
             leftClickReleased = false;
-            if(canMove == true)
+            if(canMove == true && isInMenu == false)
             {
                 _sc_movement.getMouseLeftClick(mousePos);
             }

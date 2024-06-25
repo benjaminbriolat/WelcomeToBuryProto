@@ -88,6 +88,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         transform.SetParent(transform.parent.parent.parent);
         transform.SetAsLastSibling();
         _sc_CraftManager.OnMouseDownItem(_item);
+        _sc_CraftManager.lastUsedIventoryItem = this;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -96,7 +97,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     }
 
     public void OnEndDrag(PointerEventData eventData)
-    {
+    {        
         if (EventSystem.current.IsPointerOverGameObject())
         {
             Debug.Log("Drag EndSlot");
