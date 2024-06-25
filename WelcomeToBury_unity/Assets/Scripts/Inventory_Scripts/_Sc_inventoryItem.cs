@@ -85,7 +85,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         image.raycastTarget = false;
         _sc_cerveau.canMove = false;
         parentAfterDrag = transform.parent;
-        transform.SetParent(transform.parent.parent);
+        transform.SetParent(transform.parent.parent.parent);
         transform.SetAsLastSibling();
         _sc_CraftManager.OnMouseDownItem(_item);
     }
