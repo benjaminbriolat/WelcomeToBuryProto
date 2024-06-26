@@ -24,8 +24,14 @@ public class _So_pnjInfos : ScriptableObject
         Famille3,
         Famille4,
         Famille5,
+        Famille6,
+        Famille7,
+        Famille8,
+        Famille9,
+        Famille10,
+        Famille11,
+        Famille12,
     }
 
     public PnjGroup pnjGroup;
-
 }
