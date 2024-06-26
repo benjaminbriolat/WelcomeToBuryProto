@@ -68,7 +68,14 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         if(_sc_tolltipTrigger != null)
         {
-            _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
+            if(count > 1)
+            {
+                _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
+            }
+            else
+            {
+                _sc_tolltipTrigger.header = _item.itemName.ToString();
+            }
         }
        
     }
