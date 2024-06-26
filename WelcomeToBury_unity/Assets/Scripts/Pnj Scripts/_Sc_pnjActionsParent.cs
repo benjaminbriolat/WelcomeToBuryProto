@@ -16,13 +16,13 @@ public class _Sc_pnjActionsParent : MonoBehaviour
         RemedeButton = transform.GetChild(0).GetChild(2).GetChild(0).GetComponent<_Sc_debugPnjButton>();
         GesteSoinButton = transform.GetChild(0).GetChild(3).GetChild(0).GetComponent<_Sc_debugPnjButton>();
     }
-    public void GetButtonsState(bool _dialogue, bool _soucier, bool _remede, bool _gesteSoin, int _amitie)
+    public void GetButtonsState(bool _dialogue, bool _soucier, bool _remede, bool _gesteSoin, bool trusteReached)
     {
         DialogueButton.SetUsable(_dialogue);
         SoucierButton.SetUsable(_soucier);
         RemedeButton.SetUsable(_remede);
 
-        if(_gesteSoin == true && _amitie == 1)
+        if(_gesteSoin == true && trusteReached == true)
         {
             GesteSoinButton.SetUsable(true);
         }

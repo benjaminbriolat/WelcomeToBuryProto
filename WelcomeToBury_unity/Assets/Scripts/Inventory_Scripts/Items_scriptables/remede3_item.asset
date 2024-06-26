@@ -18,3 +18,5 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: treatment3
+  peremptible: 0
+  peremption: 3

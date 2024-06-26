@@ -15,6 +15,10 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
     [SerializeField] List<Clean> cleans = new List<Clean>();
 
     _Sc_inventoryManager _inventoryManager = null;
+
+    [SerializeField] _So_item garbage = null;
+
+    int garbageNumber = 0;
     private void Awake()
     {
         instance = this;
@@ -32,8 +36,7 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
             cleans.Add(newClean);
             cleans[cleans.Count - 1].itemToClean = newItem;
             cleans[cleans.Count - 1].delayClean = delay;
-        }
-        
+        }        
     }
 
     public void OnSpanChange()
@@ -44,9 +47,33 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
             if(cleans[i].delayClean <= 0)
             {
                 _inventoryManager.RemoveItem(cleans[i].itemToClean);
+                cleans.Remove(cleans[i]);                
+                i -= 1;
+                garbageNumber +=1;
+            }
+        }
+        StartCoroutine(DelayAddGarbage());
+    }
+
+    public void ClearList(_So_item itemToRemove)
+    {
+        for (int i = 0; i < cleans.Count; i++)
+        {            
+            if (cleans[i].itemToClean == itemToRemove)
+            {
                 cleans.Remove(cleans[i]);
                 i -= 1;
             }
         }
+    }
+
+    private IEnumerator DelayAddGarbage()
+    {
+        yield return new WaitForSeconds(0.1f);
+        for (int i = 0; i < garbageNumber; i++)
+        {
+            _inventoryManager.AddItem(garbage);
+        }
+        garbageNumber = 0;
     }
 }

@@ -100,25 +100,24 @@ public class _Sc_pnjActions : MonoBehaviour
         {
             if(_sc_pnjState.symptome1 == true)
             {
-                _sc_pnjState.symptome1 = false;
-                _sc_pnjState.symptomes[0] = false;
+                _sc_pnjState.HealSymptome1Care();
                 hasHeal = true;
             }
             if(_sc_pnjState.symptome2 == true)
             {
-                _sc_pnjState.symptome2 = false;
+                _sc_pnjState.HealSymptome2Care();
                 _sc_pnjState.symptomes[1] = false;
                 hasHeal = true;
             }
             if(_sc_pnjState.symptome3 == true)
             {
-                _sc_pnjState.symptome3 = false;
+                _sc_pnjState.HealSymptome3Care();
                 _sc_pnjState.symptomes[2] = false;
                 hasHeal = true;
             }
             if(_sc_pnjState.symptome4 == true)
             {
-                _sc_pnjState.symptome4 = false;
+                _sc_pnjState.HealSymptome4Care();
                 _sc_pnjState.symptomes[3] = false;
                 hasHeal = true;
             }

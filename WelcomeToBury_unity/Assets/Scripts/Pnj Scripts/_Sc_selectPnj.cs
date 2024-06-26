@@ -49,6 +49,7 @@ public class _Sc_selectPnj : MonoBehaviour
 
                 if (_sc_pnjState.CurrentState == _Sc_pnjState.State.Default)
                 {
+                    _sc_pnjState.SetButtonsState();
                     if (lastPnjState != null)
                     {
                         lastPnjState.SetActionsUi(false);
@@ -63,6 +64,7 @@ public class _Sc_selectPnj : MonoBehaviour
                     SetUnitState(hit.transform.parent);
                     SetSelectedSprite(hit.transform.parent);
                     SetActionsUi(hit.transform.parent);
+
                 }
             }
             else

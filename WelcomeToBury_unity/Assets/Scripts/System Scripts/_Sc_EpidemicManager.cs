@@ -28,7 +28,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
     }
     [Header("Paramètres Symptomes")]
     [SerializeField] List<Symptom> symptoms = new List<Symptom>();
-    float totalOdds = 0;
+    [SerializeField] float totalOdds = 0;
     int chosenSymptom = 0;
 
     //privates
@@ -80,7 +80,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
                 {
                     if (symptoms[i].isActive)
                     {
-                        totalOdds += symptoms[i].odds;
+                        totalOdds = symptoms[i].odds;
                     }
                 }
 

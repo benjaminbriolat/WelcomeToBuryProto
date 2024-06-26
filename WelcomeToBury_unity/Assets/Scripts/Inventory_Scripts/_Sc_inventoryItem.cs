@@ -25,6 +25,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     [SerializeField] float spawnMaxRadius = 10.0f;
     _Sc_tooltipTrigger _sc_tolltipTrigger = null;
     _Sc_CraftManager _sc_CraftManager = null;
+    _Sc_ressourcesPremeption _ressourcesPeremption = null;
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -37,7 +38,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         _sc_cerveau = _Sc_cerveau.instance;
         LayerGround = LayerMask.NameToLayer(layerName);
         _sc_CraftManager = _Sc_CraftManager.instance;
-
+        _ressourcesPeremption = _Sc_ressourcesPremeption.instance;
     }
 
     public void InitializeItem(_So_item _newItem)
@@ -133,7 +134,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         _sc_itemLdo._item = _item;
         _sc_itemLdo.count = count;
-
+        _ressourcesPeremption.ClearList(_sc_itemLdo._item);
         //StartCoroutine(_Sc_inventoryManager.instance.CheckInventoryDelay());
 
         Destroy(gameObject);

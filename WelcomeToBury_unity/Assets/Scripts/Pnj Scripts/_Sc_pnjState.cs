@@ -92,7 +92,7 @@ public class _Sc_pnjState : MonoBehaviour
     public void SetButtonsState()
     {
         int _amitie = myPnjGroup.GetComponent<_Sc_pnjGroup>().groupTrustLevel;
-        _sc_PnjActionsParent.GetButtonsState(CanDialogue, CanSoucier, CanRemede, CanGesteSoin, _amitie);
+        _sc_PnjActionsParent.GetButtonsState(CanDialogue, CanSoucier, CanRemede, CanGesteSoin, capTrustReached);
     }
     private void AddPnjToGroup()
     {
@@ -261,6 +261,7 @@ public class _Sc_pnjState : MonoBehaviour
     public void HealSymptome1()
     {
         symptome1 = false;
+        symptomes[0] = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -268,6 +269,7 @@ public class _Sc_pnjState : MonoBehaviour
     public void HealSymptome2()
     {
         symptome2 = false;
+        symptomes[1] = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -275,6 +277,7 @@ public class _Sc_pnjState : MonoBehaviour
     public void HealSymptome3()
     {
         symptome3 = false;
+        symptomes[2] = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -282,6 +285,7 @@ public class _Sc_pnjState : MonoBehaviour
     public void HealSymptome4()
     {
         symptome4 = false;
+        symptomes[3] = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }

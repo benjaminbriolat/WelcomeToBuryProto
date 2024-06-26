@@ -18,3 +18,5 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: garbage
+  peremptible: 0
+  peremption: 3

@@ -11,6 +11,7 @@ public class _So_item : ScriptableObject
     public bool stackable = true;
     public ActionType actionType;
     public string formulaId = null;
+    public bool peremptible = true;
     public int peremption = 3;
 }
 

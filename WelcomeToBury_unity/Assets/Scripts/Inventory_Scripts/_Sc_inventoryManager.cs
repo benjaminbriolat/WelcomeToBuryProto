@@ -32,7 +32,10 @@ public class _Sc_inventoryManager : MonoBehaviour
                 {
                     itemInSlot.count += _count;
                     itemInSlot.SetCount();
-                    _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
+                    if(_item.peremptible == true)
+                    {
+                        _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
+                    }
                     return true;
                 }
                 else
@@ -86,7 +89,10 @@ public class _Sc_inventoryManager : MonoBehaviour
         GameObject newItemGameObject = Instantiate(iventoryItemPrefab, _sc_inventorySlot.transform);
         _Sc_inventoryItem _sc_inventoryItem = newItemGameObject.GetComponent<_Sc_inventoryItem>();
         _sc_inventoryItem.InitializeItem(_item);
-        _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
+        if (_item.peremptible == true)
+        {
+            _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
+        }
         CheckInventory();
     }
 
