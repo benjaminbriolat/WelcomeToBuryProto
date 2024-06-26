@@ -109,6 +109,19 @@ public class _Sc_cookbook : MonoBehaviour
         return receipes[matchingRecipeIndex].discovered;
     }
     
+    public _So_item getRemede(string _symptome)
+    {
+        _So_item matchingItem = null;
+        for (int i = 0; i < receipes.Count; i++)
+        {
+            if (receipes[i].name == _symptome)
+            {
+                matchingItem = receipes[i].resultItem;
+            }
+        }
+        return matchingItem;
+    }
+
     public _So_item getMatchingReceipe(string newFormula)
     {
         _So_item matchingItem = null;

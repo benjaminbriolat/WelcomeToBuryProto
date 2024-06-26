@@ -258,28 +258,28 @@ public class _Sc_pnjState : MonoBehaviour
     }
 
     [Button]
-    private void HealSymptome1()
+    public void HealSymptome1()
     {
         symptome1 = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
     [Button]
-    private void HealSymptome2()
+    public void HealSymptome2()
     {
         symptome2 = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
     [Button]
-    private void HealSymptome3()
+    public void HealSymptome3()
     {
         symptome3 = false;
         onSymptomeChange();
         UpdateTrustLevel();
     }
     [Button]
-    private void HealSymptome4()
+    public void HealSymptome4()
     {
         symptome4 = false;
         onSymptomeChange();
@@ -288,41 +288,45 @@ public class _Sc_pnjState : MonoBehaviour
 
     /// bouron soin + care
     [Button]
-    private void HealSymptome1Care()
+    public void HealSymptome1Care()
     {
         if (capTrustReached == true)
         {
             symptome1 = false;
+            symptomes[0] = false;
             onSymptomeChange();
             UpdateTrustLevel();
         }       
     }
     [Button]
-    private void HealSymptome2Care()
+    public void HealSymptome2Care()
     {
         if (capTrustReached == true)
         {
             symptome2 = false;
+            symptomes[1] = false;
             onSymptomeChange();
             UpdateTrustLevel();
         }        
     }
     [Button]
-    private void HealSymptome3Care()
+    public void HealSymptome3Care()
     {
         if (capTrustReached == true)
         {
             symptome3 = false;
+            symptomes[2] = false;
             onSymptomeChange();
             UpdateTrustLevel();
         }        
     }
     [Button]
-    private void HealSymptome4Care()
+    public void HealSymptome4Care()
     {
         if(capTrustReached == true)
         {
             symptome4 = false;
+            symptomes[3] = false;
             onSymptomeChange();
             UpdateTrustLevel();
         }        

@@ -125,6 +125,45 @@ public class _Sc_inventoryManager : MonoBehaviour
         }
     }
 
+    public bool checkItem(_So_item _item, int countNeeded)
+    {
+        Debug.Log("itemreceived = " + _item.name);
+        bool hasItem = false;
+        int itemCount = 0;
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            _Sc_inventorySlot Slot = inventorySlots[i];
+            _Sc_inventoryItem _sc_inventoryItem = Slot.GetComponentInChildren<_Sc_inventoryItem>();
+
+            if(_sc_inventoryItem != null)
+            {
+                _So_item itemInSlot = _sc_inventoryItem._item;
+
+                 if(itemInSlot != null)
+                {
+                    if (itemInSlot == _item)
+                    {
+                        hasItem = true;
+                        itemCount += _sc_inventoryItem.count;
+                    }
+                }
+            }  
+        }
+
+        Debug.Log("HasItem = " + hasItem);
+        Debug.Log("ItemCount = " + itemCount);
+
+        if(hasItem == true && itemCount >= countNeeded)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public IEnumerator CheckInventoryDelay()
     {
         yield return new WaitForSeconds(0.1f);
