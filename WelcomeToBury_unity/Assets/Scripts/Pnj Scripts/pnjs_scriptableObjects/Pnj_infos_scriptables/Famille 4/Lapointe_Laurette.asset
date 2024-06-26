@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3867a9cf7988c7847b45b1c37dd37a7f, type: 3}
   m_Name: Lapointe_Laurette
   m_EditorClassIdentifier: 
-  pnjFirstName: Ignace
+  pnjFirstName: Laurette
   pnjLastName: Lapointe
   pnjCategory: 0
   pnjGroup: 3

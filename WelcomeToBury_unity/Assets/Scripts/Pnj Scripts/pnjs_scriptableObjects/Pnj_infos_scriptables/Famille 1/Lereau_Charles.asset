@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3867a9cf7988c7847b45b1c37dd37a7f, type: 3}
   m_Name: Lereau_Charles
   m_EditorClassIdentifier: 
-  pnjFirstName: Tristan
+  pnjFirstName: Charles
   pnjLastName: Lereau
   pnjCategory: 0
   pnjGroup: 0
