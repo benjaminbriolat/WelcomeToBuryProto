@@ -10,9 +10,14 @@ public class _Sc_inventoryManager : MonoBehaviour
     public _Sc_inventorySlot[] inventorySlots;
     public GameObject iventoryItemPrefab;
     public bool inventoryFull = false;
+    _Sc_ressourcesPremeption _ressourcesPeremtion;
     private void Awake()
     {
         instance = this;
+    }
+    private void Start()
+    {
+        _ressourcesPeremtion = _Sc_ressourcesPremeption.instance;
     }
     public bool AddItem(_So_item _item, int _count = 1)
     {
@@ -27,6 +32,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                 {
                     itemInSlot.count += _count;
                     itemInSlot.SetCount();
+                    _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
                     return true;
                 }
                 else
@@ -61,11 +67,12 @@ public class _Sc_inventoryManager : MonoBehaviour
             _Sc_inventoryItem itemInSlot = slot.GetComponentInChildren<_Sc_inventoryItem>();
             if(itemInSlot == null)
             {
-                SpawnNewItem(_item, slot);
+                SpawnNewItem(_item, slot,_count);
 
                 itemInSlot = slot.GetComponentInChildren<_Sc_inventoryItem>();
                 itemInSlot.count = _count;
                 itemInSlot.SetCount();
+                
                 return true;
             }
         }
@@ -73,12 +80,13 @@ public class _Sc_inventoryManager : MonoBehaviour
         return false;
     }
 
-    public void SpawnNewItem(_So_item _item, _Sc_inventorySlot _sc_inventorySlot)
-    {
+    public void SpawnNewItem(_So_item _item, _Sc_inventorySlot _sc_inventorySlot, int _count)
+    {        
+        
         GameObject newItemGameObject = Instantiate(iventoryItemPrefab, _sc_inventorySlot.transform);
         _Sc_inventoryItem _sc_inventoryItem = newItemGameObject.GetComponent<_Sc_inventoryItem>();
         _sc_inventoryItem.InitializeItem(_item);
-
+        _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
         CheckInventory();
     }
 

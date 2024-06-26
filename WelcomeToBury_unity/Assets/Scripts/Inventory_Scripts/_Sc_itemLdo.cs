@@ -8,6 +8,7 @@ public class _Sc_itemLdo : MonoBehaviour
     public int count = 1;
     _Sc_tooltipTrigger _sc_tolltipTrigger = null;
     _Sc_inventoryManager _inventoryManager;
+    [HideInInspector] public _Sc_RessourcesSpawner _ressourcesSpawner = null;
     private void Awake()
     {
         _sc_tolltipTrigger = transform.GetComponentInChildren<_Sc_tooltipTrigger>();
@@ -27,6 +28,10 @@ public class _Sc_itemLdo : MonoBehaviour
         if(_Sc_inventoryManager.instance.inventoryFull == false)
         {
             _inventoryManager.AddItem(_item, count);
+            if(_ressourcesSpawner != null)
+            {
+                _ressourcesSpawner.ItemPicked();
+            }
             Destroy(gameObject);
         }
     }

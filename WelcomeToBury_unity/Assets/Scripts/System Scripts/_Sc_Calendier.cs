@@ -15,6 +15,7 @@ public class _Sc_Calendrier : MonoBehaviour
     [Header("Affected Objects")]
     [SerializeField] List<Transform> pnjs = null;
     [SerializeField] List<Transform> crops = null;
+    _Sc_ressourcesPremeption _ressourcesPremenption = null;
     private void Awake()
     {
         instance = this;
@@ -29,6 +30,7 @@ public class _Sc_Calendrier : MonoBehaviour
         dayText.text = currentDay.ToString();
         plageText.text = currentPlage.ToString();
         _sc_epidemicManager = _Sc_EpidemicManager.instance;
+        _ressourcesPremenption = _Sc_ressourcesPremeption.instance;
     }
     private void Update()
     {
@@ -44,7 +46,7 @@ public class _Sc_Calendrier : MonoBehaviour
         //Set day and span
         if (currentPlage < 3)
         {
-            currentPlage += 1;
+            currentPlage += 1;            
         }
         else
         {
@@ -61,14 +63,25 @@ public class _Sc_Calendrier : MonoBehaviour
             {
                 pnjs[i].GetComponent<_Sc_pnjState>().OnDayChange();
             }
+            
         }
+
+        //envoyer repousse au ressources de CROPS
+        for (int i = 0; i < crops.Count; i++)
+        {
+            crops[i].GetComponent<_Sc_RessourcesSpawner>().OnSpanChange();
+        }
+
+        //envoyer progression aux ressource de l'inventaire
+        _ressourcesPremenption.OnSpanChange();
+
         dayText.text = currentDay.ToString();
         plageText.text = currentPlage.ToString();
 
-        //envoyer repousse au ressources de CROPS
         
         
-        //envoyer progression aux ressource de l'inventaire
+        
+        
     }
 
     public void AddCrop(Transform newCrop)
