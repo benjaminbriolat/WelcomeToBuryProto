@@ -1,10 +1,8 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 using DG.Tweening;
 
 public class _Sc_CraftManager : MonoBehaviour
@@ -166,7 +164,7 @@ public class _Sc_CraftManager : MonoBehaviour
             isOpen = true;
         }
     }
-    [Button]
+    //[Button]
     public void combine()
     {
         formula = null;

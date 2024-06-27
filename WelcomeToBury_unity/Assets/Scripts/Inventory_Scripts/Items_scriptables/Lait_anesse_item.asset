@@ -18,3 +18,5 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: donkeymilk
+  peremptible: 1
+  peremption: 6

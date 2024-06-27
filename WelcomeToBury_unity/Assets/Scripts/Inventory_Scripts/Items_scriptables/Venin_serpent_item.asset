@@ -18,3 +18,5 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: snakevenom
+  peremptible: 1
+  peremption: 9

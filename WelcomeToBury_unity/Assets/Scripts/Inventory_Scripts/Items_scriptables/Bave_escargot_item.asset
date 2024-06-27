@@ -18,4 +18,5 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: snaildrool
-  peremption: 5
+  peremptible: 1
+  peremption: 6

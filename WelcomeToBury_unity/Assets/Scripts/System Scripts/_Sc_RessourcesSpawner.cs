@@ -9,7 +9,7 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] GameObject objectToSpawn = null;
 
     [Header("SapwnValues")]
-    [SerializeField] int delayResapwn = 3;
+    [HideInInspector] int delayResapwn = 3;
     [SerializeField] int minRespawnQuantity = 2;
     [SerializeField] int maxRespawnQuantity = 3;
     int currentSpan = 0;
@@ -21,11 +21,33 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] int toSpawnOnStart = 3;
     [SerializeField] bool fullrespawn = false;
 
+    public enum Growth
+    {
+        fast,
+        mid,
+        slow,
+    }
+
+    public Growth growthSpeed;
+
 
     //references
     _Sc_Calendrier _calendrier = null;
     private void Start()
     {
+        if(growthSpeed.ToString() == "fast")
+        {
+            delayResapwn = 6;
+        }
+        if (growthSpeed.ToString() == "mid")
+        {
+            delayResapwn = 9;
+        }
+        if (growthSpeed.ToString() == "slow")
+        {
+            delayResapwn = 12;
+        }
+
         _calendrier = _Sc_Calendrier.instance;
         _calendrier.AddCrop(this.transform);
         if (toSpawnOnStart > 0)

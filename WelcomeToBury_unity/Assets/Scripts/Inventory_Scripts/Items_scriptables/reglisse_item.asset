@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
-  m_Name: Venin_guepe_item
+  m_Name: reglisse_item
   m_EditorClassIdentifier: 
-  itemName: "Venin de gu\xEApe"
-  image: {fileID: 21300000, guid: bbd181a1d60074348815755d2c7ddde1, type: 3}
+  itemName: "R\xE9glisse"
+  image: {fileID: 21300000, guid: 66518e8328c7c8d4caaf1a8db10e21a0, type: 3}
   itemType: 0
   stackable: 1
   actionType: 0
-  formulaId: waspvenom
+  formulaId: reglisse
   peremptible: 1
-  peremption: 9
+  peremption: 6

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Zoo Scenes/Zoo_Camera_Cinemachine_Terrain.unity
-    guid: 89fa9ba989174b342bea2199f9279fdf
+    path: Assets/Scenes/Zoo Scenes/Zoo_Pnj.unity
+    guid: 2df50f97e82517840ab97df793bc146f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
