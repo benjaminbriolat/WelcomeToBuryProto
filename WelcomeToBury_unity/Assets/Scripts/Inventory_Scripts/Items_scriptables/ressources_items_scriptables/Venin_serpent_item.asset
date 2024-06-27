@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
-  m_Name: Lait_anesse_item
+  m_Name: Venin_serpent_item
   m_EditorClassIdentifier: 
-  itemName: "Lait d'\xE2nesse"
-  image: {fileID: 21300000, guid: 8cd94f7bda7176b4d931928acab0f2c2, type: 3}
+  itemName: Venin de serpent
+  image: {fileID: 21300000, guid: e31ddd6779c99994696c60560d8f9dfb, type: 3}
   itemType: 0
   stackable: 1
   actionType: 0
-  formulaId: donkeymilk
-  peremptible: 1
-  peremption: 6
+  formulaId: snakevenom

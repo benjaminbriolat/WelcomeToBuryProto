@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
-  m_Name: Bave_escargot_item
+  m_Name: Mousse_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Bave d'escargot
-  image: {fileID: 21300000, guid: 63aac227fb5107e459383e6e8cf7f76b, type: 3}
+  itemName: Mousse rotten
+  image: {fileID: 21300000, guid: db49626d390b030499836f3127c9234c, type: 3}
   itemType: 0
   stackable: 1
   actionType: 0
-  formulaId: snaildrool
-  peremptible: 1
-  peremption: 6
+  formulaId: moss_rotten
+  peremptible: 0
+  peremption: 3
