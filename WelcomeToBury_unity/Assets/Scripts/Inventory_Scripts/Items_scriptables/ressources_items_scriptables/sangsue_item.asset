@@ -20,3 +20,4 @@ MonoBehaviour:
   formulaId: leech
   peremptible: 1
   peremption: 9
+  rottenVersion: {fileID: 11400000, guid: 8e36653d0abc3d1499f6246675e1f1bd, type: 2}

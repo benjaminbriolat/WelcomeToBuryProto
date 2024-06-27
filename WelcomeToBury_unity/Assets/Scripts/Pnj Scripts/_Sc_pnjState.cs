@@ -26,6 +26,8 @@ public class _Sc_pnjState : MonoBehaviour
     public bool symptome3 = false;
     public bool symptome4 = false;
     public List<bool> symptomes = new List<bool>();
+    public int totalImmuneDays = 3;
+    public int currentImmuneDays = 0;
 
     [Header("-Progression")]
     public int progressionCap = 5;
@@ -162,13 +164,17 @@ public class _Sc_pnjState : MonoBehaviour
         {
             cracheurDeNoir = false;
         }
-
+        if(state == 0)
+        {
+            currentImmuneDays = totalImmuneDays;
+            _sc_epidemiManager.HealedPnj(this.transform);
+        }
         setSymptomeIcon();
 
-        /*if(_sc_SelectPnj.lastPnjState == this)
+        if(_sc_SelectPnj.lastPnjState == this)
         {
             _sc_SelectPnj.SetFichePatient();
-        }*/
+        }
     }
 
     private void setSymptomeIcon()
@@ -228,7 +234,19 @@ public class _Sc_pnjState : MonoBehaviour
                     currentProgression = 0;
                 }
             }
-        }      
+        }    
+        else if (state == 0)
+        {
+            if(currentImmuneDays > 0)
+            {
+                currentImmuneDays -= 1;
+                if(currentImmuneDays <= 0)
+                {
+                    _sc_epidemiManager.DeimmunizePnj(this.transform);
+                }
+            }
+
+        }
     }
 
     //DEBUG//

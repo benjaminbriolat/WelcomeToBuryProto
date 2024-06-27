@@ -18,3 +18,6 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: spidervenom
+  peremptible: 1
+  peremption: 3
+  rottenVersion: {fileID: 11400000, guid: b7fadf29cfca62d4c9ddf2d935270cd4, type: 2}

@@ -13,6 +13,7 @@ public class _So_item : ScriptableObject
     public string formulaId = null;
     public bool peremptible = true;
     public int peremption = 3;
+    public _So_item rottenVersion = null;
 }
 
 public enum ItemType

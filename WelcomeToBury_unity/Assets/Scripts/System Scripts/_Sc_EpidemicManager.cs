@@ -10,6 +10,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
     [SerializeField] List<Transform> pnjs = null;
     [SerializeField] List<Transform> healthPnjs = null;
     [SerializeField] List<Transform> sickPnjs = null;
+    [SerializeField] List<Transform> immunePnjs = null;
 
     [Header("Paramètres propagation")]
     [SerializeField] int progressionInterval = 3;
@@ -144,6 +145,24 @@ public class _Sc_EpidemicManager : MonoBehaviour
        {
            pnjs.Add(newPnj);
            CreateHealthyPop();
+        }
+    }
+
+    public void HealedPnj(Transform _pnj)
+    {
+        if(sickPnjs.Contains(_pnj))
+        {
+            immunePnjs.Add(_pnj);
+            sickPnjs.Remove(_pnj);
+        }
+    }
+
+    public void DeimmunizePnj(Transform _pnj)
+    {
+        if (immunePnjs.Contains(_pnj))
+        {
+            healthPnjs.Add(_pnj);
+            immunePnjs.Remove(_pnj);
         }
     }
 }

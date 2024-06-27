@@ -12,10 +12,9 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
         public int delayClean;
     }
     [SerializeField] List<Clean> cleans = new List<Clean>();
+    [SerializeField] List<_So_item> rottenItems = new List<_So_item>();
 
     _Sc_inventoryManager _inventoryManager = null;
-
-    [SerializeField] _So_item garbage = null;
 
     int garbageNumber = 0;
     private void Awake()
@@ -24,6 +23,7 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
     }
     private void Start()
     {
+        rottenItems = new List<_So_item>();
         cleans = new List<Clean>();
         _inventoryManager = _Sc_inventoryManager.instance;
     }
@@ -46,12 +46,12 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
             if(cleans[i].delayClean <= 0)
             {
                 _inventoryManager.RemoveItem(cleans[i].itemToClean);
+                rottenItems.Add(cleans[i].itemToClean.rottenVersion);
                 cleans.Remove(cleans[i]);                
                 i -= 1;
-                garbageNumber +=1;
             }
         }
-        StartCoroutine(DelayAddGarbage());
+        StartCoroutine(DelayAddRottenItems());
     }
 
     public void ClearList(_So_item itemToRemove)
@@ -66,13 +66,14 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayAddGarbage()
+    private IEnumerator DelayAddRottenItems()
     {
         yield return new WaitForSeconds(0.1f);
-        for (int i = 0; i < garbageNumber; i++)
+        for (int i = 0; i < rottenItems.Count; i++)
         {
-            _inventoryManager.AddItem(garbage);
+            _inventoryManager.AddItem(rottenItems[i]);
+            rottenItems.Remove(rottenItems[i]);
+            i -= 1;
         }
-        garbageNumber = 0;
     }
 }

@@ -16,6 +16,7 @@ public class _Sc_Calendrier : MonoBehaviour
     [SerializeField] List<Transform> pnjs = null;
     [SerializeField] List<Transform> crops = null;
     _Sc_ressourcesPremeption _ressourcesPremenption = null;
+    public bool debugNofade = false;
     private void Awake()
     {
         instance = this;
@@ -47,14 +48,28 @@ public class _Sc_Calendrier : MonoBehaviour
         if (currentPlage < 3)
         {
             currentPlage += 1;
-            _Sc_DebugBlackScreen.instance.SetBlackScreen(true, false);
+            if(debugNofade == true)
+            {
+                EndAdvanceCalendar(false);
+            }
+            else
+            {
+                _Sc_DebugBlackScreen.instance.SetBlackScreen(true, false);
+            }
         }
         else
         {
             currentDay += 1;
             currentPlage = 1;
             //Envoyer propagation maladie
-            _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+            if(debugNofade == true)
+            {
+                EndAdvanceCalendar(true);
+            }
+            else
+            {
+                _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+            }
         }
 
 

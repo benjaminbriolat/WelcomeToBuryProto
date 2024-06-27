@@ -18,3 +18,6 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: seed
+  peremptible: 1
+  peremption: 3
+  rottenVersion: {fileID: 11400000, guid: 88904dae7d54a6941a165681e0fa83f3, type: 2}

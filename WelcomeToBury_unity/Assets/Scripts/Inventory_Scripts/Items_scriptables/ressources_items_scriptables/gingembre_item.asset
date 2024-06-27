@@ -20,3 +20,4 @@ MonoBehaviour:
   formulaId: gingembre
   peremptible: 1
   peremption: 6
+  rottenVersion: {fileID: 11400000, guid: 7672add9484ab364fa350ec13ae1d03e, type: 2}

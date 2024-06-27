@@ -18,3 +18,6 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: donkeymilk
+  peremptible: 1
+  peremption: 3
+  rottenVersion: {fileID: 11400000, guid: 1e92c6bd087332f4581896c90ffabb32, type: 2}

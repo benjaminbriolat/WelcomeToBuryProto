@@ -12,6 +12,9 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
     private float fadeTime = 2.0f;
     private float spanWait = 0.5f;
     private float dayWait = 2.0f;
+
+    [SerializeField] bool isDayFading = false;
+    [SerializeField] bool isSpanFading = false;
     private void Awake()
     {
         instance = this;
@@ -27,11 +30,13 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
         {            
             if(day == true)
             {
+                isDayFading = true;
                 _canvasGroup.DOFade(1.0f, fadeTime);
                 StartCoroutine(BlackScreenFadeOut(day));
             }
             else
             {
+                isSpanFading = true;
                 _canvasGroup.DOFade(1.0f, fadeTime);
                 StartCoroutine(BlackScreenFadeOut(day));
             }     
@@ -39,6 +44,8 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
         else
         {
             _canvasGroup.DOFade(0.0f, fadeTime);
+            isDayFading = false;
+            isSpanFading = false;
         }
     }
 
@@ -46,14 +53,29 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
     {
         if(_day == true)
         {
-            yield return new WaitForSeconds(fadeTime + dayWait);
+            yield return new WaitForSeconds(fadeTime + dayWait);           
         }
         else
-        {
-            yield return new WaitForSeconds(fadeTime + spanWait);
+        {            
+            yield return new WaitForSeconds(fadeTime + spanWait);            
         }
 
         _sc_calendrier.EndAdvanceCalendar(_day);
         SetBlackScreen(false, _day);
+    }
+
+    public float getFadingTime()
+    {
+        float totalTime = 0;
+        if(isDayFading)
+        {
+            totalTime = (fadeTime*2) + dayWait + 0.02f;
+        }
+        else if (isSpanFading)
+        {
+            totalTime = (fadeTime * 2) + spanWait + 0.02f;
+        }
+
+        return totalTime;
     }
 }

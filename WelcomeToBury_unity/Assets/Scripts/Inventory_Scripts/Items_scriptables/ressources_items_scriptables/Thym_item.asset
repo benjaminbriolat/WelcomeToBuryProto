@@ -18,3 +18,6 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: thym
+  peremptible: 1
+  peremption: 3
+  rottenVersion: {fileID: 11400000, guid: 845a85c1a554ec649b0c1e857a0462fb, type: 2}

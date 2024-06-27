@@ -20,3 +20,4 @@ MonoBehaviour:
   formulaId: rhodelia
   peremptible: 1
   peremption: 6
+  rottenVersion: {fileID: 11400000, guid: adf53036389c151439eb5b468d44f6fe, type: 2}

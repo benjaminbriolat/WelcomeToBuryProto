@@ -18,3 +18,6 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: beewax
+  peremptible: 1
+  peremption: 3
+  rottenVersion: {fileID: 11400000, guid: c3b31a297de95ca439c3eaedf2a60700, type: 2}
