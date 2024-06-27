@@ -15,6 +15,10 @@ public class _Sc_formulaDisplay : MonoBehaviour
         instance = this;
         canvasGroup = transform.GetComponent<CanvasGroup>();
     }
+    private void Start()
+    {
+        canvasGroup.alpha = 0;
+    }
     public void setDisplay(int index, _So_item newItem)
     {
         ingredients[index].SetItem(newItem);
