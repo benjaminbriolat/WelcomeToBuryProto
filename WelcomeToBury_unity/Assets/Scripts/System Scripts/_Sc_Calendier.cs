@@ -46,13 +46,24 @@ public class _Sc_Calendrier : MonoBehaviour
         //Set day and span
         if (currentPlage < 3)
         {
-            currentPlage += 1;            
+            currentPlage += 1;
+            _Sc_DebugBlackScreen.instance.SetBlackScreen(true, false);
         }
         else
         {
             currentDay += 1;
             currentPlage = 1;
             //Envoyer propagation maladie
+            _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+        }
+
+
+    }
+
+    public void EndAdvanceCalendar(bool day)
+    {
+        if(day == true)
+        {
             if (_sc_epidemicManager != null)
             {
                 _sc_epidemicManager.AdvancedDay(currentDay);
@@ -63,7 +74,6 @@ public class _Sc_Calendrier : MonoBehaviour
             {
                 pnjs[i].GetComponent<_Sc_pnjState>().OnDayChange();
             }
-            
         }
 
         //envoyer repousse au ressources de CROPS
@@ -77,8 +87,6 @@ public class _Sc_Calendrier : MonoBehaviour
 
         dayText.text = currentDay.ToString();
         plageText.text = currentPlage.ToString();
-
-        _Sc_DebugBlackScreen.instance.SetBlackScreen(true);
     }
 
     public void AddCrop(Transform newCrop)
