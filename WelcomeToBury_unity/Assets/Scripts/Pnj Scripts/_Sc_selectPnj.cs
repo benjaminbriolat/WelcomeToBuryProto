@@ -16,9 +16,13 @@ public class _Sc_selectPnj : MonoBehaviour
     _Sc_fichePatientUI _sc_fichePatientUI = null;
     private int LayerPnj;
     [SerializeField] float minDist = 5.0f;
+
+    [SerializeField] float maxDist = 4.0f;
+
     Transform lastHitTransform = null;
-    bool pnjSetted = false;
-    bool unselectDone = false;
+
+    public bool pnjSetted = false;
+    public bool unselectDone = false;
     private void Awake()
     {
         Instance = this;
@@ -57,12 +61,8 @@ public class _Sc_selectPnj : MonoBehaviour
             }
             else if (unselectDone == false)
             {
-                if (Vector3.Distance(_Sc_cerveau.instance.transform.position, currentPnjState.transform.position) > minDist)
-                {
-                    unselectDone = true;
-                    lastPnjState = currentPnjState;
-                    pnjSetted = false;
-                    currentPnjState = null;
+                if (Vector3.Distance(_Sc_cerveau.instance.transform.position, currentPnjState.transform.position) > maxDist)
+                {                    
                     UnSelectPnj(false);
                 }
             }
@@ -76,6 +76,8 @@ public class _Sc_selectPnj : MonoBehaviour
             lastHitTransform = hit.transform;
             if (lastHitTransform.gameObject.layer == LayerPnj)
             {
+                UnSelectPnj(false);
+
                 Debug.Log("Hit PNJ " + lastHitTransform.name);
                 currentPnjState = (lastHitTransform.parent.GetComponent<_Sc_pnjState>());
 
@@ -90,7 +92,7 @@ public class _Sc_selectPnj : MonoBehaviour
                     }
                     if (lastSelectedSprite != null)
                     {
-                        lastSelectedSprite.UnSelected();
+                        //lastSelectedSprite.UnSelected();
                     }
                     lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
 
@@ -108,6 +110,11 @@ public class _Sc_selectPnj : MonoBehaviour
 
     public void UnSelectPnj(bool _fromUI = false)
     {
+        unselectDone = true;
+        lastPnjState = currentPnjState;
+        pnjSetted = false;
+        currentPnjState = null;
+
         if (lastPnjState != null)
         {
             lastPnjState.SetActionsUi(false);
@@ -118,9 +125,11 @@ public class _Sc_selectPnj : MonoBehaviour
         {
             lastSelectedSprite.UnSelected();
         }
-        lastPnjState = null;
 
-        if(_fromUI == false)
+        lastPnjState = null;
+        lastSelectedSprite = null;
+
+        if (_fromUI == false)
         {
             if (_sc_fichePatientUI != null)
             {

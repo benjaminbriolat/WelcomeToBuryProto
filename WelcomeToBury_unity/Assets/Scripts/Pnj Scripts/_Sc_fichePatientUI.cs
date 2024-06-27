@@ -66,9 +66,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
         else
         {
             myCanvasGroup.alpha = 0f;
-            if(_sc_SelectPnj != null)
+            if (fromUI == true)
             {
-                _sc_SelectPnj.UnSelectPnj(fromUI);
+                if (_sc_SelectPnj != null)
+                {
+                    _sc_SelectPnj.UnSelectPnj(fromUI);
+                }
             }
         }
     }
