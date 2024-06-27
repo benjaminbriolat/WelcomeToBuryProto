@@ -126,9 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954b2381ea6852f4aad3b995547d5e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutSpeed: 1
+  fadeOutSpeed: 0.05
   minDisplayTime: 1
-  delayPerChar: 0.25
+  delayPerChar: 0.1
 --- !u!225 &3384928901746279532
 CanvasGroup:
   m_ObjectHideFlags: 0

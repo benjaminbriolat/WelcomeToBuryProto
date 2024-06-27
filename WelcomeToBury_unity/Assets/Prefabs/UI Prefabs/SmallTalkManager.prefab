@@ -55,3 +55,23 @@ MonoBehaviour:
     - '*Kof* bonjour *Kof*'
     - Je me sens mal..
     - Vous pourriez m'aider?
+  - typeName: "se soucier bonne sant\xE9"
+    textList:
+    - "Merci, \xE0 la prochaine"
+    - "On a pass\xE9 un bon moment"
+    - Revenez quand vous voulez
+  - typeName: se soucier malade
+    textList:
+    - "Une id\xE9e de ce que j'ai?"
+    - Merci madame
+    - Il faut vite que j'aille mieux..
+  - typeName: soin symptome
+    textList:
+    - Merci infiniment
+    - Merci Elsa!
+    - Je me sens beaucoup mieux
+  - typeName: soin symptome toujours malde
+    textList:
+    - Merci je me sens mieux
+    - "\xE7a va un peu mieux"
+    - "c'est d\xE9ja \xE7a, merci.."
