@@ -78,10 +78,7 @@ public class _Sc_Calendrier : MonoBehaviour
         dayText.text = currentDay.ToString();
         plageText.text = currentPlage.ToString();
 
-        
-        
-        
-        
+        _Sc_DebugBlackScreen.instance.SetBlackScreen(true);
     }
 
     public void AddCrop(Transform newCrop)
