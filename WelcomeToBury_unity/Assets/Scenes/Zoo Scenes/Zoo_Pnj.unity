@@ -8001,11 +8001,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 815773891662644398, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
       propertyPath: m_Size
-      value: 0.28852513
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 815773891662644398, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
       propertyPath: m_Value
-      value: 0.9999998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1036140744400832756, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9025,18 +9025,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614659774351798877, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657829149507300329, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657829149507300329, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4657829149507300329, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
-      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4676930968831885767, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
@@ -11850,14 +11838,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 311789838463056984, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623513734272644191, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2623513734272644191, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
-      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3928212122838482157, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}

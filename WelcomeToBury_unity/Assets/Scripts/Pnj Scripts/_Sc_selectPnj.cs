@@ -56,7 +56,10 @@ public class _Sc_selectPnj : MonoBehaviour
                 }
                 else
                 {
-                    _Sc_movement.instance.setClosestDestination(currentPnjState.transform);
+                    if(_Sc_movement.instance.NewCustomDestination == false)
+                    {
+                        _Sc_movement.instance.setClosestDestination(currentPnjState.transform);
+                    }
                 }
             }
             else if (unselectDone == false)
@@ -96,6 +99,7 @@ public class _Sc_selectPnj : MonoBehaviour
                     }
                     lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
 
+                    _Sc_movement.instance.NewCustomDestination = false;
                     /*SetUnitState(lastHitTransform.parent);
                     SetSelectedSprite(lastHitTransform.parent);
                     SetActionsUi(lastHitTransform.parent);*/

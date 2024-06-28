@@ -41,6 +41,8 @@ public class _Sc_movement : MonoBehaviour
     float defaultRunSpeed;
     float defaultRunDistance;
 
+    public bool NewCustomDestination = false;
+
     private void Awake()
     {
         instance = this;
@@ -75,6 +77,7 @@ public class _Sc_movement : MonoBehaviour
                 {
                     agent.SetDestination(hit.point);
                     setSpeed(hit);
+                    NewCustomDestination = true;
                     //Debug.Log("SetDestination");
                 }
             }
