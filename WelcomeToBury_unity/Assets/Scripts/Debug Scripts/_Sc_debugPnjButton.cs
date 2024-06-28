@@ -73,4 +73,9 @@ public class _Sc_debugPnjButton : MonoBehaviour, ISelectHandler, IPointerEnterHa
         yield return unselectWFS;
         EventSystem.current.SetSelectedGameObject(null);
     }
+
+    public void setLockedColor()
+    {
+        ButtonImage.color = BaseColor;
+    }
 }

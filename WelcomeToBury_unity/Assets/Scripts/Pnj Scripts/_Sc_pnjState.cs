@@ -182,7 +182,7 @@ public class _Sc_pnjState : MonoBehaviour
 
         if(_sc_SelectPnj.lastPnjState == this)
         {
-            _sc_SelectPnj.SetFichePatient(0);
+            _sc_SelectPnj.SetFichePatient(0, _sc_SelectPnj.lastPnjState);
         }
     }
 

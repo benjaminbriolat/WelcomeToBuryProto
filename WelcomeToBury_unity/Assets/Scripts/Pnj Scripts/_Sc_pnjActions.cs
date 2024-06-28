@@ -14,7 +14,7 @@ public class _Sc_pnjActions : MonoBehaviour
     _Sc_smallTalkData _sc_smallTalkData = null;
     Transform smalltalkAnchor = null;
     _Sc_DebugBlackScreen _sc_debugBlackScreen = null;
-
+    _Sc_debugPnjButton _soucierButton = null;
     private void Awake()
     {
         _sc_pnjState = GetComponent<_Sc_pnjState>();
@@ -29,7 +29,7 @@ public class _Sc_pnjActions : MonoBehaviour
         _sc_smallTalkData = _Sc_smallTalkData.instance;
         _sc_smallTalkCanvas = _Sc_smallTalkCanvas.instance;
         _sc_debugBlackScreen = _Sc_DebugBlackScreen.instance;
-
+        _soucierButton = transform.GetChild(1).transform.GetChild(3).transform.GetChild(0).transform.GetChild(1).transform.GetChild(0).GetComponent<_Sc_debugPnjButton>();
 
         smalltalkAnchor = transform.GetChild(1).GetChild(4);
 
@@ -42,7 +42,7 @@ public class _Sc_pnjActions : MonoBehaviour
         _sc_pnjState.CanSoucier = true;
         _sc_pnjState.SetButtonsState();
 
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime());
+        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
         
         if (_passTime == true)
         {
@@ -91,7 +91,7 @@ public class _Sc_pnjActions : MonoBehaviour
                 _sc_calendrier.AdvanceCalendar();
             }
 
-            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime());
+            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
 
             
 
@@ -116,7 +116,7 @@ public class _Sc_pnjActions : MonoBehaviour
     {        
         _sc_pnjState.SetButtonsState();
 
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime());
+        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
         bool hasHeal = false;
         if (_sc_pnjState.symptome1 == true && hasHeal == false)
         {          
@@ -221,7 +221,7 @@ public class _Sc_pnjActions : MonoBehaviour
         bool hasHeal = false;
         _sc_pnjState.SetButtonsState();
 
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime());
+        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
 
         if(_sc_pnjState.capTrustReached == true)
         {
@@ -271,6 +271,7 @@ public class _Sc_pnjActions : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         _sc_pnjState.CanSoucier = false;
+        _soucierButton.setLockedColor();
         _sc_pnjState.SetButtonsState();
     }
 }
