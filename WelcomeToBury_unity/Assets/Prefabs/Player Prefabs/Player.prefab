@@ -52,6 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftClickReleased: 0
+  isInMenu: 0
+  canMove: 1
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &2197546966744703971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,9 +148,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerName: Pnj
+  currentPnjState: {fileID: 0}
   lastPnjState: {fileID: 0}
   lastSelectedSprite: {fileID: 0}
-  deselectDistance: 15
+  minDist: 2
+  maxDist: 4
+  pnjSetted: 0
+  unselectDone: 0
 --- !u!1 &4397132487816158403
 GameObject:
   m_ObjectHideFlags: 0
