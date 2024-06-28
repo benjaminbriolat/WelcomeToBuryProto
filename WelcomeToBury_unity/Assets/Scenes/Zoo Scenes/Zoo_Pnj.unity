@@ -5713,10 +5713,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1360103085575236559, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
-      propertyPath: minDist
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2197546966744703971, guid: db52bcfb00a3d9a4c96c2188c269d5e2, type: 3}
       propertyPath: runSpeedUi
       value: 
@@ -11854,6 +11850,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 311789838463056984, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623513734272644191, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623513734272644191, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
+      propertyPath: m_BlocksRaycasts
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3928212122838482157, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
