@@ -14,6 +14,7 @@ public class _So_item : ScriptableObject
     public bool peremptible = true;
     public int peremption = 3;
     public _So_item rottenVersion = null;
+    public bool Rotten = false;
 }
 
 public enum ItemType

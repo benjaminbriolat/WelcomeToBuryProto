@@ -20,3 +20,5 @@ MonoBehaviour:
   formulaId: nut_rotten
   peremptible: 0
   peremption: 6
+  rottenVersion: {fileID: 0}
+  Rotten: 1

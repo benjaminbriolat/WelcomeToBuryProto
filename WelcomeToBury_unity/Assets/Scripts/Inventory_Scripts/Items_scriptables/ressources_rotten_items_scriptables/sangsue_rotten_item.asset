@@ -20,3 +20,5 @@ MonoBehaviour:
   formulaId: leech_rotten
   peremptible: 0
   peremption: 9
+  rottenVersion: {fileID: 0}
+  Rotten: 1

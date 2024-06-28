@@ -20,3 +20,5 @@ MonoBehaviour:
   formulaId: snaildrool_rotten
   peremptible: 0
   peremption: 5
+  rottenVersion: {fileID: 0}
+  Rotten: 1

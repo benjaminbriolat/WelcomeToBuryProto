@@ -20,3 +20,5 @@ MonoBehaviour:
   formulaId: camomille_rotten
   peremptible: 0
   peremption: 3
+  rottenVersion: {fileID: 0}
+  Rotten: 1

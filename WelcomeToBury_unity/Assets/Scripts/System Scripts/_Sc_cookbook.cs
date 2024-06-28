@@ -6,6 +6,8 @@ using UnityEngine;
 public class _Sc_cookbook : MonoBehaviour
 {
     public static _Sc_cookbook instance = null;
+    _Sc_messagesManager _sc_MessagesManager = null;
+
     [System.Serializable]
     public enum Ingredients
     {
@@ -43,6 +45,10 @@ public class _Sc_cookbook : MonoBehaviour
             }
         }
     }
+    private void Start()
+    {
+        _sc_MessagesManager = _Sc_messagesManager.instance;
+    }
     private void Update()
     {
         //DebugTestProgress
@@ -63,6 +69,11 @@ public class _Sc_cookbook : MonoBehaviour
                     if (receipes[i].discoveryProgress >= receipes[i].discoveryCap)
                     {
                         receipes[i].discovered = true;
+                        StartCoroutine(RemedeProgressFeedback(i+1, true));
+                    }
+                    else
+                    {
+                        StartCoroutine(RemedeProgressFeedback(i + 1, false));
                     }
                 }                
             }
@@ -142,5 +153,18 @@ public class _Sc_cookbook : MonoBehaviour
     public string getAilmentName(int symptom)
     {
         return receipes[symptom].ailmentName;
+    }
+
+    private IEnumerator RemedeProgressFeedback(int remede, bool discovered)
+    {
+        yield return new WaitForSeconds(4.0f);
+        if(discovered == false)
+        {
+            _sc_MessagesManager.SetMessageText("Remède" + remede.ToString() + " " + "progressed !", true);
+        }
+        else
+        {
+            _sc_MessagesManager.SetMessageText("Remède" + remede.ToString() + " " + "discovered !", true);
+        }
     }
 }

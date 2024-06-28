@@ -11,6 +11,8 @@ public class _Sc_inventoryManager : MonoBehaviour
     public GameObject iventoryItemPrefab;
     public bool inventoryFull = false;
     _Sc_ressourcesPremeption _ressourcesPeremtion;
+    _Sc_messagesManager _sc_messageManager = null;
+    bool canShowMessageRotten = true;
     private void Awake()
     {
         instance = this;
@@ -18,9 +20,36 @@ public class _Sc_inventoryManager : MonoBehaviour
     private void Start()
     {
         _ressourcesPeremtion = _Sc_ressourcesPremeption.instance;
+        _sc_messageManager = _Sc_messagesManager.instance;
     }
     public bool AddItem(_So_item _item, int _count = 1)
     {
+        if (inventoryFull == false)
+        {
+            if(_item.Rotten == false)
+            {
+                if (_count > 1)
+                {
+                    _sc_messageManager.SetMessageText("+" + _item.itemName.ToString() + "(" + _count.ToString() + ("") + ")");
+                }
+                else
+                {
+                    _sc_messageManager.SetMessageText("+" + _item.itemName.ToString());
+                }
+
+            }
+            else if (_item.Rotten == true)
+            {
+                if (canShowMessageRotten == true)
+                {
+                    canShowMessageRotten = false;
+                    _sc_messageManager.SetMessageText("Some resources have rotted");
+                    StartCoroutine(DelayRottenMessage());
+                }
+            }       
+        }
+
+
         //Check slot with same item and count not max
         for (int i = 0; i < inventorySlots.Length; i++)
         {
@@ -174,5 +203,11 @@ public class _Sc_inventoryManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         CheckInventory();
+    }
+
+    public IEnumerator DelayRottenMessage()
+    {
+        yield return new WaitForSeconds(1.0f);
+        canShowMessageRotten = true;
     }
 }
