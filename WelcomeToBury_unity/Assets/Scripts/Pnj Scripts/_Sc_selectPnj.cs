@@ -142,7 +142,7 @@ public class _Sc_selectPnj : MonoBehaviour
         _pnjTransform.GetComponent<_Sc_pnjState>().CurrentState = _Sc_pnjState.State.Selected;
         lastPnjState = _pnjTransform.GetComponent<_Sc_pnjState>();
 
-        SetFichePatient();
+        SetFichePatient(0);
     }
     private void SetSelectedSprite(Transform _pnjTransform)
     {
@@ -154,10 +154,25 @@ public class _Sc_selectPnj : MonoBehaviour
     {
         _pnjTransform.GetComponent<_Sc_pnjState>().SetActionsUi(true);
     }
-    public void SetFichePatient()
+    public void SetFichePatient(float delay)
     {
+        if(delay>0)
+        {
+            StartCoroutine(delayFichePatient(delay));
+        }
+        else
+        {
+            _sc_fichePatientUI.SetFicheValues(lastPnjState, lastPnjState._so_pnjInfos, lastPnjState.state, lastPnjState.GroupLevel,
+           lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
+        }
+
+    }
+
+    private IEnumerator delayFichePatient(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         _sc_fichePatientUI.SetFicheValues(lastPnjState, lastPnjState._so_pnjInfos, lastPnjState.state, lastPnjState.GroupLevel,
-            lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
+           lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
     }
 }
 

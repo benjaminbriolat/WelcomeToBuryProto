@@ -60,6 +60,7 @@ public class _Sc_pnjState : MonoBehaviour
 
     public bool DialogueOk = false;
     public bool SoucierOk = false;
+    public bool hasSpokenToPlayer = false;
 
     //Buttons booleans
     public bool CanDialogue = true;
@@ -68,6 +69,9 @@ public class _Sc_pnjState : MonoBehaviour
     public bool CanGesteSoin = false;
 
     _Sc_pnjActionsParent _sc_PnjActionsParent = null;
+    _Sc_DebugBlackScreen _sc_debugBlackScreen = null;
+
+
 
     private void Awake()
     {
@@ -83,6 +87,7 @@ public class _Sc_pnjState : MonoBehaviour
         _sc_SelectPnj = _Sc_selectPnj.Instance;
         _sc_epidemiManager = _Sc_EpidemicManager.instance;
         _sc_calendrier = _Sc_Calendrier.instance;
+        _sc_debugBlackScreen = _Sc_DebugBlackScreen.instance;
         pnjActionsUiParent.gameObject.SetActive(false);
         AddPnjToGroup();
         setSymptomeIcon();
@@ -139,6 +144,10 @@ public class _Sc_pnjState : MonoBehaviour
 
     public void onSymptomeChange()
     {
+        if(hasSpokenToPlayer == true)
+        {
+            CanSoucier = true;
+        }
         if (!symptome1 && !symptome2 && !symptome3 && !symptome4)
         {
             _sc_pnjColor.SetBaseColor();
@@ -173,7 +182,7 @@ public class _Sc_pnjState : MonoBehaviour
 
         if(_sc_SelectPnj.lastPnjState == this)
         {
-            _sc_SelectPnj.SetFichePatient();
+            _sc_SelectPnj.SetFichePatient(0);
         }
     }
 
