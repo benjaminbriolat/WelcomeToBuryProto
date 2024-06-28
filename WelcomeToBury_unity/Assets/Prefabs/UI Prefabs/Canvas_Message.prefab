@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 2575575077928790798}
   - component: {fileID: 2623513734272644191}
   - component: {fileID: 2114713974421617641}
+  - component: {fileID: 6472096563057322360}
   m_Layer: 5
   m_Name: Canvas_Message
   m_TagString: Untagged
@@ -194,6 +195,20 @@ CanvasGroup:
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &2114713974421617641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928212122838482157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59065b1a118c414db7ab5c186de2c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messagePrefab: {fileID: 8299942927476849395, guid: 9253d2a6a198d8b4989b366e2177d081, type: 3}
+  messageTime: 3
+--- !u!114 &6472096563057322360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
