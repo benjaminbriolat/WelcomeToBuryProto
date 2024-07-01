@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,12 @@ public class _Sc_formulaDisplay : MonoBehaviour
     public static _Sc_formulaDisplay instance = null;
     [SerializeField] List<_Sc_formulaItem> ingredients = new List<_Sc_formulaItem>();
     [SerializeField] List<Image> pluses = new List<Image>();
+    CanvasGroup autoCanvasGroup = null;
     CanvasGroup canvasGroup = null;
+    _Sc_inventoryManager inventoryManager = null;
+    _Sc_CraftManager _sc_craftManager = null;
+
+    
     bool isOpen = false;
     private void Awake()
     {
@@ -18,6 +24,9 @@ public class _Sc_formulaDisplay : MonoBehaviour
     private void Start()
     {
         canvasGroup.alpha = 0;
+        inventoryManager = _Sc_inventoryManager.instance;
+        _sc_craftManager = _Sc_CraftManager.instance;
+        autoCanvasGroup = transform.GetChild(2).GetComponent<CanvasGroup>();
     }
     public void setDisplay(int index, _So_item newItem)
     {
@@ -40,6 +49,19 @@ public class _Sc_formulaDisplay : MonoBehaviour
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
             isOpen = true;
+
+            if(checkIfAllItemsAvailable() == true)
+            {
+                autoCanvasGroup.alpha = 1;
+                autoCanvasGroup.interactable = true;
+                autoCanvasGroup.blocksRaycasts = true;
+            }
+            else
+            {
+                autoCanvasGroup.alpha = 0;
+                autoCanvasGroup.interactable = false;
+                autoCanvasGroup.blocksRaycasts = false;
+            }
         }
     }
     public void SetPluses()
@@ -70,6 +92,46 @@ public class _Sc_formulaDisplay : MonoBehaviour
             ingredients[i].GetComponent<Image>().enabled = false;
             ingredients[i]._item = null;
 
+        }
+    }
+
+    public bool checkIfAllItemsAvailable()
+    {
+        bool canPrepare = true;
+
+        for (int i = 0; i < ingredients.Count; i++)
+        {
+            if (inventoryManager.checkItem(ingredients[i]._item, 1,true) == false)
+            {
+                canPrepare = false;
+            }
+        }
+        return canPrepare;
+    }
+
+    public void AutoPrepare()
+    {
+        bool canPrepare = true;
+
+        for(int i = 0; i < ingredients.Count; i++)
+        {
+            if (inventoryManager.checkItem(ingredients[i]._item,1,true) == false)
+            {
+                canPrepare = false;
+            }
+        }
+
+        if(canPrepare)
+        {
+            _sc_craftManager.ClearCraftTable(true);
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                _sc_craftManager.AutoFillSlot(i, ingredients[i]._item);
+            }
+        }
+        else
+        {
+            Debug.Log("NotAllItems");
         }
     }
 }

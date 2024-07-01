@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: oil
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: 9b42284e16025e24eb876cf314addbff, type: 2}
+  Rotten: 0

@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: peppermint
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: 80a67a3f7589bad4388ba9c742a9e9a5, type: 2}
+  Rotten: 0

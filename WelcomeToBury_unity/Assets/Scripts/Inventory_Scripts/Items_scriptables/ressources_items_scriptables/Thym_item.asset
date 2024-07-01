@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: thym
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: 845a85c1a554ec649b0c1e857a0462fb, type: 2}
+  Rotten: 0

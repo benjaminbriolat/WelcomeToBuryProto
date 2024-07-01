@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: donkeymilk
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: 1e92c6bd087332f4581896c90ffabb32, type: 2}
+  Rotten: 0

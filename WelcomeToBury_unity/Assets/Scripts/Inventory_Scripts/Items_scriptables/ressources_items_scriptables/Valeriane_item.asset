@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: valeriane
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: b6526a8bf1f38a045934b4ff254faad2, type: 2}
+  Rotten: 0

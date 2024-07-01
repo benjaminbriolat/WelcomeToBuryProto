@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: snakevenom
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: b39d07a0a240d5a49a9da32adfe7a0d6, type: 2}
+  Rotten: 0

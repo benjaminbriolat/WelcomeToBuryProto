@@ -13,6 +13,7 @@ public class _Sc_inventoryManager : MonoBehaviour
     _Sc_ressourcesPremeption _ressourcesPeremtion;
     _Sc_messagesManager _sc_messageManager = null;
     bool canShowMessageRotten = true;
+    _Sc_CraftManager _sc_craftManager = null;
     private void Awake()
     {
         instance = this;
@@ -21,6 +22,7 @@ public class _Sc_inventoryManager : MonoBehaviour
     {
         _ressourcesPeremtion = _Sc_ressourcesPremeption.instance;
         _sc_messageManager = _Sc_messagesManager.instance;
+        _sc_craftManager = _Sc_CraftManager.instance;
     }
     public bool AddItem(_So_item _item, int _count = 1)
     {
@@ -160,7 +162,7 @@ public class _Sc_inventoryManager : MonoBehaviour
         }
     }
 
-    public bool checkItem(_So_item _item, int countNeeded)
+    public bool checkItem(_So_item _item, int countNeeded, bool CheckCraftSlots = false)
     {
         Debug.Log("itemreceived = " + _item.name);
         bool hasItem = false;
@@ -184,6 +186,15 @@ public class _Sc_inventoryManager : MonoBehaviour
                     }
                 }
             }  
+        }
+        //checkItemsInCraft
+        if(CheckCraftSlots)
+        {
+            if(_sc_craftManager.getItemInSLots(_item) > 0)
+            {
+                hasItem = true;
+                itemCount += 1;
+            }
         }
 
         Debug.Log("HasItem = " + hasItem);

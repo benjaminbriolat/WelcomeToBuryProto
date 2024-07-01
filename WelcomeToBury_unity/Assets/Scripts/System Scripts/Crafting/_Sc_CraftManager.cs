@@ -207,6 +207,18 @@ public class _Sc_CraftManager : MonoBehaviour
 
     }
 
+    public void AutoFillSlot(int slotIndex, _So_item sentItem)
+    {
+        craftingSlots[slotIndex].GetComponent<Image>().sprite = sentItem.image;
+        craftingSlots[slotIndex]._item = sentItem;
+        craftingSlots[slotIndex].gameObject.SetActive(true);
+        _sc_iventoryManager.RemoveItem(sentItem);
+        craftingSlots[slotIndex].SetTool();
+        craftingSlots[slotIndex].transform.DORewind();
+        craftingSlots[slotIndex].transform.DOKill();
+        craftingSlots[slotIndex].transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+    }
+
     
     public void OnMouseDownItem( _So_item item)
     {
@@ -219,6 +231,24 @@ public class _Sc_CraftManager : MonoBehaviour
 
 
     }
+
+    public int getItemInSLots(_So_item sentItem)
+    {
+        int itemCount = 0;
+        for(int i = 0; i < craftingSlots.Length; i++)
+        {
+            if (craftingSlots[i]._item != null)
+            {
+                if (craftingSlots[i]._item == sentItem)
+                {
+                    itemCount +=1;
+                }
+            }
+        }
+        return itemCount;
+    }
+
+    
 
    /* public void OnMouseDownItem2()
     {

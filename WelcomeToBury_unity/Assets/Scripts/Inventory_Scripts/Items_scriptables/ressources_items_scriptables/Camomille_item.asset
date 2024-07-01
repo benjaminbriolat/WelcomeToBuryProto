@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: camomille
   peremptible: 1
-  peremption: 3
+  peremption: 5
   rottenVersion: {fileID: 11400000, guid: 236034c3dd306c74b8934b0e8aa15086, type: 2}
+  Rotten: 0
