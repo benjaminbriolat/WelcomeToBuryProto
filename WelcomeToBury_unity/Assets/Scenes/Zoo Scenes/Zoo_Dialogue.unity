@@ -3485,7 +3485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431628273001791324, guid: a48ceef7271670847a4439589e214bd4, type: 3}
       propertyPath: receipes.Array.data[0].discovered
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7431628273001791324, guid: a48ceef7271670847a4439589e214bd4, type: 3}
       propertyPath: receipes.Array.data[0].ailmentName
@@ -3534,7 +3534,7 @@ PrefabInstance:
     - target: {fileID: 7431628273001791324, guid: a48ceef7271670847a4439589e214bd4, type: 3}
       propertyPath: receipes.Array.data[3].ingredients.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 0da67d035b55a5443a4e5613da0f4dc6, type: 2}
+      objectReference: {fileID: 11400000, guid: ae1a9ba4f201272459007d8acd2d1658, type: 2}
     - target: {fileID: 7431628273001791324, guid: a48ceef7271670847a4439589e214bd4, type: 3}
       propertyPath: receipes.Array.data[3].ingredients.Array.data[4]
       value: 
@@ -8855,7 +8855,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0acd2e4c2b270284f81e169254608874, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: b0f47efd371c0cc4799cf57a1823fdd5, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1936935007
 Transform:

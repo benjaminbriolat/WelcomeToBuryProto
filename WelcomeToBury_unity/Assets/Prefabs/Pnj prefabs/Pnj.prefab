@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentState: 0
-  _so_pnjInfos: {fileID: 11400000, guid: 251a594dea2e0094aae7cb0f6a3a8eb7, type: 2}
+  _so_pnjInfos: {fileID: 11400000, guid: de4065c50ef613d4cb75fcc1f5f7f124, type: 2}
   GroupLevel: 0
   capTrustReached: 0
   symptome1: 0
@@ -552,6 +552,8 @@ MonoBehaviour:
   symptome3: 0
   symptome4: 0
   symptomes: 00000000
+  totalImmuneDays: 3
+  currentImmuneDays: 0
   progressionCap: 5
   currentProgression: 0
   maxSymptoms: 4
@@ -566,6 +568,7 @@ MonoBehaviour:
   myPnjGroup: {fileID: 0}
   DialogueOk: 0
   SoucierOk: 0
+  hasSpokenToPlayer: 0
   CanDialogue: 1
   CanSoucier: 0
   CanRemede: 0
@@ -594,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 2.5, y: 3, z: 2.5}
+  m_Size: {x: 2.5, y: 10.79, z: 2.5}
   m_Center: {x: 0, y: -0.5, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
@@ -1298,6 +1301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 389571630905558119}
   - component: {fileID: 6496167096454318625}
+  - component: {fileID: 5710389655972545942}
   m_Layer: 5
   m_Name: Actions
   m_TagString: Untagged
@@ -1341,6 +1345,18 @@ MonoBehaviour:
   SoucierButton: {fileID: 0}
   RemedeButton: {fileID: 0}
   GesteSoinButton: {fileID: 0}
+--- !u!114 &5710389655972545942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191782910128205302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7a552fd1990da48a9e8de5a457d5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2219001497933053474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,7 +3920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.1, y: -78.9}
+  m_AnchoredPosition: {x: 13.1, y: -98.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6535667465737381779
