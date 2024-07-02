@@ -23,6 +23,8 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] bool fullrespawn = false;
     [SerializeField] GameObject canvasChild = null;
     [SerializeField] bool usePicto = false;
+    Transform raySocket = null;
+    [SerializeField] LayerMask _layerMask;
     public enum Growth
     {
         fast,
@@ -37,17 +39,18 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     _Sc_Calendrier _calendrier = null;
     private void Start()
     {
-        if(growthSpeed.ToString() == "fast")
+        raySocket = transform.GetChild(1);
+        if (growthSpeed.ToString() == "fast")
         {
-            delayResapwn = 6;
+            delayResapwn = 3;
         }
         if (growthSpeed.ToString() == "mid")
         {
-            delayResapwn = 9;
+            delayResapwn = 6;
         }
         if (growthSpeed.ToString() == "slow")
         {
-            delayResapwn = 12;
+            delayResapwn = 9;
         }
 
         _calendrier = _Sc_Calendrier.instance;
@@ -61,6 +64,8 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
             canvasChild.SetActive(true);
             transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
         }
+
+        canvasChild.transform.position = new Vector3(canvasChild.transform.position.x, GetHeight() + 4.13f, canvasChild.transform.position.z);
         
     }
    
@@ -95,7 +100,7 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
         if(currenrAmount < maxAmountPossible)
         {
             GameObject clone = Instantiate(objectToSpawn, RandomPointInCircle(transform.position, distance), Quaternion.identity);
-            clone.transform.position = new Vector3(clone.transform.position.x, 0.25f, clone.transform.position.z);
+            clone.transform.position = new Vector3(clone.transform.position.x, GetHeight() + 0.25f, clone.transform.position.z);
             clone.GetComponent<_Sc_itemLdo>()._ressourcesSpawner = this;
             clone.GetComponent<_Sc_itemLdo>()._item = _item;
             clone.GetComponent<_Sc_itemLdo>().count = Random.Range(minRessourcesInLdo, maxRessourcesInLdo + 1);
@@ -108,6 +113,7 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
         Vector3 centerOfRadius = origin;
         float radius = maxRadius;
         Vector3 target = centerOfRadius + (Vector3)(radius * UnityEngine.Random.insideUnitSphere);
+        raySocket.position = new Vector3(target.x, raySocket.position.y, target.z);
         return target;
     }
 
@@ -117,5 +123,18 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
         {
             currenrAmount -= 1;
         }
+    }
+    public float GetHeight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(raySocket.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, _layerMask))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            return 0;
+        }
+        
     }
 }
