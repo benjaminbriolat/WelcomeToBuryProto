@@ -14,6 +14,7 @@ public class _Sc_inventoryManager : MonoBehaviour
     _Sc_messagesManager _sc_messageManager = null;
     bool canShowMessageRotten = true;
     _Sc_CraftManager _sc_craftManager = null;
+    _Sc_formulaDisplay _formulaDisplay = null;
     private void Awake()
     {
         instance = this;
@@ -23,6 +24,7 @@ public class _Sc_inventoryManager : MonoBehaviour
         _ressourcesPeremtion = _Sc_ressourcesPremeption.instance;
         _sc_messageManager = _Sc_messagesManager.instance;
         _sc_craftManager = _Sc_CraftManager.instance;
+        _formulaDisplay = _Sc_formulaDisplay.instance;
     }
     public bool AddItem(_So_item _item, int _count = 1)
     {
@@ -67,7 +69,9 @@ public class _Sc_inventoryManager : MonoBehaviour
                     {
                         _ressourcesPeremtion.AddItem(_item, _item.peremption, _count);
                     }
+                    _formulaDisplay.UpdateAutoButton();
                     return true;
+
                 }
                 else
                 {
@@ -106,11 +110,11 @@ public class _Sc_inventoryManager : MonoBehaviour
                 itemInSlot = slot.GetComponentInChildren<_Sc_inventoryItem>();
                 itemInSlot.count = _count;
                 itemInSlot.SetCount();
-                
+                _formulaDisplay.UpdateAutoButton();
                 return true;
             }
         }
-
+        _formulaDisplay.UpdateAutoButton();
         return false;
     }
 
@@ -139,6 +143,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                     inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().count -= 1;
                     inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().SetCount();
                     Debug.Log("RemoveItem Done");
+                    _formulaDisplay.UpdateAutoButton();
                 }
             }
         }

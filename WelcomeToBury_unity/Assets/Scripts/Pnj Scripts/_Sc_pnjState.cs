@@ -88,7 +88,7 @@ public class _Sc_pnjState : MonoBehaviour
         _sc_epidemiManager = _Sc_EpidemicManager.instance;
         _sc_calendrier = _Sc_Calendrier.instance;
         _sc_debugBlackScreen = _Sc_DebugBlackScreen.instance;
-        pnjActionsUiParent.gameObject.SetActive(false);
+        pnjActionsUiParent.GetComponent<CanvasGroup>().alpha = 0;
         AddPnjToGroup();
         setSymptomeIcon();
         SetButtonsState();
@@ -227,7 +227,18 @@ public class _Sc_pnjState : MonoBehaviour
 
     public void SetActionsUi(bool _value)
     {
-        pnjActionsUiParent.gameObject.SetActive(_value);
+        if(_value)
+        {
+            pnjActionsUiParent.GetComponent<CanvasGroup>().alpha = 1;
+            pnjActionsUiParent.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            pnjActionsUiParent.GetComponent<CanvasGroup>().interactable = true;
+        }
+        else
+        {
+            pnjActionsUiParent.GetComponent<CanvasGroup>().alpha = 0;
+            pnjActionsUiParent.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            pnjActionsUiParent.GetComponent<CanvasGroup>().interactable = false;
+        }
     }
 
     public void OnDayChange()

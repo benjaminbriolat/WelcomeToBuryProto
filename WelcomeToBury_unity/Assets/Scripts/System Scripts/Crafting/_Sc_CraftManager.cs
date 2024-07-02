@@ -32,6 +32,7 @@ public class _Sc_CraftManager : MonoBehaviour
 
     public _Sc_inventoryItem lastUsedIventoryItem = null;
     public _Sc_craftSlot lastUsedSlot = null;
+    _Sc_formulaDisplay _formulaDisplay = null;
     private void Awake()
     {
         instance = this;
@@ -43,6 +44,7 @@ public class _Sc_CraftManager : MonoBehaviour
         _sc_iventoryManager = _Sc_inventoryManager.instance;
         canvaGroup = transform.GetComponent<CanvasGroup>();
         _sc_cerveau = _Sc_cerveau.instance;
+        _formulaDisplay = _Sc_formulaDisplay.instance;
         receipes = new List<_Sc_receipe>();
         for (int i = 0; i < receipesParent.childCount; i++)
         {
@@ -148,6 +150,7 @@ public class _Sc_CraftManager : MonoBehaviour
             ClearCraftTable(true);
             isOpen = false;
             _sc_cerveau.isInMenu = false;
+            _formulaDisplay.OpenFormula(false);
         }
         else
         {

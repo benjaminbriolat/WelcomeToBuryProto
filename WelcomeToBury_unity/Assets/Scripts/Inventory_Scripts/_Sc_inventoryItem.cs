@@ -26,6 +26,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     _Sc_tooltipTrigger _sc_tolltipTrigger = null;
     _Sc_CraftManager _sc_CraftManager = null;
     _Sc_ressourcesPremeption _ressourcesPeremption = null;
+    _Sc_formulaDisplay _formulaDisplay = null;
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -39,6 +40,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         LayerGround = LayerMask.NameToLayer(layerName);
         _sc_CraftManager = _Sc_CraftManager.instance;
         _ressourcesPeremption = _Sc_ressourcesPremeption.instance;
+        _formulaDisplay = _Sc_formulaDisplay.instance;
     }
 
     public void InitializeItem(_So_item _newItem)
@@ -136,7 +138,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         _sc_itemLdo.count = count;
         _ressourcesPeremption.ClearList(_sc_itemLdo._item);
         //StartCoroutine(_Sc_inventoryManager.instance.CheckInventoryDelay());
-
+        _formulaDisplay.UpdateAutoButton();
         Destroy(gameObject);
     }
 

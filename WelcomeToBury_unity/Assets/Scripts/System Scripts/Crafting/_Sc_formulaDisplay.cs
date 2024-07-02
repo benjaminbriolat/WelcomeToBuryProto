@@ -42,6 +42,9 @@ public class _Sc_formulaDisplay : MonoBehaviour
             canvasGroup.blocksRaycasts = false;
             ClearDisplay();
             isOpen = false;
+            autoCanvasGroup.alpha = 0;
+            autoCanvasGroup.interactable = false;
+            autoCanvasGroup.blocksRaycasts = false;
         }
         else
         {
@@ -93,6 +96,34 @@ public class _Sc_formulaDisplay : MonoBehaviour
             ingredients[i]._item = null;
 
         }
+    }
+
+    public void UpdateAutoButton()
+    {
+        if (isOpen == true)
+        {
+            bool canPrepare = true;
+            for (int i = 0; i < ingredients.Count; i++)
+            {
+                if (inventoryManager.checkItem(ingredients[i]._item, 1, true) == false)
+                {
+                    canPrepare = false;
+                }
+            }
+            if (canPrepare == true)
+            {
+                Debug.Log("CanPrep");
+                autoCanvasGroup.alpha = 1;
+                autoCanvasGroup.interactable = true;
+                autoCanvasGroup.blocksRaycasts = true;
+            }
+            else
+            {
+                autoCanvasGroup.alpha = 0;
+                autoCanvasGroup.interactable = false;
+                autoCanvasGroup.blocksRaycasts = false;
+            }
+        }        
     }
 
     public bool checkIfAllItemsAvailable()
