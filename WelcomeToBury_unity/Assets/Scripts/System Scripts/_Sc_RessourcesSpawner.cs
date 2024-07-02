@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class _Sc_RessourcesSpawner : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] float distance = 10;
     [SerializeField] int toSpawnOnStart = 3;
     [SerializeField] bool fullrespawn = false;
-
+    [SerializeField] GameObject canvasChild = null;
+    [SerializeField] bool usePicto = false;
     public enum Growth
     {
         fast,
@@ -54,6 +56,12 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
         {
             SpawnLoop(toSpawnOnStart);
         }
+        if(usePicto == true)
+        {
+            canvasChild.SetActive(true);
+            transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
+        }
+        
     }
    
     public void OnSpanChange()
