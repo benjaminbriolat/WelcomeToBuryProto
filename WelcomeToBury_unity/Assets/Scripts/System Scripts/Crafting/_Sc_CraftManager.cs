@@ -251,6 +251,25 @@ public class _Sc_CraftManager : MonoBehaviour
         return itemCount;
     }
 
+    public void AddInFirstFreeSlot(_So_item newItem)
+    {
+        for(int i = 0; i < craftingSlots.Length; i++)
+        {
+            if (craftingSlots[i]._item == null)
+            {
+                craftingSlots[i].GetComponent<Image>().sprite = newItem.image;
+                craftingSlots[i]._item = newItem;
+                craftingSlots[i].gameObject.SetActive(true);
+                _sc_iventoryManager.RemoveItem(newItem);
+                craftingSlots[i].SetTool();
+                craftingSlots[i].transform.DORewind();
+                craftingSlots[i].transform.DOKill();
+                craftingSlots[i].transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+                break;
+            }
+        }
+    }
+
     
 
    /* public void OnMouseDownItem2()

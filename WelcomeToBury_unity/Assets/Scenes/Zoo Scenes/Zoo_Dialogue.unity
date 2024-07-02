@@ -837,16 +837,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
     - target: {fileID: 2489840694485679774, guid: 91d691e1b7b36ca42838b7d0b388bf0e, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 2489840694485679774, guid: 91d691e1b7b36ca42838b7d0b388bf0e, type: 3}
       propertyPath: m_Name
       value: Spawner_araignee
-      objectReference: {fileID: 0}
-    - target: {fileID: 2829053059712327484, guid: 91d691e1b7b36ca42838b7d0b388bf0e, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8106401448222732231, guid: 91d691e1b7b36ca42838b7d0b388bf0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,16 +1273,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: fb32f397289cafe4b8a6934547681480, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: fb32f397289cafe4b8a6934547681480, type: 3}
       propertyPath: m_Name
       value: Spawner_sangsue
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972364783624569056, guid: fb32f397289cafe4b8a6934547681480, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1416,16 +1400,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8726154308950248669, guid: 8a806d253bf9abb479d75e665809200b, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8726154308950248669, guid: 8a806d253bf9abb479d75e665809200b, type: 3}
       propertyPath: m_Name
       value: Spawner_abeille
-      objectReference: {fileID: 0}
-    - target: {fileID: 9164827826560825030, guid: 8a806d253bf9abb479d75e665809200b, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2181,16 +2157,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7548944272360967730, guid: d9cfcca866d3ad049927e4bd691fa45a, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 7548944272360967730, guid: d9cfcca866d3ad049927e4bd691fa45a, type: 3}
       propertyPath: m_Name
       value: Spawner_huile
-      objectReference: {fileID: 0}
-    - target: {fileID: 8429114210218872837, guid: d9cfcca866d3ad049927e4bd691fa45a, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2587,14 +2555,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5322752945076659092, guid: 30d7f1100187f8348aa2b505ecce72e0, type: 3}
-      propertyPath: distance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6828412526613064124, guid: 30d7f1100187f8348aa2b505ecce72e0, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6828412526613064124, guid: 30d7f1100187f8348aa2b505ecce72e0, type: 3}
       propertyPath: m_Name
       value: Spawner_anesse
@@ -2964,16 +2924,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: 586c29da84e89814281b3438ce968984, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: 586c29da84e89814281b3438ce968984, type: 3}
       propertyPath: m_Name
       value: Spawner_reglisse
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972364783624569056, guid: 586c29da84e89814281b3438ce968984, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3327,16 +3279,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6315666901072520812, guid: d1db62ee1b37b034a8145ec01eca93d8, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 6315666901072520812, guid: d1db62ee1b37b034a8145ec01eca93d8, type: 3}
       propertyPath: m_Name
       value: Spawner_escargot
-      objectReference: {fileID: 0}
-    - target: {fileID: 7073992501058419036, guid: d1db62ee1b37b034a8145ec01eca93d8, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4214,14 +4158,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5930030931230210000, guid: a6c9cccef3cbff546bbe102728f56d3e, type: 3}
-      propertyPath: distance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8064077954027190973, guid: a6c9cccef3cbff546bbe102728f56d3e, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8064077954027190973, guid: a6c9cccef3cbff546bbe102728f56d3e, type: 3}
       propertyPath: m_Name
       value: Spawner_graine
@@ -4624,16 +4560,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154008852977396411, guid: 84844066866c18240b582af2f013c0cb, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 4154008852977396411, guid: 84844066866c18240b582af2f013c0cb, type: 3}
       propertyPath: m_Name
       value: Spawner_menthe
-      objectReference: {fileID: 0}
-    - target: {fileID: 8996073624517528094, guid: 84844066866c18240b582af2f013c0cb, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5799,10 +5727,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: 73a402c7e93e1bc43a7cfb1c20f1f137, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: 73a402c7e93e1bc43a7cfb1c20f1f137, type: 3}
       propertyPath: m_Name
       value: Spawner_valerianne
       objectReference: {fileID: 0}
@@ -5857,14 +5781,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
-    - target: {fileID: 506007033514478646, guid: 080da90aa5c250c40a8db073aba762b6, type: 3}
-      propertyPath: distance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8529814736369553593, guid: 080da90aa5c250c40a8db073aba762b6, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 8529814736369553593, guid: 080da90aa5c250c40a8db073aba762b6, type: 3}
       propertyPath: m_Name
       value: Spawner_mousse
@@ -5967,10 +5883,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
     - target: {fileID: 4576952937768151489, guid: 8fa1c0ffce035834eab0e55fc726f94a, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 4576952937768151489, guid: 8fa1c0ffce035834eab0e55fc726f94a, type: 3}
       propertyPath: m_Name
       value: Spawner_serpent
       objectReference: {fileID: 0}
@@ -6013,10 +5925,6 @@ PrefabInstance:
     - target: {fileID: 7549344194289616740, guid: 8fa1c0ffce035834eab0e55fc726f94a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072147515814182725, guid: 8fa1c0ffce035834eab0e55fc726f94a, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6072,16 +5980,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: e7681b6558a043d418ea25cfe3d152a2, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: e7681b6558a043d418ea25cfe3d152a2, type: 3}
       propertyPath: m_Name
       value: Spawner_noix
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972364783624569056, guid: e7681b6558a043d418ea25cfe3d152a2, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6534,14 +6434,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
-    - target: {fileID: 2041266246870843170, guid: f2d9c5c8bf87b5c488b3a475a2fb3e42, type: 3}
-      propertyPath: distance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6366857068333182873, guid: f2d9c5c8bf87b5c488b3a475a2fb3e42, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6366857068333182873, guid: f2d9c5c8bf87b5c488b3a475a2fb3e42, type: 3}
       propertyPath: m_Name
       value: Spawner_camomille
@@ -6604,10 +6496,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
-    - target: {fileID: 2913594739596002591, guid: c7997cbab151be54ca43ca31ceafc461, type: 3}
-      propertyPath: distance
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6245261548283237551, guid: c7997cbab151be54ca43ca31ceafc461, type: 3}
       propertyPath: m_LocalPosition.x
       value: 40.9
@@ -6648,10 +6536,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9180778272398235029, guid: c7997cbab151be54ca43ca31ceafc461, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 9180778272398235029, guid: c7997cbab151be54ca43ca31ceafc461, type: 3}
       propertyPath: m_Name
       value: Spawner_sauge
@@ -7076,16 +6960,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
     - target: {fileID: 1048525602531511075, guid: 37e2f48b784744346a5e2d582cf695a3, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 1048525602531511075, guid: 37e2f48b784744346a5e2d582cf695a3, type: 3}
       propertyPath: m_Name
       value: Spawner_eau
-      objectReference: {fileID: 0}
-    - target: {fileID: 1211369015770424986, guid: 37e2f48b784744346a5e2d582cf695a3, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7449508149977352669, guid: 37e2f48b784744346a5e2d582cf695a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7909,16 +7785,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: 28e916ee338f6b34f93028348b4c3079, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: 28e916ee338f6b34f93028348b4c3079, type: 3}
       propertyPath: m_Name
       value: Spawner_gingembre
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972364783624569056, guid: 28e916ee338f6b34f93028348b4c3079, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8572,16 +8440,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8241310836211810387, guid: 8decef39cf71e314f88a07328a325897, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 8241310836211810387, guid: 8decef39cf71e314f88a07328a325897, type: 3}
       propertyPath: m_Name
       value: Spawner_rhodelia
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972364783624569056, guid: 8decef39cf71e314f88a07328a325897, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8993,6 +8853,8 @@ MonoBehaviour:
   distance: 3
   toSpawnOnStart: 3
   fullrespawn: 0
+  canvasChild: {fileID: 0}
+  usePicto: 0
   growthSpeed: 0
 --- !u!4 &1940244442
 Transform:
@@ -9017,10 +8879,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 809964961}
     m_Modifications:
-    - target: {fileID: 5898560338178230875, guid: 5c242efd2f01945458d5b119a47f914f, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5898560338178230875, guid: 5c242efd2f01945458d5b119a47f914f, type: 3}
       propertyPath: m_Name
       value: Spawner_guepe
@@ -9064,10 +8922,6 @@ PrefabInstance:
     - target: {fileID: 6965713063126426793, guid: 5c242efd2f01945458d5b119a47f914f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8074090956354576954, guid: 5c242efd2f01945458d5b119a47f914f, type: 3}
-      propertyPath: distance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9173,6 +9027,8 @@ MonoBehaviour:
   distance: 3
   toSpawnOnStart: 3
   fullrespawn: 0
+  canvasChild: {fileID: 0}
+  usePicto: 0
   growthSpeed: 0
 --- !u!4 &2057990026
 Transform:
