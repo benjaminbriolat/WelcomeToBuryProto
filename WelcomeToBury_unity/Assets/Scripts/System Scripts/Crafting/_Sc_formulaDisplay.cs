@@ -27,7 +27,7 @@ public class _Sc_formulaDisplay : MonoBehaviour
         canvasGroup.alpha = 0;
         inventoryManager = _Sc_inventoryManager.instance;
         _sc_craftManager = _Sc_CraftManager.instance;
-        autoCanvasGroup = transform.GetChild(2).GetComponent<CanvasGroup>();
+        autoCanvasGroup = transform.GetChild(2).GetChild(0).GetComponent<CanvasGroup>();
     }
     public void setDisplay(int index, _So_item newItem)
     {

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: remede3_item
   m_EditorClassIdentifier: 
   itemName: "Rem\xE8de 3"
-  image: {fileID: 21300000, guid: 7f7b1bdc85c76ff4eb2ac27696bd8174, type: 3}
+  image: {fileID: 21300000, guid: 180110cf8a3117f468402d5183c91fa9, type: 3}
   itemType: 0
   stackable: 1
   actionType: 0
   formulaId: treatment3
   peremptible: 0
   peremption: 3
+  rottenVersion: {fileID: 0}
+  Rotten: 0

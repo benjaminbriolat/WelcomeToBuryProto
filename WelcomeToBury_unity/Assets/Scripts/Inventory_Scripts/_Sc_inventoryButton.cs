@@ -7,7 +7,7 @@ public class _Sc_inventoryButton : MonoBehaviour
     public bool inventoryOpen = false;
     [SerializeField] CanvasGroup inventoryCanvasGroup = null;
     [SerializeField] CanvasGroup DebugGiveItemCanvasGroup = null;
-
+    [SerializeField] bool alsoOpenDebug = false;
     _Sc_inventoryManager _sc_inventoryManager = null;
     _Sc_cerveau _sc_cerveau = null;
 
@@ -36,9 +36,13 @@ public class _Sc_inventoryButton : MonoBehaviour
             inventoryCanvasGroup.interactable = true;
             inventoryCanvasGroup.blocksRaycasts = true;
 
-            DebugGiveItemCanvasGroup.alpha = 1;
-            DebugGiveItemCanvasGroup.interactable = true;
-            DebugGiveItemCanvasGroup.blocksRaycasts = true;
+            if(alsoOpenDebug == true)
+            {
+                DebugGiveItemCanvasGroup.alpha = 1;
+                DebugGiveItemCanvasGroup.interactable = true;
+                DebugGiveItemCanvasGroup.blocksRaycasts = true;
+            }
+           
         }
         else if(inventoryOpen == true) //close inventory
         {
@@ -49,9 +53,12 @@ public class _Sc_inventoryButton : MonoBehaviour
             inventoryCanvasGroup.interactable = false;
             inventoryCanvasGroup.blocksRaycasts = false;
 
-            DebugGiveItemCanvasGroup.alpha = 0;
-            DebugGiveItemCanvasGroup.interactable = false;
-            DebugGiveItemCanvasGroup.blocksRaycasts = false;
+            if (alsoOpenDebug == true)
+            {
+                DebugGiveItemCanvasGroup.alpha = 0;
+                DebugGiveItemCanvasGroup.interactable = false;
+                DebugGiveItemCanvasGroup.blocksRaycasts = false;
+            }
         }
     }
 }

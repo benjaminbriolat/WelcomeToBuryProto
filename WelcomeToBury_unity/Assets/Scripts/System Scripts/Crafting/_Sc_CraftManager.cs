@@ -134,11 +134,11 @@ public class _Sc_CraftManager : MonoBehaviour
         
 
         //Debug openCanvas
-        if(Input.GetKeyDown(KeyCode.C))
+       /* if(Input.GetKeyDown(KeyCode.C))
         {
             OpenCraftCanvas();
         }
-        
+        */
     }
     public void OpenCraftCanvas()
     {
