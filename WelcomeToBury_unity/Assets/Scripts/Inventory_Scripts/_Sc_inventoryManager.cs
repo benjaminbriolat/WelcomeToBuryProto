@@ -6,6 +6,7 @@ using UnityEngine;
 public class _Sc_inventoryManager : MonoBehaviour
 {
     public static _Sc_inventoryManager instance;
+    public bool inventoryOpen = false;
     public int maxStackItem = 64;
     public _Sc_inventorySlot[] inventorySlots;
     public GameObject iventoryItemPrefab;
@@ -47,7 +48,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                 if (canShowMessageRotten == true)
                 {
                     canShowMessageRotten = false;
-                    _sc_messageManager.SetMessageText("Some resources have rotted");
+                    _sc_messageManager.SetMessageText("Des ressources ont périmées");
                     StartCoroutine(DelayRottenMessage());
                 }
             }       

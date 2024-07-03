@@ -19,18 +19,18 @@ public class _So_pnjInfos : ScriptableObject
 
     public enum PnjGroup
     {
-        Famille1,
-        Famille2,
-        Famille3,
-        Famille4,
-        Famille5,
-        Famille6,
-        Famille7,
-        Famille8,
-        Famille9,
-        Famille10,
-        Famille11,
-        Famille12,
+        Lereau,
+        Collin,
+        Fremont,
+        Lapointe,
+        Cloutier,
+        Beauchamps,
+        Vallée,
+        Leblanc,
+        Therrien,
+        Dubois,
+        Pitre,
+        Durepos,
     }
 
     public PnjGroup pnjGroup;

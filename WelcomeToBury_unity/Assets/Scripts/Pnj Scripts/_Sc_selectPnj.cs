@@ -81,43 +81,46 @@ public class _Sc_selectPnj : MonoBehaviour
     }
     public void getMouseLeftClick(Vector2 _mousePos)
     {
-        Ray ray = cam.ScreenPointToRay(_mousePos);
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerName)))
+        if(_Sc_inventoryManager.instance.inventoryOpen == false)
         {
-            lastHitTransform = hit.transform;
-            if (lastHitTransform.gameObject.layer == LayerPnj)
+            Ray ray = cam.ScreenPointToRay(_mousePos);
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerName)))
             {
-                UnSelectPnj(false);
-
-                Debug.Log("Hit PNJ " + lastHitTransform.name);
-                currentPnjState = (lastHitTransform.parent.GetComponent<_Sc_pnjState>());
-
-                if (currentPnjState.CurrentState == _Sc_pnjState.State.Default)
+                lastHitTransform = hit.transform;
+                if (lastHitTransform.gameObject.layer == LayerPnj)
                 {
-                    Debug.Log("Currenstateok");
-                    //_sc_pnjState.SetButtonsState();
-                    if (lastPnjState != null)
-                    {
-                        lastPnjState.SetActionsUi(false);
-                        lastPnjState.CurrentState = _Sc_pnjState.State.Default;
-                    }
-                    if (lastSelectedSprite != null)
-                    {
-                        //lastSelectedSprite.UnSelected();
-                    }
-                    lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
+                    UnSelectPnj(false);
 
-                    _Sc_movement.instance.NewCustomDestination = false;
-                    /*SetUnitState(lastHitTransform.parent);
-                    SetSelectedSprite(lastHitTransform.parent);
-                    SetActionsUi(lastHitTransform.parent);*/
+                    Debug.Log("Hit PNJ " + lastHitTransform.name);
+                    currentPnjState = (lastHitTransform.parent.GetComponent<_Sc_pnjState>());
+
+                    if (currentPnjState.CurrentState == _Sc_pnjState.State.Default)
+                    {
+                        Debug.Log("Currenstateok");
+                        //_sc_pnjState.SetButtonsState();
+                        if (lastPnjState != null)
+                        {
+                            lastPnjState.SetActionsUi(false);
+                            lastPnjState.CurrentState = _Sc_pnjState.State.Default;
+                        }
+                        if (lastSelectedSprite != null)
+                        {
+                            //lastSelectedSprite.UnSelected();
+                        }
+                        lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
+
+                        _Sc_movement.instance.NewCustomDestination = false;
+                        /*SetUnitState(lastHitTransform.parent);
+                        SetSelectedSprite(lastHitTransform.parent);
+                        SetActionsUi(lastHitTransform.parent);*/
+                    }
+                }
+                else
+                {
+                    //UnSelectPnj();
                 }
             }
-            else
-            {
-                //UnSelectPnj();
-            }
-        }      
+        }  
     }
 
     public void UnSelectPnj(bool _fromUI = false)

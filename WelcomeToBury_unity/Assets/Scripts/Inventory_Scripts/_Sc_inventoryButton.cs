@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class _Sc_inventoryButton : MonoBehaviour
 {
-    bool inventoryOpen = false;
+    public bool inventoryOpen = false;
     [SerializeField] CanvasGroup inventoryCanvasGroup = null;
     [SerializeField] CanvasGroup DebugGiveItemCanvasGroup = null;
+
+    _Sc_inventoryManager _sc_inventoryManager = null;
+    _Sc_cerveau _sc_cerveau = null;
 
     private void Start()
     {
@@ -18,12 +21,17 @@ public class _Sc_inventoryButton : MonoBehaviour
         DebugGiveItemCanvasGroup.alpha = 0;
         DebugGiveItemCanvasGroup.interactable = false;
         DebugGiveItemCanvasGroup.blocksRaycasts = false;
+
+        _sc_inventoryManager = _Sc_inventoryManager.instance;
+        _sc_cerveau = _Sc_cerveau.instance;
     }
     public void SetCanvas()
     {
         if(inventoryOpen == false) //open inventory
         {
             inventoryOpen = true;
+            _sc_inventoryManager.inventoryOpen = true;
+            _sc_cerveau.canMove = false;
 
             inventoryCanvasGroup.alpha = 1;
             inventoryCanvasGroup.interactable = true;
@@ -36,6 +44,8 @@ public class _Sc_inventoryButton : MonoBehaviour
         else if(inventoryOpen == true) //close inventory
         {
             inventoryOpen = false;
+            _sc_inventoryManager.inventoryOpen = false;
+            _sc_cerveau.canMove = true;
 
             inventoryCanvasGroup.alpha = 0;
             inventoryCanvasGroup.interactable = false;

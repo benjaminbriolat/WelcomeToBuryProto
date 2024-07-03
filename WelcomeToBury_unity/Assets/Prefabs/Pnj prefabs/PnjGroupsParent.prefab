@@ -47,7 +47,7 @@ MonoBehaviour:
   groupName: Famille 7
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1
 --- !u!1 &1765717281460331396
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   groupName: Famille 9
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1
 --- !u!1 &1789560144154371011
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   groupName: Famille 11
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1
 --- !u!1 &3671028108313710715
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   groupName: Famille 10
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1
 --- !u!1 &4099237412598095202
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   groupName: Famille 6
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 2
 --- !u!1 &4626547003225114074
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
   groupName: Famille 12
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1
 --- !u!1 &6770676241015128388
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
   groupName: Famille 4
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 2
 --- !u!1 &7457646219589811640
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   groupName: Famille 5
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 2
 --- !u!1 &8798675950023027876
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,4 +632,4 @@ MonoBehaviour:
   groupName: Famille 8
   pnjGroup: []
   groupTrustLevel: 0
-  capTrustLevel: 3
+  capTrustLevel: 1

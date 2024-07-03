@@ -172,7 +172,19 @@ public class _Sc_fichePatientUI : MonoBehaviour
     private void SetFicheInfosDialogue(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel)
     {
         nameText.text = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
-        groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();
+
+        if (_sc_pnjState.capTrustReached == true)
+        {
+            groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + "vous font confiance";
+            //groupText.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + " ne vous font pas encore confiance";
+            //groupText.gameObject.SetActive(false);
+        }
+        //groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();
 
         if (_currentEtat == 0)
         {
@@ -191,7 +203,19 @@ public class _Sc_fichePatientUI : MonoBehaviour
     private void SetFicheInfosSoucier(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel, bool _symptome1, bool _symptome2, bool _symptome3, bool _symptome4)
     {
         nameText.text = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
-        groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();
+
+        if(_sc_pnjState.capTrustReached == true)
+        {
+            groupText.text = "Les" + " " +  _so_pnjInfos.pnjGroup.ToString() + " vous font confiance";
+            //groupText.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            //groupText.gameObject.SetActive(false);
+        }
+
+        //groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();
 
         if (_currentEtat == 0)
         {
