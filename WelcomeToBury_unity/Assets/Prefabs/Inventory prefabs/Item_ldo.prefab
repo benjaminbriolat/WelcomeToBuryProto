@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: dfe3e001700af4a46a397e7a71ac5f6e, type: 2}
   count: 1
+  _ressourcesSpawner: {fileID: 0}
 --- !u!1 &4384634432159982505
 GameObject:
   m_ObjectHideFlags: 0

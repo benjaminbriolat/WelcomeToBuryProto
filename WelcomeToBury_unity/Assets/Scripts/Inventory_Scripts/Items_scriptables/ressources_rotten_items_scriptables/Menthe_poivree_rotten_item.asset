@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Menthe_poivree_rotten_item
   m_EditorClassIdentifier: 
-  itemName: "Menthe poivr\xE9e rotten"
+  itemName: "Menthe poivr\xE9e p\xE9rim\xE9e"
   image: {fileID: 21300000, guid: d24f55e0af79e4145b754a049c184daa, type: 3}
   itemType: 0
   stackable: 1

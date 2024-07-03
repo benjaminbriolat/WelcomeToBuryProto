@@ -195,8 +195,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2305075632602433015}
   m_HandleRect: {fileID: 6850938629576811249}
   m_Direction: 2
-  m_Value: 0.9999999
-  m_Size: 0.2885251
+  m_Value: 0.99999964
+  m_Size: 0.2885252
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0598d97e1afb72c41bd31a3abcd4b0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryOpen: 0
   inventoryCanvasGroup: {fileID: 1204056529379296783}
   DebugGiveItemCanvasGroup: {fileID: 0}
 --- !u!1 &1626712509635206057
@@ -373,6 +374,7 @@ GameObject:
   - component: {fileID: 8604703448977094706}
   - component: {fileID: 49000127043511494}
   - component: {fileID: 4164757236837651847}
+  - component: {fileID: 3557745421077842498}
   m_Layer: 5
   m_Name: Canvas_Inventory
   m_TagString: Untagged
@@ -461,10 +463,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!225 &4164757236837651847
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -477,6 +479,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3557745421077842498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626712509635206057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42030f1aa9d2eb64a91859e2d113a3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3910230574192073976
 GameObject:
   m_ObjectHideFlags: 0

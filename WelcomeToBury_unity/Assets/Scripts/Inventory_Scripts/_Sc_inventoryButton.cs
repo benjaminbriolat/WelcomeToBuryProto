@@ -31,7 +31,6 @@ public class _Sc_inventoryButton : MonoBehaviour
         {
             inventoryOpen = true;
             _sc_inventoryManager.inventoryOpen = true;
-            _sc_cerveau.canMove = false;
 
             inventoryCanvasGroup.alpha = 1;
             inventoryCanvasGroup.interactable = true;
@@ -45,7 +44,6 @@ public class _Sc_inventoryButton : MonoBehaviour
         {
             inventoryOpen = false;
             _sc_inventoryManager.inventoryOpen = false;
-            _sc_cerveau.canMove = true;
 
             inventoryCanvasGroup.alpha = 0;
             inventoryCanvasGroup.interactable = false;

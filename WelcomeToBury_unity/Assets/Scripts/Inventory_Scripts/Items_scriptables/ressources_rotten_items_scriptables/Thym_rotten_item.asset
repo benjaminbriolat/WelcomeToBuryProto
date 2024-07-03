@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Thym_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Thym rotten
+  itemName: "Thym p\xE9rim\xE9"
   image: {fileID: 21300000, guid: e0f74eb351d9c6d479f4eeaf2ff9f65a, type: 3}
   itemType: 0
   stackable: 1

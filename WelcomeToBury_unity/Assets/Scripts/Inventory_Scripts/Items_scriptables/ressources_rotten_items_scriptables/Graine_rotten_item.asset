@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Graine_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Graine rotten
+  itemName: "Graine p\xE9rim\xE9e"
   image: {fileID: 21300000, guid: e4d5a7c718dc6bd46b617e3b3066a736, type: 3}
   itemType: 0
   stackable: 1

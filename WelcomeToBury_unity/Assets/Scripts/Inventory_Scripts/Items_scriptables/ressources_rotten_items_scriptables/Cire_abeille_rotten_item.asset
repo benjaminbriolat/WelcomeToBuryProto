@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Cire_abeille_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Cire d'abeille rotten
+  itemName: "Cire d'abeille p\xE9rim\xE9e"
   image: {fileID: 21300000, guid: 18264da9fe9a1ee41b9c924a5a96ce0e, type: 3}
   itemType: 0
   stackable: 1

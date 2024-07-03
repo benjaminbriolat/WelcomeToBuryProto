@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Venin_araignee_rotten_item
   m_EditorClassIdentifier: 
-  itemName: "Venin d'araign\xE9e"
+  itemName: "Venin d'araign\xE9e p\xE9rim\xE9"
   image: {fileID: 21300000, guid: e7dad6f513c327648a346f8b9ffa9553, type: 3}
   itemType: 0
   stackable: 1

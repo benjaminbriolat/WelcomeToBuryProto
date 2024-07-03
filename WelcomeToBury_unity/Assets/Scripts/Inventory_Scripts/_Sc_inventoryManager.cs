@@ -48,7 +48,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                 if (canShowMessageRotten == true)
                 {
                     canShowMessageRotten = false;
-                    _sc_messageManager.SetMessageText("Des ressources ont périmées");
+                    _sc_messageManager.SetMessageText("Des ressources ont périmées", true);
                     StartCoroutine(DelayRottenMessage());
                 }
             }       

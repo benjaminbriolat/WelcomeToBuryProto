@@ -30,9 +30,13 @@ public class _Sc_messagesManager : MonoBehaviour
 
         TextMeshProUGUI _messageText = _messageClone.GetComponentInChildren<TextMeshProUGUI>();
         _Sc_messageHolder _sc_messageHolder = _messageClone.GetComponent<_Sc_messageHolder>();
-        _messageText.text = _message;
 
-        if(_remede == false)
+        if(_messageText != null)
+        {
+            _messageText.text = _message;
+        }
+
+        if (_remede == false)
         {
             _messageClone.transform.SetParent(transform.GetChild(0));
         }
@@ -43,7 +47,7 @@ public class _Sc_messagesManager : MonoBehaviour
 
         _sc_messageHolder.MessageCreated(messageTime);
 
-        _sc_messageHolder.setBoxColor(_remede);
+        //_sc_messageHolder.setBoxColor(_remede);
     }
 
     //Debug//

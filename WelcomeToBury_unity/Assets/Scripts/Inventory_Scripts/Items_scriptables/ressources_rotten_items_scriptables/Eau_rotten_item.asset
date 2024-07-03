@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Eau_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Eau rotten
+  itemName: "Eau p\xE9rim\xE9e"
   image: {fileID: 21300000, guid: e0bc3309600dab043b5051a1db01939e, type: 3}
   itemType: 0
   stackable: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class _Sc_selectPnj : MonoBehaviour
 {
@@ -81,10 +82,10 @@ public class _Sc_selectPnj : MonoBehaviour
     }
     public void getMouseLeftClick(Vector2 _mousePos)
     {
-        if(_Sc_inventoryManager.instance.inventoryOpen == false)
+        Ray ray = cam.ScreenPointToRay(_mousePos);
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerName)))
         {
-            Ray ray = cam.ScreenPointToRay(_mousePos);
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask(layerName)))
+            if (_Sc_mouseHoverManager.instance.CurrentObject == null)
             {
                 lastHitTransform = hit.transform;
                 if (lastHitTransform.gameObject.layer == LayerPnj)
@@ -120,7 +121,7 @@ public class _Sc_selectPnj : MonoBehaviour
                     //UnSelectPnj();
                 }
             }
-        }  
+        }
     }
 
     public void UnSelectPnj(bool _fromUI = false)

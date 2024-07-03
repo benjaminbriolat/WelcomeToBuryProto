@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class _Sc_selectObjectManager : MonoBehaviour
 {
@@ -34,7 +35,10 @@ public class _Sc_selectObjectManager : MonoBehaviour
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer(SelectableObjectLayer))
             {
-                OnObjectHighlight(hit.transform);
+                if (_Sc_mouseHoverManager.instance.CurrentObject == null)
+                {
+                    OnObjectHighlight(hit.transform);
+                }
             }
             else
             {

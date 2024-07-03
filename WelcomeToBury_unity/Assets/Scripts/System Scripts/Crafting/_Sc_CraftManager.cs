@@ -149,14 +149,14 @@ public class _Sc_CraftManager : MonoBehaviour
             canvaGroup.blocksRaycasts = false;
             ClearCraftTable(true);
             isOpen = false;
-            _sc_cerveau.isInMenu = false;
+            //_sc_cerveau.isInMenu = false;
             _formulaDisplay.OpenFormula(false);
         }
         else
         {
             lastUsedIventoryItem = null;
             lastUsedSlot = null;
-            _sc_cerveau.isInMenu = true;
+            //_sc_cerveau.isInMenu = true;
             for (int i = 0; i < receipes.Count; i++)
             {
                 receipes[i].checkStatus();

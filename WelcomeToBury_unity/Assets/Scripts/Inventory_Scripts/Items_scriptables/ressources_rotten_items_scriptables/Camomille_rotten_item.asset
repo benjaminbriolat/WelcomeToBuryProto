@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
   m_Name: Camomille_rotten_item
   m_EditorClassIdentifier: 
-  itemName: Camomille rotten
+  itemName: "Camomille p\xE9rim\xE9e"
   image: {fileID: 21300000, guid: 4ab09cce51db69743ab137e56fe7a174, type: 3}
   itemType: 0
   stackable: 1

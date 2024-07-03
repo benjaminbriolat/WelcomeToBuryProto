@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Rewired;
+using UnityEngine.InputSystem.UI;
 
 public class _Sc_cerveau : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class _Sc_cerveau : MonoBehaviour
     public bool canMove = true;
     public Vector3 mousePos;
     public Ray mouseRay;
+    EventSystem eventSystem = null;
     private Rewired.Player player
     {
         get
@@ -44,11 +47,12 @@ public class _Sc_cerveau : MonoBehaviour
     private void Start()
     {
         getRefs();
+        eventSystem = GameObject.FindObjectOfType<EventSystem>();
     }
 
     private void Update()
     {
-        if(ReInput.isReady == false)
+        if (ReInput.isReady == false)
         {
             return;
         }    
