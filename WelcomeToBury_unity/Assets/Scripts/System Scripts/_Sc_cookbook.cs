@@ -30,7 +30,7 @@ public class _Sc_cookbook : MonoBehaviour
         public _So_item resultItem = null;
     }
 
-    [SerializeField] List<Receipe> receipes = new List<Receipe>();
+    public List<Receipe> receipes = new List<Receipe>();
 
     private void Awake()
     {

@@ -328,3 +328,9 @@ MonoBehaviour:
   layerName: Walkable
   itemLdo: {fileID: 1183098466550748615, guid: d5697b3e3a4e3984a92c427de0979033, type: 3}
   spawnMaxRadius: 7
+  clicked: 0
+  clicktime: 0
+  clickdelay: 0.5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1024

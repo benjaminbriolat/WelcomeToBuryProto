@@ -37,76 +37,84 @@ public class _Sc_pnjActions : MonoBehaviour
 
     public void PnjDialogue(bool _passTime)
     {
-        _sc_pnjState.hasSpokenToPlayer = true;
-        _sc_pnjState.DialogueOk = true;
-        _sc_pnjState.CanSoucier = true;
-        _sc_pnjState.SetButtonsState();
-
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
-        
-        if (_passTime == true)
+        if (_sc_pnjState.cracheurDeNoir == false)
         {
-            _sc_calendrier.AdvanceCalendar();
-        }
-        if (_sc_pnjState.state == 0)
-        {
-            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(0), _sc_debugBlackScreen.getFadingTime());
-        }
-        else if (_sc_pnjState.state == 1)
-        {
-            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(1), _sc_debugBlackScreen.getFadingTime());
-        }
-    }
-
-    public void PnjSoucier(bool _passTime)
-    {
-        if(_sc_pnjState.CanSoucier == true)
-        {            
-            _sc_pnjState.SoucierOk = true;
-            _sc_pnjState.CanRemede = true;
-            _sc_pnjState.CanGesteSoin = true;
+            _sc_pnjState.hasSpokenToPlayer = true;
+            _sc_pnjState.DialogueOk = true;
+            _sc_pnjState.CanSoucier = true;
             _sc_pnjState.SetButtonsState();
 
-
-
-            if (_sc_pnjState.symptome1 == true)
-            {
-                _sc_cookBook.AdvanceDiscovery("treatment1");
-            }
-            else if (_sc_pnjState.symptome2 == true)
-            {
-                _sc_cookBook.AdvanceDiscovery("treatment2");
-            }
-            else if (_sc_pnjState.symptome3 == true)
-            {
-                _sc_cookBook.AdvanceDiscovery("treatment3");
-            }
-            else if (_sc_pnjState.symptome4 == true)
-            {
-                _sc_cookBook.AdvanceDiscovery("treatment4");
-            }
+            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
 
             if (_passTime == true)
             {
                 _sc_calendrier.AdvanceCalendar();
             }
-
-            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
-
-            
-
             if (_sc_pnjState.state == 0)
             {
-
-                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(2), _sc_debugBlackScreen.getFadingTime());
+                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(0), _sc_debugBlackScreen.getFadingTime());
             }
             else if (_sc_pnjState.state == 1)
             {
-                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
+                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(1), _sc_debugBlackScreen.getFadingTime());
             }
-            StartCoroutine(delayLockSoucier());
-            
         }
+       
+    }
+
+    public void PnjSoucier(bool _passTime)
+    {
+        if(_sc_pnjState.cracheurDeNoir == false)
+        {
+            if (_sc_pnjState.CanSoucier == true)
+            {
+                _sc_pnjState.SoucierOk = true;
+                _sc_pnjState.CanRemede = true;
+                _sc_pnjState.CanGesteSoin = true;
+                _sc_pnjState.SetButtonsState();
+
+
+
+                if (_sc_pnjState.symptome1 == true)
+                {
+                    _sc_cookBook.AdvanceDiscovery("treatment1");
+                }
+                else if (_sc_pnjState.symptome2 == true)
+                {
+                    _sc_cookBook.AdvanceDiscovery("treatment2");
+                }
+                else if (_sc_pnjState.symptome3 == true)
+                {
+                    _sc_cookBook.AdvanceDiscovery("treatment3");
+                }
+                else if (_sc_pnjState.symptome4 == true)
+                {
+                    _sc_cookBook.AdvanceDiscovery("treatment4");
+                }
+
+                if (_passTime == true)
+                {
+                    _sc_calendrier.AdvanceCalendar();
+                }
+
+                _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
+
+
+
+                if (_sc_pnjState.state == 0)
+                {
+
+                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(2), _sc_debugBlackScreen.getFadingTime());
+                }
+                else if (_sc_pnjState.state == 1)
+                {
+                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
+                }
+                StartCoroutine(delayLockSoucier());
+
+            }
+        }
+        
         
 
        
@@ -114,157 +122,164 @@ public class _Sc_pnjActions : MonoBehaviour
 
     public void PnjRemede(bool _passTime)
     {        
-        _sc_pnjState.SetButtonsState();
-
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
-        bool hasHeal = false;
-        if (_sc_pnjState.symptome1 == true && hasHeal == false)
-        {          
-            if(_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment1"), 1) == true)
-            {
-                hasHeal = true;
-                _sc_pnjState.HealSymptome1();
-                _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment1"));
-
-                if (_passTime == true)
-                {
-                    _sc_calendrier.AdvanceCalendar();
-                }
-
-                if (_sc_pnjState.state == 0)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
-                }
-                else if (_sc_pnjState.state == 1)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
-                }
-            }           
-        }
-
-        if (_sc_pnjState.symptome2 == true && hasHeal == false)
+        if(_sc_pnjState.cracheurDeNoir == false)
         {
-            if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment2"), 1) == true)
+            _sc_pnjState.SetButtonsState();
+
+            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
+            bool hasHeal = false;
+            if (_sc_pnjState.symptome1 == true && hasHeal == false)
             {
-                hasHeal = true;
-                _sc_pnjState.HealSymptome2();
-                _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment2"));
+                if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment1"), 1) == true)
+                {
+                    hasHeal = true;
+                    _sc_pnjState.HealSymptome1();
+                    _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment1"));
 
-                if (_passTime == true)
-                {
-                    _sc_calendrier.AdvanceCalendar();
-                }
+                    if (_passTime == true)
+                    {
+                        _sc_calendrier.AdvanceCalendar();
+                    }
 
-                if (_sc_pnjState.state == 0)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
+                    if (_sc_pnjState.state == 0)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
+                    }
+                    else if (_sc_pnjState.state == 1)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
+                    }
                 }
-                else if (_sc_pnjState.state == 1)
+            }
+
+            if (_sc_pnjState.symptome2 == true && hasHeal == false)
+            {
+                if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment2"), 1) == true)
                 {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
+                    hasHeal = true;
+                    _sc_pnjState.HealSymptome2();
+                    _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment2"));
+
+                    if (_passTime == true)
+                    {
+                        _sc_calendrier.AdvanceCalendar();
+                    }
+
+                    if (_sc_pnjState.state == 0)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
+                    }
+                    else if (_sc_pnjState.state == 1)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
+                    }
+                }
+            }
+
+            if (_sc_pnjState.symptome3 == true && hasHeal == false)
+            {
+                if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment3"), 1) == true)
+                {
+                    hasHeal = true;
+                    _sc_pnjState.HealSymptome3();
+                    _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment3"));
+
+                    if (_passTime == true)
+                    {
+                        _sc_calendrier.AdvanceCalendar();
+                    }
+
+                    if (_sc_pnjState.state == 0)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
+                    }
+                    else if (_sc_pnjState.state == 1)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
+                    }
+                }
+            }
+
+            if (_sc_pnjState.symptome4 == true && hasHeal == false)
+            {
+                if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment4"), 1) == true)
+                {
+                    hasHeal = true;
+                    _sc_pnjState.HealSymptome4();
+                    _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment4"));
+
+                    if (_passTime == true)
+                    {
+                        _sc_calendrier.AdvanceCalendar();
+                    }
+
+                    if (_sc_pnjState.state == 0)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
+                    }
+                    else if (_sc_pnjState.state == 1)
+                    {
+                        _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
+                    }
                 }
             }
         }
-
-        if (_sc_pnjState.symptome3 == true && hasHeal == false)
-        {
-            if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment3"), 1) == true)
-            {
-                hasHeal = true;
-                _sc_pnjState.HealSymptome3();
-                _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment3"));
-
-                if (_passTime == true)
-                {
-                    _sc_calendrier.AdvanceCalendar();
-                }
-
-                if (_sc_pnjState.state == 0)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
-                }
-                else if (_sc_pnjState.state == 1)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
-                }
-            }
-        }
-
-        if (_sc_pnjState.symptome4 == true && hasHeal == false)
-        {
-            if (_sc_inventoryManager.checkItem(_sc_cookBook.getRemede("treatment4"), 1) == true)
-            {
-                hasHeal = true;
-                _sc_pnjState.HealSymptome4();
-                _sc_inventoryManager.RemoveItem(_sc_cookBook.getRemede("treatment4"));
-
-                if (_passTime == true)
-                {
-                    _sc_calendrier.AdvanceCalendar();
-                }
-
-                if (_sc_pnjState.state == 0)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
-                }
-                else if (_sc_pnjState.state == 1)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
-                }
-            }
-        }
+       
 
     }
 
     public void PnjGesteSoin(bool _passTime)
     {
-        bool hasHeal = false;
-        _sc_pnjState.SetButtonsState();
-
-        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(),_sc_pnjState);
-
-        if(_sc_pnjState.capTrustReached == true)
+        if(_sc_pnjState.cracheurDeNoir == false)
         {
-            if(_sc_pnjState.symptome1 == true && hasHeal == false)
+            bool hasHeal = false;
+            _sc_pnjState.SetButtonsState();
+
+            _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
+
+            if (_sc_pnjState.capTrustReached == true)
             {
-                _sc_pnjState.HealSymptome1Care();
-                hasHeal = true;
+                if (_sc_pnjState.symptome1 == true && hasHeal == false && _sc_cookBook.receipes[0].discovered == true)
+                {
+                    _sc_pnjState.HealSymptome1Care();
+                    hasHeal = true;
+                }
+                if (_sc_pnjState.symptome2 == true && hasHeal == false && _sc_cookBook.receipes[1].discovered == true)
+                {
+                    _sc_pnjState.HealSymptome2Care();
+                    _sc_pnjState.symptomes[1] = false;
+                    hasHeal = true;
+                }
+                if (_sc_pnjState.symptome3 == true && hasHeal == false && _sc_cookBook.receipes[2].discovered == true)
+                {
+                    _sc_pnjState.HealSymptome3Care();
+                    _sc_pnjState.symptomes[2] = false;
+                    hasHeal = true;
+                }
+                if (_sc_pnjState.symptome4 == true && hasHeal == false && _sc_cookBook.receipes[3].discovered == true)
+                {
+                    _sc_pnjState.HealSymptome4Care();
+                    _sc_pnjState.symptomes[3] = false;
+                    hasHeal = true;
+                }
             }
-            if(_sc_pnjState.symptome2 == true && hasHeal == false)
+
+
+            if (_passTime == true)
             {
-                _sc_pnjState.HealSymptome2Care();
-                _sc_pnjState.symptomes[1] = false;
-                hasHeal = true;
+                _sc_calendrier.AdvanceCalendar();
             }
-            if(_sc_pnjState.symptome3 == true && hasHeal == false)
+
+            if (_sc_pnjState.state == 0)
             {
-                _sc_pnjState.HealSymptome3Care();
-                _sc_pnjState.symptomes[2] = false;
-                hasHeal = true;
+                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
             }
-            if(_sc_pnjState.symptome4 == true && hasHeal == false)
+            else if (_sc_pnjState.state == 1)
             {
-                _sc_pnjState.HealSymptome4Care();
-                _sc_pnjState.symptomes[3] = false;
-                hasHeal = true;
+                _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
             }
         }
-
-        hasHeal = false;
-
-        if (_passTime == true)
-        {
-            _sc_calendrier.AdvanceCalendar();
-        }
-
-        if (_sc_pnjState.state == 0)
-        {
-            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(4), _sc_debugBlackScreen.getFadingTime());
-        }
-        else if (_sc_pnjState.state == 1)
-        {
-            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(5), _sc_debugBlackScreen.getFadingTime());
-        }
+        
     }
 
     private IEnumerator delayLockSoucier()

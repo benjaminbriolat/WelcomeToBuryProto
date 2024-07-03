@@ -31,6 +31,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     [SerializeField] float clicked = 0;
     [SerializeField] float clicktime = 0;
     [SerializeField] float clickdelay = 0.5f;
+    [SerializeField] LayerMask _layerMask;
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -129,7 +130,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         _sc_cerveau.canMove = true;
 
         GameObject _itemSpawned = Instantiate(itemLdo, RandomPointInCircle(_sc_cerveau.transform.position, spawnMaxRadius), _sc_cerveau.transform.rotation);
-        _itemSpawned.transform.position = new Vector3(_itemSpawned.transform.position.x, 0.25f, _itemSpawned.transform.position.z);
+        _itemSpawned.transform.position = new Vector3(_itemSpawned.transform.position.x, GetHeightDrop(_itemSpawned.transform)+0.25f, _itemSpawned.transform.position.z);
 
         //Juice
         _itemSpawned.transform.GetChild(0).DOPunchScale(new Vector3(0.25f, 0.25f, 0.25f), 0.35f, 10, 1);
@@ -183,6 +184,20 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         else if (clicked > 2 || Time.time - clicktime > 1)
         {
             clicked = 0;            
+        }
+
+    }
+
+    public float GetHeightDrop(Transform itemDropped)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(itemDropped.position + new Vector3(0,100,0), itemDropped.TransformDirection(Vector3.down), out hit, Mathf.Infinity, _layerMask))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            return 0;
         }
 
     }
