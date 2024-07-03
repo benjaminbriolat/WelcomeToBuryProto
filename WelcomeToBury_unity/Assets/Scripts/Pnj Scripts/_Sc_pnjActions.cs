@@ -110,7 +110,7 @@ public class _Sc_pnjActions : MonoBehaviour
                 {
                     _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
                 }
-                StartCoroutine(delayLockSoucier());
+                //StartCoroutine(delayLockSoucier());
 
             }
         }

@@ -15,7 +15,8 @@ public class _Sc_formulaDisplay : MonoBehaviour
     _Sc_CraftManager _sc_craftManager = null;
 
     
-    bool isOpen = false;
+    [HideInInspector] public bool isOpen = false;
+    [HideInInspector] public _Sc_receipe currentReceipe = null;
     private void Awake()
     {
         instance = this;
@@ -45,6 +46,7 @@ public class _Sc_formulaDisplay : MonoBehaviour
             autoCanvasGroup.alpha = 0;
             autoCanvasGroup.interactable = false;
             autoCanvasGroup.blocksRaycasts = false;
+            currentReceipe = null;
         }
         else
         {

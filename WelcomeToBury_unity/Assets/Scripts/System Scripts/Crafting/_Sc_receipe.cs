@@ -42,6 +42,21 @@ public class _Sc_receipe : MonoBehaviour
             _sc_formulaDisplay.setDisplay(i, items[i]);
         }
         _sc_formulaDisplay.SetPluses();
-        _sc_formulaDisplay.OpenFormula(true);
+        if(_sc_formulaDisplay.currentReceipe == this)
+        {
+            if (_sc_formulaDisplay.isOpen == false)
+            {
+                _sc_formulaDisplay.OpenFormula(true);
+            }
+            else
+            {
+                _sc_formulaDisplay.OpenFormula(false);
+            }
+        }
+        else
+        {
+            _sc_formulaDisplay.OpenFormula(true);
+        }
+        
     }
 }

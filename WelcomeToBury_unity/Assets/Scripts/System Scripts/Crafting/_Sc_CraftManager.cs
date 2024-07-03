@@ -185,23 +185,23 @@ public class _Sc_CraftManager : MonoBehaviour
         if (_sc_cookbook.getMatchingReceipe(formula) != null)
         {
             result = _sc_cookbook.getMatchingReceipe(formula);
-            resultSlot.sprite = result.image;         
+            //resultSlot.sprite = result.image;         
         }
         else
         {
             if(formula != null)
             {
                 result = garbage;
-                resultSlot.sprite = garbage.image;
+                //resultSlot.sprite = garbage.image;
             }
             
         }
         if (formula != null)
         {
-            resultSlot.gameObject.SetActive(true);
-            resultSlot.transform.DORewind();
-            resultSlot.transform.DOKill();
-            resultSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
+            //resultSlot.gameObject.SetActive(true);
+           // resultSlot.transform.DORewind();
+            //resultSlot.transform.DOKill();
+            //resultSlot.transform.DOPunchScale(new Vector3(-0.25f, 0.25f, 0.0f), 0.35f, 10, 1);
 
             ClearCraftTable(false);
             StartCoroutine(DelaySendToInventory(result));
@@ -324,10 +324,10 @@ public class _Sc_CraftManager : MonoBehaviour
 
     private IEnumerator DelaySendToInventory(_So_item newItem)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
         _sc_formulaDisplay.OpenFormula(false);
-        resultSlot.gameObject.SetActive(false);
-        resultSlot.sprite = null;
+        //resultSlot.gameObject.SetActive(false);
+        //resultSlot.sprite = null;
         _sc_iventoryManager.AddItem(newItem, 1);
 
     }
