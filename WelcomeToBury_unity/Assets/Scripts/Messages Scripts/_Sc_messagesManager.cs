@@ -8,6 +8,7 @@ public class _Sc_messagesManager : MonoBehaviour
 {
     public static _Sc_messagesManager instance;
     [SerializeField] GameObject messagePrefab = null;
+    [SerializeField] GameObject messagePrefab2 = null;
     [SerializeField] float messageTime = 3.0f;
 
     private void Awake()
@@ -17,13 +18,28 @@ public class _Sc_messagesManager : MonoBehaviour
 
     public void SetMessageText(string _message, bool _remede = false)
     {
-        GameObject _messageClone = Instantiate(messagePrefab);
+        GameObject _messageClone;
+        if (_remede == false)
+        {
+            _messageClone = Instantiate(messagePrefab);
+        }
+        else
+        {
+            _messageClone = Instantiate(messagePrefab2);
+        }
 
         TextMeshProUGUI _messageText = _messageClone.GetComponentInChildren<TextMeshProUGUI>();
         _Sc_messageHolder _sc_messageHolder = _messageClone.GetComponent<_Sc_messageHolder>();
         _messageText.text = _message;
 
-        _messageClone.transform.SetParent(transform.GetChild(0));
+        if(_remede == false)
+        {
+            _messageClone.transform.SetParent(transform.GetChild(0));
+        }
+        else
+        {
+            _messageClone.transform.SetParent(transform.GetChild(1));
+        }
 
         _sc_messageHolder.MessageCreated(messageTime);
 
@@ -34,6 +50,6 @@ public class _Sc_messagesManager : MonoBehaviour
     [Button]
     public void CreateMessage()
     {
-        SetMessageText("Remede 1 progress");
+        SetMessageText("Votre compréhension du remède 1 progresse!");
     }
 }

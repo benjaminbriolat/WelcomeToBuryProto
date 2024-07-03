@@ -9,8 +9,8 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
     private CanvasGroup _canvasGroup = null;
     private _Sc_Calendrier _sc_calendrier = null;
 
-    private float fadeTime = 2.0f;
-    private float spanWait = 0.5f;
+    private float fadeTime = 1.0f;
+    private float spanWait = 0.35f;
     private float dayWait = 2.0f;
 
     [SerializeField] bool isDayFading = false;

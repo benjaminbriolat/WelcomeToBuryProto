@@ -160,11 +160,11 @@ public class _Sc_cookbook : MonoBehaviour
         yield return new WaitForSeconds(4.0f);
         if(discovered == false)
         {
-            _sc_MessagesManager.SetMessageText("Remède" + remede.ToString() + " " + "progressed !", true);
+            _sc_MessagesManager.SetMessageText("Votre compréhension"+ " " + "progresse !", true);
         }
         else
         {
-            _sc_MessagesManager.SetMessageText("Remède" + remede.ToString() + " " + "discovered !", true);
+            _sc_MessagesManager.SetMessageText("Vous avez découvert la recette du" + " " + "Remède" + remede.ToString() + "!", true);
         }
     }
 }

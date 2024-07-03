@@ -23,6 +23,9 @@ public class _Sc_selectPnj : MonoBehaviour
 
     public bool pnjSetted = false;
     public bool unselectDone = false;
+
+    [SerializeField] bool autoDialogue = true;
+
     private void Awake()
     {
         Instance = this;
@@ -53,6 +56,11 @@ public class _Sc_selectPnj : MonoBehaviour
 
                     pnjSetted = true;
                     unselectDone = false;
+
+                    if(autoDialogue == true)
+                    {
+                        currentPnjState.GetComponent<_Sc_pnjActions>().PnjDialogue(false);
+                    }
                 }
                 else
                 {

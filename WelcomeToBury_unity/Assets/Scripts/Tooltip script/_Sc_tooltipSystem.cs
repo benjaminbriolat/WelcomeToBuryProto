@@ -22,6 +22,9 @@ public class _Sc_tooltipSystem : MonoBehaviour
 
     public static void Hide()
     {
-        instance._sc_tooltip.gameObject.SetActive(false);
+        if(instance._sc_tooltip != null)
+        {
+            instance._sc_tooltip.gameObject.SetActive(false);
+        }
     }
 }

@@ -71,7 +71,7 @@ public class _Sc_pnjState : MonoBehaviour
     _Sc_pnjActionsParent _sc_PnjActionsParent = null;
     _Sc_DebugBlackScreen _sc_debugBlackScreen = null;
 
-
+    _Sc_tooltipTrigger _sc_tooltipTrigger = null;
 
     private void Awake()
     {
@@ -80,6 +80,7 @@ public class _Sc_pnjState : MonoBehaviour
         symptomeLayoutGroup = transform.GetChild(1).GetChild(1);
         pnjActionsUiParent = transform.GetChild(1).GetChild(3);
         _sc_PnjActionsParent = GetComponentInChildren<_Sc_pnjActionsParent>();
+        _sc_tooltipTrigger = GetComponentInChildren<_Sc_tooltipTrigger>();
     }
     private void Start()
     {
@@ -94,6 +95,11 @@ public class _Sc_pnjState : MonoBehaviour
         SetButtonsState();
         _sc_calendrier.AddPnj(this.transform);
         _sc_epidemiManager.AddPnj(this.transform);
+
+        if(_sc_tooltipTrigger != null)
+        {
+            _sc_tooltipTrigger.header = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
+        }
     }
 
     public void SetButtonsState()

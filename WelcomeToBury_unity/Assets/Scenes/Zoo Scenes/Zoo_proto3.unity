@@ -7397,6 +7397,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2114713974421617641, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
+      propertyPath: messageTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3928212122838482157, guid: 5848b7822bf7e1b49b458a07cb47bd69, type: 3}
       propertyPath: m_Name
       value: Canvas_Message
