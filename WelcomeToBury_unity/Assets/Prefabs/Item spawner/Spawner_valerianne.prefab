@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6120817410878807851
 Transform:
   m_ObjectHideFlags: 0
@@ -317,13 +317,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
   objectToSpawn: {fileID: 1183098466550748615, guid: d5697b3e3a4e3984a92c427de0979033, type: 3}
-  minRespawnQuantity: 1
-  maxRespawnQuantity: 3
+  delayBeforeFirstSpawn: 0
+  minRespawnQuantity: 2
+  maxRespawnQuantity: 2
   minRessourcesInLdo: 1
-  maxRessourcesInLdo: 3
-  maxAmountPossible: 6
+  maxRessourcesInLdo: 2
+  maxAmountPossible: 3
   distance: 3
-  toSpawnOnStart: 3
+  toSpawnOnStart: 2
   fullrespawn: 0
   canvasChild: {fileID: 8037846085403149303}
   usePicto: 1

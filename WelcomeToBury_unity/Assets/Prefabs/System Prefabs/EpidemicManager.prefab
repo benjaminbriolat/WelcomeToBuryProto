@@ -47,6 +47,7 @@ MonoBehaviour:
   pnjs: []
   healthPnjs: []
   sickPnjs: []
+  immunePnjs: []
   progressionInterval: 1
   debugStartValue: 1
   debugCadenceValueMax: 1
@@ -56,12 +57,17 @@ MonoBehaviour:
   - symptomName: S1
     isActive: 1
     odds: 50
+    delayApparirion: 0
   - symptomName: S2
-    isActive: 1
+    isActive: 0
     odds: 50
+    delayApparirion: 5
   - symptomName: S3
-    isActive: 1
+    isActive: 0
     odds: 50
+    delayApparirion: 10
   - symptomName: S4
-    isActive: 1
+    isActive: 0
     odds: 50
+    delayApparirion: 15
+  totalOdds: 0

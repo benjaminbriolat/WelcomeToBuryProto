@@ -26,6 +26,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
         public string symptomName = null;
         public bool isActive = false;
         public float odds = 0;
+        public int delayApparirion = 0;
     }
     [Header("Paramètres Symptomes")]
     [SerializeField] List<Symptom> symptoms = new List<Symptom>();
@@ -55,6 +56,16 @@ public class _Sc_EpidemicManager : MonoBehaviour
 
     public void AdvancedDay(int currentDay)
     {
+        for(int i = 0; i < symptoms.Count; i++)
+        {
+            symptoms[i].delayApparirion -= 1;
+            if(symptoms[i].delayApparirion <= 0 && symptoms[i].isActive == false)
+            {
+                symptoms[i].isActive = true;
+            }
+        }
+
+
         if(Mathf.Abs(currentDay - lastStoredDay) >= progressionInterval)
         {
             lastStoredDay = currentDay;

@@ -16,7 +16,11 @@ public class _Sc_Calendrier : MonoBehaviour
     [SerializeField] List<Transform> pnjs = null;
     [SerializeField] List<Transform> crops = null;
     _Sc_ressourcesPremeption _ressourcesPremenption = null;
+    [SerializeField] List<string> spanNames = null;
+    [SerializeField] List<Color> lightValues = null;
+    [SerializeField] Light _light = null;
     public bool debugNofade = false;
+    [SerializeField] bool debugAffectLight = false;
     private void Awake()
     {
         instance = this;
@@ -29,9 +33,10 @@ public class _Sc_Calendrier : MonoBehaviour
         currentDay = 1;
         currentPlage = 1;
         dayText.text = currentDay.ToString();
-        plageText.text = currentPlage.ToString();
+        plageText.text = spanNames[currentPlage -1].ToString();
         _sc_epidemicManager = _Sc_EpidemicManager.instance;
         _ressourcesPremenption = _Sc_ressourcesPremeption.instance;
+        SetLight();
     }
     private void Update()
     {
@@ -75,6 +80,14 @@ public class _Sc_Calendrier : MonoBehaviour
 
     }
 
+    public void SetLight()
+    {
+        if(debugAffectLight == true)
+        {
+            _light.color = lightValues[currentPlage - 1];
+        }
+    }
+
     public void EndAdvanceCalendar(bool day)
     {
         if(day == true)
@@ -101,7 +114,7 @@ public class _Sc_Calendrier : MonoBehaviour
         _ressourcesPremenption.OnSpanChange();
 
         dayText.text = currentDay.ToString();
-        plageText.text = currentPlage.ToString();
+        plageText.text = spanNames[currentPlage - 1].ToString();
     }
 
     public void AddCrop(Transform newCrop)

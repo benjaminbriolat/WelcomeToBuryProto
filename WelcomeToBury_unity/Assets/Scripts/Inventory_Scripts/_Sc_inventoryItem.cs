@@ -171,21 +171,28 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     //double click
     public void OnPointerDown(PointerEventData data)
     {
-        clicked++;
-        if (clicked == 1) clicktime = Time.time;
+        if(_sc_CraftManager.CheckFreeSlots() > 0)
+        {
+            clicked++;
+            if (clicked == 1) clicktime = Time.time;
 
-        if (clicked > 1 && Time.time - clicktime < clickdelay)
+            if (clicked > 1 && Time.time - clicktime < clickdelay)
+            {
+                clicked = 0;
+                clicktime = 0;
+                Debug.Log("Double CLick: " + this.GetComponent<RectTransform>().name);
+                _sc_CraftManager.AddInFirstFreeSlot(_item);
+            }
+            else if (clicked > 2 || Time.time - clicktime > 1)
+            {
+                clicked = 0;
+            }
+        }
+        else
         {
             clicked = 0;
-            clicktime = 0;
-            Debug.Log("Double CLick: " + this.GetComponent<RectTransform>().name);
-            _sc_CraftManager.AddInFirstFreeSlot(_item);
-        }
-        else if (clicked > 2 || Time.time - clicktime > 1)
-        {
-            clicked = 0;            
-        }
 
+        }
     }
 
     public float GetHeightDrop(Transform itemDropped)

@@ -44,6 +44,7 @@ public class _Sc_DebugBlackScreen : MonoBehaviour
         else
         {
             _canvasGroup.DOFade(0.0f, fadeTime);
+            _sc_calendrier.SetLight();
             isDayFading = false;
             isSpanFading = false;
         }

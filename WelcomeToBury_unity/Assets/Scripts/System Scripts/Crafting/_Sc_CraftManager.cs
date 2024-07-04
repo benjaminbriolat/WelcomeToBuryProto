@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 
 public class _Sc_CraftManager : MonoBehaviour
 {
@@ -249,6 +250,20 @@ public class _Sc_CraftManager : MonoBehaviour
             }
         }
         return itemCount;
+    }
+
+    public int CheckFreeSlots()
+    {
+        int freeSlots = craftingSlots.Length;
+        for (int i = 0; i < craftingSlots.Length; i++)
+        {
+            
+            if (craftingSlots[i]._item != null)
+            {
+                freeSlots -= 1;
+            }
+        }
+        return freeSlots;
     }
 
     public void AddInFirstFreeSlot(_So_item newItem)

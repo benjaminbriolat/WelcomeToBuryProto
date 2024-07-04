@@ -10,6 +10,7 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] GameObject objectToSpawn = null;
 
     [Header("SapwnValues")]
+    [SerializeField] int delayBeforeFirstSpawn = 0;
     [HideInInspector] int delayResapwn = 3;
     [SerializeField] int minRespawnQuantity = 2;
     [SerializeField] int maxRespawnQuantity = 3;
@@ -55,15 +56,20 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
 
         _calendrier = _Sc_Calendrier.instance;
         _calendrier.AddCrop(this.transform);
-        if (toSpawnOnStart > 0)
+        if(delayBeforeFirstSpawn <= 0)
         {
-            SpawnLoop(toSpawnOnStart);
+            if (toSpawnOnStart > 0)
+            {
+                SpawnLoop(toSpawnOnStart);
+            }
+            if (usePicto == true)
+            {
+                canvasChild.SetActive(true);
+                transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
+            }
         }
-        if(usePicto == true)
-        {
-            canvasChild.SetActive(true);
-            transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
-        }
+       
+       
 
         canvasChild.transform.position = new Vector3(canvasChild.transform.position.x, GetHeight() + 4.13f, canvasChild.transform.position.z);
         
@@ -71,21 +77,56 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
    
     public void OnSpanChange()
     {
-        currentSpan += 1;
-        if(currentSpan >= delayResapwn)
+        if (delayBeforeFirstSpawn >0)
         {
-            currentSpan = 0;
-            int quantity = 0;
-            if(fullrespawn == true)
+            delayBeforeFirstSpawn -= 1;
+            if(delayBeforeFirstSpawn <=0)
             {
-                quantity = maxAmountPossible - currenrAmount;
+                if (usePicto == true)
+                {
+                    canvasChild.SetActive(true);
+                    transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
+                }
+
+                if (toSpawnOnStart > 0)
+                {
+                    SpawnLoop(toSpawnOnStart);
+                }
+                else
+                {
+                    int quantity = 0;
+                    if (fullrespawn == true)
+                    {
+                        quantity = maxAmountPossible - currenrAmount;
+                    }
+                    else
+                    {
+                        quantity = Random.Range(minRespawnQuantity, maxRespawnQuantity + 1);
+                    }
+                    SpawnLoop(quantity);
+                }                                
             }
-            else
-            {
-                quantity = Random.Range(minRespawnQuantity, maxRespawnQuantity + 1);
-            }
-            SpawnLoop(quantity);
         }
+        else
+        {
+            currentSpan += 1;
+            if (currentSpan >= delayResapwn)
+            {
+                currentSpan = 0;
+                int quantity = 0;
+                if (fullrespawn == true)
+                {
+                    quantity = maxAmountPossible - currenrAmount;
+                }
+                else
+                {
+                    quantity = Random.Range(minRespawnQuantity, maxRespawnQuantity + 1);
+                }
+                SpawnLoop(quantity);
+            }
+        }
+
+        
     }
 
     public void SpawnLoop(int amount)
