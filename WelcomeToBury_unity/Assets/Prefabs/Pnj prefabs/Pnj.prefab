@@ -462,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 1, g: 1, b: 1, a: 1}
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
+  UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
 --- !u!1 &746631378485285674
 GameObject:
@@ -574,6 +575,10 @@ MonoBehaviour:
   CanSoucier: 0
   CanRemede: 0
   CanGesteSoin: 0
+  _so_remede1: {fileID: 11400000, guid: 6f2d314d280616740ba2989df1118a09, type: 2}
+  _so_remede2: {fileID: 11400000, guid: d6c6b3c3257e5b249862aad22e0b2d7f, type: 2}
+  _so_remede3: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
+  _so_remede4: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
 --- !u!114 &6729861657645782089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1219,7 +1224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.4, y: -26.2}
+  m_AnchoredPosition: {x: -20.9, y: -14.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394195707642503897
@@ -2336,6 +2341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 1, g: 1, b: 1, a: 1}
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
+  UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
 --- !u!1 &3748148921505665227
 GameObject:
@@ -2655,6 +2661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 1, g: 1, b: 1, a: 1}
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
+  UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
 --- !u!1 &4231443076347773342
 GameObject:
@@ -3649,6 +3656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaseColor: {r: 1, g: 1, b: 1, a: 1}
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
+  UnusableColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   isUsable: 1
 --- !u!1 &6026471028998639360
 GameObject:
@@ -4612,6 +4620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254352736131916534}
   - component: {fileID: 784021480411196574}
+  - component: {fileID: 8100923339243292926}
   m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
@@ -4652,6 +4661,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a552fd1990da48a9e8de5a457d5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &8100923339243292926
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7936494997631154705}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7998196595328116410
 GameObject:
   m_ObjectHideFlags: 0

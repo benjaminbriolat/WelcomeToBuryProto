@@ -73,6 +73,11 @@ public class _Sc_pnjState : MonoBehaviour
 
     _Sc_tooltipTrigger _sc_tooltipTrigger = null;
 
+    [SerializeField] _So_item _so_remede1;
+    [SerializeField] _So_item _so_remede2;
+    [SerializeField] _So_item _so_remede3;
+    [SerializeField] _So_item _so_remede4;
+
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
@@ -105,7 +110,50 @@ public class _Sc_pnjState : MonoBehaviour
     public void SetButtonsState()
     {
         int _amitie = myPnjGroup.GetComponent<_Sc_pnjGroup>().groupTrustLevel;
-        _sc_PnjActionsParent.GetButtonsState(CanDialogue, CanSoucier, CanRemede, CanGesteSoin, capTrustReached);
+
+        bool _canRemedeCheck = false;
+        bool _canGesteSoinCheck = false;
+
+        _So_item _so_remedeToCheck = null;
+
+        if(state == 1)
+        {
+            if (symptome1 == true)
+            {
+                _so_remedeToCheck = _so_remede1;
+            }
+            else if (symptome2 == true)
+            {
+                _so_remedeToCheck = _so_remede2;
+            }
+            else if (symptome3 == true)
+            {
+                _so_remedeToCheck = _so_remede3;
+            }
+            else if (symptome4 == true)
+            {
+                _so_remedeToCheck = _so_remede4;
+            }
+
+            if (CanRemede == true)
+            {
+                if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                {
+                    _canRemedeCheck = true;
+                }
+            }
+            else
+            {
+                _canRemedeCheck = false;
+            }
+        }
+        else
+        {
+            _canRemedeCheck = false;
+            _canGesteSoinCheck = false;
+        }
+
+        _sc_PnjActionsParent.GetButtonsState(CanDialogue, CanSoucier, _canRemedeCheck, _canGesteSoinCheck, capTrustReached);
     }
     private void AddPnjToGroup()
     {
@@ -190,6 +238,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             _sc_SelectPnj.SetFichePatient(0, _sc_SelectPnj.lastPnjState);
         }
+
+        SetButtonsState();
     }
 
     private void setSymptomeIcon()

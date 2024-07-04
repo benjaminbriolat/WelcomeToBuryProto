@@ -12,6 +12,7 @@ public class _Sc_debugPnjButton : MonoBehaviour, ISelectHandler, IPointerEnterHa
     Image ButtonImage = null;
     [SerializeField] Color BaseColor = Color.white;
     [SerializeField] Color HighlightColor;
+    [SerializeField] Color UnusableColor;
 
     WaitForSeconds unselectWFS = new WaitForSeconds(0.01f);
 
@@ -30,12 +31,14 @@ public class _Sc_debugPnjButton : MonoBehaviour, ISelectHandler, IPointerEnterHa
 
         if (_usable == false)
         {
-            tempColor.a = 0.25f;
+            tempColor = UnusableColor;
+            tempColor.a = 0.15f;
             myButton.interactable = false;
             isUsable = false;
         }
         else
         {
+            tempColor = BaseColor;
             tempColor.a = 1.0f;
             myButton.interactable = true;
             isUsable = true;

@@ -14,6 +14,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
     TextMeshProUGUI groupText = null;
     TextMeshProUGUI currentEtatText = null;
 
+    [SerializeField] Transform symptomeTitle = null;
     [SerializeField] Transform symptomeHorGroup = null;
     [SerializeField] Transform symptome1 = null;
     [SerializeField] Transform symptome2 = null;
@@ -35,7 +36,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         groupText = UIparent.GetChild(1).GetComponent<TextMeshProUGUI>();
         currentEtatText = UIparent.GetChild(3).GetComponent<TextMeshProUGUI>();
 
-        symptomeHorGroup = UIparent.GetChild(5);
+        //symptomeHorGroup = UIparent.GetChild(5);
+        symptomeTitle = UIparent.GetChild(4);
+        symptomeHorGroup = symptomeTitle.GetChild(0);
 
         symptome1 = symptomeHorGroup.GetChild(0);
         symptome2 = symptomeHorGroup.GetChild (1);
@@ -175,24 +178,28 @@ public class _Sc_fichePatientUI : MonoBehaviour
 
         if (_sc_pnjState.capTrustReached == true)
         {
-            groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + "vous font confiance";
-            //groupText.gameObject.SetActive(true);
+            groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + " " + "vous font confiance";
+            groupText.gameObject.SetActive(true);
 
         }
         else
         {
-            groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + " ne vous font pas encore confiance";
-            //groupText.gameObject.SetActive(false);
+            //groupText.text = "Les" + " " + _so_pnjInfos.pnjGroup.ToString() + " ne vous font pas encore confiance";
+            groupText.gameObject.SetActive(false);
         }
         //groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();
 
         if (_currentEtat == 0)
         {
             currentEtatText.text = "En bonne santé";
+            symptomeHorGroup.gameObject.SetActive(false);
+            symptomeTitle.gameObject.SetActive(false);
         }
         else if (_currentEtat == 1)
         {
             currentEtatText.text = "Malade";
+            symptomeHorGroup.gameObject.SetActive(true);
+            symptomeTitle.gameObject.SetActive(true);
         }
         else if (_currentEtat == 2)
         {
@@ -206,7 +213,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
 
         if(_sc_pnjState.capTrustReached == true)
         {
-            groupText.text = "Les" + " " +  _so_pnjInfos.pnjGroup.ToString() + " vous font confiance";
+            groupText.text = "Les" + " " +  _so_pnjInfos.pnjGroup.ToString()  + " " + "vous font confiance";
             //groupText.gameObject.SetActive(true);
 
         }
@@ -220,10 +227,14 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if (_currentEtat == 0)
         {
             currentEtatText.text = "En bonne santé";
+            symptomeHorGroup.gameObject.SetActive(false);
+            symptomeTitle.gameObject.SetActive(false);
         }
         else if (_currentEtat == 1)
         {
             currentEtatText.text = "Malade";
+            symptomeHorGroup.gameObject.SetActive(true);
+            symptomeTitle.gameObject.SetActive(true);
         }
         else if (_currentEtat == 2)
         {
