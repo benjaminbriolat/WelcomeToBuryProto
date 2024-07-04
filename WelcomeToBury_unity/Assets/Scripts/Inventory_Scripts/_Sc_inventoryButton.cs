@@ -31,7 +31,7 @@ public class _Sc_inventoryButton : MonoBehaviour
         {
             inventoryOpen = true;
             _sc_inventoryManager.inventoryOpen = true;
-
+            _sc_inventoryManager.ClearAllClicks();
             inventoryCanvasGroup.alpha = 1;
             inventoryCanvasGroup.interactable = true;
             inventoryCanvasGroup.blocksRaycasts = true;
@@ -48,7 +48,7 @@ public class _Sc_inventoryButton : MonoBehaviour
         {
             inventoryOpen = false;
             _sc_inventoryManager.inventoryOpen = false;
-
+            _sc_inventoryManager.ClearAllClicks();
             inventoryCanvasGroup.alpha = 0;
             inventoryCanvasGroup.interactable = false;
             inventoryCanvasGroup.blocksRaycasts = false;

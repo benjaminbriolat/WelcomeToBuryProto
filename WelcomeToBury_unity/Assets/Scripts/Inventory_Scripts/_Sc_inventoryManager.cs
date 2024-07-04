@@ -168,6 +168,20 @@ public class _Sc_inventoryManager : MonoBehaviour
         }
     }
 
+    public void ClearAllClicks()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            _Sc_inventorySlot Slot = inventorySlots[i];
+            _Sc_inventoryItem itemInSlot = Slot.GetComponentInChildren<_Sc_inventoryItem>();
+            if (itemInSlot != null)
+            {
+                itemInSlot.clicked = 0;
+            }
+            
+        }
+    }
+
     public bool checkItem(_So_item _item, int countNeeded, bool CheckCraftSlots = false)
     {
         Debug.Log("itemreceived = " + _item.name);

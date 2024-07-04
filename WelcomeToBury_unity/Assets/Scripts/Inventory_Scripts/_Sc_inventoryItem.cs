@@ -28,7 +28,7 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
     _Sc_ressourcesPremeption _ressourcesPeremption = null;
     _Sc_formulaDisplay _formulaDisplay = null;
     //doucle click values
-    [SerializeField] float clicked = 0;
+    public float clicked = 0;
     [SerializeField] float clicktime = 0;
     [SerializeField] float clickdelay = 0.5f;
     [SerializeField] LayerMask _layerMask;
