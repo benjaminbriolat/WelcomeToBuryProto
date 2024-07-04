@@ -47,6 +47,7 @@ public class _Sc_receipe : MonoBehaviour
             if (_sc_formulaDisplay.isOpen == false)
             {
                 _sc_formulaDisplay.OpenFormula(true);
+                _sc_formulaDisplay.currentReceipe = this;
             }
             else
             {
@@ -56,6 +57,7 @@ public class _Sc_receipe : MonoBehaviour
         else
         {
             _sc_formulaDisplay.OpenFormula(true);
+            _sc_formulaDisplay.currentReceipe = this;
         }
         
     }

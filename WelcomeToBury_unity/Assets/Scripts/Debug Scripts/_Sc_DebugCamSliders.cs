@@ -15,7 +15,7 @@ public class _Sc_DebugCamSliders : MonoBehaviour
     [SerializeField] Slider inclRatioSlider = null;
     [SerializeField] Slider dampingSlider = null;
     [SerializeField] Transform button = null;
-    bool isOpen = false;
+    public bool isOpen = false;
     [SerializeField] TextMeshProUGUI zoomValue = null;
     [SerializeField] TextMeshProUGUI inclValue = null;
     [SerializeField] TextMeshProUGUI zoomRatioValue = null;

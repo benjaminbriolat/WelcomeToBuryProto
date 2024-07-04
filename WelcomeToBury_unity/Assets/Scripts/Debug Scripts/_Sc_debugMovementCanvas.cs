@@ -5,7 +5,7 @@ using UnityEngine;
 public class _Sc_debugMovementCanvas : MonoBehaviour
 {
     // Start is called before the first frame update
-    bool isOpen = false;
+    public bool isOpen = false;
     public void Open()
     {
         if(isOpen == true)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class _Sc_DebugItemCanvas : MonoBehaviour
 {
-    bool isOpen = false;
+    public bool isOpen = false;
     public void Open()
     {
         if (isOpen == true)

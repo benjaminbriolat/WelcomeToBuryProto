@@ -7,7 +7,12 @@ public class _Sc_DebugCheatManager : MonoBehaviour
     [SerializeField] CanvasGroup movementDebug = null;
     [SerializeField] CanvasGroup camDebug = null;
     [SerializeField] CanvasGroup itemDebug = null;
+
+    [SerializeField] _Sc_debugMovementCanvas _debugMovement = null;
+    [SerializeField] _Sc_DebugCamSliders _debugCam = null;
+    [SerializeField] _Sc_DebugItemCanvas _debugItems = null;
     [SerializeField] _Sc_debugClearCraftTableCanvas  craftTableClear= null;
+    [SerializeField] _Sc_DebugLockAutoFill _lockAutoFill = null;
     bool isOpen = false;
 
     private void Update()
@@ -35,6 +40,23 @@ public class _Sc_DebugCheatManager : MonoBehaviour
             itemDebug.interactable = false;
             itemDebug.blocksRaycasts = false;
             craftTableClear.Set();
+
+            if(_debugMovement.isOpen)
+            {
+                _debugMovement.Open();
+            }
+
+            if (_debugCam.isOpen)
+            {
+                _debugCam.open();
+            }
+
+            if (_debugItems.isOpen)
+            {
+                _debugItems.Open();
+            }
+
+            _lockAutoFill.Set();
         }
         else
         {
@@ -52,6 +74,7 @@ public class _Sc_DebugCheatManager : MonoBehaviour
             itemDebug.interactable = true;
             itemDebug.blocksRaycasts = true;
             craftTableClear.Set();
+            _lockAutoFill.Set();
         }
     }
 

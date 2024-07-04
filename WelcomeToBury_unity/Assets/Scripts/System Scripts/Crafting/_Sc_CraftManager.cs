@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 
 public class _Sc_CraftManager : MonoBehaviour
 {
@@ -168,7 +167,6 @@ public class _Sc_CraftManager : MonoBehaviour
             isOpen = true;
         }
     }
-    //[Button]
     public void combine()
     {
         formula = null;

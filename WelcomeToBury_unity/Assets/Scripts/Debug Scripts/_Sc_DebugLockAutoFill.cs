@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class _Sc_DebugLockAutoFill : MonoBehaviour
 {
-    bool isOpen = false;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Set();
-        }
-    }
+    bool isOpen = false;    
     public void Set()
     {
         if (isOpen)
