@@ -2082,6 +2082,7 @@ GameObject:
   - component: {fileID: 8545160093039148758}
   - component: {fileID: 1275226992501956722}
   - component: {fileID: 1530241398144305780}
+  - component: {fileID: 4218167793833984966}
   m_Layer: 5
   m_Name: Canvas_Debug_camera
   m_TagString: Untagged
@@ -2196,6 +2197,18 @@ MonoBehaviour:
   zoomRatioValue: {fileID: 2939246386258855004}
   inclRatioValue: {fileID: 7516923544276845226}
   dampingValue: {fileID: 5719314419245257375}
+--- !u!114 &4218167793833984966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136989311901486983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42030f1aa9d2eb64a91859e2d113a3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4236504635584747652
 GameObject:
   m_ObjectHideFlags: 0
