@@ -166,5 +166,11 @@ public class _Sc_cookbook : MonoBehaviour
         {
             _sc_MessagesManager.SetMessageText("Vous avez découvert la recette du" + " " + "Remède" + remede.ToString() + "!", true);
         }
+
+        if (_Sc_selectPnj.Instance.lastPnjState != null)
+        {
+            _Sc_selectPnj.Instance.SetFichePatient(0, _Sc_selectPnj.Instance.lastPnjState);
+            _Sc_selectPnj.Instance.lastPnjState.SetButtonsState();
+        }
     }
 }

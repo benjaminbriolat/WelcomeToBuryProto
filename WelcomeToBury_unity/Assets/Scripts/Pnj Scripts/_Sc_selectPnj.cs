@@ -181,7 +181,7 @@ public class _Sc_selectPnj : MonoBehaviour
             _sc_fichePatientUI.SetFicheValues(lastPnjState, lastPnjState._so_pnjInfos, lastPnjState.state, lastPnjState.GroupLevel,
            lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
         }
-
+        Debug.Log("SetFichePatient");
     }
 
     private IEnumerator delayFichePatient(float delay, _Sc_pnjState _pnjState)

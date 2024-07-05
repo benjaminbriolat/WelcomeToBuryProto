@@ -195,8 +195,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2305075632602433015}
   m_HandleRect: {fileID: 6850938629576811249}
   m_Direction: 2
-  m_Value: 0.99999964
-  m_Size: 0.2885252
+  m_Value: 1
+  m_Size: 0.28852516
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -361,6 +361,8 @@ MonoBehaviour:
   inventoryOpen: 0
   inventoryCanvasGroup: {fileID: 1204056529379296783}
   DebugGiveItemCanvasGroup: {fileID: 0}
+  inventoryScrollbar: {fileID: 815773891662644398}
+  alsoOpenDebug: 0
 --- !u!1 &1626712509635206057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.00015258789, y: 0.00012207031}
+  m_AnchoredPosition: {x: -0.00015258789, y: 0.000061035156}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9214991407959552040

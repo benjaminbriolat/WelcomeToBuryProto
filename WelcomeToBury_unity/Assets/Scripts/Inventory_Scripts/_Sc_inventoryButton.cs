@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class _Sc_inventoryButton : MonoBehaviour
 {
     public bool inventoryOpen = false;
     [SerializeField] CanvasGroup inventoryCanvasGroup = null;
     [SerializeField] CanvasGroup DebugGiveItemCanvasGroup = null;
+    [SerializeField] Scrollbar inventoryScrollbar = null;
+
     [SerializeField] bool alsoOpenDebug = false;
     _Sc_inventoryManager _sc_inventoryManager = null;
     _Sc_cerveau _sc_cerveau = null;
@@ -42,7 +45,11 @@ public class _Sc_inventoryButton : MonoBehaviour
                 DebugGiveItemCanvasGroup.interactable = true;
                 DebugGiveItemCanvasGroup.blocksRaycasts = true;
             }
-           
+
+            if(inventoryScrollbar != null)
+            {
+                inventoryScrollbar.value = 1;
+            }
         }
         else if(inventoryOpen == true) //close inventory
         {

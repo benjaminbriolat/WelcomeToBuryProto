@@ -93,7 +93,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
         }
         else
         {
-            SetFicheInfosDialogue(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel);
+            SetFicheInfosDialogue(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel, _symptome1, _symptome2, _symptome3, _symptome4);
         }
 
         if(_sc_pnjState.SoucierOk == true)
@@ -166,13 +166,16 @@ public class _Sc_fichePatientUI : MonoBehaviour
 
         currentEtatText.text = "???";
 
-        symptome1.gameObject.SetActive(false);
-        symptome2.gameObject.SetActive(false);
-        symptome3.gameObject.SetActive(false);
-        symptome4.gameObject.SetActive(false);
+        if(_currentEtat == 0)
+        {
+            symptome1.gameObject.SetActive(false);
+            symptome2.gameObject.SetActive(false);
+            symptome3.gameObject.SetActive(false);
+            symptome4.gameObject.SetActive(false);
+        }
     }
     
-    private void SetFicheInfosDialogue(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel)
+    private void SetFicheInfosDialogue(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel, bool _symptome1, bool _symptome2, bool _symptome3, bool _symptome4)
     {
         nameText.text = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
 
@@ -200,6 +203,42 @@ public class _Sc_fichePatientUI : MonoBehaviour
             currentEtatText.text = "Malade";
             symptomeHorGroup.gameObject.SetActive(true);
             symptomeTitle.gameObject.SetActive(true);
+
+            if (_symptome1)
+            {
+                symptome1.gameObject.SetActive(true);
+            }
+            else
+            {
+                symptome1.gameObject.SetActive(false);
+            }
+
+            if (_symptome2)
+            {
+                symptome2.gameObject.SetActive(true);
+            }
+            else
+            {
+                symptome2.gameObject.SetActive(false);
+            }
+
+            if (_symptome3)
+            {
+                symptome3.gameObject.SetActive(true);
+            }
+            else
+            {
+                symptome3.gameObject.SetActive(false);
+            }
+
+            if (_symptome4)
+            {
+                symptome4.gameObject.SetActive(true);
+            }
+            else
+            {
+                symptome4.gameObject.SetActive(false);
+            }
         }
         else if (_currentEtat == 2)
         {
@@ -214,12 +253,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
         if(_sc_pnjState.capTrustReached == true)
         {
             groupText.text = "Les" + " " +  _so_pnjInfos.pnjGroup.ToString()  + " " + "vous font confiance";
-            //groupText.gameObject.SetActive(true);
+            groupText.gameObject.SetActive(true);
 
         }
         else
         {
-            //groupText.gameObject.SetActive(false);
+            groupText.gameObject.SetActive(false);
         }
 
         //groupText.text = _so_pnjInfos.pnjGroup.ToString() + " - " + "Amitié" + " " + _groupLevel.ToString();

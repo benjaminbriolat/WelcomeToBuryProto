@@ -115,36 +115,57 @@ public class _Sc_pnjState : MonoBehaviour
         bool _canGesteSoinCheck = false;
 
         _So_item _so_remedeToCheck = null;
+        string treatmentToCheck = null;
 
-        if(state == 1)
+        if (state == 1)
         {
             if (symptome1 == true)
             {
                 _so_remedeToCheck = _so_remede1;
+                treatmentToCheck = "treatment1";
             }
             else if (symptome2 == true)
             {
                 _so_remedeToCheck = _so_remede2;
+                treatmentToCheck = "treatment2";
             }
             else if (symptome3 == true)
             {
                 _so_remedeToCheck = _so_remede3;
+                treatmentToCheck = "treatment3";
             }
             else if (symptome4 == true)
             {
                 _so_remedeToCheck = _so_remede4;
+                treatmentToCheck = "treatment4";
             }
 
             if (CanRemede == true)
             {
-                if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                if(_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true)
                 {
-                    _canRemedeCheck = true;
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        _canRemedeCheck = true;
+                    }
+                    else
+                    {
+                        _canRemedeCheck = false;
+                    }
+                }
+                else
+                {
+                    _canRemedeCheck = false;
                 }
             }
             else
             {
                 _canRemedeCheck = false;
+            }
+
+            if(capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
+            {
+                _canGesteSoinCheck = true;
             }
         }
         else
@@ -432,5 +453,11 @@ public class _Sc_pnjState : MonoBehaviour
     public void UpdateTrustLevel()
     {
         myPnjGroup.GetComponent<_Sc_pnjGroup>().UpdateTrustLevel();
+        if (_Sc_selectPnj.Instance.lastPnjState != null)
+        {
+            _Sc_selectPnj.Instance.SetFichePatient(0, _Sc_selectPnj.Instance.lastPnjState);
+            _Sc_selectPnj.Instance.lastPnjState.SetButtonsState();
+            Debug.Log("CookBookSetFichePatient & button");
+        }
     }
 }
