@@ -35,31 +35,33 @@ public class _Sc_inventoryButton : MonoBehaviour
             inventoryOpen = true;
             _sc_inventoryManager.inventoryOpen = true;
             _sc_inventoryManager.ClearAllClicks();
+            if (inventoryScrollbar != null)
+            {
+                inventoryScrollbar.value = 1;
+            }
             inventoryCanvasGroup.alpha = 1;
             inventoryCanvasGroup.interactable = true;
             inventoryCanvasGroup.blocksRaycasts = true;
 
-            if(alsoOpenDebug == true)
+            
+            if (alsoOpenDebug == true)
             {
                 DebugGiveItemCanvasGroup.alpha = 1;
                 DebugGiveItemCanvasGroup.interactable = true;
                 DebugGiveItemCanvasGroup.blocksRaycasts = true;
             }
 
-            if(inventoryScrollbar != null)
-            {
-                inventoryScrollbar.value = 1;
-            }
+            
         }
         else if(inventoryOpen == true) //close inventory
         {
             inventoryOpen = false;
             _sc_inventoryManager.inventoryOpen = false;
             _sc_inventoryManager.ClearAllClicks();
+            
             inventoryCanvasGroup.alpha = 0;
             inventoryCanvasGroup.interactable = false;
             inventoryCanvasGroup.blocksRaycasts = false;
-
             if (alsoOpenDebug == true)
             {
                 DebugGiveItemCanvasGroup.alpha = 0;
