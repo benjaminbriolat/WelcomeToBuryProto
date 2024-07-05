@@ -10683,6 +10683,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1153472901}
+  - component: {fileID: 1153472902}
   m_Layer: 0
   m_Name: SpawnerParent
   m_TagString: Untagged
@@ -10713,6 +10714,19 @@ Transform:
   - {fileID: 664185879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1153472902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153472900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2810de3e34f4f043a8e5b127a84a50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desactivate: 1
 --- !u!114 &1154714093 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5565046888459968401, guid: 3dca94daa25549648938acdc5cd6f58f, type: 3}
@@ -16911,6 +16925,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
+  isUseless: 0
   growthSpeed: 0
 --- !u!4 &1940244442
 Transform:
@@ -17773,6 +17788,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
+  isUseless: 0
   growthSpeed: 0
 --- !u!4 &2057990026
 Transform:

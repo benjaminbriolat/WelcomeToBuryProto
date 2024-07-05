@@ -8,6 +8,7 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [Header("References")]
     [SerializeField] _So_item _item;    
     [SerializeField] GameObject objectToSpawn = null;
+    _Sc_debugUselessRessources _uselessRessources = null;
 
     [Header("SapwnValues")]
     [SerializeField] int delayBeforeFirstSpawn = 0;
@@ -26,6 +27,9 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     [SerializeField] bool usePicto = false;
     Transform raySocket = null;
     [SerializeField] LayerMask _layerMask;
+
+    [Header("Debugs")]
+    [SerializeField] bool isUseless = false;
     public enum Growth
     {
         fast,
@@ -40,39 +44,44 @@ public class _Sc_RessourcesSpawner : MonoBehaviour
     _Sc_Calendrier _calendrier = null;
     private void Start()
     {
-        raySocket = transform.GetChild(1);
-        if (growthSpeed.ToString() == "fast")
-        {
-            delayResapwn = 3;
-        }
-        if (growthSpeed.ToString() == "mid")
-        {
-            delayResapwn = 6;
-        }
-        if (growthSpeed.ToString() == "slow")
-        {
-            delayResapwn = 9;
-        }
-
-        _calendrier = _Sc_Calendrier.instance;
-        _calendrier.AddCrop(this.transform);
-        if(delayBeforeFirstSpawn <= 0)
-        {
-            if (toSpawnOnStart > 0)
-            {
-                SpawnLoop(toSpawnOnStart);
-            }
-            if (usePicto == true)
-            {
-                canvasChild.SetActive(true);
-                transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
-            }
-        }
-       
-       
-
-        canvasChild.transform.position = new Vector3(canvasChild.transform.position.x, GetHeight() + 4.13f, canvasChild.transform.position.z);
+        _uselessRessources = _Sc_debugUselessRessources.instance;
         
+        if(_uselessRessources.desactivate == false || isUseless == false)
+        {
+            raySocket = transform.GetChild(1);
+            if (growthSpeed.ToString() == "fast")
+            {
+                delayResapwn = 3;
+            }
+            if (growthSpeed.ToString() == "mid")
+            {
+                delayResapwn = 6;
+            }
+            if (growthSpeed.ToString() == "slow")
+            {
+                delayResapwn = 9;
+            }
+
+            _calendrier = _Sc_Calendrier.instance;
+            _calendrier.AddCrop(this.transform);
+            if (delayBeforeFirstSpawn <= 0)
+            {
+                if (toSpawnOnStart > 0)
+                {
+                    SpawnLoop(toSpawnOnStart);
+                }
+                if (usePicto == true)
+                {
+                    canvasChild.SetActive(true);
+                    transform.GetChild(0).GetChild(2).GetComponent<Image>().sprite = _item.image;
+                }
+            }
+            canvasChild.transform.position = new Vector3(canvasChild.transform.position.x, GetHeight() + 4.13f, canvasChild.transform.position.z);
+        }
+        else if (_uselessRessources.desactivate == true || isUseless == true)
+        {
+            gameObject.SetActive(false);
+        } 
     }
    
     public void OnSpanChange()
