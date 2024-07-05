@@ -13,6 +13,7 @@ public class _Sc_inventoryButton : MonoBehaviour
     [SerializeField] bool alsoOpenDebug = false;
     _Sc_inventoryManager _sc_inventoryManager = null;
     _Sc_cerveau _sc_cerveau = null;
+    [SerializeField] Scrollbar _scrollbar = null;
 
     private void Start()
     {
@@ -56,16 +57,17 @@ public class _Sc_inventoryButton : MonoBehaviour
             inventoryOpen = false;
             _sc_inventoryManager.inventoryOpen = false;
             _sc_inventoryManager.ClearAllClicks();
+            
             inventoryCanvasGroup.alpha = 0;
             inventoryCanvasGroup.interactable = false;
             inventoryCanvasGroup.blocksRaycasts = false;
-
             if (alsoOpenDebug == true)
             {
                 DebugGiveItemCanvasGroup.alpha = 0;
                 DebugGiveItemCanvasGroup.interactable = false;
                 DebugGiveItemCanvasGroup.blocksRaycasts = false;
             }
+            _scrollbar.value = 1;
         }
     }
 }
