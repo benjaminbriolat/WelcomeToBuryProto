@@ -13,11 +13,9 @@ public class _Sc_onHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         _sc_mouseHoverManager.CurrentObject = this.transform;
-        Debug.Log("OnHoverEnter");
     }
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         _sc_mouseHoverManager.CurrentObject = null;
-        Debug.Log("OnHoverExit");
     }
 }

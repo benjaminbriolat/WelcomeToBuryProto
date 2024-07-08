@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9069794933250963084}
   - component: {fileID: 9080839883649605975}
+  - component: {fileID: 4130960306768950088}
   m_Layer: 5
   m_Name: Geste soin
   m_TagString: Untagged
@@ -189,6 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a552fd1990da48a9e8de5a457d5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &4130960306768950088
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138539351790417915}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &284883444959809168
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +477,7 @@ MonoBehaviour:
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
   UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
+  isDialogueButton: 0
 --- !u!1 &746631378485285674
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 60cc232d2e15c1c4eb7e9f3f5c81363a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3cba57b786751b429b3ec78fb59d62e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1082,6 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7288683186419247828}
   - component: {fileID: 5381064333827254486}
+  - component: {fileID: 4376411145121660583}
   m_Layer: 5
   m_Name: Soucier
   m_TagString: Untagged
@@ -1122,6 +1137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a552fd1990da48a9e8de5a457d5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &4376411145121660583
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774285205017514123}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1818501284584225739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 60
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -2343,6 +2370,7 @@ MonoBehaviour:
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
   UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
+  isDialogueButton: 0
 --- !u!1 &3748148921505665227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,6 +2691,7 @@ MonoBehaviour:
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
   UnusableColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
   isUsable: 1
+  isDialogueButton: 0
 --- !u!1 &4231443076347773342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,6 +3235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3320119369107647597}
   - component: {fileID: 7035211741693236339}
+  - component: {fileID: 6232195694352953714}
   m_Layer: 5
   m_Name: Remede
   m_TagString: Untagged
@@ -3246,6 +3276,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a552fd1990da48a9e8de5a457d5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &6232195694352953714
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5008705395986451410}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5034875104293004079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,6 +3700,7 @@ MonoBehaviour:
   HighlightColor: {r: 0.6273585, g: 1, b: 0.76211816, a: 1}
   UnusableColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   isUsable: 1
+  isDialogueButton: 1
 --- !u!1 &6026471028998639360
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 01f13b61ef7c97442b9a3aee0407c4dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 60cc232d2e15c1c4eb7e9f3f5c81363a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4670,8 +4713,8 @@ CanvasGroup:
   m_GameObject: {fileID: 7936494997631154705}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &7998196595328116410
 GameObject:

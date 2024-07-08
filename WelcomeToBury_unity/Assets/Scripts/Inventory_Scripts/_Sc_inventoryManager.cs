@@ -112,6 +112,10 @@ public class _Sc_inventoryManager : MonoBehaviour
                 itemInSlot.count = _count;
                 itemInSlot.SetCount();
                 _formulaDisplay.UpdateAutoButton();
+
+                //set button action si obtient remede
+                _Sc_selectPnj.Instance.currentPnjState.SetButtonsState();
+
                 return true;
             }
         }

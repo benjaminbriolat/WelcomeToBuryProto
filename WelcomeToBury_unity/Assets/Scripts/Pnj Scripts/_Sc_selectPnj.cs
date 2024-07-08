@@ -47,8 +47,6 @@ public class _Sc_selectPnj : MonoBehaviour
             {
                 if (Vector3.Distance(_Sc_cerveau.instance.transform.position, currentPnjState.transform.position) < minDist)
                 {
-                    Debug.Log("SelectPnj3");
-
                     currentPnjState.SetButtonsState();
 
                     SetUnitState(lastHitTransform.parent);
@@ -90,30 +88,32 @@ public class _Sc_selectPnj : MonoBehaviour
                 lastHitTransform = hit.transform;
                 if (lastHitTransform.gameObject.layer == LayerPnj)
                 {
-                    UnSelectPnj(false);
-
-                    Debug.Log("Hit PNJ " + lastHitTransform.name);
-                    currentPnjState = (lastHitTransform.parent.GetComponent<_Sc_pnjState>());
-
-                    if (currentPnjState.CurrentState == _Sc_pnjState.State.Default)
+                    if(lastHitTransform.parent.GetComponent<_Sc_pnjState>().cracheurDeNoir == false)
                     {
-                        Debug.Log("Currenstateok");
-                        //_sc_pnjState.SetButtonsState();
-                        if (lastPnjState != null)
-                        {
-                            lastPnjState.SetActionsUi(false);
-                            lastPnjState.CurrentState = _Sc_pnjState.State.Default;
-                        }
-                        if (lastSelectedSprite != null)
-                        {
-                            //lastSelectedSprite.UnSelected();
-                        }
-                        lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
+                        UnSelectPnj(false);
 
-                        _Sc_movement.instance.NewCustomDestination = false;
-                        /*SetUnitState(lastHitTransform.parent);
-                        SetSelectedSprite(lastHitTransform.parent);
-                        SetActionsUi(lastHitTransform.parent);*/
+                        Debug.Log("Hit PNJ " + lastHitTransform.name);
+                        currentPnjState = (lastHitTransform.parent.GetComponent<_Sc_pnjState>());
+
+                        if (currentPnjState.CurrentState == _Sc_pnjState.State.Default)
+                        {
+                            //_sc_pnjState.SetButtonsState();
+                            if (lastPnjState != null)
+                            {
+                                lastPnjState.SetActionsUi(false);
+                                lastPnjState.CurrentState = _Sc_pnjState.State.Default;
+                            }
+                            if (lastSelectedSprite != null)
+                            {
+                                //lastSelectedSprite.UnSelected();
+                            }
+                            lastSelectedSprite = currentPnjState.transform.GetChild(1).GetChild(1).GetComponent<_Sc_pnjSelectSprite>();
+
+                            _Sc_movement.instance.NewCustomDestination = false;
+                            /*SetUnitState(lastHitTransform.parent);
+                            SetSelectedSprite(lastHitTransform.parent);
+                            SetActionsUi(lastHitTransform.parent);*/
+                        }
                     }
                 }
                 else
@@ -135,7 +135,6 @@ public class _Sc_selectPnj : MonoBehaviour
         {
             lastPnjState.SetActionsUi(false);
             lastPnjState.CurrentState = _Sc_pnjState.State.Default;
-            Debug.Log("DESELECT PNJ");
         }
         if (lastSelectedSprite != null)
         {
@@ -181,7 +180,6 @@ public class _Sc_selectPnj : MonoBehaviour
             _sc_fichePatientUI.SetFicheValues(lastPnjState, lastPnjState._so_pnjInfos, lastPnjState.state, lastPnjState.GroupLevel,
            lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
         }
-        Debug.Log("SetFichePatient");
     }
 
     private IEnumerator delayFichePatient(float delay, _Sc_pnjState _pnjState)

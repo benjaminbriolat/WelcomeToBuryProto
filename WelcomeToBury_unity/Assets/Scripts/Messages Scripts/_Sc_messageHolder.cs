@@ -38,8 +38,9 @@ public class _Sc_messageHolder : MonoBehaviour
     {
         yield return new WaitForSeconds(_time);
         _messageAnimator.SetBool("end", true);
+        yield return new WaitForSeconds(0.1f);
 
-        if(_messageAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && _messageAnimator.IsInTransition(0) == false)
+        if (_messageAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1 && _messageAnimator.IsInTransition(0) == false)
         {
             Destroy(gameObject);
         }

@@ -18,6 +18,7 @@ public class _Sc_debugPnjButton : MonoBehaviour, ISelectHandler, IPointerEnterHa
 
     public bool isUsable = true;
     private Button myButton = null;
+    [SerializeField] bool isDialogueButton = false;
     private void Awake()
     {
         ButtonImage = GetComponent<Image>();
@@ -25,25 +26,54 @@ public class _Sc_debugPnjButton : MonoBehaviour, ISelectHandler, IPointerEnterHa
         myButton = GetComponent<Button>();
     }
 
+    private void Start()
+    {
+        if(isDialogueButton == true)
+        {
+            SetUsable(false);
+        }
+    }
+
     public void SetUsable(bool _usable)
     {
         Color tempColor = ButtonImage.color;
 
-        if (_usable == false)
+        if (isDialogueButton == false)
         {
-            tempColor = UnusableColor;
-            tempColor.a = 0.15f;
-            myButton.interactable = false;
-            isUsable = false;
+            if (_usable == false)
+            {
+                tempColor = UnusableColor;
+                tempColor.a = 0.0f;
+                myButton.interactable = false;
+                isUsable = false;
+
+                ButtonImage.transform.parent.GetComponent<CanvasGroup>().alpha = 0.0f;
+                ButtonImage.transform.parent.gameObject.SetActive(false);
+            }
+            else
+            {
+                tempColor = BaseColor;
+                tempColor.a = 1.0f;
+                myButton.interactable = true;
+                isUsable = true;
+
+                ButtonImage.transform.parent.GetComponent<CanvasGroup>().alpha = 1.0f;
+                ButtonImage.transform.parent.gameObject.SetActive(true);
+            }
+
+            ButtonImage.color = tempColor;
         }
         else
         {
-            tempColor = BaseColor;
-            tempColor.a = 1.0f;
-            myButton.interactable = true;
-            isUsable = true;
+            //Temp disable dialogue button
+            tempColor = UnusableColor;
+            tempColor.a = 0.0f;
+            myButton.interactable = false;
+            isUsable = false;
+
+            ButtonImage.transform.parent.GetComponent<CanvasGroup>().alpha = 0.0f;
+            ButtonImage.transform.parent.gameObject.SetActive(false);
         }
-        ButtonImage.color = tempColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

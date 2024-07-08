@@ -157,7 +157,20 @@ public class _Sc_cookbook : MonoBehaviour
 
     private IEnumerator RemedeProgressFeedback(int remede, bool discovered)
     {
-        yield return new WaitForSeconds(4.0f);
+        _Sc_Calendrier _sc_calendrier = _Sc_Calendrier.instance;
+        _Sc_DebugBlackScreen _sc_blackScreen = _Sc_DebugBlackScreen.instance;
+
+        float _waitTime = 0f;
+        if(_sc_calendrier.currentPlage < 3)
+        {
+            _waitTime = _sc_blackScreen.fadeTime + _sc_blackScreen.spanWait;
+        }
+        else
+        {
+            _waitTime = _sc_blackScreen.fadeTime + _sc_blackScreen.dayWait;
+        }
+
+        yield return new WaitForSeconds(_waitTime + 1.0f);
         if(discovered == false)
         {
             _sc_MessagesManager.SetMessageText("Votre compréhension"+ " " + "progresse !", true);

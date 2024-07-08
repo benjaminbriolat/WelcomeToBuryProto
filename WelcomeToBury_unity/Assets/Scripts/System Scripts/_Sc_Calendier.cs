@@ -10,7 +10,7 @@ public class _Sc_Calendrier : MonoBehaviour
     [SerializeField] TextMeshProUGUI dayText = null;
     [SerializeField] TextMeshProUGUI plageText = null;
     int currentDay = 1;
-    int currentPlage = 1;
+    public int currentPlage = 1;
     _Sc_EpidemicManager _sc_epidemicManager = null;
     [Header("Affected Objects")]
     [SerializeField] List<Transform> pnjs = null;

@@ -119,6 +119,7 @@ public class _Sc_pnjState : MonoBehaviour
 
         if (state == 1)
         {
+            
             if (symptome1 == true)
             {
                 _so_remedeToCheck = _so_remede1;
@@ -139,6 +140,16 @@ public class _Sc_pnjState : MonoBehaviour
                 _so_remedeToCheck = _so_remede4;
                 treatmentToCheck = "treatment4";
             }
+
+            if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+            {
+                if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                {
+                    CanRemede = true;
+                    _canRemedeCheck = true;
+                }
+            }
+            //
 
             if (CanRemede == true)
             {

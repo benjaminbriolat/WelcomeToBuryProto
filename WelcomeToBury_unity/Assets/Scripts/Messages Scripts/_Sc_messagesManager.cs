@@ -9,7 +9,7 @@ public class _Sc_messagesManager : MonoBehaviour
     public static _Sc_messagesManager instance;
     [SerializeField] GameObject messagePrefab = null;
     [SerializeField] GameObject messagePrefab2 = null;
-    [SerializeField] float messageTime = 3.0f;
+    [SerializeField] float messageTime = 5.0f;
 
     private void Awake()
     {
@@ -48,12 +48,5 @@ public class _Sc_messagesManager : MonoBehaviour
         _sc_messageHolder.MessageCreated(messageTime);
 
         //_sc_messageHolder.setBoxColor(_remede);
-    }
-
-    //Debug//
-    [Button]
-    public void CreateMessage()
-    {
-        SetMessageText("Votre compréhension du remède 1 progresse!");
     }
 }

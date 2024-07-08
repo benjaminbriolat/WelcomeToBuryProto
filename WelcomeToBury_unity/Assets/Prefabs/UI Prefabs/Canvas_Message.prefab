@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePrefab: {fileID: 8299942927476849395, guid: 9253d2a6a198d8b4989b366e2177d081, type: 3}
   messagePrefab2: {fileID: 8299942927476849395, guid: 4c73ebe2635fe8343b5c16945afd624c, type: 3}
-  messageTime: 2
+  messageTime: 6
 --- !u!1 &8092228813406671193
 GameObject:
   m_ObjectHideFlags: 0
