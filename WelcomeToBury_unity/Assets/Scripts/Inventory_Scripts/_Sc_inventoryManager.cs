@@ -1,7 +1,10 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class _Sc_inventoryManager : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class _Sc_inventoryManager : MonoBehaviour
     bool canShowMessageRotten = true;
     _Sc_CraftManager _sc_craftManager = null;
     _Sc_formulaDisplay _formulaDisplay = null;
+    [SerializeField] List<Transform> iventoryItems = null;
+
+    [SerializeField] bool canReorganize = false;
+    [SerializeField] bool predecessor = false;
+    [SerializeField] bool hole = false;
+    [SerializeField] int startingSlot = 0;
+
     private void Awake()
     {
         instance = this;
@@ -26,6 +36,7 @@ public class _Sc_inventoryManager : MonoBehaviour
         _sc_messageManager = _Sc_messagesManager.instance;
         _sc_craftManager = _Sc_CraftManager.instance;
         _formulaDisplay = _Sc_formulaDisplay.instance;
+        iventoryItems = new List<Transform>();
     }
     public bool AddItem(_So_item _item, int _count = 1)
     {
@@ -114,7 +125,11 @@ public class _Sc_inventoryManager : MonoBehaviour
                 _formulaDisplay.UpdateAutoButton();
 
                 //set button action si obtient remede
-                _Sc_selectPnj.Instance.currentPnjState.SetButtonsState();
+                if(_Sc_selectPnj.Instance.currentPnjState != null)
+                {
+                    _Sc_selectPnj.Instance.currentPnjState.SetButtonsState();
+
+                }
 
                 return true;
             }
@@ -136,7 +151,7 @@ public class _Sc_inventoryManager : MonoBehaviour
         CheckInventory();
     }
 
-    public void RemoveItem(_So_item removalTarget)
+    public void RemoveItem(_So_item removalTarget, bool updateOrder = false)
     {
         Debug.Log("RemoveItem received");
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -149,6 +164,10 @@ public class _Sc_inventoryManager : MonoBehaviour
                     inventorySlots[i].transform.GetChild(0).GetComponent<_Sc_inventoryItem>().SetCount();
                     Debug.Log("RemoveItem Done");
                     _formulaDisplay.UpdateAutoButton();
+                    if(updateOrder == true)
+                    {
+                        StartCoroutine(DelayReorganize());
+                    }
                 }
             }
         }
@@ -211,6 +230,7 @@ public class _Sc_inventoryManager : MonoBehaviour
                 }
             }  
         }
+        
         //checkItemsInCraft
         if(CheckCraftSlots)
         {
@@ -234,6 +254,92 @@ public class _Sc_inventoryManager : MonoBehaviour
         }
     }
 
+    public void Reorganize()
+    {
+        canReorganize = false;
+        predecessor = false;
+        hole = false;
+        startingSlot = 0;
+        iventoryItems.Clear();
+       
+       
+
+        //Look for holes in inventory
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            _Sc_inventoryItem _inventoryItem = inventorySlots[i].GetComponentInChildren<_Sc_inventoryItem>();
+            if (i == 0)
+            {
+                if (_inventoryItem == null)
+                {
+                    canReorganize = true;
+                    break;
+                }
+                else
+                {
+                    predecessor = true;
+                }
+            }
+            else
+            {
+                if (_inventoryItem != null)
+                {
+                    if (predecessor == false)
+                    {
+                        predecessor = true;
+                    }
+                    else if (hole == true)
+                    {
+                        startingSlot = i;
+                        canReorganize = true;
+                        break;
+                    }
+                }
+                else if (_inventoryItem == null)
+                {
+                    if (predecessor == true)
+                    {
+                        hole = true;
+                    }
+                }
+            }
+        }
+
+        if (canReorganize == true)
+        {
+            // make a list of all items
+            for (int i = startingSlot; i < inventorySlots.Length; i++)
+            {
+                _Sc_inventoryItem _inventoryItem = inventorySlots[i].GetComponentInChildren<_Sc_inventoryItem>();
+                if (_inventoryItem != null)
+                {
+                    iventoryItems.Add(_inventoryItem.transform);
+                }
+
+            }
+
+            // reposition all items
+            for (int i = 0; i < iventoryItems.Count; i++)
+            {
+                for (int j = 0; j < inventorySlots.Length; j++)
+                {
+                    _Sc_inventorySlot Slot = inventorySlots[j];
+                    _Sc_inventoryItem _sc_inventoryItem = Slot.GetComponentInChildren<_Sc_inventoryItem>();
+                    if (_sc_inventoryItem == null)
+                    {
+                        iventoryItems[i].SetParent(Slot.transform);
+                        break;
+                    }
+                }
+            } 
+        }
+        else
+        {
+            Debug.Log("AlreadyArranged");
+        }
+        iventoryItems.Clear();
+    }
+
     public IEnumerator CheckInventoryDelay()
     {
         yield return new WaitForSeconds(0.1f);
@@ -244,5 +350,11 @@ public class _Sc_inventoryManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         canShowMessageRotten = true;
+    }
+
+    private IEnumerator DelayReorganize()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Reorganize();
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 
 public class _Sc_fichePatientUI : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
     [SerializeField] Transform symptome2 = null;
     [SerializeField] Transform symptome3 = null;
     [SerializeField] Transform symptome4 = null;
+
+    [SerializeField] Image picto1 = null;
+    [SerializeField] Image picto2 = null;
+    [SerializeField] Image picto3 = null;
+    [SerializeField] Image picto4 = null;
+
 
     _Sc_DebugSymptomeManager _sc_debugSymptomeManager = null;
     _Sc_cookbook _sc_cookBook = null;
@@ -45,10 +52,15 @@ public class _Sc_fichePatientUI : MonoBehaviour
         symptome3 = symptomeHorGroup.GetChild(2);
         symptome4 = symptomeHorGroup.GetChild(3);
 
-        symptome1.GetComponent<TextMeshProUGUI>().text = "?";
+        picto1 = symptome1.transform.GetChild(1).GetComponent<Image>();
+        picto2 = symptome2.transform.GetChild(1).GetComponent<Image>();
+        picto3 = symptome3.transform.GetChild(1).GetComponent<Image>();
+        picto4 = symptome4.transform.GetChild(1).GetComponent<Image>();
+
+        /*symptome1.GetComponent<TextMeshProUGUI>().text = "?";
         symptome2.GetComponent<TextMeshProUGUI>().text = "?";
         symptome3.GetComponent<TextMeshProUGUI>().text = "?";
-        symptome4.GetComponent<TextMeshProUGUI>().text = "?";
+        symptome4.GetComponent<TextMeshProUGUI>().text = "?";*/
 
         myCanvasGroup = GetComponent<CanvasGroup>();
         _sc_SelectPnj = _Sc_selectPnj.Instance;
@@ -83,6 +95,21 @@ public class _Sc_fichePatientUI : MonoBehaviour
     {
         _sc_debugSymptomeManager = _Sc_DebugSymptomeManager.Instance;
         _sc_cookBook = _Sc_cookbook.instance;
+
+        picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
+        picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
+        picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
+        picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
+
+        picto1.enabled = false;
+        picto2.enabled = false;
+        picto3.enabled = false;
+        picto4.enabled = false;
+
+        symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
+        symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
+        symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
+        symptome4.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
     }
 
     public void SetFicheValues(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel, bool _symptome1, bool _symptome2, bool _symptome3, bool _symptome4)
@@ -104,6 +131,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
         setCanvas(true);
     }
 
+    // NEVER CALLED
     private void SetFicheInfosFull(_Sc_pnjState _sc_pnjState, _So_pnjInfos _so_pnjInfos, int _currentEtat, int _groupLevel, bool _symptome1, bool _symptome2, bool _symptome3, bool _symptome4)
     {
         nameText.text = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
@@ -285,7 +313,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             symptome1.gameObject.SetActive(true);
             if(_sc_cookBook.getDiscoveredSymptom(0))
             {
-                symptome1.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
+                symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
             }
         }
         else
@@ -298,7 +326,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             symptome2.gameObject.SetActive(true);
             if (_sc_cookBook.getDiscoveredSymptom(1))
             {
-                symptome2.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
+                symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
             }
         }
         else
@@ -311,7 +339,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             symptome3.gameObject.SetActive(true);
             if (_sc_cookBook.getDiscoveredSymptom(2))
             {
-                symptome3.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
+                symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
             }
         }
         else
@@ -324,7 +352,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             symptome4.gameObject.SetActive(true);
             if (_sc_cookBook.getDiscoveredSymptom(3))
             {
-                symptome4.GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
+                symptome4.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
             }
         }
         else

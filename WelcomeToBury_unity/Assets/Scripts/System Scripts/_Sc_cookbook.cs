@@ -7,6 +7,7 @@ public class _Sc_cookbook : MonoBehaviour
 {
     public static _Sc_cookbook instance = null;
     _Sc_messagesManager _sc_MessagesManager = null;
+    _Sc_CraftManager _craftManager = null;
 
     [System.Serializable]
     public enum Ingredients
@@ -48,6 +49,7 @@ public class _Sc_cookbook : MonoBehaviour
     private void Start()
     {
         _sc_MessagesManager = _Sc_messagesManager.instance;
+        _craftManager = _Sc_CraftManager.instance;
     }
     private void Update()
     {
@@ -75,6 +77,7 @@ public class _Sc_cookbook : MonoBehaviour
                     {
                         StartCoroutine(RemedeProgressFeedback(i + 1, false));
                     }
+                    //_craftManager.Checkreceipes();
                 }                
             }
         }

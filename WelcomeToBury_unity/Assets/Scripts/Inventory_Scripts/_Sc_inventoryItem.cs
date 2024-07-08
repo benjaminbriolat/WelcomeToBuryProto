@@ -62,29 +62,45 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         if(count > 1)
         {
             countText.gameObject.SetActive(true);
+
+            VisualFeedback();
+
+            if (_sc_tolltipTrigger != null)
+            {
+                if (count > 1)
+                {
+                    _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
+                }
+                else
+                {
+                    _sc_tolltipTrigger.header = _item.itemName.ToString();
+                }
+            }
         }
         else if( count > 0)
         {
-            countText.gameObject.SetActive(false);            
+            countText.gameObject.SetActive(false);
+
+            VisualFeedback();
+
+            if (_sc_tolltipTrigger != null)
+            {
+                if (count > 1)
+                {
+                    _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
+                }
+                else
+                {
+                    _sc_tolltipTrigger.header = _item.itemName.ToString();
+                }
+            }
         }
         else
         {
             Destroy(gameObject);
         }
 
-        VisualFeedback();
-
-        if(_sc_tolltipTrigger != null)
-        {
-            if(count > 1)
-            {
-                _sc_tolltipTrigger.header = _item.itemName.ToString() + "(" + count.ToString() + ")";
-            }
-            else
-            {
-                _sc_tolltipTrigger.header = _item.itemName.ToString();
-            }
-        }
+        
        
     }
 

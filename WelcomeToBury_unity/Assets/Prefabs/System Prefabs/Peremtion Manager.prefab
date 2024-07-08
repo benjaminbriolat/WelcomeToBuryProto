@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ece2b72ae748448aa6ba85733f9627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  createRottenItems: 0
   cleans: []
-  garbage: {fileID: 11400000, guid: a4e2a1c07959c5f41a8827b7c248a35d, type: 2}
+  rottenItems: []

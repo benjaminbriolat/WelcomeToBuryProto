@@ -12,13 +12,14 @@ public class _Sc_receipe : MonoBehaviour
     _Sc_cookbook _sc_cookBook = null;
     [SerializeField] TextMeshProUGUI resultName = null;
     [SerializeField] Image resultPicto = null;
-
+    Image selectedImage = null;
     private void Start()
     {
         items = new List<_So_item>();
         _sc_formulaDisplay = _Sc_formulaDisplay.instance;
         _sc_cookBook = _Sc_cookbook.instance;
         _sc_cookBook.SetReceipe(itemToCraft.formulaId, this);
+        selectedImage = transform.GetChild(0).GetComponent<Image>();
     }
     public void AddIngredient(_So_item newIngredient)
     {
@@ -47,18 +48,24 @@ public class _Sc_receipe : MonoBehaviour
             if (_sc_formulaDisplay.isOpen == false)
             {
                 _sc_formulaDisplay.OpenFormula(true);
-                _sc_formulaDisplay.currentReceipe = this;
+                _sc_formulaDisplay.SetNewOrigin(this);
             }
             else
             {
                 _sc_formulaDisplay.OpenFormula(false);
+                SetPosition(false);
             }
         }
         else
         {
             _sc_formulaDisplay.OpenFormula(true);
-            _sc_formulaDisplay.currentReceipe = this;
+            _sc_formulaDisplay.SetNewOrigin(this);
         }
         
+    }
+    public void SetPosition(bool active)
+    {
+       Debug.Log("displayUsed sent = " + active);
+       selectedImage.enabled = active;   
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _Sc_ressourcesPremeption : MonoBehaviour
 {
+    [SerializeField] bool createRottenItems = true;
     public static _Sc_ressourcesPremeption instance = null;
     [System.Serializable]
     public class Clean
@@ -40,18 +41,24 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
 
     public void OnSpanChange()
     {
+        bool removedAnItem = false;
         for(int i = 0; i < cleans.Count; i++)
         {
             cleans[i].delayClean -= 1;
             if(cleans[i].delayClean <= 0)
             {
+                removedAnItem = true;
                 _inventoryManager.RemoveItem(cleans[i].itemToClean);
-                rottenItems.Add(cleans[i].itemToClean.rottenVersion);
+                if(createRottenItems)
+                {
+                    rottenItems.Add(cleans[i].itemToClean.rottenVersion);
+                }
                 cleans.Remove(cleans[i]);                
                 i -= 1;
             }
-        }
-        StartCoroutine(DelayAddRottenItems());
+        }        
+        StartCoroutine(DelayAddRottenItems(removedAnItem));
+        
     }
 
     public void ClearList(_So_item itemToRemove)
@@ -66,14 +73,22 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayAddRottenItems()
+    private IEnumerator DelayAddRottenItems(bool removedItem)
     {
         yield return new WaitForSeconds(0.1f);
-        for (int i = 0; i < rottenItems.Count; i++)
+        if (createRottenItems == false && removedItem == true)
         {
-            _inventoryManager.AddItem(rottenItems[i]);
-            rottenItems.Remove(rottenItems[i]);
-            i -= 1;
+            //_inventoryManager.Reorganize();
         }
+        else
+        {
+            for (int i = 0; i < rottenItems.Count; i++)
+            {
+                _inventoryManager.AddItem(rottenItems[i]);
+                rottenItems.Remove(rottenItems[i]);
+                i -= 1;
+            }
+        }
+        
     }
 }

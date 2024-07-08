@@ -33,6 +33,18 @@ public class _Sc_formulaDisplay : MonoBehaviour
     {
         ingredients[index].SetItem(newItem);
     }
+    public void SetNewOrigin(_Sc_receipe newReceipe)
+    {
+        Debug.Log("displayUsed");
+        if(currentReceipe != null)
+        {
+            Debug.Log("displayUsed previous");
+            currentReceipe.SetPosition(false);
+        }
+        Debug.Log("display new");
+        currentReceipe = newReceipe;
+        currentReceipe.SetPosition(true);
+    }
 
     public void OpenFormula(bool open)
     {

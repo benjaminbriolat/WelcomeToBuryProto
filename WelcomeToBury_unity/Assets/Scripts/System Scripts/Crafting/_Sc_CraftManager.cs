@@ -159,7 +159,9 @@ public class _Sc_CraftManager : MonoBehaviour
             //_sc_cerveau.isInMenu = true;
             for (int i = 0; i < receipes.Count; i++)
             {
+                receipes[i].SetPosition(false);
                 receipes[i].checkStatus();
+                
             }
             canvaGroup.alpha = 1;
             canvaGroup.interactable = true;
@@ -207,6 +209,14 @@ public class _Sc_CraftManager : MonoBehaviour
         }
         
 
+    }
+
+    public void Checkreceipes()
+    {
+        for (int i = 0; i < receipes.Count; i++)
+        {
+            receipes[i].checkStatus();
+        }
     }
 
     public void AutoFillSlot(int slotIndex, _So_item sentItem)
@@ -338,7 +348,7 @@ public class _Sc_CraftManager : MonoBehaviour
     private IEnumerator DelaySendToInventory(_So_item newItem)
     {
         yield return new WaitForSeconds(0);
-        _sc_formulaDisplay.OpenFormula(false);
+        //_sc_formulaDisplay.OpenFormula(false);
         //resultSlot.gameObject.SetActive(false);
         //resultSlot.sprite = null;
         _sc_iventoryManager.AddItem(newItem, 1);
