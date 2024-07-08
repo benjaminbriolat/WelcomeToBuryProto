@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9db5ca6807900741823285590908fca, type: 3}
+  m_Name: sangsue_item
+  m_EditorClassIdentifier: 
+  itemName: Sangsue
+  image: {fileID: 21300000, guid: 67bf3794897352844a0d9d0a903ce2c7, type: 3}
+  itemType: 0
+  stackable: 1
+  actionType: 0
+  formulaId: leech
+  peremptible: 1
+  peremption: 9
+  rottenVersion: {fileID: 11400000, guid: 8e36653d0abc3d1499f6246675e1f1bd, type: 2}

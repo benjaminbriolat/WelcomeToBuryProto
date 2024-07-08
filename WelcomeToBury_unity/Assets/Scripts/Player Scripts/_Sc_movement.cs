@@ -24,6 +24,7 @@ public class _Sc_movement : MonoBehaviour
     public bool canSetSpeed = true;
 
     _Sc_debugCharAnimations _sc_debugCharAnimations = null;
+    _Sc_cerveau _sc_cerveau = null;
 
     [SerializeField] Transform walkSpeedUi;
     [SerializeField] Transform walkSpeedSliderUi;
@@ -40,6 +41,8 @@ public class _Sc_movement : MonoBehaviour
     float defaultRunSpeed;
     float defaultRunDistance;
 
+    public bool NewCustomDestination = false;
+
     private void Awake()
     {
         instance = this;
@@ -49,7 +52,7 @@ public class _Sc_movement : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-
+        _sc_cerveau = _Sc_cerveau.instance;
         LayerGround = LayerMask.NameToLayer(layerName);
         defaultWalkSpeed = walkSpeed;
         defaultRunSpeed = runSpeed;
@@ -74,6 +77,7 @@ public class _Sc_movement : MonoBehaviour
                 {
                     agent.SetDestination(hit.point);
                     setSpeed(hit);
+                    NewCustomDestination = true;
                     //Debug.Log("SetDestination");
                 }
             }
@@ -86,24 +90,46 @@ public class _Sc_movement : MonoBehaviour
         if (distanceFromPoint > distanceToRun)
         {
             agent.speed = runSpeed;
-            //Debug.Log("Run");
         }
         else
         {
             if (canSetSpeed == true)
             {
                 agent.speed = walkSpeed;
-                //Debug.Log("Walk");
             }
         }
     }
-
+    private void setSpeedFromNavHit(NavMeshHit hit)
+    {
+        distanceFromPoint = Vector3.Distance(hit.position, this.transform.position);
+        if (distanceFromPoint > distanceToRun)
+        {
+            agent.speed = runSpeed;
+        }
+        else
+        {
+            if (canSetSpeed == true)
+            {
+                agent.speed = walkSpeed;
+            }
+        }
+    }
     private void Update()
     {
         _sc_debugCharAnimations.setMoving(agent.velocity.magnitude);
     }
 
-    
+    public void setClosestDestination(Transform _target)
+    {
+        if(_sc_cerveau.isInMenu == false)
+        {
+            NavMeshHit hit;
+            NavMesh.SamplePosition(_target.position, out hit, 5.0f, NavMesh.AllAreas);
+            agent.SetDestination(hit.position);
+            setSpeedFromNavHit(hit);
+        }        
+    }
+
     /// Debug ///
     public void SetUiDebugValues()
     {

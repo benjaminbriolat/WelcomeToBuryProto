@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2526932127261564635}
   - component: {fileID: 8584393950686685553}
   - component: {fileID: 1054001348019399592}
+  - component: {fileID: 1360103085575236559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -51,6 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftClickReleased: 0
+  isInMenu: 0
+  canMove: 1
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &2197546966744703971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +73,7 @@ MonoBehaviour:
   distanceToRun: 8
   myLayerMask:
     serializedVersion: 2
-    m_Bits: 1056
+    m_Bits: 3104
   layerName: Walkable
   canSetSpeed: 1
   walkSpeedUi: {fileID: 0}
@@ -131,6 +135,26 @@ NavMeshAgent:
   m_BaseOffset: 1.65
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 0
+--- !u!114 &1360103085575236559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3116365468716079420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cb4ccb8357ad34587a940a6b6ab35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerName: Pnj
+  currentPnjState: {fileID: 0}
+  lastPnjState: {fileID: 0}
+  lastSelectedSprite: {fileID: 0}
+  minDist: 2
+  maxDist: 4
+  pnjSetted: 0
+  unselectDone: 0
 --- !u!1 &4397132487816158403
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +296,7 @@ CapsuleCollider:
   m_Radius: 0.25
   m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!54 &7007669409691405958
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4505260179299856960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2536259397362132471}
+  - component: {fileID: 7431628273001791324}
+  m_Layer: 0
+  m_Name: CookBook
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2536259397362132471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505260179299856960}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8902883, y: 4.473955, z: -6.6963224}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7431628273001791324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505260179299856960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158ead39f9b750c429dc358cf6593413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receipes:
+  - name: treatment1
+    ailmentName: Symptome 1
+    formula: 
+    ingredients:
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: 056eb2b0f28e29b43afbc70b81dd7ee2, type: 2}
+    - {fileID: 11400000, guid: 0da67d035b55a5443a4e5613da0f4dc6, type: 2}
+    - {fileID: 11400000, guid: dfe3e001700af4a46a397e7a71ac5f6e, type: 2}
+    - {fileID: 11400000, guid: 132db4536a2b987428f9319fdab3efa2, type: 2}
+    discoveryProgress: 0
+    discoveryCap: 3
+    discovered: 0
+    resultItem: {fileID: 11400000, guid: 6f2d314d280616740ba2989df1118a09, type: 2}
+  - name: treatment2
+    ailmentName: Symptome 2
+    formula: 
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
+    discoveryProgress: 0
+    discoveryCap: 3
+    discovered: 0
+    resultItem: {fileID: 11400000, guid: d6c6b3c3257e5b249862aad22e0b2d7f, type: 2}
+  - name: treatment3
+    ailmentName: Symptome 3
+    formula: 
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
+    discoveryProgress: 0
+    discoveryCap: 3
+    discovered: 0
+    resultItem: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
+  - name: treatment4
+    ailmentName: Symptome 4
+    formula: 
+    ingredients:
+    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
+    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
+    discoveryProgress: 0
+    discoveryCap: 3
+    discovered: 0
+    resultItem: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
