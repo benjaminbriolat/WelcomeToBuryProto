@@ -33,14 +33,15 @@ public class _Sc_fichePatientUI : MonoBehaviour
     
     CanvasGroup myCanvasGroup = null;
     _Sc_selectPnj _sc_SelectPnj = null;
+    [SerializeField] Sprite unknownRemedy = null;
     private void Awake()
     {
         Instance = this;
 
         UIparent = transform.GetChild(0).GetChild(0);
 
-        nameText = UIparent.GetChild(0).GetComponent<TextMeshProUGUI>();
-        groupText = UIparent.GetChild(1).GetComponent<TextMeshProUGUI>();
+        nameText = UIparent.GetChild(1).GetComponent<TextMeshProUGUI>();
+        groupText = UIparent.GetChild(0).GetComponent<TextMeshProUGUI>();
         currentEtatText = UIparent.GetChild(3).GetComponent<TextMeshProUGUI>();
 
         //symptomeHorGroup = UIparent.GetChild(5);
@@ -100,11 +101,6 @@ public class _Sc_fichePatientUI : MonoBehaviour
         picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
         picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
         picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
-
-        picto1.enabled = false;
-        picto2.enabled = false;
-        picto3.enabled = false;
-        picto4.enabled = false;
 
         symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
         symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
@@ -229,39 +225,81 @@ public class _Sc_fichePatientUI : MonoBehaviour
         else if (_currentEtat == 1)
         {
             currentEtatText.text = "Malade";
-            symptomeHorGroup.gameObject.SetActive(true);
-            symptomeTitle.gameObject.SetActive(true);
-
-            if (_symptome1)
+            if(_sc_pnjState.receivedSeSoucier == true)
             {
+                symptomeHorGroup.gameObject.SetActive(true);
+                symptomeTitle.gameObject.SetActive(true);                
+            }
+            else
+            {
+                symptomeHorGroup.gameObject.SetActive(false);
+                symptomeTitle.gameObject.SetActive(false);
+            }
+            
+            if (_symptome1 && _sc_pnjState.receivedSeSoucier == true)
+            {
+                
                 symptome1.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(0))
+                {
+                    picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
+                }
+                else
+                {
+                    picto1.sprite = unknownRemedy;
+                }
+
             }
             else
             {
                 symptome1.gameObject.SetActive(false);
             }
 
-            if (_symptome2)
+            if (_symptome2 && _sc_pnjState.receivedSeSoucier == true)
             {
                 symptome2.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(1))
+                {
+                    picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
+                }
+                else
+                {
+                    picto2.sprite = unknownRemedy;
+                }
             }
             else
             {
                 symptome2.gameObject.SetActive(false);
             }
 
-            if (_symptome3)
+            if (_symptome3 && _sc_pnjState.receivedSeSoucier == true)
             {
                 symptome3.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(2))
+                {
+                    picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
+                }
+                else
+                {
+                    picto3.sprite = unknownRemedy;
+                }
             }
             else
             {
                 symptome3.gameObject.SetActive(false);
             }
 
-            if (_symptome4)
+            if (_symptome4 && _sc_pnjState.receivedSeSoucier == true)
             {
                 symptome4.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(3))
+                {
+                    picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
+                }
+                else
+                {
+                    picto4.sprite = unknownRemedy;
+                }
             }
             else
             {

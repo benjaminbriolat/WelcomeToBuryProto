@@ -568,9 +568,9 @@ MonoBehaviour:
   symptome3: 0
   symptome4: 0
   symptomes: 00000000
-  totalImmuneDays: 3
+  totalImmuneDays: 0
   currentImmuneDays: 0
-  progressionCap: 5
+  progressionCap: 1
   currentProgression: 0
   maxSymptoms: 4
   currentSymptoms: 0
@@ -593,6 +593,7 @@ MonoBehaviour:
   _so_remede2: {fileID: 11400000, guid: d6c6b3c3257e5b249862aad22e0b2d7f, type: 2}
   _so_remede3: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
   _so_remede4: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
+  receivedSeSoucier: 0
 --- !u!114 &6729861657645782089
 MonoBehaviour:
   m_ObjectHideFlags: 0

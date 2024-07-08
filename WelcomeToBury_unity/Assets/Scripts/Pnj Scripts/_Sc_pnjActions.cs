@@ -72,7 +72,7 @@ public class _Sc_pnjActions : MonoBehaviour
                 _sc_pnjState.CanRemede = true;
                 _sc_pnjState.CanGesteSoin = true;
                 _sc_pnjState.SetButtonsState();
-
+                _sc_pnjState.receivedSeSoucier = true;
 
 
                 if (_sc_pnjState.symptome1 == true)

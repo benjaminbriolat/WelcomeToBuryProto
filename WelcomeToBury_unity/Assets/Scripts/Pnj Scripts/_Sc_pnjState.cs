@@ -78,6 +78,8 @@ public class _Sc_pnjState : MonoBehaviour
     [SerializeField] _So_item _so_remede3;
     [SerializeField] _So_item _so_remede4;
 
+    public bool receivedSeSoucier = false;
+
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
@@ -353,6 +355,10 @@ public class _Sc_pnjState : MonoBehaviour
                     _sc_epidemiManager.DeimmunizePnj(this.transform);
                 }
             }
+            else
+            {
+                _sc_epidemiManager.DeimmunizePnj(this.transform);
+            }
 
         }
     }
@@ -388,6 +394,8 @@ public class _Sc_pnjState : MonoBehaviour
     {
         symptome1 = false;
         symptomes[0] = false;
+        currentSymptoms -= 1;
+        currentProgression = 0;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -396,6 +404,8 @@ public class _Sc_pnjState : MonoBehaviour
     {
         symptome2 = false;
         symptomes[1] = false;
+        currentSymptoms -= 1;
+        currentProgression = 0;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -404,6 +414,8 @@ public class _Sc_pnjState : MonoBehaviour
     {
         symptome3 = false;
         symptomes[2] = false;
+        currentSymptoms -= 1;
+        currentProgression = 0;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -412,6 +424,8 @@ public class _Sc_pnjState : MonoBehaviour
     {
         symptome4 = false;
         symptomes[3] = false;
+        currentSymptoms -= 1;
+        currentProgression = 0;
         onSymptomeChange();
         UpdateTrustLevel();
     }
@@ -424,6 +438,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             symptome1 = false;
             symptomes[0] = false;
+            currentSymptoms -= 1;
+            currentProgression = 0;
             onSymptomeChange();
             UpdateTrustLevel();
         }       
@@ -435,6 +451,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             symptome2 = false;
             symptomes[1] = false;
+            currentSymptoms -= 1;
+            currentProgression = 0;
             onSymptomeChange();
             UpdateTrustLevel();
         }        
@@ -446,6 +464,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             symptome3 = false;
             symptomes[2] = false;
+            currentSymptoms -= 1;
+            currentProgression = 0;
             onSymptomeChange();
             UpdateTrustLevel();
         }        
@@ -457,6 +477,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             symptome4 = false;
             symptomes[3] = false;
+            currentSymptoms -= 1;
+            currentProgression = 0;
             onSymptomeChange();
             UpdateTrustLevel();
         }        
