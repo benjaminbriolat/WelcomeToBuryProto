@@ -60,7 +60,10 @@ public class _Sc_pnjActionsParent : MonoBehaviour
         {
             if(transform.parent.parent.GetComponent<_Sc_pnjState>().CanGesteSoin == true && transform.parent.parent.GetComponent<_Sc_pnjState>().capTrustReached == true)
             {
-                GesteSoinButton.SetUsable(true);
+                if(transform.parent.parent.GetComponent<_Sc_pnjState>().state == 1)
+                {
+                    GesteSoinButton.SetUsable(true);
+                }
             }
         }
     }

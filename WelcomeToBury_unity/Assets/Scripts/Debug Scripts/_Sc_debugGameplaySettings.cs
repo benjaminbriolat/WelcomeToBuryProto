@@ -10,7 +10,9 @@ public class _Sc_debugGameplaySettings : MonoBehaviour
     [HideInInspector] public bool isOpen = false;
     public bool gesteDeSoinActive = false;
     [SerializeField] Image coche = null;
+    [SerializeField] Image cochehaling = null;
     CanvasGroup _canvasGroup = null;
+    public bool healingCostsTime = false;
     private void Awake()
     {
         instance = this;
@@ -59,5 +61,11 @@ public class _Sc_debugGameplaySettings : MonoBehaviour
         {
             pnjActionsParent[i].LockGesteDeSoin(!gesteDeSoinActive);
         }
+    }
+
+    public void ActivateHealCostsTime()
+    {
+        healingCostsTime = !healingCostsTime;
+        cochehaling.enabled = healingCostsTime;
     }
 }

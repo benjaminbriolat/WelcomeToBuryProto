@@ -5,20 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_InterieurMaison.unity
-    guid: 32be3e5200c9e7541a55679bec4b21b5
-  - enabled: 0
-    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_Exterieur_LeJour.unity
-    guid: 859c9c2aee725894ab654e7c3ed237ec
   - enabled: 1
-    path: Assets/Scenes/Zoo Scenes/Zoo_TestFusion_Exterieur_LeJourLong.unity
-    guid: 74e91d80b2aae2d4b96f7954f98cfe60
-  - enabled: 0
-    path: Assets/Scenes/Remi_Scenes/Nature_Camera_Cinemachine_Terrain.unity
-    guid: 887d710cdd04646b5b196ed944798c0c
-  - enabled: 0
-    path: Assets/Scenes/Remi_Scenes/05_Village3C.unity
-    guid: 0256afc13119c495d8b5944090aa0689
+    path: Assets/Scenes/Zoo Scenes/Zoo_proto3.unity
+    guid: 76832a5710048114a82bd36548f6886c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
