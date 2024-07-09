@@ -595,6 +595,9 @@ MonoBehaviour:
   _so_remede3: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
   _so_remede4: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
   receivedSeSoucier: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!114 &6729861657645782089
 MonoBehaviour:
   m_ObjectHideFlags: 0

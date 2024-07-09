@@ -80,6 +80,8 @@ public class _Sc_pnjState : MonoBehaviour
 
     public bool receivedSeSoucier = false;
 
+    Transform raySocket = null;
+    [SerializeField] LayerMask _layerMask;
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
@@ -88,6 +90,8 @@ public class _Sc_pnjState : MonoBehaviour
         pnjActionsUiParent = transform.GetChild(1).GetChild(3);
         _sc_PnjActionsParent = GetComponentInChildren<_Sc_pnjActionsParent>();
         _sc_tooltipTrigger = transform.GetChild(3).GetComponent<_Sc_tooltipTrigger>();
+
+        raySocket = transform.GetChild(4);
     }
     private void Start()
     {
@@ -107,6 +111,8 @@ public class _Sc_pnjState : MonoBehaviour
         {
             _sc_tooltipTrigger.header = _so_pnjInfos.pnjFirstName + " " + _so_pnjInfos.pnjLastName;
         }
+
+        transform.position = new Vector3(transform.position.x, GetHeight() + 1.7f, transform.position.z);
     }
 
     public void SetButtonsState()
@@ -491,6 +497,18 @@ public class _Sc_pnjState : MonoBehaviour
             _Sc_selectPnj.Instance.SetFichePatient(0, _Sc_selectPnj.Instance.lastPnjState);
             _Sc_selectPnj.Instance.lastPnjState.SetButtonsState();
             Debug.Log("CookBookSetFichePatient & button");
+        }
+    }
+    public float GetHeight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(raySocket.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, _layerMask))
+        {
+            return hit.point.y;
+        }
+        else
+        {
+            return 0;
         }
     }
 }
