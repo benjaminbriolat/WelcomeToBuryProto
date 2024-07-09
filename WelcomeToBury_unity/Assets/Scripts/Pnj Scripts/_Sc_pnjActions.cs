@@ -64,6 +64,7 @@ public class _Sc_pnjActions : MonoBehaviour
 
     public void PnjSoucier(bool _passTime)
     {
+        bool progressedSymptom = false;
         if(_sc_pnjState.cracheurDeNoir == false)
         {
             if (_sc_pnjState.CanSoucier == true)
@@ -75,21 +76,41 @@ public class _Sc_pnjActions : MonoBehaviour
                 _sc_pnjState.receivedSeSoucier = true;
 
 
-                if (_sc_pnjState.symptome1 == true)
+                if (_sc_pnjState.symptome1 == true  )
                 {
-                    _sc_cookBook.AdvanceDiscovery("treatment1");
+                    _sc_cookBook.receipes[0].metSymptom = true;
+                    if(_sc_cookBook.receipes[0].discovered == false && progressedSymptom == false)
+                    {
+                        progressedSymptom = true;
+                        _sc_cookBook.AdvanceDiscovery("treatment1", transform);
+                    }
                 }
-                else if (_sc_pnjState.symptome2 == true)
+                if (_sc_pnjState.symptome2 == true)
                 {
-                    _sc_cookBook.AdvanceDiscovery("treatment2");
+                    _sc_cookBook.receipes[1].metSymptom = true;
+                    if (_sc_cookBook.receipes[1].discovered == false && progressedSymptom == false)
+                    {
+                        progressedSymptom = true;
+                        _sc_cookBook.AdvanceDiscovery("treatment2", transform);
+                    }
                 }
-                else if (_sc_pnjState.symptome3 == true)
+                if (_sc_pnjState.symptome3 == true)
                 {
-                    _sc_cookBook.AdvanceDiscovery("treatment3");
+                    _sc_cookBook.receipes[2].metSymptom = true;
+                    if (_sc_cookBook.receipes[2].discovered == false && progressedSymptom == false)
+                    {
+                        progressedSymptom = true;
+                        _sc_cookBook.AdvanceDiscovery("treatment3", transform);
+                    }
                 }
-                else if (_sc_pnjState.symptome4 == true)
+                if (_sc_pnjState.symptome4 == true )
                 {
-                    _sc_cookBook.AdvanceDiscovery("treatment4");
+                    _sc_cookBook.receipes[3].metSymptom = true;
+                    if (_sc_cookBook.receipes[3].discovered == false && progressedSymptom == false)
+                    {
+                        progressedSymptom = true;
+                        _sc_cookBook.AdvanceDiscovery("treatment4", transform);
+                    }
                 }
 
                 if (_passTime == true)

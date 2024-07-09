@@ -569,7 +569,7 @@ MonoBehaviour:
   symptome3: 0
   symptome4: 0
   symptomes: 00000000
-  totalImmuneDays: 3
+  totalImmuneDays: 1
   currentImmuneDays: 0
   progressionCap: 4
   currentProgression: 0

@@ -121,7 +121,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
 
         if(_sc_pnjState.SoucierOk == true)
         {
-            SetFicheInfosSoucier(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel, _symptome1, _symptome2, _symptome3, _symptome4);
+            SetFicheInfosDialogue(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel, _symptome1, _symptome2, _symptome3, _symptome4);
         }
 
         setCanvas(true);
@@ -225,7 +225,9 @@ public class _Sc_fichePatientUI : MonoBehaviour
         else if (_currentEtat == 1)
         {
             currentEtatText.text = "Malade";
-            if(_sc_pnjState.receivedSeSoucier == true)
+            symptomeHorGroup.gameObject.SetActive(false);
+            symptomeTitle.gameObject.SetActive(false);
+            /*if(_sc_pnjState.receivedSeSoucier == true)
             {
                 symptomeHorGroup.gameObject.SetActive(true);
                 symptomeTitle.gameObject.SetActive(true);                
@@ -234,37 +236,58 @@ public class _Sc_fichePatientUI : MonoBehaviour
             {
                 symptomeHorGroup.gameObject.SetActive(false);
                 symptomeTitle.gameObject.SetActive(false);
-            }
-            
-            if (_symptome1 && _sc_pnjState.receivedSeSoucier == true)
+            }*/
+            /// SYMPTOM 1
+            if (_symptome1 /*&& _sc_pnjState.receivedSeSoucier == true*/)
             {
-                
-                symptome1.gameObject.SetActive(true);
-                if (_sc_cookBook.getDiscoveredSymptom(0))
+                if (_sc_cookBook.receipes[0].metSymptom == true)
                 {
-                    picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
+                    symptomeHorGroup.gameObject.SetActive(true);
+                    symptomeTitle.gameObject.SetActive(true);
+                    Debug.Log("S1 dialogue FP active");
+                    symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
+                    symptome1.gameObject.SetActive(true);
+                    if (_sc_cookBook.getDiscoveredSymptom(0))
+                    {                       
+                        picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
+                    }
+                    else
+                    {
+                        picto1.sprite = unknownRemedy;
+                    }
                 }
                 else
                 {
-                    picto1.sprite = unknownRemedy;
+                    symptome1.gameObject.SetActive(false);
                 }
-
             }
             else
             {
                 symptome1.gameObject.SetActive(false);
             }
 
-            if (_symptome2 && _sc_pnjState.receivedSeSoucier == true)
+            /// SYMPTOM 2
+            if (_symptome2 /*&& _sc_pnjState.receivedSeSoucier == true*/)
             {
-                symptome2.gameObject.SetActive(true);
-                if (_sc_cookBook.getDiscoveredSymptom(1))
+                if (_sc_cookBook.receipes[1].metSymptom == true)
                 {
-                    picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
+                    symptomeHorGroup.gameObject.SetActive(true);
+                    symptomeTitle.gameObject.SetActive(true);
+                    Debug.Log("S2 dialogue FP active");
+                    symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
+                    symptome2.gameObject.SetActive(true);
+                    if (_sc_cookBook.getDiscoveredSymptom(1))
+                    {
+                        picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
+                    }
+                    else
+                    {
+                        picto2.sprite = unknownRemedy;
+                    }
                 }
                 else
                 {
-                    picto2.sprite = unknownRemedy;
+                    symptome2.gameObject.SetActive(false);
                 }
             }
             else
@@ -272,16 +295,28 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome2.gameObject.SetActive(false);
             }
 
-            if (_symptome3 && _sc_pnjState.receivedSeSoucier == true)
+            /// SYMPTOM 3
+            if (_symptome3 /*&& _sc_pnjState.receivedSeSoucier == true*/)
             {
-                symptome3.gameObject.SetActive(true);
-                if (_sc_cookBook.getDiscoveredSymptom(2))
+                if (_sc_cookBook.receipes[2].metSymptom == true)
                 {
-                    picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
+                    symptomeHorGroup.gameObject.SetActive(true);
+                    symptomeTitle.gameObject.SetActive(true);
+                    Debug.Log("S3 dialogue FP active");
+                    symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
+                    symptome3.gameObject.SetActive(true);
+                    if (_sc_cookBook.getDiscoveredSymptom(2))
+                    {
+                        picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
+                    }
+                    else
+                    {
+                        picto3.sprite = unknownRemedy;
+                    }
                 }
                 else
                 {
-                    picto3.sprite = unknownRemedy;
+                    symptome3.gameObject.SetActive(false);
                 }
             }
             else
@@ -289,22 +324,35 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome3.gameObject.SetActive(false);
             }
 
-            if (_symptome4 && _sc_pnjState.receivedSeSoucier == true)
+            /// SYMPTOM 4
+            if (_symptome4 /*&& _sc_pnjState.receivedSeSoucier == true*/)
             {
-                symptome4.gameObject.SetActive(true);
-                if (_sc_cookBook.getDiscoveredSymptom(3))
+                if (_sc_cookBook.receipes[3].metSymptom == true)
                 {
-                    picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
+                    symptomeHorGroup.gameObject.SetActive(true);
+                    symptomeTitle.gameObject.SetActive(true);
+                    Debug.Log("S4 dialogue FP active");
+                    symptome4.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
+                    symptome4.gameObject.SetActive(true);
+                    if (_sc_cookBook.getDiscoveredSymptom(3))
+                    {
+                        picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
+                    }
+                    else
+                    {
+                        picto4.sprite = unknownRemedy;
+                    }
                 }
                 else
                 {
-                    picto4.sprite = unknownRemedy;
+                    symptome4.gameObject.SetActive(false);
                 }
             }
             else
             {
                 symptome4.gameObject.SetActive(false);
             }
+
         }
         else if (_currentEtat == 2)
         {
@@ -340,62 +388,105 @@ public class _Sc_fichePatientUI : MonoBehaviour
             currentEtatText.text = "Malade";
             symptomeHorGroup.gameObject.SetActive(true);
             symptomeTitle.gameObject.SetActive(true);
+
+            /// SYMPTOM 1
+            if (_symptome1 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            {                
+                symptomeHorGroup.gameObject.SetActive(true);
+                symptomeTitle.gameObject.SetActive(true);
+                Debug.Log("S1 care FP active");
+                symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
+                symptome1.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(0))
+                {
+                    picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
+                }
+                else
+                {
+                    picto1.sprite = unknownRemedy;
+                }                
+            }
+            else
+            {
+                symptome1.gameObject.SetActive(false);
+            }
+
+            /// SYMPTOM 2
+            if (_symptome2 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            {
+                
+                symptomeHorGroup.gameObject.SetActive(true);
+                symptomeTitle.gameObject.SetActive(true);
+                Debug.Log("S2 care FP active");
+                symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
+                symptome2.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(1))
+                {
+                    picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
+                }
+                else
+                {
+                    picto2.sprite = unknownRemedy;
+                }
+                
+            }
+            else
+            {
+                symptome2.gameObject.SetActive(false);
+            }
+
+            /// SYMPTOM 3
+            if (_symptome3 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            {
+                
+                symptomeHorGroup.gameObject.SetActive(true);
+                symptomeTitle.gameObject.SetActive(true);
+                Debug.Log("S3 care FP active");
+                symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
+                symptome3.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(2))
+                {
+                    picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
+                }
+                else
+                {
+                    picto3.sprite = unknownRemedy;
+                }
+                
+            }
+            else
+            {
+                symptome3.gameObject.SetActive(false);
+            }
+
+            /// SYMPTOM 4
+            if (_symptome4 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            {
+                
+                symptomeHorGroup.gameObject.SetActive(true);
+                symptomeTitle.gameObject.SetActive(true);
+                Debug.Log("S4 care FP active");
+                symptome4.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
+                symptome4.gameObject.SetActive(true);
+                if (_sc_cookBook.getDiscoveredSymptom(3))
+                {
+                    picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
+                }
+                else
+                {
+                    picto4.sprite = unknownRemedy;
+                }
+                
+            }
+            else
+            {
+                symptome4.gameObject.SetActive(false);
+            }
         }
         else if (_currentEtat == 2)
         {
             currentEtatText.text = "Cracheur de noir";
         }
-
-        if (_symptome1)
-        {
-            symptome1.gameObject.SetActive(true);
-            if(_sc_cookBook.getDiscoveredSymptom(0))
-            {
-                symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
-            }
-        }
-        else
-        {
-            symptome1.gameObject.SetActive(false);
-        }
-
-        if (_symptome2)
-        {
-            symptome2.gameObject.SetActive(true);
-            if (_sc_cookBook.getDiscoveredSymptom(1))
-            {
-                symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
-            }
-        }
-        else
-        {
-            symptome2.gameObject.SetActive(false);
-        }
-
-        if (_symptome3)
-        {
-            symptome3.gameObject.SetActive(true);
-            if (_sc_cookBook.getDiscoveredSymptom(2))
-            {
-                symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
-            }
-        }
-        else
-        {
-            symptome3.gameObject.SetActive(false);
-        }
-
-        if (_symptome4)
-        {
-            symptome4.gameObject.SetActive(true);
-            if (_sc_cookBook.getDiscoveredSymptom(3))
-            {
-                symptome4.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(3);
-            }
-        }
-        else
-        {
-            symptome4.gameObject.SetActive(false);
-        }
+        
     }
 }

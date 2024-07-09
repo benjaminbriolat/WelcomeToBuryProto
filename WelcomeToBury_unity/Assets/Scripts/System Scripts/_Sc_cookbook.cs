@@ -27,11 +27,15 @@ public class _Sc_cookbook : MonoBehaviour
         public List<_So_item> ingredients = null;
         public int discoveryProgress = 0;
         public int discoveryCap = 3;
+        public bool metSymptom = false;
         public bool discovered = false;
         public _So_item resultItem = null;
+        [HideInInspector] public List<Transform> sourcesOfknowledge = null;
     }
 
     public List<Receipe> receipes = new List<Receipe>();
+
+    public bool debugUnlockCare = false;
 
     private void Awake()
     {
@@ -44,6 +48,7 @@ public class _Sc_cookbook : MonoBehaviour
             {
                 receipes[i].formula = receipes[i].formula + receipes[i].ingredients[y].formulaId;
             }
+            receipes[i].sourcesOfknowledge = new List<Transform>();
         }
     }
     private void Start()
@@ -59,27 +64,34 @@ public class _Sc_cookbook : MonoBehaviour
             AdvanceDiscovery(receipes[0].name);
         }*/
     }
-    public void AdvanceDiscovery(string targetTreatment)
+    public void AdvanceDiscovery(string targetTreatment,Transform source)
     {
         for(int i = 0; i < receipes.Count; i++)
         {
             if (receipes[i].name == targetTreatment)
             {
+                receipes[i].metSymptom = true;
                 if (receipes[i].discovered == false)
                 {
-                    receipes[i].discoveryProgress += 1;
-                    if (receipes[i].discoveryProgress >= receipes[i].discoveryCap)
+                    if(receipes[i].sourcesOfknowledge.Contains(source) == false ||debugUnlockCare == true)
                     {
-                        receipes[i].discovered = true;
-                        StartCoroutine(RemedeProgressFeedback(i+1, true));
+                        receipes[i].sourcesOfknowledge.Add(source);
+                        receipes[i].discoveryProgress += 1;
+                        if (receipes[i].discoveryProgress >= receipes[i].discoveryCap)
+                        {
+                            receipes[i].discovered = true;
+                            StartCoroutine(RemedeProgressFeedback(i + 1, true));
+                        }
+                        else
+                        {
+                            StartCoroutine(RemedeProgressFeedback(i + 1, false));
+                        }
                     }
-                    else
-                    {
-                        StartCoroutine(RemedeProgressFeedback(i + 1, false));
-                    }
+                    
                     //_craftManager.Checkreceipes();
                 }                
             }
+            
         }
     }
 

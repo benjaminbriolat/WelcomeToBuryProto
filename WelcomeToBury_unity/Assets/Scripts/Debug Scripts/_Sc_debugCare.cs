@@ -26,19 +26,19 @@ public class _Sc_debugCare : MonoBehaviour
         _sc_calendrier.AdvanceCalendar();
         if (targetpnj.symptome1 == true)
         {
-            _sc_cookBook.AdvanceDiscovery("treatment1");
+            _sc_cookBook.AdvanceDiscovery("treatment1", null);
         }
         else if(targetpnj.symptome2 == true)
         {
-            _sc_cookBook.AdvanceDiscovery("treatment2");
+            _sc_cookBook.AdvanceDiscovery("treatment2", null);
         }
         else if (targetpnj.symptome3 == true)
         {
-            _sc_cookBook.AdvanceDiscovery("treatment3");
+            _sc_cookBook.AdvanceDiscovery("treatment3", null);
         }
         else if (targetpnj.symptome4 == true)
         {
-            _sc_cookBook.AdvanceDiscovery("treatment4");
+            _sc_cookBook.AdvanceDiscovery("treatment4", null);
         }
        // targetpnj.UpdateTrustLevel();
     }

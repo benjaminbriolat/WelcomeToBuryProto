@@ -174,9 +174,11 @@ public class _Sc_selectPnj : MonoBehaviour
         if(delay>0)
         {
             StartCoroutine(delayFichePatient(delay, _pnjState));
+            Debug.Log("delay");
         }
         else
         {
+            Debug.Log("nodelay");
             _sc_fichePatientUI.SetFicheValues(lastPnjState, lastPnjState._so_pnjInfos, lastPnjState.state, lastPnjState.GroupLevel,
            lastPnjState.symptome1, lastPnjState.symptome2, lastPnjState.symptome3, lastPnjState.symptome4);
         }
