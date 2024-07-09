@@ -121,7 +121,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
 
         if(_sc_pnjState.SoucierOk == true)
         {
-            SetFicheInfosDialogue(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel, _symptome1, _symptome2, _symptome3, _symptome4);
+            SetFicheInfosSoucier(_sc_pnjState, _so_pnjInfos, _currentEtat, _groupLevel, _symptome1, _symptome2, _symptome3, _symptome4);
         }
 
         setCanvas(true);

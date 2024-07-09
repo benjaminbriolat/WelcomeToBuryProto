@@ -2192,6 +2192,7 @@ MonoBehaviour:
   inclRatioSlider: {fileID: 4824997363664845814}
   dampingSlider: {fileID: 390890541436938919}
   button: {fileID: 1119796435701931447}
+  isOpen: 0
   zoomValue: {fileID: 1966922370465228178}
   inclValue: {fileID: 645742508297078992}
   zoomRatioValue: {fileID: 2939246386258855004}

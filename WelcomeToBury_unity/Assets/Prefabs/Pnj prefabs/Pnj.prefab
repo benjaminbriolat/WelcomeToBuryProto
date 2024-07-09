@@ -595,6 +595,7 @@ MonoBehaviour:
   _so_remede3: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
   _so_remede4: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
   receivedSeSoucier: 0
+  lockGesteDeSoin: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -4456,7 +4457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 60cc232d2e15c1c4eb7e9f3f5c81363a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01f13b61ef7c97442b9a3aee0407c4dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
