@@ -87,7 +87,7 @@ public class _Sc_pnjState : MonoBehaviour
         symptomeLayoutGroup = transform.GetChild(1).GetChild(1);
         pnjActionsUiParent = transform.GetChild(1).GetChild(3);
         _sc_PnjActionsParent = GetComponentInChildren<_Sc_pnjActionsParent>();
-        _sc_tooltipTrigger = GetComponentInChildren<_Sc_tooltipTrigger>();
+        _sc_tooltipTrigger = transform.GetChild(3).GetComponent<_Sc_tooltipTrigger>();
     }
     private void Start()
     {
