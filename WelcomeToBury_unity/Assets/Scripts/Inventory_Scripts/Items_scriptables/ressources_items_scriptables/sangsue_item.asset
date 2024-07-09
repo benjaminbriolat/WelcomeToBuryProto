@@ -18,6 +18,7 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: leech
-  peremptible: 1
-  peremption: 9
+  peremptible: 0
+  peremption: 0
   rottenVersion: {fileID: 11400000, guid: 8e36653d0abc3d1499f6246675e1f1bd, type: 2}
+  Rotten: 0

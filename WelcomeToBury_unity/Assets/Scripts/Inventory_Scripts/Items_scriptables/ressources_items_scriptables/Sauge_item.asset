@@ -19,6 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: sage
   peremptible: 1
-  peremption: 5
+  peremption: 9
   rottenVersion: {fileID: 11400000, guid: 84f89bf084e6f654abb2f8ff7ed0751d, type: 2}
   Rotten: 0

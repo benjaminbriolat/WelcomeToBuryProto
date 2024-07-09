@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: snaildrool
   peremptible: 1
-  peremption: 5
+  peremption: 15
   rottenVersion: {fileID: 11400000, guid: 06c6f7d7096a19149992c03685edc4cc, type: 2}
+  Rotten: 0

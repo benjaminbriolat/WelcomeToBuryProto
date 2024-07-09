@@ -19,5 +19,6 @@ MonoBehaviour:
   actionType: 0
   formulaId: nut
   peremptible: 1
-  peremption: 6
+  peremption: 15
   rottenVersion: {fileID: 11400000, guid: 6a52e562fe8392e49933a827051fba32, type: 2}
+  Rotten: 0

@@ -18,7 +18,7 @@ MonoBehaviour:
   stackable: 1
   actionType: 0
   formulaId: waspvenom
-  peremptible: 1
-  peremption: 5
+  peremptible: 0
+  peremption: 0
   rottenVersion: {fileID: 11400000, guid: cb267be31adb4a647b9959927045eadd, type: 2}
   Rotten: 0

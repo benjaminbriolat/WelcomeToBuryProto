@@ -160,6 +160,8 @@ public class _Sc_inventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler,
         _ressourcesPeremption.ClearList(_sc_itemLdo._item);
         //StartCoroutine(_Sc_inventoryManager.instance.CheckInventoryDelay());
         _formulaDisplay.UpdateAutoButton();
+
+        _Sc_selectPnj.Instance.currentPnjState.SetButtonsState();
         Destroy(gameObject);
     }
 
