@@ -41,6 +41,7 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
 
     public void OnSpanChange()
     {
+        bool canSendRottenMessage = true;
         bool removedAnItem = false;
         for(int i = 0; i < cleans.Count; i++)
         {
@@ -49,7 +50,14 @@ public class _Sc_ressourcesPremeption : MonoBehaviour
             {
                 removedAnItem = true;
                 _inventoryManager.RemoveItem(cleans[i].itemToClean);
-                if(createRottenItems)
+
+                if(canSendRottenMessage == true)
+                {
+                    canSendRottenMessage = false;
+                    _Sc_messagesManager.instance.SetMessageText("Des ressources ont périmées", true);
+                }
+
+                if (createRottenItems)
                 {
                     rottenItems.Add(cleans[i].itemToClean.rottenVersion);
                 }
