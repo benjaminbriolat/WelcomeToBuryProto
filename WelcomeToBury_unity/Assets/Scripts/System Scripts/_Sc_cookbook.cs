@@ -196,7 +196,7 @@ public class _Sc_cookbook : MonoBehaviour
             {
 
                 Debug.Log("Progress 1");
-                _sc_MessagesManager.SetMessageText("Cette personne ressent " + receipes[remede - 1].ailmentName, true); ;
+                _sc_MessagesManager.SetMessageText("Cette personne ressent " + receipes[remede - 1].ailmentName + "\n" + "Elle n'est sûrement pas la seule atteinte du même symptôme...", true);
             }
             if (receipes[remede -1].discoveryProgress == 2)
             {
