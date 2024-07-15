@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 7913381726429543184}
   - component: {fileID: 6451616100281057640}
   - component: {fileID: 6779179527056569845}
+  - component: {fileID: 4606217401553027057}
   m_Layer: 5
   m_Name: Canvas_BlackScreen
   m_TagString: Untagged
@@ -162,6 +163,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a09e4aa7dd1bdc54b89b69cb49dee81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTime: 1
+  spanWait: 0.35
+  dayWait: 2
+  isDayFading: 0
+  isSpanFading: 0
+--- !u!114 &4606217401553027057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3817675025138433254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42030f1aa9d2eb64a91859e2d113a3f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8882049934676214210
