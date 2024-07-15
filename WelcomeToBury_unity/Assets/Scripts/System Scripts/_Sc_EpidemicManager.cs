@@ -27,6 +27,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
         public bool isActive = false;
         public float odds = 0;
         public int delayApparirion = 0;
+        public int additionalSickPnjs = 2;
     }
     [Header("Paramètres Symptomes")]
     [SerializeField] List<Symptom> symptoms = new List<Symptom>();
@@ -35,6 +36,8 @@ public class _Sc_EpidemicManager : MonoBehaviour
 
     //privates
     int lastStoredDay = 1;
+
+    [SerializeField] int sickPnjsPerSymptom = 0;
 
     private void Awake()
     {
@@ -68,10 +71,18 @@ public class _Sc_EpidemicManager : MonoBehaviour
 
         if(Mathf.Abs(currentDay - lastStoredDay) >= progressionInterval)
         {
+            sickPnjsPerSymptom = 0;
             lastStoredDay = currentDay;
+            for(int i = 0; i< symptoms.Count; i++)
+            {                
+                if (symptoms[i].isActive)
+                {
+                    sickPnjsPerSymptom += symptoms[i].additionalSickPnjs;
+                }                
+            }            
             if (healthPnjs.Count > 0)
             {
-                int value = Random.Range(debugCadenceValueMin, debugCadenceValueMax + 1);
+                int value = Random.Range(debugCadenceValueMin + sickPnjsPerSymptom, debugCadenceValueMax + 1 + sickPnjsPerSymptom);
                 SpreadDisease(value);
             }
         }

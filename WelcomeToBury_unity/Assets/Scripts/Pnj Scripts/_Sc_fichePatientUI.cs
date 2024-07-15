@@ -26,6 +26,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
     [SerializeField] Image picto2 = null;
     [SerializeField] Image picto3 = null;
     [SerializeField] Image picto4 = null;
+    public bool displayPictos = true;
 
 
     _Sc_DebugSymptomeManager _sc_debugSymptomeManager = null;
@@ -102,6 +103,8 @@ public class _Sc_fichePatientUI : MonoBehaviour
         picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
         picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
 
+        //SetPictos();
+
         symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
         symptome2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(1);
         symptome3.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(2);
@@ -125,6 +128,14 @@ public class _Sc_fichePatientUI : MonoBehaviour
         }
 
         setCanvas(true);
+    }
+
+    public void SetPictos()
+    {
+        /*picto1.enabled = displayPictos;
+        picto2.enabled = displayPictos;
+        picto3.enabled = displayPictos;
+        picto4.enabled = displayPictos;*/
     }
 
     // NEVER CALLED
@@ -248,11 +259,13 @@ public class _Sc_fichePatientUI : MonoBehaviour
                     symptome1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = _sc_cookBook.getAilmentName(0);
                     symptome1.gameObject.SetActive(true);
                     if (_sc_cookBook.getDiscoveredSymptom(0))
-                    {                       
+                    {
+                        picto1.transform.gameObject.SetActive(true);
                         picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
                     }
                     else
                     {
+                        picto1.transform.gameObject.SetActive(false);
                         picto1.sprite = unknownRemedy;
                     }
                 }
@@ -278,10 +291,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
                     symptome2.gameObject.SetActive(true);
                     if (_sc_cookBook.getDiscoveredSymptom(1))
                     {
+                        picto2.transform.gameObject.SetActive(true);
                         picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
                     }
                     else
                     {
+                        picto2.transform.gameObject.SetActive(false); 
                         picto2.sprite = unknownRemedy;
                     }
                 }
@@ -307,10 +322,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
                     symptome3.gameObject.SetActive(true);
                     if (_sc_cookBook.getDiscoveredSymptom(2))
                     {
+                        picto3.transform.gameObject.SetActive(true);
                         picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
                     }
                     else
                     {
+                        picto3.transform.gameObject.SetActive(false);
                         picto3.sprite = unknownRemedy;
                     }
                 }
@@ -336,10 +353,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
                     symptome4.gameObject.SetActive(true);
                     if (_sc_cookBook.getDiscoveredSymptom(3))
                     {
+                        picto4.transform.gameObject.SetActive(true);
                         picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
                     }
                     else
                     {
+                        picto4.transform.gameObject.SetActive(false);
                         picto4.sprite = unknownRemedy;
                     }
                 }
@@ -390,7 +409,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             symptomeTitle.gameObject.SetActive(true);
 
             /// SYMPTOM 1
-            if (_symptome1 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            if (_symptome1 && _sc_cookBook.receipes[0].metSymptom == true)
             {                
                 symptomeHorGroup.gameObject.SetActive(true);
                 symptomeTitle.gameObject.SetActive(true);
@@ -399,10 +418,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome1.gameObject.SetActive(true);
                 if (_sc_cookBook.getDiscoveredSymptom(0))
                 {
+                    picto1.transform.gameObject.SetActive(true);
                     picto1.sprite = _sc_cookBook.getRemede("treatment1").image;
                 }
                 else
                 {
+                    picto1.transform.gameObject.SetActive(false);
                     picto1.sprite = unknownRemedy;
                 }                
             }
@@ -412,7 +433,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             }
 
             /// SYMPTOM 2
-            if (_symptome2 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            if (_symptome2 && _sc_cookBook.receipes[1].metSymptom == true)
             {
                 
                 symptomeHorGroup.gameObject.SetActive(true);
@@ -422,10 +443,12 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome2.gameObject.SetActive(true);
                 if (_sc_cookBook.getDiscoveredSymptom(1))
                 {
+                    picto2.transform.gameObject.SetActive(true);
                     picto2.sprite = _sc_cookBook.getRemede("treatment2").image;
                 }
                 else
                 {
+                    picto2.transform.gameObject.SetActive(false);
                     picto2.sprite = unknownRemedy;
                 }
                 
@@ -436,7 +459,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             }
 
             /// SYMPTOM 3
-            if (_symptome3 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            if (_symptome3 && _sc_cookBook.receipes[2].metSymptom == true)
             {
                 
                 symptomeHorGroup.gameObject.SetActive(true);
@@ -446,13 +469,14 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome3.gameObject.SetActive(true);
                 if (_sc_cookBook.getDiscoveredSymptom(2))
                 {
+                    picto3.transform.gameObject.SetActive(true);
                     picto3.sprite = _sc_cookBook.getRemede("treatment3").image;
                 }
                 else
                 {
+                    picto3.transform.gameObject.SetActive(false);
                     picto3.sprite = unknownRemedy;
-                }
-                
+                }                
             }
             else
             {
@@ -460,7 +484,7 @@ public class _Sc_fichePatientUI : MonoBehaviour
             }
 
             /// SYMPTOM 4
-            if (_symptome4 /*&& _sc_pnjState.receivedSeSoucier == true*/)
+            if (_symptome4 && _sc_cookBook.receipes[3].metSymptom == true)
             {
                 
                 symptomeHorGroup.gameObject.SetActive(true);
@@ -470,13 +494,14 @@ public class _Sc_fichePatientUI : MonoBehaviour
                 symptome4.gameObject.SetActive(true);
                 if (_sc_cookBook.getDiscoveredSymptom(3))
                 {
+                    picto4.transform.gameObject.SetActive(true);
                     picto4.sprite = _sc_cookBook.getRemede("treatment4").image;
                 }
                 else
                 {
+                    picto4.transform.gameObject.SetActive(false);
                     picto4.sprite = unknownRemedy;
-                }
-                
+                }                
             }
             else
             {

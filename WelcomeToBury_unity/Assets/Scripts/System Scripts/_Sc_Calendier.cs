@@ -97,11 +97,13 @@ public class _Sc_Calendrier : MonoBehaviour
                 _sc_epidemicManager.AdvancedDay(currentDay);
             }
 
-            //envoyer progression statut aux PNJS
-            for (int i = 0; i < pnjs.Count; i++)
-            {
-                pnjs[i].GetComponent<_Sc_pnjState>().OnDayChange();
-            }
+            
+        }
+
+        //envoyer progression statut aux PNJS
+        for (int i = 0; i < pnjs.Count; i++)
+        {
+            pnjs[i].GetComponent<_Sc_pnjState>().OnDayChange();
         }
 
         //envoyer repousse au ressources de CROPS

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -23,6 +24,7 @@ public class _Sc_cookbook : MonoBehaviour
     {
         public string name = null;
         public string ailmentName = null;
+        public string ailmentArticle = null;
         public string formula = null;
         public List<_So_item> ingredients = null;
         public int discoveryProgress = 0;
@@ -30,7 +32,7 @@ public class _Sc_cookbook : MonoBehaviour
         public bool metSymptom = false;
         public bool discovered = false;
         public _So_item resultItem = null;
-        [HideInInspector] public List<Transform> sourcesOfknowledge = null;
+        /*[HideInInspector]*/ public List<Transform> sourcesOfknowledge = null;
     }
 
     public List<Receipe> receipes = new List<Receipe>();
@@ -188,11 +190,39 @@ public class _Sc_cookbook : MonoBehaviour
         yield return new WaitForSeconds(_waitTime + 1.0f);
         if(discovered == false)
         {
-            _sc_MessagesManager.SetMessageText("Votre compréhension"+ " " + "progresse !", true);
+
+            Debug.Log("Progress state " + receipes[remede -1].discoveryProgress);
+            if (receipes[remede - 1].discoveryProgress == 1)
+            {
+
+                Debug.Log("Progress 1");
+                _sc_MessagesManager.SetMessageText("Cette personne ressent " + receipes[remede - 1].ailmentName, true); ;
+            }
+            if (receipes[remede -1].discoveryProgress == 2)
+            {
+                Debug.Log("Progress 2");
+                _sc_MessagesManager.SetMessageText("Votre connaissance " + receipes[remede - 1].ailmentArticle + receipes[remede -1].ailmentName + " a progressé", true);
+            }
         }
         else
         {
-            _sc_MessagesManager.SetMessageText("Vous avez découvert la recette du" + " " + "Remède" + remede.ToString() + "!", true);
+            if(remede - 1 == 0)
+            {
+                _sc_MessagesManager.SetMessageText("Vous avez découvert comment appaiser " + receipes[remede - 1].ailmentName, true);
+            }
+            if (remede - 1 == 1)
+            {
+                _sc_MessagesManager.SetMessageText("Vous avez découvert comment appaiser " + receipes[remede - 1].ailmentName, true);
+            }
+            if (remede - 1 == 2)
+            {
+                _sc_MessagesManager.SetMessageText("Vous avez découvert comment appaiser " + receipes[remede - 1].ailmentName, true);
+            }
+            if (remede - 1 == 3)
+            {
+                _sc_MessagesManager.SetMessageText("Vous avez découvert comment appaiser " + receipes[remede - 1].ailmentName, true);
+            }
+
         }
 
         if (_Sc_selectPnj.Instance.lastPnjState != null)

@@ -140,7 +140,7 @@ public class _Sc_CraftManager : MonoBehaviour
         }
         */
     }
-    public void OpenCraftCanvas()
+    public void OpenCraftCanvas(int receipeToOpen)
     {
         if ((isOpen))
         {            
@@ -167,6 +167,12 @@ public class _Sc_CraftManager : MonoBehaviour
             canvaGroup.interactable = true;
             canvaGroup.blocksRaycasts = true;
             isOpen = true;
+
+            if(receipeToOpen != 0)
+            {
+                receipes[receipeToOpen - 1].SendFormula();
+                    
+            }
         }
     }
     public void combine()
