@@ -82,6 +82,7 @@ public class _Sc_pnjState : MonoBehaviour
 
     Transform raySocket = null;
     [SerializeField] LayerMask _layerMask;
+
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
@@ -127,39 +128,83 @@ public class _Sc_pnjState : MonoBehaviour
 
         if (state == 1)
         {
-            
+
+            int cures = 0;
             if (symptome1 == true)
             {
                 _so_remedeToCheck = _so_remede1;
                 treatmentToCheck = "treatment1";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures ++;
+                    }
+                }
             }
-            else if (symptome2 == true)
+            if (symptome2 == true)
             {
                 _so_remedeToCheck = _so_remede2;
                 treatmentToCheck = "treatment2";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
+                }
             }
-            else if (symptome3 == true)
+            if (symptome3 == true)
             {
                 _so_remedeToCheck = _so_remede3;
                 treatmentToCheck = "treatment3";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
+                }
             }
-            else if (symptome4 == true)
+            if (symptome4 == true)
             {
                 _so_remedeToCheck = _so_remede4;
                 treatmentToCheck = "treatment4";
-            }
 
-            if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
-            {
-                if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
                 {
-                    CanRemede = true;
-                    _canRemedeCheck = true;
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
                 }
             }
+
+            if(cures > 0)
+            {
+                _canRemedeCheck = true;
+            }
+            else
+            {
+                _canRemedeCheck = false;
+            }
+
+            if (capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
+            {
+                _canGesteSoinCheck = true;
+            }
+
+
             //
 
-            if (CanRemede == true)
+            /*if (CanRemede == true)
             {
                 if(_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true)
                 {
@@ -180,12 +225,9 @@ public class _Sc_pnjState : MonoBehaviour
             else
             {
                 _canRemedeCheck = false;
-            }
+            }*/
 
-            if(capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
-            {
-                _canGesteSoinCheck = true;
-            }
+
         }
         else
         {
