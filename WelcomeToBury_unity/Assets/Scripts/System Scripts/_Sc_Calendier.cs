@@ -8,7 +8,7 @@ public class _Sc_Calendrier : MonoBehaviour
     public static _Sc_Calendrier instance = null;
     [Header("UI")]
     [SerializeField] TextMeshProUGUI dayText = null;
-    [SerializeField] TextMeshProUGUI plageText = null;
+    [SerializeField] _Sc_LoadTextLanguage plageText = null;
     int currentDay = 1;
     public int currentPlage = 1;
     _Sc_EpidemicManager _sc_epidemicManager = null;
@@ -33,7 +33,7 @@ public class _Sc_Calendrier : MonoBehaviour
         currentDay = 1;
         currentPlage = 1;
         dayText.text = currentDay.ToString();
-        plageText.text = spanNames[currentPlage -1].ToString();
+        plageText.setText("",(spanNames[currentPlage -1]),"");
         _sc_epidemicManager = _Sc_EpidemicManager.instance;
         _ressourcesPremenption = _Sc_ressourcesPremeption.instance;
         SetLight();
@@ -116,7 +116,7 @@ public class _Sc_Calendrier : MonoBehaviour
         _ressourcesPremenption.OnSpanChange();
 
         dayText.text = currentDay.ToString();
-        plageText.text = spanNames[currentPlage - 1].ToString();
+        plageText.setText("", spanNames[currentPlage - 1],"");
     }
 
     public void AddCrop(Transform newCrop)
