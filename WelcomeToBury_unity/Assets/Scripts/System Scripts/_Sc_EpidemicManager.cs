@@ -38,7 +38,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
     int lastStoredDay = 1;
 
     [SerializeField] int sickPnjsPerSymptom = 0;
-
+    public bool debugActivatePersonalProgression = false;
     private void Awake()
     {
         instance = this;
@@ -53,8 +53,10 @@ public class _Sc_EpidemicManager : MonoBehaviour
                 symptoms[i].odds += symptoms[i - 1].odds;
             }
         }
-
-        SpreadDisease(debugStartValue);
+        if(debugStartValue != 0)
+        {
+            SpreadDisease(debugStartValue);
+        }
     }
 
     public void AdvancedDay(int currentDay)
