@@ -318,7 +318,8 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  growthSpeed: 0
+  isUseless: 0
+  growthSpeed: 2
 --- !u!1 &9042347151784131716
 GameObject:
   m_ObjectHideFlags: 0

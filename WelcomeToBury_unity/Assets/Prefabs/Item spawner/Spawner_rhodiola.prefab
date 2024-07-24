@@ -301,7 +301,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   isUseless: 1
-  growthSpeed: 0
+  growthSpeed: 1
 --- !u!1 &8356748116936522998
 GameObject:
   m_ObjectHideFlags: 0

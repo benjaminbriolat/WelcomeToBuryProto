@@ -82,6 +82,7 @@ public class _Sc_pnjState : MonoBehaviour
 
     Transform raySocket = null;
     [SerializeField] LayerMask _layerMask;
+
     private void Awake()
     {
         gameObject.name = ("PNJ_" + _so_pnjInfos.pnjFirstName + _so_pnjInfos.pnjLastName);
@@ -127,39 +128,83 @@ public class _Sc_pnjState : MonoBehaviour
 
         if (state == 1)
         {
-            
+
+            int cures = 0;
             if (symptome1 == true)
             {
                 _so_remedeToCheck = _so_remede1;
                 treatmentToCheck = "treatment1";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures ++;
+                    }
+                }
             }
-            else if (symptome2 == true)
+            if (symptome2 == true)
             {
                 _so_remedeToCheck = _so_remede2;
                 treatmentToCheck = "treatment2";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
+                }
             }
-            else if (symptome3 == true)
+            if (symptome3 == true)
             {
                 _so_remedeToCheck = _so_remede3;
                 treatmentToCheck = "treatment3";
+
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
+                {
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
+                }
             }
-            else if (symptome4 == true)
+            if (symptome4 == true)
             {
                 _so_remedeToCheck = _so_remede4;
                 treatmentToCheck = "treatment4";
-            }
 
-            if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
-            {
-                if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                if (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true) //temp allow remede sans se soucier
                 {
-                    CanRemede = true;
-                    _canRemedeCheck = true;
+                    if (_Sc_inventoryManager.instance.checkItem(_so_remedeToCheck, 1) == true)
+                    {
+                        CanRemede = true;
+                        cures += 1;
+                    }
                 }
             }
+
+            if(cures > 0)
+            {
+                _canRemedeCheck = true;
+            }
+            else
+            {
+                _canRemedeCheck = false;
+            }
+
+            if (capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
+            {
+                _canGesteSoinCheck = true;
+            }
+
+
             //
 
-            if (CanRemede == true)
+            /*if (CanRemede == true)
             {
                 if(_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true)
                 {
@@ -180,12 +225,9 @@ public class _Sc_pnjState : MonoBehaviour
             else
             {
                 _canRemedeCheck = false;
-            }
+            }*/
 
-            if(capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
-            {
-                _canGesteSoinCheck = true;
-            }
+
         }
         else
         {
@@ -274,9 +316,13 @@ public class _Sc_pnjState : MonoBehaviour
         }
         setSymptomeIcon();
 
-        if(_sc_SelectPnj.lastPnjState == this)
+        if (_sc_SelectPnj != null)
         {
-            _sc_SelectPnj.SetFichePatient(0, _sc_SelectPnj.lastPnjState);
+            if (_sc_SelectPnj.lastPnjState == this)
+            {
+            
+                _sc_SelectPnj.SetFichePatient(0, _sc_SelectPnj.lastPnjState);
+            }
         }
 
         SetButtonsState();
@@ -339,34 +385,37 @@ public class _Sc_pnjState : MonoBehaviour
 
     public void OnDayChange()
     {
-        if(state == 1)
+        if(_sc_epidemiManager.debugActivatePersonalProgression == true)
         {
-            currentProgression += 1;
-            if (currentProgression > progressionCap)
+            if (state == 1)
             {
-                if(currentSymptoms < maxSymptoms)
+                currentProgression += 1;
+                if (currentProgression > progressionCap)
                 {
-                    _sc_epidemiManager.getNewSymptom(this);
-                    currentProgression = 0;
+                    if (currentSymptoms < maxSymptoms)
+                    {
+                        _sc_epidemiManager.getNewSymptom(this);
+                        currentProgression = 0;
+                    }
                 }
             }
-        }    
-        else if (state == 0)
-        {
-            if(currentImmuneDays > 0)
+            else if (state == 0)
             {
-                currentImmuneDays -= 1;
-                if(currentImmuneDays <= 0)
+                if (currentImmuneDays > 0)
+                {
+                    currentImmuneDays -= 1;
+                    if (currentImmuneDays <= 0)
+                    {
+                        _sc_epidemiManager.DeimmunizePnj(this.transform);
+                    }
+                }
+                else
                 {
                     _sc_epidemiManager.DeimmunizePnj(this.transform);
                 }
-            }
-            else
-            {
-                _sc_epidemiManager.DeimmunizePnj(this.transform);
-            }
 
-        }
+            }
+        }        
     }
 
     //DEBUG//
@@ -499,15 +548,23 @@ public class _Sc_pnjState : MonoBehaviour
             Debug.Log("CookBookSetFichePatient & button");
         }
     }
+
+    public void setNewPosition(Vector2 newPos)
+    {
+        transform.localPosition = new Vector3(newPos.x, transform.position.y, newPos.y);
+        transform.position = new Vector3(transform.position.x, GetHeight() + 1.7f, transform.position.z);
+    }
     public float GetHeight()
     {
         RaycastHit hit;
         if (Physics.Raycast(raySocket.position, transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, _layerMask))
         {
+            Debug.Log("height Ground for " + transform.name + " at " + hit.point.y);
             return hit.point.y;
         }
         else
         {
+            Debug.Log("height NoGround");
             return 0;
         }
     }

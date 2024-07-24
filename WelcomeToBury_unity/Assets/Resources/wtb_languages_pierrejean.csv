@@ -1,0 +1,32 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+pierreJeanName@@@Pierre-Jean@Pierre-Jean@Pierre-Jean
+pierreJeanFamiltName@@@Martin@Martin@Martin
+odettPNJType@@@1@1@1
+pierreJeanGroup@@@Martin@Martin@Martin
+Pierre-Jean Phase 1 (de jour X à jour Y)@@@@@
+Pierre-Jean P1 pas confiance@@@@@
+pierreJeanP1E1L1@0@@Bonjour@@
+pierreJeanP1E1L2@1@@Salut@@
+pierreJeanP1E1L3@0@@*Aurevoirs*@@
+Pierre-Jean P1 confiance@@@@@
+pierreJeanP1E2L1@0@@Bonjour@@
+pierreJeanP1E2L2@1@@Salut@@
+pierreJeanP1E2L3@0@@*Aurevoirs*@@
+Pierre-Jean P1 malade @@@@@
+pierreJeanP1E3L1@0@@Bonjour@@
+pierreJeanP1E3L2@1@@Salut@@
+pierreJeanP1E3L3@0@@*Aurevoirs*@@
+Pierre-Jean Phase 2 (de jour X à jour Y)@@@@@
+Pierre-Jean P2 pas confiance@@@@@
+pierreJeanP2E1L1@0@@Bonjour@@
+pierreJeanP2E1L2@1@@Salut@@
+pierreJeanP2E1L3@0@@*Aurevoirs*@@
+Pierre-Jean P2 confiance@@@@@
+pierreJeanP2E2L1@0@@Bonjour@@
+pierreJeanP2E2L2@1@@Salut@@
+pierreJeanP2E2L3@0@@*Aurevoirs*@@
+Pierre-Jean P2 malade @@@@@
+pierreJeanP2E3L1@0@@Bonjour@@
+pierreJeanP2E3L2@1@@Salut@@
+pierreJeanP2E3L3@0@@*Aurevoirs*@@

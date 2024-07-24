@@ -25,7 +25,7 @@ public class _So_pnjInfos : ScriptableObject
         Lapointe,
         Cloutier,
         Beauchamps,
-        Vallée,
+        Vallee,
         Leblanc,
         Therrien,
         Dubois,
