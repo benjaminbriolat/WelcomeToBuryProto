@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receipes:
   - name: treatment1
-    ailmentName: Symptome 1
+    ailmentName: Une grande lassitude
+    ailmentArticle: d'
     formula: 
     ingredients:
     - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
@@ -56,10 +57,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 132db4536a2b987428f9319fdab3efa2, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
+    metSymptom: 0
     discovered: 0
     resultItem: {fileID: 11400000, guid: 6f2d314d280616740ba2989df1118a09, type: 2}
+    sourcesOfknowledge: []
   - name: treatment2
-    ailmentName: Symptome 2
+    ailmentName: "Une fi\xE8vre interminable"
+    ailmentArticle: d'
     formula: 
     ingredients:
     - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
@@ -69,31 +73,40 @@ MonoBehaviour:
     - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
+    metSymptom: 0
     discovered: 0
     resultItem: {fileID: 11400000, guid: d6c6b3c3257e5b249862aad22e0b2d7f, type: 2}
+    sourcesOfknowledge: []
   - name: treatment3
-    ailmentName: Symptome 3
+    ailmentName: Des spasmes insupportables
+    ailmentArticle: 
     formula: 
     ingredients:
-    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
-    - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
-    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
-    - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
+    - {fileID: 11400000, guid: c64cb9717c918bf4586c3d1afdacf7f4, type: 2}
+    - {fileID: 11400000, guid: 5fd9234d64b72e342830854174a5439d, type: 2}
+    - {fileID: 11400000, guid: 1e2a6ba1a6c313145a5ac8f38e1cc65e, type: 2}
+    - {fileID: 11400000, guid: cd9c96c4e021ccd4691a13ae452a8032, type: 2}
     - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
+    metSymptom: 0
     discovered: 0
     resultItem: {fileID: 11400000, guid: 0a5ee76cbb4f1f841bf0646e3f894938, type: 2}
+    sourcesOfknowledge: []
   - name: treatment4
-    ailmentName: Symptome 4
+    ailmentName: La toux noire
+    ailmentArticle: de
     formula: 
     ingredients:
-    - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}
+    - {fileID: 11400000, guid: 423d0c87a93b467448807721d7159199, type: 2}
+    - {fileID: 11400000, guid: 1fe7ab730f90fc94cb8e8dbd4b4b59d4, type: 2}
     - {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
-    - {fileID: 11400000, guid: a7aeae3bc151db544a0083fa37c7b27d, type: 2}
+    - {fileID: 11400000, guid: ae1a9ba4f201272459007d8acd2d1658, type: 2}
     - {fileID: 11400000, guid: 6949a123af77e6640b2a6a27bf9c6c59, type: 2}
-    - {fileID: 11400000, guid: df41af7f80b569d4980d1c0ceda465ce, type: 2}
     discoveryProgress: 0
     discoveryCap: 3
+    metSymptom: 0
     discovered: 0
     resultItem: {fileID: 11400000, guid: da16d3142ccc48e4580ee217dc5c7f64, type: 2}
+    sourcesOfknowledge: []
+  debugUnlockCare: 0

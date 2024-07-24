@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using JetBrains.Annotations;
+using UnityEngine.AI;
+using Unity.AI.Navigation;
+using Rewired;
 
 public class _Sc_Calendrier : MonoBehaviour
 {
     public static _Sc_Calendrier instance = null;
     [Header("UI")]
     [SerializeField] TextMeshProUGUI dayText = null;
-    [SerializeField] TextMeshProUGUI plageText = null;
+    [SerializeField] _Sc_LoadTextLanguage plageText = null;
     int currentDay = 1;
     public int currentPlage = 1;
     _Sc_EpidemicManager _sc_epidemicManager = null;
@@ -20,7 +24,43 @@ public class _Sc_Calendrier : MonoBehaviour
     [SerializeField] List<Color> lightValues = null;
     [SerializeField] Light _light = null;
     public bool debugNofade = false;
+    public bool debugAutoSpread = false;
+    public bool debugNoChaptering = false;
     [SerializeField] bool debugAffectLight = false;
+
+    [System.Serializable]
+    public class pnjSets
+    {
+        public GameObject pnjGameObject = null;
+        public bool sick1 = false;
+        public bool sick2 = false;
+        public bool sick3 = false;
+        public bool sick4 = false;
+        public Vector2 newPos = Vector2.zero;
+    }
+
+    [System.Serializable]
+    public class Evenement
+    {
+        public string eventTitle = null;
+        public  int triggerDay = 0;
+        public List<pnjSets> pnjsToActivate = null;
+        public List<GameObject> buildingsToActivate = null;
+        public List<GameObject> pnjsToDesactivate = null;
+        public List<pnjSets> pnjsToSicken = null;
+        public List<pnjSets> pnjsToPlace = null;
+        public List<GameObject> pnjsToUpdate = null;        
+        public bool greatEclipse = false;
+        public _So_eclipseTextTrack eclipseTextData = null;
+        public Vector3 newPlayerPosition = Vector3.zero;
+        public bool passed = false;
+    }
+
+   
+    [SerializeField] List<Evenement> evenements = new List<Evenement>();
+
+    [SerializeField] NavMeshSurface navigationMesh = null;
+    Transform player = null;
     private void Awake()
     {
         instance = this;
@@ -33,10 +73,15 @@ public class _Sc_Calendrier : MonoBehaviour
         currentDay = 1;
         currentPlage = 1;
         dayText.text = currentDay.ToString();
-        plageText.text = spanNames[currentPlage -1].ToString();
+        plageText.setText("",(spanNames[currentPlage -1]),"");
         _sc_epidemicManager = _Sc_EpidemicManager.instance;
         _ressourcesPremenption = _Sc_ressourcesPremeption.instance;
         SetLight();
+        player = _Sc_cerveau.instance.transform;
+        if (debugNoChaptering == false)
+        {
+            LaunchFirstDay();
+        }
     }
     private void Update()
     {
@@ -67,17 +112,154 @@ public class _Sc_Calendrier : MonoBehaviour
             currentDay += 1;
             currentPlage = 1;
             //Envoyer propagation maladie
-            if(debugNofade == true)
+
+            if (debugNoChaptering == false)
             {
-                EndAdvanceCalendar(true);
+                bool matchFound = false;
+                int targetEvent = 0;
+                for (int i = 0; i < evenements.Count; i++)
+                {
+                    if (evenements[i].triggerDay == currentDay && evenements[i].passed == false)
+                    {
+                        matchFound = true;
+                        targetEvent = i;
+                        StartCoroutine(delayLaunchEvent(i));
+                        break;
+                    }
+                }
+                if(matchFound == true && evenements[targetEvent].greatEclipse == true)
+                {
+                    _Sc_DebugBlackScreen.instance.SetBlackScreen(true, false,true, evenements[targetEvent].eclipseTextData);
+                }
+                else
+                {
+                    _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+                }
             }
             else
             {
-                _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+                if (debugNofade == true)
+                {
+                    EndAdvanceCalendar(true);
+                }
+                else
+                {
+                    _Sc_DebugBlackScreen.instance.SetBlackScreen(true, true);
+                }
+
+            }
+            
+        }
+              
+    }
+    public void LaunchFirstDay()
+    {
+        //desactivate all buildings
+        for(int i = 0; i < evenements.Count; i++)
+        {
+            for(int j = 0; j < evenements[i].buildingsToActivate.Count; j ++)
+            {
+                evenements[i].buildingsToActivate[j].SetActive(false);
             }
         }
 
+        for (int i = 0; i < evenements.Count; i++)
+        {
+            for (int j = 0; j < evenements[i].pnjsToActivate.Count; j++)
+            {
+                evenements[i].pnjsToActivate[j].pnjGameObject.SetActive(false);
+            }
+        }
+        // bake
+        CallBake();
 
+    }
+
+    public void LaunchNewEvent(int newEvent)
+    {
+        //block event for future loops
+        evenements[newEvent].passed = true;
+
+        // activate buildings
+        for (int i = 0; i < evenements[newEvent].buildingsToActivate.Count;i++)
+        {
+            evenements[newEvent].buildingsToActivate[i].SetActive(true);
+        }
+        // activate pnjs and set as sick
+        for (int i = 0; i < evenements[newEvent].pnjsToActivate.Count; i++)
+        {
+            evenements[newEvent].pnjsToActivate[i].pnjGameObject.SetActive(true);
+            if(evenements[newEvent].pnjsToActivate[i].sick1 == true)
+            {
+                evenements[newEvent].pnjsToActivate[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 0);
+            }
+            if (evenements[newEvent].pnjsToActivate[i].sick2 == true)
+            {
+                evenements[newEvent].pnjsToActivate[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 2);
+            }
+            if (evenements[newEvent].pnjsToActivate[i].sick3 == true)
+            {
+                evenements[newEvent].pnjsToActivate[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 2);
+            }
+            if (evenements[newEvent].pnjsToActivate[i].sick4 == true)
+            {
+                evenements[newEvent].pnjsToActivate[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 3);
+            }
+        }
+        // give symptoms to existing pnjs
+        for (int i = 0; i < evenements[newEvent].pnjsToSicken.Count; i++)
+        {
+            if(evenements[newEvent].pnjsToSicken[i].pnjGameObject.activeSelf ==true)
+            {
+                if (evenements[newEvent].pnjsToSicken[i].sick1 == true)
+                {
+                    evenements[newEvent].pnjsToSicken[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 0);
+                }
+                if (evenements[newEvent].pnjsToSicken[i].sick2 == true)
+                {
+                    evenements[newEvent].pnjsToSicken[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 2);
+                }
+                if (evenements[newEvent].pnjsToSicken[i].sick3 == true)
+                {
+                    evenements[newEvent].pnjsToSicken[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 2);
+                }
+                if (evenements[newEvent].pnjsToSicken[i].sick4 == true)
+                {
+                    evenements[newEvent].pnjsToSicken[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, 3);
+                }
+            }            
+        }
+
+        // Update PNJs dialogues
+        for (int i = 0; i < evenements[newEvent].pnjsToUpdate.Count; i++)
+        {
+            //SEND TO PNJ DIALOGUE SCRIPT
+        }
+
+        // desactivate PNJs
+        for (int i = 0; i < evenements[newEvent].pnjsToDesactivate.Count; i++)
+        {
+            evenements[newEvent].pnjsToDesactivate[i].SetActive(false);
+        }
+        // Move PNJs
+        for (int i = 0; i < evenements[newEvent].pnjsToPlace.Count; i++)
+        {
+            evenements[newEvent].pnjsToPlace[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().setNewPosition(evenements[newEvent].pnjsToPlace[i].newPos);
+        }
+        // Place player based on story progress
+        if(evenements[newEvent].greatEclipse == true)
+        {
+            Debug.Log("Move player at " + evenements[newEvent].newPlayerPosition);
+            player.GetComponent<NavMeshAgent>().enabled = false;
+            player.GetComponent<NavMeshModifier>().enabled = false;
+            player.position = evenements[newEvent].newPlayerPosition;
+            player.GetComponent<NavMeshAgent>().enabled = true;
+            player.GetComponent<NavMeshModifier>().enabled = true;
+        }
+
+
+        // REBAKE SCENE
+        CallBake();
     }
 
     public void SetLight()
@@ -94,10 +276,11 @@ public class _Sc_Calendrier : MonoBehaviour
         {
             if (_sc_epidemicManager != null)
             {
-                _sc_epidemicManager.AdvancedDay(currentDay);
-            }
-
-            
+                if(debugAutoSpread == true)
+                {
+                    _sc_epidemicManager.AdvancedDay(currentDay);
+                }
+            } 
         }
 
         //envoyer progression statut aux PNJS
@@ -116,7 +299,7 @@ public class _Sc_Calendrier : MonoBehaviour
         _ressourcesPremenption.OnSpanChange();
 
         dayText.text = currentDay.ToString();
-        plageText.text = spanNames[currentPlage - 1].ToString();
+        plageText.setText("", spanNames[currentPlage - 1],"");
     }
 
     public void AddCrop(Transform newCrop)
@@ -133,7 +316,17 @@ public class _Sc_Calendrier : MonoBehaviour
         {
             pnjs.Add(newPnj);
         }
+    } 
+
+    public void CallBake()
+    {
+        navigationMesh.BuildNavMesh();
     }
 
-    
+    private IEnumerator delayLaunchEvent(int newEvent)
+    {
+        yield return new WaitForSeconds(1f);
+        LaunchNewEvent(newEvent);
+
+    }
 }

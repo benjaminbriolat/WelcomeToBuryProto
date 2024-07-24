@@ -145,8 +145,9 @@ GameObject:
   - component: {fileID: 2738365845447402571}
   - component: {fileID: 1173913607411035656}
   - component: {fileID: 7895108750434826321}
+  - component: {fileID: 7916859690672906431}
   m_Layer: 0
-  m_Name: SpanNumber
+  m_Name: SpanText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,6 +269,27 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7916859690672906431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381699614971578338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59942554983a964fa170009d08e0a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: matinTest
+  launchFromStart: 1
+  datasList:
+  - languageDatas: {fileID: 4900000, guid: 585e5e40ec5b05d48a499480b950f110, type: 3}
+    datas: []
+  - languageDatas: {fileID: 4900000, guid: 8a23514fc3c8444408672b82b51b6879, type: 3}
+    datas: []
+  - languageDatas: {fileID: 4900000, guid: a109731fc31f2ae459326ae957e26efb, type: 3}
+    datas: []
 --- !u!1 &2846224832334315848
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +301,7 @@ GameObject:
   - component: {fileID: 1334071926316641834}
   - component: {fileID: 1250208195393685080}
   - component: {fileID: 6606322079528527436}
+  - component: {fileID: 6477389924334071633}
   m_Layer: 0
   m_Name: DayText
   m_TagString: Untagged
@@ -333,7 +356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Jour: '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -402,6 +425,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6477389924334071633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2846224832334315848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59942554983a964fa170009d08e0a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: jourTest
+  launchFromStart: 1
+  datasList:
+  - languageDatas: {fileID: 4900000, guid: 8a23514fc3c8444408672b82b51b6879, type: 3}
+    datas: []
 --- !u!1 &2981205356023285510
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,14 +544,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 3003365611332800819}
-  plageText: {fileID: 7895108750434826321}
+  plageText: {fileID: 7916859690672906431}
   currentPlage: 1
   pnjs: []
   crops: []
   spanNames:
-  - Matin
-  - "Apr\xE8s-midi"
-  - Soir
+  - matinTest
+  - amTest
+  - soirTest
   lightValues:
   - {r: 0.9137255, g: 0.83137256, b: 0.7294118, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}

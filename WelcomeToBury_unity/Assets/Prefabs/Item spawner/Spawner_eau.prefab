@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _item: {fileID: 11400000, guid: 4b4f6edbd7f11b94e88bc6e01cce35d6, type: 2}
   objectToSpawn: {fileID: 1183098466550748615, guid: d5697b3e3a4e3984a92c427de0979033, type: 3}
+  delayBeforeFirstSpawn: 0
   minRespawnQuantity: 1
   maxRespawnQuantity: 3
   minRessourcesInLdo: 1
@@ -61,6 +62,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  isUseless: 0
   growthSpeed: 0
 --- !u!1 &2535137275584225612
 GameObject:
