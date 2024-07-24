@@ -16,9 +16,11 @@ public class _Sc_pnjActions : MonoBehaviour
     _Sc_DebugBlackScreen _sc_debugBlackScreen = null;
     _Sc_debugPnjButton _soucierButton = null;
     _Sc_debugGameplaySettings _DebugGameplaySettings = null;
+    _Sc_pnjDialogue _sc_PnjDialogue = null;
     private void Awake()
     {
         _sc_pnjState = GetComponent<_Sc_pnjState>();
+        _sc_PnjDialogue = GetComponent<_Sc_pnjDialogue>();
     }
 
     private void Start()
@@ -65,81 +67,115 @@ public class _Sc_pnjActions : MonoBehaviour
 
     public void PnjSoucier(bool _passTime)
     {
-        bool progressedSymptom = false;
         if(_sc_pnjState.cracheurDeNoir == false)
         {
             if (_sc_pnjState.CanSoucier == true)
             {
-                _sc_pnjState.SoucierOk = true;
-                _sc_pnjState.CanRemede = true;
-                _sc_pnjState.CanGesteSoin = true;
-                _sc_pnjState.SetButtonsState();
-                _sc_pnjState.receivedSeSoucier = true;
+                SendDialogue(); 
+            }
+        } 
+    }
 
+    private void SendDialogue()
+    {
+            // PNJ NON MALADE = DIALOGUE //////////////////////////////////
+            So_Dialogue _dialogueToSet = null;
+            bool isDialogueMalade = false;
 
-                if (_sc_pnjState.symptome1 == true  )
+            if (_sc_pnjState.state == 0) //PAS MALADE
+            {
+                if (_sc_pnjState.capTrustReached == false) //PAS CONFIANCE
                 {
-                    _sc_cookBook.receipes[0].metSymptom = true;
-                    if(_sc_cookBook.receipes[0].discovered == false && progressedSymptom == false)
-                    {
-                        progressedSymptom = true;
-                        _sc_cookBook.AdvanceDiscovery("treatment1", transform);
-                    }
+                    _dialogueToSet = _sc_PnjDialogue.myDialogue;
                 }
-                if (_sc_pnjState.symptome2 == true)
+                else if (_sc_pnjState.capTrustReached == true) //CONFIANCE
                 {
-                    _sc_cookBook.receipes[1].metSymptom = true;
-                    if (_sc_cookBook.receipes[1].discovered == false && progressedSymptom == false)
-                    {
-                        progressedSymptom = true;
-                        _sc_cookBook.AdvanceDiscovery("treatment2", transform);
-                    }
+                    _dialogueToSet = _sc_PnjDialogue.myDialogueConfiance;
                 }
-                if (_sc_pnjState.symptome3 == true)
-                {
-                    _sc_cookBook.receipes[2].metSymptom = true;
-                    if (_sc_cookBook.receipes[2].discovered == false && progressedSymptom == false)
-                    {
-                        progressedSymptom = true;
-                        _sc_cookBook.AdvanceDiscovery("treatment3", transform);
-                    }
-                }
-                if (_sc_pnjState.symptome4 == true )
-                {
-                    _sc_cookBook.receipes[3].metSymptom = true;
-                    if (_sc_cookBook.receipes[3].discovered == false && progressedSymptom == false)
-                    {
-                        progressedSymptom = true;
-                        _sc_cookBook.AdvanceDiscovery("treatment4", transform);
-                    }
-                }
+            }
+            else if (_sc_pnjState.state == 1)  //MALADE
+            {
+                _dialogueToSet = _sc_PnjDialogue.myDialogueMalade;
+                isDialogueMalade = true;
+            }
 
-                if (_passTime == true)
-                {
-                    _sc_calendrier.AdvanceCalendar();
-                }
+            if (_dialogueToSet != _sc_PnjDialogue.currentDialogue)
+            {
+                _sc_PnjDialogue.lastLineDialogueIndex = 0;
+            }
 
-                _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
+            _Sc_DialogueManager.instance.GetDialogue(_dialogueToSet, _sc_PnjDialogue.lastLineDialogueIndex, _sc_PnjDialogue, isDialogueMalade, this);
+    }
+
+    public void SeSoucierAction(bool passTime = true)
+    {
+        // PNJ MALADE = SE SOUCIER //////////////////////////////////
+        bool progressedSymptom = false;
+        bool _passTime = passTime;
+
+        _sc_pnjState.SoucierOk = true;
+        _sc_pnjState.CanRemede = true;
+        _sc_pnjState.CanGesteSoin = true;
+        _sc_pnjState.SetButtonsState();
+        _sc_pnjState.receivedSeSoucier = true;
 
 
-
-                if (_sc_pnjState.state == 0)
-                {
-
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(2), _sc_debugBlackScreen.getFadingTime());
-                }
-                else if (_sc_pnjState.state == 1)
-                {
-                    _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
-                }
-                //StartCoroutine(delayLockSoucier());
-
+        if (_sc_pnjState.symptome1 == true)
+        {
+            _sc_cookBook.receipes[0].metSymptom = true;
+            if (_sc_cookBook.receipes[0].discovered == false && progressedSymptom == false)
+            {
+                progressedSymptom = true;
+                _sc_cookBook.AdvanceDiscovery("treatment1", transform);
             }
         }
-        
-        
+        if (_sc_pnjState.symptome2 == true)
+        {
+            _sc_cookBook.receipes[1].metSymptom = true;
+            if (_sc_cookBook.receipes[1].discovered == false && progressedSymptom == false)
+            {
+                progressedSymptom = true;
+                _sc_cookBook.AdvanceDiscovery("treatment2", transform);
+            }
+        }
+        if (_sc_pnjState.symptome3 == true)
+        {
+            _sc_cookBook.receipes[2].metSymptom = true;
+            if (_sc_cookBook.receipes[2].discovered == false && progressedSymptom == false)
+            {
+                progressedSymptom = true;
+                _sc_cookBook.AdvanceDiscovery("treatment3", transform);
+            }
+        }
+        if (_sc_pnjState.symptome4 == true)
+        {
+            _sc_cookBook.receipes[3].metSymptom = true;
+            if (_sc_cookBook.receipes[3].discovered == false && progressedSymptom == false)
+            {
+                progressedSymptom = true;
+                _sc_cookBook.AdvanceDiscovery("treatment4", transform);
+            }
+        }
 
-       
+        if (_passTime == true)
+        {
+            _sc_calendrier.AdvanceCalendar();
+        }
+
+        _sc_selectPnj.SetFichePatient(_sc_debugBlackScreen.getFadingTime(), _sc_pnjState);
+
+
+
+        if (_sc_pnjState.state == 0)
+        {
+
+            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(2), _sc_debugBlackScreen.getFadingTime());
+        }
+        else if (_sc_pnjState.state == 1)
+        {
+            _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
+        }
+        //StartCoroutine(delayLockSoucier());
     }
 
     public void PnjRemede(bool _passTime)
