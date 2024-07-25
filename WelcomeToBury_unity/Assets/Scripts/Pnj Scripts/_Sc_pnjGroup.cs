@@ -8,16 +8,52 @@ public class _Sc_pnjGroup : MonoBehaviour
     public List<Transform> pnjGroup;
     public int groupTrustLevel = 0;
     public int capTrustLevel = 3;
+
+    public bool hasSoucier = false;
+    public bool hasHeal = false;
     public void UpdateTrustLevel()
     {
-        groupTrustLevel += 1;
-        for(int i = 0; i < pnjGroup.Count; i++)
+        if(hasSoucier == true && hasHeal == true)
         {
-            if(groupTrustLevel >= capTrustLevel)
+            groupTrustLevel = 1;
+
+            for (int i = 0; i < pnjGroup.Count; i++)
             {
-                pnjGroup[i].GetComponent<_Sc_pnjState>().capTrustReached = true;
+                if (groupTrustLevel >= capTrustLevel)
+                {
+                    pnjGroup[i].GetComponent<_Sc_pnjState>().capTrustReached = true;
+                }
+                pnjGroup[i].GetComponent<_Sc_pnjState>().GroupLevel = groupTrustLevel;
+                pnjGroup[i].GetComponent<_Sc_pnjState>().UpdateTrustLevel();
             }
-            pnjGroup[i].GetComponent<_Sc_pnjState>().GroupLevel = groupTrustLevel;
         }
+        else
+        {
+            groupTrustLevel = 0;
+        }
+
+        /*if(groupTrustLevel == 1)
+        {
+            for (int i = 0; i < pnjGroup.Count; i++)
+            {
+                if (groupTrustLevel >= capTrustLevel)
+                {
+                    pnjGroup[i].GetComponent<_Sc_pnjState>().capTrustReached = true;
+                }
+                pnjGroup[i].GetComponent<_Sc_pnjState>().GroupLevel = groupTrustLevel;
+                pnjGroup[i].GetComponent<_Sc_pnjState>().UpdateTrustLevel();
+            }
+        }*/
+    }
+
+    public void UpdateSoucier()
+    {
+        hasSoucier = true;
+        UpdateTrustLevel();
+    }
+    public void UpdateHeal()
+    {
+        hasHeal = true;
+        UpdateTrustLevel();
     }
 }

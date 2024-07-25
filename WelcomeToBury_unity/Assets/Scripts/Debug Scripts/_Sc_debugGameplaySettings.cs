@@ -12,9 +12,13 @@ public class _Sc_debugGameplaySettings : MonoBehaviour
     [SerializeField] Image coche = null;
     [SerializeField] Image cochehealing = null;
     [SerializeField] Image cochepictos = null;
+    [SerializeField] Image cocheFiche = null;
     CanvasGroup _canvasGroup = null;
     public bool healingCostsTime = false;
     _Sc_fichePatientUI _fichePatientUi = null;
+    CanvasGroup fichePatientDebugCanvasGroup = null;
+    public bool fichePatientActive = true;
+
     private void Awake()
     {
         instance = this;
@@ -24,6 +28,7 @@ public class _Sc_debugGameplaySettings : MonoBehaviour
     private void Start()
     {
         _fichePatientUi = _Sc_fichePatientUI.Instance;
+        fichePatientDebugCanvasGroup = _fichePatientUi.transform.GetChild(0).GetComponent<CanvasGroup>();
     }
     public void AddPnj(_Sc_pnjActionsParent newPnj)
     {
@@ -80,5 +85,23 @@ public class _Sc_debugGameplaySettings : MonoBehaviour
         _fichePatientUi.displayPictos = !_fichePatientUi.displayPictos;
         _fichePatientUi.SetPictos();
         cochepictos.enabled = _fichePatientUi.displayPictos;
+    }
+
+    public void ActivateFichePatient()
+    {
+        if (fichePatientActive == false)
+        {
+            fichePatientActive = true;
+            cocheFiche.enabled = true;
+
+            fichePatientDebugCanvasGroup.alpha = 1;
+        }
+        else
+        {
+            fichePatientActive = false;
+            cocheFiche.enabled = false;
+
+            fichePatientDebugCanvasGroup.alpha = 0;
+        }
     }
 }

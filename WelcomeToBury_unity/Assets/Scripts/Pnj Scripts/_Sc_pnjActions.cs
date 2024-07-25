@@ -110,6 +110,9 @@ public class _Sc_pnjActions : MonoBehaviour
     public void SeSoucierAction(bool passTime = true)
     {
         // PNJ MALADE = SE SOUCIER //////////////////////////////////
+
+        _sc_pnjState.UpdateGroupSoucier();
+
         bool progressedSymptom = false;
         bool _passTime = passTime;
 
@@ -176,6 +179,7 @@ public class _Sc_pnjActions : MonoBehaviour
             _sc_smallTalkCanvas.SetDisplay(smalltalkAnchor, _sc_smallTalkData.getText(3), _sc_debugBlackScreen.getFadingTime());
         }
         //StartCoroutine(delayLockSoucier());
+
     }
 
     public void PnjRemede(bool _passTime)

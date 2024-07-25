@@ -199,8 +199,8 @@ public class _Sc_pnjState : MonoBehaviour
             if (capTrustReached == true && (_Sc_cookbook.instance.CheckIfReceipeDiscovered(treatmentToCheck) == true))
             {
                 _canGesteSoinCheck = true;
+                Debug.Log("CanGesteSoinCheckOk");
             }
-
 
             //
 
@@ -452,7 +452,7 @@ public class _Sc_pnjState : MonoBehaviour
         currentSymptoms -= 1;
         currentProgression = 0;
         onSymptomeChange();
-        UpdateTrustLevel();
+        UpdateGroupHeal();
     }
     [Button]
     public void HealSymptome2()
@@ -462,7 +462,7 @@ public class _Sc_pnjState : MonoBehaviour
         currentSymptoms -= 1;
         currentProgression = 0;
         onSymptomeChange();
-        UpdateTrustLevel();
+        UpdateGroupHeal();
     }
     [Button]
     public void HealSymptome3()
@@ -472,7 +472,7 @@ public class _Sc_pnjState : MonoBehaviour
         currentSymptoms -= 1;
         currentProgression = 0;
         onSymptomeChange();
-        UpdateTrustLevel();
+        UpdateGroupHeal();
     }
     [Button]
     public void HealSymptome4()
@@ -482,7 +482,7 @@ public class _Sc_pnjState : MonoBehaviour
         currentSymptoms -= 1;
         currentProgression = 0;
         onSymptomeChange();
-        UpdateTrustLevel();
+        UpdateGroupHeal();
     }
 
     /// bouron soin + care
@@ -496,7 +496,7 @@ public class _Sc_pnjState : MonoBehaviour
             currentSymptoms -= 1;
             currentProgression = 0;
             onSymptomeChange();
-            UpdateTrustLevel();
+            UpdateGroupHeal();
         }       
     }
     [Button]
@@ -509,7 +509,7 @@ public class _Sc_pnjState : MonoBehaviour
             currentSymptoms -= 1;
             currentProgression = 0;
             onSymptomeChange();
-            UpdateTrustLevel();
+            UpdateGroupHeal();
         }        
     }
     [Button]
@@ -522,7 +522,7 @@ public class _Sc_pnjState : MonoBehaviour
             currentSymptoms -= 1;
             currentProgression = 0;
             onSymptomeChange();
-            UpdateTrustLevel();
+            UpdateGroupHeal();
         }        
     }
     [Button]
@@ -535,12 +535,22 @@ public class _Sc_pnjState : MonoBehaviour
             currentSymptoms -= 1;
             currentProgression = 0;
             onSymptomeChange();
-            UpdateTrustLevel();
+            UpdateGroupHeal();
         }        
+    }
+
+    public void UpdateGroupHeal()
+    {
+        myPnjGroup.GetComponent<_Sc_pnjGroup>().UpdateHeal();
+        UpdateTrustLevel();
+    }
+    public void UpdateGroupSoucier()
+    {
+        myPnjGroup.GetComponent<_Sc_pnjGroup>().UpdateSoucier();
+        UpdateTrustLevel();
     }
     public void UpdateTrustLevel()
     {
-        myPnjGroup.GetComponent<_Sc_pnjGroup>().UpdateTrustLevel();
         if (_Sc_selectPnj.Instance.lastPnjState != null)
         {
             _Sc_selectPnj.Instance.SetFichePatient(0, _Sc_selectPnj.Instance.lastPnjState);
