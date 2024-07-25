@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 3702503967870300840}
   - component: {fileID: 1100640875182146041}
   - component: {fileID: 6494708065353287693}
+  - component: {fileID: 3181870844679345455}
   m_Layer: 5
   m_Name: NameText
   m_TagString: Untagged
@@ -420,6 +421,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3181870844679345455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367334703148799287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59942554983a964fa170009d08e0a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  launchFromStart: 0
+  datasList:
+  - languageDatas: {fileID: 4900000, guid: a109731fc31f2ae459326ae957e26efb, type: 3}
+    datas: []
 --- !u!1 &4120449578941218463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 0}
   dialogueText: {fileID: 0}
+  _loadTextName: {fileID: 0}
+  _loadTextDialogue: {fileID: 0}
   currentDialogue: {fileID: 0}
   currentDialogueLineIndex: 0
 --- !u!1 &7920571199551940789
@@ -1076,6 +1096,7 @@ GameObject:
   - component: {fileID: 8053864114030924289}
   - component: {fileID: 2459658763272196857}
   - component: {fileID: 3448024335325057679}
+  - component: {fileID: 8457845173439823181}
   m_Layer: 5
   m_Name: DialogueText
   m_TagString: Untagged
@@ -1273,3 +1294,20 @@ MonoBehaviour:
   useTypewriterWaitForDisappearances: 1
   disappearanceWaitTime: 0.015
   disappearanceSpeedMultiplier: 3
+--- !u!114 &8457845173439823181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020996784098191095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59942554983a964fa170009d08e0a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 
+  launchFromStart: 0
+  datasList:
+  - languageDatas: {fileID: 4900000, guid: a109731fc31f2ae459326ae957e26efb, type: 3}
+    datas: []

@@ -10,8 +10,8 @@ public class _Sc_DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText = null;
     [SerializeField] TextMeshProUGUI dialogueText = null;
 
-    _Sc_LoadTextLanguage _loadTextName = null;
-    _Sc_LoadTextLanguage _loadTextDialogue = null;
+    [SerializeField] _Sc_LoadTextLanguage _loadTextName = null;
+    [SerializeField] _Sc_LoadTextLanguage _loadTextDialogue = null;
 
     [SerializeField] So_Dialogue currentDialogue = null;
     [SerializeField] int currentDialogueLineIndex = 0;

@@ -55,6 +55,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
         }
         if(debugStartValue != 0)
         {
+            Debug.Log("spread NotZero");
             SpreadDisease(debugStartValue);
         }
     }
@@ -93,7 +94,8 @@ public class _Sc_EpidemicManager : MonoBehaviour
 
     public void SpreadDisease(int quantity)
     {
-        if(sickPnjs.Count < debugSickCap)
+        Debug.Log("spread "+ healthPnjs.Count);
+        if (sickPnjs.Count < debugSickCap)
         {
             if (healthPnjs.Count > 0)
             {
@@ -121,8 +123,8 @@ public class _Sc_EpidemicManager : MonoBehaviour
                         break;
                     }
                 }
-               
 
+                Debug.Log("spread Send");
                 healthPnjs[value].GetComponent<_Sc_pnjState>().SymptomProgress(true,chosenSymptom);
 
                 sickPnjs.Add(healthPnjs[value]);
@@ -130,6 +132,7 @@ public class _Sc_EpidemicManager : MonoBehaviour
                 quantity -= 1;
                 if (quantity > 0)
                 {
+                   
                     SpreadDisease(quantity);
                 }
             }
