@@ -9,10 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3867a9cf7988c7847b45b1c37dd37a7f, type: 3}
-  m_Name: lereau merlin
+  m_Script: {fileID: 11500000, guid: 004c6d698595b074ebe0aed012f84305, type: 3}
+  m_Name: PNJ006_jean_p2_01normal
   m_EditorClassIdentifier: 
-  pnjFirstName: Merlin
-  pnjLastName: Lereau
-  pnjCategory: 0
-  pnjGroup: 2
+  DialogueLines:
+  - FirstName: PNJ006Name
+    LastName: PNJ006FamilyName
+    Speaker: 0
+    LineID: PNJ006P2E1L1
+    DialogueRewards:
+      ItemsList: []
+      CountsList: 

@@ -1,0 +1,32 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ006Name@@@Jean@Jean@Jean
+PNJ006FamilyName@@@Fremont@Fremont@Fremont
+PNJ006Type@@@1@1@1
+PNJ006Group@@@Fremont@Fremont@Fremont
+Jean Phase 1 (de jour X à jour Y)@@@@@
+Jean P1 normal@@@@@
+PNJ006P1E1L1@0@@Que veux-tu ici, femme ? @@
+PNJ006P1E1L2@0@@Vous savez, c'est moi qui ai découvert le charbon en bêchant mes choux. Depuis, j'ai rencontré des gens très importants. J'ai donné le feu et la chaleur à tout le village. @@
+PNJ006P1E1L3@1@@Je suis quelqu'un de très important ici ! C'est bien grâce à moi que les gens ont le feu et la chaleur. @@
+PNJ006P1E1L4@1@@Je suis ici pour soigner. J'ai l'impression que les habitant·e·s de Burry ne sont pas au mieux ces derniers temps. @@
+PNJ006P1E1L5@0@@Vous pouvez toujours essayer vos grigris, mais par ici on préfère les médecins aux sorcières ! @@
+Jean P1 malade @@@@@
+PNJ006P1E2L1@0@@@@
+PNJ006P1E2L2@1@@@@
+PNJ006P1E2L3@0@@@@
+Jean P1 confiance@@@@@
+PNJ006P1E3L1@0@@@@
+PNJ006P1E3L2@1@@@@
+PNJ006P1E3L3@0@@@@
+Jean Phase 2 (de jour X à jour Y)@@@@@
+Jean P2 normal@@@@@
+PNJ006P2E1L1@0@@Va-t'en ! Tes remèdes ne font rien, sorcière !!! @@
+Jean P2 malade @@@@@
+PNJ006P2E2L1@0@@@@
+PNJ006P2E2L2@0@@@@
+PNJ006P2E2L3@0@@@@
+Jean P2 confiance @@@@@
+PNJ006P2E3L1@0@@@@
+PNJ006P2E3L2@0@@@@
+PNJ006P2E3L3@0@@@@
