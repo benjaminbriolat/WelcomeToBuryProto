@@ -37,6 +37,9 @@ public class _Sc_Calendrier : MonoBehaviour
         public bool sick3 = false;
         public bool sick4 = false;
         public Vector2 newPos = Vector2.zero;
+        public So_Dialogue _dataNormal = null;
+        public So_Dialogue _dataConfiance = null;
+        public So_Dialogue _dataMalade = null;
     }
 
     [System.Serializable]
@@ -49,7 +52,7 @@ public class _Sc_Calendrier : MonoBehaviour
         public List<GameObject> pnjsToDesactivate = null;
         public List<pnjSets> pnjsToSicken = null;
         public List<pnjSets> pnjsToPlace = null;
-        public List<GameObject> pnjsToUpdate = null;        
+        public List<pnjSets> pnjsToUpdate = null;        
         public bool greatEclipse = false;
         public _So_eclipseTextTrack eclipseTextData = null;
         public Vector3 newPlayerPosition = Vector3.zero;
@@ -61,6 +64,7 @@ public class _Sc_Calendrier : MonoBehaviour
 
     [SerializeField] NavMeshSurface navigationMesh = null;
     Transform player = null;
+    _Sc_smallTalkCanvas _smallTalkCanvas = null;
     private void Awake()
     {
         instance = this;
@@ -76,6 +80,7 @@ public class _Sc_Calendrier : MonoBehaviour
         plageText.setText("",(spanNames[currentPlage -1]),"");
         _sc_epidemicManager = _Sc_EpidemicManager.instance;
         _ressourcesPremenption = _Sc_ressourcesPremeption.instance;
+        _smallTalkCanvas = _Sc_smallTalkCanvas.instance;
         SetLight();
         player = _Sc_cerveau.instance.transform;
         if (debugNoChaptering == false)
@@ -177,6 +182,10 @@ public class _Sc_Calendrier : MonoBehaviour
 
     public void LaunchNewEvent(int newEvent)
     {
+        if(_smallTalkCanvas.transform.parent != null)
+        {
+            _smallTalkCanvas.transform.SetParent(null);
+        }
         //block event for future loops
         evenements[newEvent].passed = true;
 
@@ -209,6 +218,14 @@ public class _Sc_Calendrier : MonoBehaviour
         // give symptoms to existing pnjs
         for (int i = 0; i < evenements[newEvent].pnjsToSicken.Count; i++)
         {
+            /*for(int j = 0; j < evenements[newEvent].pnjsToSicken[i].symptoms.Length; j ++)
+            {
+                if (evenements[newEvent].pnjsToSicken[i].symptoms[j] == true)
+                {
+                    evenements[newEvent].pnjsToSicken[i].pnjGameObject.transform.GetComponent<_Sc_pnjState>().SymptomProgress(true, i);
+                }
+            }*/
+
             if(evenements[newEvent].pnjsToSicken[i].pnjGameObject.activeSelf ==true)
             {
                 if (evenements[newEvent].pnjsToSicken[i].sick1 == true)
@@ -233,7 +250,11 @@ public class _Sc_Calendrier : MonoBehaviour
         // Update PNJs dialogues
         for (int i = 0; i < evenements[newEvent].pnjsToUpdate.Count; i++)
         {
-            //SEND TO PNJ DIALOGUE SCRIPT
+            evenements[newEvent].pnjsToUpdate[i].pnjGameObject.transform.GetComponent<_Sc_pnjDialogue>().ChangeDialogues(
+                evenements[newEvent].pnjsToUpdate[i]._dataNormal, 
+                evenements[newEvent].pnjsToUpdate[i]._dataConfiance, 
+                evenements[newEvent].pnjsToUpdate[i]._dataMalade
+                );
         }
 
         // desactivate PNJs

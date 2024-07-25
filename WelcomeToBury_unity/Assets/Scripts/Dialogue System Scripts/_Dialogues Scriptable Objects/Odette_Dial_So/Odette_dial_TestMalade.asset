@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: Odette_dial_TestMalade
   m_EditorClassIdentifier: 
   DialogueLines:
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: odetteName
+    LastName: odetteFamilyName
     Speaker: 0
-    LineID: Line 1 Dialogue Odette Malade
+    LineID: odetteP1E3L1
     DialogueRewards:
       ItemsList: []
       CountsList: 
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: Elsa
+    LastName: 
     Speaker: 1
-    LineID: Line 2 Dialogue Odette Malade
+    LineID: odetteP1E3L2
     DialogueRewards:
       ItemsList: []
       CountsList: 
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: odetteName
+    LastName: odetteFamilyName
     Speaker: 0
-    LineID: Line 3 Dialogue Odette Malade
+    LineID: odetteP1E3L3
     DialogueRewards:
       ItemsList: []
       CountsList: 

@@ -10,6 +10,9 @@ public class _Sc_DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText = null;
     [SerializeField] TextMeshProUGUI dialogueText = null;
 
+    _Sc_LoadTextLanguage _loadTextName = null;
+    _Sc_LoadTextLanguage _loadTextDialogue = null;
+
     [SerializeField] So_Dialogue currentDialogue = null;
     [SerializeField] int currentDialogueLineIndex = 0;
 
@@ -27,8 +30,12 @@ public class _Sc_DialogueManager : MonoBehaviour
     {
         instance = this;
         myCanvasGroup = GetComponent<CanvasGroup>();
+
         nameText = transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         dialogueText = transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        _loadTextName = transform.GetChild(0).GetChild(0).GetComponent<_Sc_LoadTextLanguage>();
+        _loadTextDialogue = transform.GetChild(1).GetChild(0).GetComponent<_Sc_LoadTextLanguage>();
     }
 
     private void Start()
@@ -60,14 +67,18 @@ public class _Sc_DialogueManager : MonoBehaviour
         {
             if(currentDialogue.DialogueLines[_dialogueIndex].Speaker == 0) //PNJ parle
             {
-                nameText.text = currentDialogue.DialogueLines[_dialogueIndex].FirstName + " " + currentDialogue.DialogueLines[_dialogueIndex].LastName;
+                string newName = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].FirstName);
+                string NewFamName = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].LastName);
+                nameText.text = newName + " " + NewFamName;
+                //nameText.text = currentDialogue.DialogueLines[_dialogueIndex].FirstName + " " + currentDialogue.DialogueLines[_dialogueIndex].LastName;
             }
             else //Elsa parle
             {
                 nameText.text = "Elsa";
             }
-            
-            dialogueText.text = currentDialogue.DialogueLines[_dialogueIndex].LineID;
+
+            _loadTextDialogue.setText("", currentDialogue.DialogueLines[_dialogueIndex].LineID, "");
+            //dialogueText.text = currentDialogue.DialogueLines[_dialogueIndex].LineID;
 
             for (int i = 0; i < currentDialogue.DialogueLines[_dialogueIndex].DialogueRewards.ItemsList.Count; i++)
             {

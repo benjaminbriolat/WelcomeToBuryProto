@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: Odette_dial_TestConfiance
   m_EditorClassIdentifier: 
   DialogueLines:
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: odetteName
+    LastName: odetteFamilyName
     Speaker: 0
-    LineID: Line 1 Dialogue Odette Confiance
+    LineID: odetteP1E2L1
     DialogueRewards:
       ItemsList: []
       CountsList: 
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: Elsa
+    LastName: 
     Speaker: 1
-    LineID: Line 2 Dialogue Odette Confiance
+    LineID: odetteP1E2L2
     DialogueRewards:
       ItemsList: []
       CountsList: 
-  - FirstName: Odette
-    LastName: Collin
+  - FirstName: odetteName
+    LastName: odetteFamilyName
     Speaker: 0
-    LineID: Line 3 Dialogue Odette Confiance
+    LineID: odetteP1E2L3
     DialogueRewards:
       ItemsList:
       - {fileID: 11400000, guid: 074196a414b8cde4c9e89985afa2acf2, type: 2}

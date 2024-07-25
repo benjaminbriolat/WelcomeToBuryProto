@@ -19,18 +19,20 @@ public class _So_pnjInfos : ScriptableObject
 
     public enum PnjGroup
     {
+        Martin,
+        Bonpain,
         Lereau,
         Collin,
         Fremont,
-        Lapointe,
-        Cloutier,
-        Beauchamps,
-        Vallee,
-        Leblanc,
-        Therrien,
-        Dubois,
-        Pitre,
-        Durepos,
+        Mathieu,
+        Druide,
+        Garde,
+        Lavalois,
+        Bovarois,
+        Lechic,
+        Laclarc,
+        Klein,
+        Lesimple
     }
 
     public PnjGroup pnjGroup;
