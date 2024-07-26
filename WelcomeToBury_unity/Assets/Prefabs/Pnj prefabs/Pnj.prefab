@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 3387901564689440849}
   - component: {fileID: 6729861657645782089}
   - component: {fileID: 9043646647381283900}
+  - component: {fileID: 5525955081637985022}
   m_Layer: 0
   m_Name: Pnj
   m_TagString: Player
@@ -626,6 +627,23 @@ MonoBehaviour:
   m_Center: {x: 0, y: -0.5, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &5525955081637985022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758289221339614328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aaa83f5f311ce04186321bcc783fef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDialogue: {fileID: 11400000, guid: 975fba0725348a84a99cb0f5b845ee0d, type: 2}
+  myDialogueConfiance: {fileID: 11400000, guid: 87c62ea91e53f9248ba3739eda0a69af, type: 2}
+  myDialogueMalade: {fileID: 11400000, guid: 7de968ac247816246985dc5701b375ae, type: 2}
+  lastLineDialogueIndex: 0
+  currentDialogue: {fileID: 0}
 --- !u!1 &800728435926316679
 GameObject:
   m_ObjectHideFlags: 0

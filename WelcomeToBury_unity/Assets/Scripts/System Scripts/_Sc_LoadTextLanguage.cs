@@ -67,6 +67,32 @@ public class _Sc_LoadTextLanguage : MonoBehaviour
             }
         }
     }
+
+    public string getText(string sentString)
+    {
+        key = sentString;
+        textToSet = transform.GetComponent<TextMeshProUGUI>();
+        textToSetNoUi = transform.GetComponent<TextMeshPro>();
+        returnedString = null;
+        for (int j = 0; j < datasList.Count; j++)
+        {
+            Debug.Log(" Set text search lists");
+            datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
+
+            for (int i = 1; i < datasList[j].datas.Length - 1; i++)
+            {
+
+                rows = datasList[j].datas[i].Split(new char[] { '@' });
+                Debug.Log(" Set text search rows");
+                if (rows[0] == sentString)
+                {
+                    Debug.Log(" Set text found match");
+                    returnedString = rows[_localisationMaster.languageUsed];
+                }
+            }
+        }
+        return returnedString;
+    }
     public void setLanguageAnew()
     {
         if (rows != null)

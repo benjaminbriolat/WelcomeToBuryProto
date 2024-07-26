@@ -1,0 +1,45 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ002Name@@@Pierre-Yves@Pierre-Yves@Pierre-Yves
+PNJ002FamilyName@@@Bonpain@Bonpain@Bonpain
+PNJ002Type@@@1@1@1
+PNJ002Group@@@Bonpain@Bonpain@Bonpain
+Pierre-Yves Phase 1 (de jour X à jour Y)@@@@@
+Pierre-Yves P1 normal@@@@@
+PNJ002P1E1L1@1@@Bonjour, je suis Elsa. Je cherche un peu d'eau. @@
+PNJ002P1E1L2@1@@Mais peut-être que je pourrais prendre soin de cette cheville ? @@
+PNJ002P1E1L3@0@@Quelle belle journée ! Mais quelle belle journée ! Je suis bienheureux !! @@
+PNJ002P1E1L4@0@@(il remarque finalement Elsa) Oh, bonjour ! Que puis-je faire pour vous ? @@
+PNJ002P1E1L5@1@@Votre cheville est très enflée. Laissez-moi vous aider. @@
+PNJ002P1E1L6@0@@(grimace) Ah. J'espère que ça ira mieux. @@
+Pierre-Yves P1 malade @@@@@
+PNJ002P1E2L1@0@@@@
+PNJ002P1E2L2@1@@@@
+PNJ002P1E2L3@0@@@@
+Pierre-Yves P1 confiance@@@@@
+PNJ002P1E3L1@0@@@@
+PNJ002P1E3L2@1@@@@
+PNJ002P1E3L3@0@@@@
+Pierre-Yves Phase 2 (de jour X à jour Y)@@@@@
+Pierre-Yves P2 normal@@@@@
+PNJ002P2E1L1@0@@Me voilà capable de danser à nouveau ! Oh, que la vie est belle !! @@
+PNJ002P2E1L2@1@@Mais oui, dansons ensemble pour fêter cela. @@
+Odette P2 malade @@@@@
+PNJ002P2E2L1@0@@Votre cheville est très enflée. Laissez-moi vous aider. @@
+PNJ002P2E2L2@1@@Ne vous inquiétez pas, je vais m'occuper de cela. @@
+Odette P2 confiance @@@@@
+PNJ002P2E3L1@0@@Je me sens tout drôle depuis hier... Chaque fois que je me mets à danser, j'ai la tête qui tourne. @@
+PNJ002P2E3L2@1@@Ne vous inquiétez pas, je vais m'occuper de cela. @@
+Pierre-Yves Phase 3 (de jour X à jour Y)@@@@@
+Pierre-Yves P2 normal@@@@@
+PNJ002P3E1L1@0@@Rhoo lala, comme les gens ont l'air préoccupés ces temps-ci... @@
+PNJ002P3E1L2@1@@Préoccupés ? Mais par quoi ? @@
+PNJ002P3E1L3@0@@Mais par le temps, bien sûr. Plus personne n'a le temps de danser !!! @@
+Odette P2 malade @@@@@
+PNJ002P3E2L1@0@@Je me sens tout drôle depuis hier... Chaque fois que je me mets à danser, j'ai la tête qui tourne. @@
+PNJ002P3E2L2@1@@Ne vous inquiétez pas, je vais m'occuper de cela. @@
+Odette P2 confiance @@@@@
+PNJ002P3E3L1@0@@Heureusement que vous êtes venue à Bury ! Ici, les gens sont bien trop sérieux... @@
+PNJ002P3E3L2@1@@Que voulez-vous dire par trop sérieux ? @@
+PNJ002P3E3L3@0@@"Mais oui, maintenant les gens ont toujours ""des choses à faire"". Ce n'est jamais le bon moment pour danser ! "@@
+PNJ002P3E3L4@0@1 miel@Tenez, un petit cadeau de bienvenue pour mon amie guérisseuse. @@

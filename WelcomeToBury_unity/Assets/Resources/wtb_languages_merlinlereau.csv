@@ -1,0 +1,40 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ004Name@@@Merlin@Merlin@Merlin
+PNJ004FamilyName@@@Lereau@Lereau@Lereau
+PNJ004Type@@@1@1@1
+PNJ004Group@@@Lereau@Lereau@Lereau
+Merlin Phase 1 (de jour X à jour Y)@@@@@
+Merlin P1 normal@@@@@
+PNJ004P1E1L1@0@@Bonjour, madame ! Vous savez, dans les champs, j'ai vu des créatures incroyables, des animaux, des insectes, des aventures partout ! @@
+PNJ004P1E1L2@1@@Vraiment ? Tu as l'air d'avoir une imagination débordante, Merlin ! @@
+Merlin P1 malade @@@@@
+PNJ004P1E2L1@0@@@@
+PNJ004P1E2L2@1@@@@
+PNJ004P1E2L3@0@@@@
+Merlin P1 confiance@@@@@
+PNJ004P1E3L1@0@@@@
+PNJ004P1E3L2@1@@@@
+PNJ004P1E3L3@0@@@@
+Merlin Phase 2 (de jour X à jour Y)@@@@@
+Merlin P2 normal@@@@@
+PNJ004P2E1L1@0@@Vous savez, il y a beaucoup de gens dans la forêt, mais des animaux j'en vois plus trop. @@
+PNJ004P2E1L2@1@@Ah oui, mais que font-ils dans la forêt ? @@
+PNJ004P2E1L3@0@@Bah je sais pas moi, mais de toute façon, la forêt elle a aussi un peu disparu... @@
+PNJ004P2E1L4@1@@Mais non, elle n'a pas disparu, elle se cache, comme les animaux. @@
+PNJ004P2E1L5@0@@Moi, de toute façon, je peux plus trop y aller dans la forêt... @@
+PNJ004P2E1L6@1@@Mais pourquoi ? @@
+PNJ004P2E1L7@0@@Je suis tout le temps malade maintenant... @@
+Merlin P2 malade @@@@@
+PNJ004P2E2L1@0@@Je me sens un peu fatigué, comme l'autre fois... À chaque fois, ça recommence, ça m'énerve. @@
+PNJ004P2E2L2@0@@Bah, je sais pas trop, mais maman elle dit que je suis toujours malade moi. @@
+PNJ004P2E2L3@1@@Mais oui, c'est pénible, je comprends que tu sois découragé, mais fais-moi confiance. @@
+PNJ004P2E2L4@1@@Je vais te remettre sur pieds. @@
+Merlin P2 confiance @@@@@
+PNJ004P2E3L1@0@@Vous savez, il y a beaucoup de gens dans la forêt, mais des animaux j'en vois plus trop.@@
+PNJ004P2E3L2@1@@Ah oui, mais que font-ils dans la forêt, tous ces gens ?@@
+PNJ004P2E3L3@0@@Bah je sais pas moi, mais de toute façon, la forêt elle a aussi un peu disparu...@@
+PNJ004P2E3L4@1@@Mais non, elle n'a pas disparu, elle se cache, comme les animaux.@@
+PNJ004P2E3L5@0@@Moi, de toute façon, je peux plus trop y aller dans la forêt...@@
+PNJ004P2E3L6@1@@Mais pourquoi ?@@
+PNJ004P2E3L7@0@@Je suis tout le temps malade maintenant...@@
