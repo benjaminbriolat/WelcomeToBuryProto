@@ -3293,6 +3293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerElsa
       objectReference: {fileID: 0}
+    - target: {fileID: 3116365468716079420, guid: 56ca67ddfaebf4e36a08a94ed8969dec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6799673654156498657, guid: 56ca67ddfaebf4e36a08a94ed8969dec, type: 3}
       propertyPath: m_LocalScale.x
       value: 100

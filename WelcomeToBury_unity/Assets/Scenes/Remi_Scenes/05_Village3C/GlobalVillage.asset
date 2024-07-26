@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f077503be6ae942a1e1245dbd53ea9, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953beb541740ddc499d005ee80c9ff29, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   quality:
     m_OverrideState: 1
     m_Value: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.9871586, y: 1, z: 0.87905645, w: 0.031545747}
+    m_Value: {x: 0.988, y: 1, z: 0.88, w: 0.031545747}
   gamma:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1, z: 1, w: -0.25236595}
@@ -266,13 +266,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9236423, z: 0.87435466, w: 0}
+    m_Value: {x: 1, y: 0.922, z: 0.87, w: 0}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.99448305, z: 0.9593359, w: 0}
+    m_Value: {x: 1, y: 0.9946667, z: 0.96, w: 0}
   highlights:
     m_OverrideState: 0
-    m_Value: {x: 0.9042663, y: 1, z: 0.8368669, w: 0}
+    m_Value: {x: 0.90666664, y: 1, z: 0.84000003, w: 0}
   shadowsStart:
     m_OverrideState: 0
     m_Value: 0
