@@ -1,0 +1,13 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ015Name@@@Thierry@Thierry@Thierry
+PNJ015FamilyName@@@Lavalois@Lavalois@Lavalois
+PNJ015Type@@@1@1@1
+PNJ015Group@@@Lavalois@Lavalois@Lavalois
+Thierry Phase 1 (de jour X à jour Y)@@@@@
+Thierry P1 normal@@@@@
+PNJ015P1E1L1@0@@Je suis mieux. @@
+Thierry P1 malade@@@@@
+PNJ015P1E2L1@0@@Je suis mal. @@
+Thierry P1 confiance@@@@@
+PNJ015P1E3L1@0@@Je suis mieux et confiant @@

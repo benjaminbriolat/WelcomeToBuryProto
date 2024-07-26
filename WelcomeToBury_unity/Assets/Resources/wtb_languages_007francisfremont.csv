@@ -1,0 +1,21 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ007Name@@@Francis@Francis@Francis
+PNJ007FamilyName@@@Fremont@Fremont@Fremont
+PNJ007Type@@@1@1@1
+PNJ007Group@@@Fremont@Fremont@Fremont
+Francis Phase 1 (de jour X à jour Y)@@@@@
+Francis P1 normal@@@@@
+PNJ007P1E1L1@0@@Mon père avait raison ce n'était rien d'autre que de la fatigue. @@
+PNJ007P1E1L2@0@@De toute façon il a souvent raison mon père. @@
+PNJ007P1E1L3@1@@Ah oui, ça doit être rassurant pour vous. @@
+Francis P1 malade@@@@@
+PNJ007P1E2L1@0@@Je suis fatigué depuis quelques jours... Mon père va peut etre m'emener à la ville voir le medecin @@
+PNJ007P1E2L2@1@@Vous voulez que je regarde ce que je peux faire ? Je suis guérisseuse. @@
+PNJ007P1E2L3@0@@Ah vous croyez, mon père dit que c'est rien. @@
+PNJ007P1E2L4@1@@C'est tout de même étrange d'être si las à votre age. @@
+PNJ007P1E2L5@1@@On va essayer une décoxion de Valériane. Vous savez ou je peux en trouver ? @@
+Francis P1 confiance@@@@@
+PNJ007P1E3L1@0@@Merci pour votre aide et votre temps ! Je dirais à mon père que vous n'êtes pas une sorcière.@@
+PNJ007P1E3L2@0@@Enfin... Vous n'êtes pas une sorcière n'est ce pas ?@@
+PNJ007P1E3L3@1@@Ne vous inquietez nous ne dirons rien à votre père, cela restera un secret entre nous.@@

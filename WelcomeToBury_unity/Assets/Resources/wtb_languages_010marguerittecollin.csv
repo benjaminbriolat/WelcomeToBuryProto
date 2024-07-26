@@ -1,0 +1,26 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ010Name@@@Margueritte@Margueritte@Margueritte
+PNJ010FamilyName@@@Collin@Collin@Collin
+PNJ010Type@@@1@1@1
+PNJ010Group@@@Collin@Collin@Collin
+Margueritte Phase 1 (de jour X à jour Y)@@@@@
+Margueritte P1 normal@@@@@
+PNJ010P1E1L1@0@@Il y a souvent des insectes nocturnes au nord. Ca a toujours été comme ça par chez nous. @@
+Margueritte P1 malade@@@@@
+PNJ010P1E2L1@0@@@@
+PNJ010P1E2L2@1@@@@
+Margueritte P1 confiance@@@@@
+PNJ010P1E3L1@0@@J'en ai vu des lucioles moi. Près de la maison isollée, vers le nord ouest. @@
+PNJ010P1E3L2@1@@Ah oui, c'est souvent un bon signe. @@
+Margueritte Phase 2 (de jour X à jour Y)@@@@@
+Margueritte P1 normal@@@@@
+PNJ010P2E1L1@0@@Les gens ont bien changé ces derniers temps... Tout le monde ne parle plus que de cette maudite mine !@@
+PNJ010P2E1L2@0@@Et puis ce défilé de haut de forme, pffff... Ils en reviendront tous. Je vous le dis moi !@@
+PNJ010P2E1L3@0@@Vous l'avez vue vous, la mine ?@@
+PNJ010P2E1L4@0@@Pffff...@@
+Margueritte P1 malade@@@@@
+PNJ010P2E2L1@0@@@@
+PNJ010P2E2L2@1@@@@
+Margueritte P1 confiance@@@@@
+PNJ010P2E3L1@0@@Je suis bien content que les petits se marient ! Cette joie c'est une grande chose pour nous tous. @@

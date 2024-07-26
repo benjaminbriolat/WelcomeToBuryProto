@@ -5,11 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Zoo Scenes/Zoo_proto_Chaptering.unity
-    guid: bc9dfa56431b64543acddce97307a6a1
   - enabled: 1
-    path: Assets/Scenes/Remi_Scenes/06_BuildScene_Terrain_V2.unity
-    guid: 38239995e928f4ae2b4912322b463245
+    path: Assets/Scenes/Zoo Scenes/Zoo_proto_ChapteringMerge.unity
+    guid: c51c7431aaa9c3e478836dcbac16499c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

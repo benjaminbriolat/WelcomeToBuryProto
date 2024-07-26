@@ -1,0 +1,15 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ023Name@@@Anatole@Anatole@Anatole
+PNJ023FamilyName@@@Lechic@Lechic@Lechic
+PNJ023Type@@@1@1@1
+PNJ023Group@@@Lechic@Lechic@Lechic
+Anatole Phase 1 (de jour X à jour Y)@@@@@
+Anatole P1 normal@@@@@
+PNJ023P1E1L1@0@@Ca va mieux maintenant. Je suis fort comme mon papa. @@
+Anatole P1 malade@@@@@
+PNJ023P1E2L1@0@@Moi aussi je ne me sens pas bien... Comme papa. @@
+PNJ023P1E2L2@0@@Mais il est fort mon papa, il continu toujour de travailler même quand il est malade. @@
+Anatole P1 confiance@@@@@
+PNJ023P1E3L1@0@@Ca va mieux maintenant. Je suis fort comme mon papa. Et puis il a dit que vous alliez nous aider. C'est vrai hein ?@@
+PNJ023P1E3L2@1@@Mais oui évidemment. Je suis pas très forte mais je peux aider les gens.@@

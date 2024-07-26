@@ -1,0 +1,27 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ009Name@@@Jacques@Jacques@Jacques
+PNJ009FamilyName@@@Collin@Collin@Collin
+PNJ009Type@@@1@1@1
+PNJ009Group@@@Collin@Collin@Collin
+Jacques Phase 1 (de jour X à jour Y)@@@@@
+Jacques P1 normal@@@@@
+PNJ009P1E1L1@0@@Mais vous m'avez fait un bien fou ! Merci Elsa. @@
+PNJ009P1E1L2@1@@Il est vrai que vous n'étiez pas en bonne forme. @@
+Jacques P1 malade@@@@@
+PNJ009P1E2L1@0@@Bon bah je me sens pas tres bien moi. @@
+PNJ009P1E2L2@1@@Laissez moi regarder ce qui vous arrive. @@
+Jacques P1 confiance@@@@@
+PNJ009P1E3L1@0@@Merci, je me sens beaucoup mieux maintenant. Vous ne voulez pas restez avec nous pour la nuit.@@
+PNJ009P1E3L2@1@@Merci beaucoup, c'est très généreux de votre part mais je ne me sens bien qu'à la lumière des lucioles. @@
+PNJ009P1E3L3@1@@Je reviendrai vous voir sous peu.@@
+Jacques Phase 2 (de jour X à jour Y)@@@@@
+Jacques P1 normal@@@@@
+PNJ009P2E1L1@0@@Vous m'avez sauvez ! @@
+PNJ009P2E1L2@1@@Vous vous sentez mieux, je suis contente. @@
+Jacques P1 malade@@@@@
+PNJ009P2E2L1@0@@Mais voilà que ça recommence... et puis cette fièvre je n'en peux plus... @@
+PNJ009P2E2L2@1@@On va arranger ça, donnez moi vos mains. @@
+Jacques P1 confiance@@@@@
+PNJ009P2E3L1@0@@Merci, je me sens beaucoup mieux maintenant. @@
+PNJ009P2E3L2@1@@Je veillerai toujours sur vous et votre famille ne vous inquiétez pas. @@

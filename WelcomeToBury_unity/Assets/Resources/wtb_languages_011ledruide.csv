@@ -1,0 +1,24 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ011Name@@@Le@Le@Le
+PNJ011FamilyName@@@druide@druide@druide
+PNJ011Type@@@1@1@1
+PNJ011Group@@@druide@druide@druide
+Druide Phase 1 (de jour X à jour Y)@@@@@
+Druide P1 normal@@@@@
+PNJ011P1E1L1@1@@Bonjour. Je suis Elsa et je suis guérisseuse.@@
+PNJ011P1E1L2@0@@Bonjour Elsa, je suis heureux de te rencontrer. Je suis le druide enfin autant que cela puisse encore exister...@@
+PNJ011P1E1L3@1@@Je suis contente de vous avoir trouvé, je suis à la recherche de valériane. J'ai besoin de réaliser des remèdes.@@
+PNJ011P1E1L4@1@@De plus en plus de personnes souffrent d'une sorte de grande fatigue.@@
+PNJ011P1E1L5@0@@Vous savez, il est de plus en plus compliqué de trouver ces plantes rares.@@
+PNJ011P1E1L6@0@@Ils ont éventré la terre et libéré le démon. La fin est proche, vous devriez partir.@@
+PNJ011P1E1L7@1@@S'il vous plaît, confiez-moi un peu de valériane, ça pourra peut-être soulager tous ces gens.@@
+PNJ011P1E1L8@0@1 valerianne@Très bien, je vous donne ce que j'ai, mais vous ne pourrez pas sauver tout le monde...@@
+Druide P1 malade@@@@@
+PNJ011P1E2L1@0@@@@
+PNJ011P1E2L2@1@@@@
+Druide P1 confiance@@@@@
+PNJ011P1E3L1@0@@@@
+PNJ011P1E3L2@1@@@@
+PNJ011P1E3L3@1@@@@
+PNJ011P1E3L4@0@@@@

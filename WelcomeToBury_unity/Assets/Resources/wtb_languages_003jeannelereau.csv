@@ -1,0 +1,20 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ003Name@@@Jeanne@Jeanne@Jeanne
+PNJ003FamilyName@@@Lereau@Lereau@Lereau
+PNJ003Type@@@1@1@1
+PNJ003Group@@@Lereau@Lereau@Lereau
+Jeanne Phase 1 (de jour X à jour Y)@@@@@
+Jeanne P1 normal@@@@@
+PNJ003P1E1L1@0@@Il y a un secret dans ce village, un trésor caché. Mais seuls quelqu'un de très déterminé pourra le trouver. @@
+PNJ003P1E1L2@1@@Ah bon, mais qui pourrait désirer un trésor sans savoir ce qu'il contient ? @@
+PNJ003P1E1L3@1@@Mais justement, la plupart des gens ne savent pas trop ce qu'ils veulent, alors iels sont juste contents à l'idée d'obtenir quelque chose. @@
+PNJ003P1E1L4@0@@Bah de toute façon, si c'est précieux, ça doit pas être pour moi... @@
+Jeanne P1 malade@@@@@
+PNJ003P1E2L1@0@@@@
+PNJ003P1E2L2@1@@@@
+PNJ003P1E2L3@0@@@@
+Jeanne P1 confiance @@@@@
+PNJ003P1E3L1@0@@@@
+PNJ003P1E3L2@1@@@@
+PNJ003P1E3L3@0@@@@

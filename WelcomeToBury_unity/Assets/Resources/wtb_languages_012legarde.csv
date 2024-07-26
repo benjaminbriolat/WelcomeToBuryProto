@@ -1,0 +1,19 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ012Name@@@Le@Le@Le
+PNJ012FamilyName@@@Garde@Garde@Garde
+PNJ012Type@@@1@1@1
+PNJ012Group@@@Garde@Garde@Garde
+Garde Phase 1 (de jour X à jour Y)@@@@@
+Garde P1 normal@@@@@
+PNJ012P1E1L1@1@@Ne t'approche pas étrangere. Ce n'est pas un endroit pour toi.@@
+PNJ012P1E1L2@0@@Que voulez vous dire ? Pourquoi cet endroit n'est pas pour moi ?@@
+PNJ012P1E1L3@1@@Allez ouste je n'ai pas de temps à perdre !@@
+Garde P1 malade@@@@@
+PNJ012P1E2L1@0@@@@
+PNJ012P1E2L2@1@@@@
+Garde P1 confiance@@@@@
+PNJ012P1E3L1@0@@@@
+PNJ012P1E3L2@1@@@@
+PNJ012P1E3L3@1@@@@
+PNJ012P1E3L4@0@@@@

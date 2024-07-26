@@ -1,0 +1,17 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ008Name@@@Père@Père@Père
+PNJ008FamilyName@@@Mathieu@Mathieu@Mathieu
+PNJ008Type@@@1@1@1
+PNJ008Group@@@Mathieu@Mathieu@Mathieu
+Père Mathieu Phase 1 (de jour X à jour Y)@@@@@
+Père Mathieu P1 normal@@@@@
+PNJ008P1E1L1@0@@Bonjour mon enfant, vous souhaitez vous confessez ? @@
+PNJ008P1E1L2@1@@Heu... non merci. @@
+Père Mathieu P1 malade@@@@@
+PNJ008P1E2L1@0@@J'ai une colique terrible... je ne peux même plus faire la messe. @@
+PNJ008P1E2L2@1@@Vous voulez que je vous donne quelque chose ? Je suis guérisseuse. @@
+Père Mathieu P1 confiance@@@@@
+PNJ008P1E3L1@0@@Vous voyez les choses sont bien faites, personne ne reste malade longtemps. @@
+PNJ008P1E3L2@0@@"Enfin les choses ""étaient"" bien faite car de nos jours... Vous voulez vous confessez mon enfant ? "@@
+PNJ008P1E3L3@1@@Peux être un autre jour... Merci. @@

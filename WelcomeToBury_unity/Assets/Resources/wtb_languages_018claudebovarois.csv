@@ -1,0 +1,20 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ018Name@@@Claude@Claude@Claude
+PNJ018FamilyName@@@Bovarois@Bovarois@Bovarois
+PNJ018Type@@@1@1@1
+PNJ018Group@@@Bovarois@Bovarois@Bovarois
+Claude Phase 1 (de jour X à jour Y)@@@@@
+Claude P1 normal@@@@@
+PNJ018P1E1L1@0@@Je suis mieux. @@
+Claude P1 malade@@@@@
+PNJ018P1E2L1@0@@Je suis mal. @@
+Claude P1 confiance@@@@@
+PNJ018P1E3L1@0@@Je suis mieux et confiant @@
+Claude Phase 2 (de jour X à jour Y)@@@@@
+Claude P2 normal@@@@@
+PNJ018P2E1L1@0@@Je suis mieux. @@
+Claude P2 malade@@@@@
+PNJ018P2E2L1@0@@Je suis mal. @@
+Claude P2 confiance@@@@@
+PNJ018P2E3L1@0@@Je suis mieux et confiant @@

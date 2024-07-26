@@ -1,0 +1,14 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ024Name@@@Alphonse@Alphonse@Alphonse
+PNJ024FamilyName@@@Lechic@Lechic@Lechic
+PNJ024Type@@@1@1@1
+PNJ024Group@@@Lechic@Lechic@Lechic
+Alphonse Phase 1 (de jour X à jour Y)@@@@@
+Alphonse P1 normal@@@@@
+PNJ024P1E1L1@0@@Ca va mieux maintenant @@
+Alphonse P1 malade@@@@@
+PNJ024P1E2L1@0@@Je suis mélancolique c'est derniers jours, comme Une grande lassitude qui m'envahit.@@
+PNJ024P1E2L2@@@Mais bon faut bien continuer de travailler...@@
+Alphonse P1 confiance@@@@@
+PNJ024P1E3L1@0@@Ca va mieux maintenant avec confiance @@

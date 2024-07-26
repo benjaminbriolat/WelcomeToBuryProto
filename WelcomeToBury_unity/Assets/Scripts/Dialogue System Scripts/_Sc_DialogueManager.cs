@@ -26,6 +26,8 @@ public class _Sc_DialogueManager : MonoBehaviour
 
     bool isDialogueMalade = false;
     bool newDialogue = false;
+
+    public bool isOpen = false;
     private void Awake()
     {
         instance = this;
@@ -65,7 +67,8 @@ public class _Sc_DialogueManager : MonoBehaviour
     {
         if(_dialogueIndex < currentDialogue.DialogueLines.Count)
         {
-            if(currentDialogue.DialogueLines[_dialogueIndex].Speaker == 0) //PNJ parle
+            string combinedName = null;
+            if (currentDialogue.DialogueLines[_dialogueIndex].Speaker == 0) //PNJ parle
             {
                 string newName = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].FirstName);
                 string NewFamName = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].LastName);
@@ -77,11 +80,24 @@ public class _Sc_DialogueManager : MonoBehaviour
                 nameText.text = "Elsa";
             }
 
-            _loadTextDialogue.setText("", currentDialogue.DialogueLines[_dialogueIndex].LineID, "");
+
+            if (currentDialogue.DialogueLines[_dialogueIndex].Speaker == 0) //PNJ parle
+            {
+                string newName2 = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].FirstName);
+                string NewFamName2 = _loadTextName.getText(currentDialogue.DialogueLines[_dialogueIndex].LastName);
+                combinedName = newName2 + " " + NewFamName2 + ":" + " ";
+
+            }
+            else
+            {
+                combinedName = "Elsa: ";
+            }
+            _loadTextDialogue.setText(combinedName, currentDialogue.DialogueLines[_dialogueIndex].LineID, "");
             //dialogueText.text = currentDialogue.DialogueLines[_dialogueIndex].LineID;
 
             for (int i = 0; i < currentDialogue.DialogueLines[_dialogueIndex].DialogueRewards.ItemsList.Count; i++)
             {
+                Debug.Log("Reward exists");
                 _sc_rewardItem.GiveReward(currentDialogue.DialogueLines[_dialogueIndex].DialogueRewards, 0);
             }
 
@@ -130,15 +146,17 @@ public class _Sc_DialogueManager : MonoBehaviour
 
         if (_state == true)
         {
+            isOpen = true;
             myCanvasGroup.alpha = 1.0f;
             myCanvasGroup.interactable = true;
             myCanvasGroup.blocksRaycasts = true;
 
-            _sc_Cerveau.isInMenu = true;
-            _sc_Cerveau.canMove = false;
+            //_sc_Cerveau.isInMenu = true;
+           // _sc_Cerveau.canMove = false;
         }
         else
         {
+            isOpen = false;
             myCanvasGroup.alpha = 0.0f;
             myCanvasGroup.interactable = false;
             myCanvasGroup.blocksRaycasts = false;

@@ -39,6 +39,20 @@ public class _Sc_LoadTextLanguage : MonoBehaviour
                 Debug.Log(" Set text launch");
             }
         }
+        openAllCSV();
+    }
+
+    public void openAllCSV()
+    {
+        for (int j = 0; j < datasList.Count; j++)
+        {            
+            datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
+
+           /* for (int i = 1; i < datasList[j].datas.Length - 1; i++)
+            {
+                rows = datasList[j].datas[i].Split(new char[] { '@' });
+            }*/
+        }
     }
     public void setText(string extraDataBefore, string sentString, string extraDataAfter)
     {
@@ -47,20 +61,16 @@ public class _Sc_LoadTextLanguage : MonoBehaviour
         textToSetNoUi = transform.GetComponent<TextMeshPro>();
         for (int j = 0; j < datasList.Count; j++)
         {
-            Debug.Log(" Set text search lists");
-            datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
+            //datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
 
             for (int i = 1; i < datasList[j].datas.Length - 1; i++)
             {
                 
                 rows = datasList[j].datas[i].Split(new char[] { '@' });
-                Debug.Log(" Set text search rows");
                 if (rows[0] == sentString)
                 {
-                    Debug.Log(" Set text found match");
                     returnedString = rows[_localisationMaster.languageUsed];
                     SetTextMeshPro(extraDataBefore, extraDataAfter);
-                    Debug.Log(" Set text Value as : " + returnedString);
                     return;
                     
                 }
@@ -76,17 +86,14 @@ public class _Sc_LoadTextLanguage : MonoBehaviour
         returnedString = null;
         for (int j = 0; j < datasList.Count; j++)
         {
-            Debug.Log(" Set text search lists");
-            datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
+            //datasList[j].datas = datasList[j].languageDatas.text.Split(new char[] { '\n' });
 
             for (int i = 1; i < datasList[j].datas.Length - 1; i++)
             {
 
                 rows = datasList[j].datas[i].Split(new char[] { '@' });
-                Debug.Log(" Set text search rows");
                 if (rows[0] == sentString)
                 {
-                    Debug.Log(" Set text found match");
                     returnedString = rows[_localisationMaster.languageUsed];
                 }
             }

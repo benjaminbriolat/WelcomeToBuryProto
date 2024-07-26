@@ -1,0 +1,29 @@
+ID@speaker@gifts@Français@English@Español
+@0 = PNJ / 1 =Elsa@Item + amount@@@
+PNJ022Name@@@Guillaume@Guillaume@Guillaume
+PNJ022FamilyName@@@Lechic@Lechic@Lechic
+PNJ022Type@@@1@1@1
+PNJ022Group@@@Lechic@Lechic@Lechic
+Guillaume Phase 1 (de jour X à jour Y)@@@@@
+Guillaume P1 normal@@@@@
+PNJ022P1E1L1@0@@Je suis mieux. @@
+PNJ022P1E1L2@0@@Mais j'ai pu travailler ce matin, ça ira de mieux mieux maintenant. @@
+Guillaume P1 malade@@@@@
+PNJ022P1E2L1@0@@Je n'ai plus aucune envie. Les jours passent et se ressemblent... Je me sens mal. @@
+PNJ022P1E2L2@0@@Mais heureseuement que je peux encore aller à la mine pour travailler. @@
+Guillaume P1 confiance@@@@@
+PNJ022P1E3L1@0@@Je me sens un peu mieux, mais j'ai encore comme un poids étrange qui pèse sur moi. @@
+PNJ022P1E3L2@0@@Mais j'ai pu travailler ce matin, ça ira de mieux mieux maintenant. @@
+PNJ022P1E3L3@1@@Faites attention à vous. @@
+Guillaume Phase 1 (de jour X à jour Y)@@@@@
+Guillaume P1 normal@@@@@
+PNJ022P2E1L1@0@@Je me sens un peu mieux, mais j'ai encore comme un poids étrange qui pèse sur moi.@@
+PNJ022P2E1L2@0@@Mais j'ai pu travailler ce matin, ça ira de mieux mieux maintenant.@@
+Guillaume P1 malade@@@@@
+PNJ022P2E2L1@0@@J'ai encore un coup de moins bien... Je ne comprends pas ce qui m'arrive.@@
+PNJ022P2E2L2@0@@Je dois vraiment repartir travailler vous pouvez peux etre me donner quelque chose ?@@
+PNJ022P2E2L3@1@@Je vais vous donner quelque chose.@@
+Guillaume P1 confiance@@@@@
+PNJ022P2E3L1@0@@Je me sens un peu mieux, mais j'ai encore comme un poids étrange qui pèse sur moi.@@
+PNJ022P2E3L2@0@@Mais j'ai pu travailler ce matin, ça ira de mieux mieux maintenant.@@
+PNJ022P2E3L3@1@@Faites attention à vous.@@

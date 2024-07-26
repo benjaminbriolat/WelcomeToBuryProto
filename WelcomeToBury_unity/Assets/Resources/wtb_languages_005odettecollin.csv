@@ -1,0 +1,39 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ005Name@@@Odette@Odette@Odette
+PNJ005FamilyName@@@Collin@Collin@Collin
+PNJ005Type@@@1@1@1
+PNJ005Group@@@Collin@Collin@Collin
+Odette Phase 1 (de jour X à jour Y)@@@@@
+Odette P1 normal@@@@@
+PNJ005P1E1L1@0@@Bonjour ! Vous savez, moi je rêve de voyager et de devenir couturière, mais ce n'est pas le cas... @@
+PNJ005P1E1L2@0@@Mais vous, vous avez l'air d'avoir une vie fascinante ! @@
+PNJ005P1E1L3@1@@(Sourit) Oui, je suis guérisseuse, de mère en fille. Et toi, tu es ici depuis toujours ? @@
+PNJ005P1E1L4@1@1 eau@Oui, ma famille est ici depuis toujours. Tenez, prenez ça. @@
+PNJ005P1E1L5@0@@"Vous avez déjà entendu parler de ""l'or noir"" ? Tout le monde semble très enthousiastes "@@
+PNJ005P1E1L6@0@@Mais moi tout cela m'inquiète un peu. @@
+Odette P1 malade @@@@@
+PNJ005P1E2L1@0@@@@
+PNJ005P1E2L2@1@@@@
+PNJ005P1E2L3@0@@@@
+Odette P1 confiance@@@@@
+PNJ005P1E3L1@0@@@@
+PNJ005P1E3L2@1@@@@
+PNJ005P1E3L3@0@@@@
+Odette Phase 2 (de jour X à jour Y)@@@@@
+Odette P2 normal@@@@@
+PNJ005P2E1L1@0@@Je vais me marier ! Je vais me marier ! Jacques a finalement fait sa demande !! @@
+PNJ005P2E1L2@0@@Il m'a dit qu'il allait travailler à la mine et qu'on aurait une maison et tout le confort de la vie moderne. @@
+PNJ005P2E1L3@1@@Toutes mes félicitations ! @@
+PNJ005P2E1L4@0@@Nos enfants iront à l'école, on aura de l'électricité des vacances, tu entends Elsa ! Tout sera pour le mieux ! @@
+PNJ005P2E1L5@1@@Mais c'est formidable. Je suis très heureuse pour toi. @@
+PNJ005P2E1L6@1@@Moi je suis à la recherche de Valériane pour faire un remède, tu sais pas ou je pourrais en trouver ? @@
+PNJ005P2E1L7@0@@Alors moi non mais sans doute que le druide, lui, il saura. @@
+Odette P2 malade @@@@@
+PNJ005P2E2L1@0@@@@
+PNJ005P2E2L2@1@@@@
+PNJ005P2E2L3@0@@@@
+Odette P2 confiance @@@@@
+PNJ005P2E3L1@0@@@@
+PNJ005P2E3L2@1@@@@
+PNJ005P2E3L3@0@@@@

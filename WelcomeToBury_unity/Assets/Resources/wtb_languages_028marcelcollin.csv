@@ -1,0 +1,18 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ028Name@@@Marcelle@Marcelle@Marcelle
+PNJ028FamilyName@@@Collin@Collin@Collin
+PNJ028Type@@@1@1@1
+PNJ028Group@@@Collin@Collin@Collin
+Marcelle Phase 1 (de jour X à jour Y)@@@@@
+Marcelle P1 normal@@@@@
+PNJ028P1E1L1@0@@Mais que faites-vous ??!? Il faut aider mon père au plus vite. @@
+PNJ028P1E1L2@0@@Je vous en supplie, dépêchez-vous ! @@
+Marcelle P1 malade@@@@@
+PNJ028P1E2L1@0@@@@
+PNJ028P1E2L2@1@@@@
+Marcelle P1 confiance@@@@@
+PNJ028P1E3L1@0@@@@
+PNJ028P1E3L2@1@@@@
+PNJ028P1E3L3@1@@@@
+PNJ028P1E3L4@0@@@@

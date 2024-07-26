@@ -1,0 +1,13 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ026Name@@@Armand@Armand@Armand
+PNJ026FamilyName@@@Laclarc@Laclarc@Laclarc
+PNJ026Type@@@1@1@1
+PNJ026Group@@@Laclarc@Laclarc@Laclarc
+Armand Phase 1 (de jour X à jour Y)@@@@@
+Armand P1 normal@@@@@
+PNJ026P1E1L1@0@@Ca va mieux maintenant @@
+Armand P1 malade@@@@@
+PNJ026P1E2L1@0@@Quelle fatigue... je n'arrive même plus à marcher. Les mêmes symptomes que Renée... deux bons à rien ! @@
+Armand P1 confiance@@@@@
+PNJ026P1E3L1@0@@Ca va mieux maintenant avec de la confiance @@

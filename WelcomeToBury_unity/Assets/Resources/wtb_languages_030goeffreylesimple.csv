@@ -1,0 +1,18 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ030Name@@@Goeffrey@Goeffrey@Goeffrey
+PNJ030FamilyName@@@Lesimple@Lesimple@Lesimple
+PNJ030Type@@@1@1@1
+PNJ030Group@@@Lesimple@Lesimple@Lesimple
+Goeffrey Phase 1 (de jour X à jour Y)@@@@@
+Goeffrey P1 normal@@@@@
+PNJ030P1E1L1@0@@Mais vous êtes trop forte, comment avez vous fait ??!? @@
+Goeffrey P1 malade@@@@@
+PNJ030P1E2L1@0@@ARGH... je souffre tellement... je ne peux plus respirer...@@
+PNJ030P1E2L2@0@@Je suis certain qu'il m'a fait quelques chose... le démon. Il pense tous que je suis fou, mais je sais ce que j'ai vu !@@
+PNJ030P1E2L3@0@@argh...keuf...@@
+PNJ030P1E2L4@1@@Détendez vous, je vous crois et je sais ce qui vous arrive. @@
+PNJ030P1E2L5@1@@Ne vous inquietez plus, je vais vous soulager.@@
+Goeffrey P1 confiance@@@@@
+PNJ030P1E3L1@0@@Mais comment avez vous fait ??!? @@
+PNJ030P1E3L2@0@@Une vraie pro-gameuzzze !@@

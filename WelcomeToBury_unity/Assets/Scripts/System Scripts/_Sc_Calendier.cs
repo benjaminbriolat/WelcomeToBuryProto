@@ -13,7 +13,7 @@ public class _Sc_Calendrier : MonoBehaviour
     [Header("UI")]
     [SerializeField] TextMeshProUGUI dayText = null;
     [SerializeField] _Sc_LoadTextLanguage plageText = null;
-    int currentDay = 1;
+    public int currentDay = 1;
     public int currentPlage = 1;
     _Sc_EpidemicManager _sc_epidemicManager = null;
     [Header("Affected Objects")]
@@ -22,7 +22,7 @@ public class _Sc_Calendrier : MonoBehaviour
     _Sc_ressourcesPremeption _ressourcesPremenption = null;
     [SerializeField] List<string> spanNames = null;
     [SerializeField] List<Color> lightValues = null;
-    [SerializeField] Light _light = null;
+    [SerializeField] List<Light> _light = null;
     public bool debugNofade = false;
     public bool debugAutoSpread = false;
     public bool debugNoChaptering = false;
@@ -37,9 +37,9 @@ public class _Sc_Calendrier : MonoBehaviour
         public bool sick3 = false;
         public bool sick4 = false;
         public Vector2 newPos = Vector2.zero;
-        public So_Dialogue _dataNormal = null;
-        public So_Dialogue _dataConfiance = null;
+        public So_Dialogue _dataNormal = null;        
         public So_Dialogue _dataMalade = null;
+        public So_Dialogue _dataConfiance = null;
     }
 
     [System.Serializable]
@@ -182,6 +182,8 @@ public class _Sc_Calendrier : MonoBehaviour
 
     public void LaunchNewEvent(int newEvent)
     {
+        
+
         if(_smallTalkCanvas.transform.parent != null)
         {
             _smallTalkCanvas.transform.SetParent(null);
@@ -251,9 +253,10 @@ public class _Sc_Calendrier : MonoBehaviour
         for (int i = 0; i < evenements[newEvent].pnjsToUpdate.Count; i++)
         {
             evenements[newEvent].pnjsToUpdate[i].pnjGameObject.transform.GetComponent<_Sc_pnjDialogue>().ChangeDialogues(
-                evenements[newEvent].pnjsToUpdate[i]._dataNormal, 
-                evenements[newEvent].pnjsToUpdate[i]._dataConfiance, 
-                evenements[newEvent].pnjsToUpdate[i]._dataMalade
+                evenements[newEvent].pnjsToUpdate[i]._dataNormal,
+                evenements[newEvent].pnjsToUpdate[i]._dataMalade,
+                evenements[newEvent].pnjsToUpdate[i]._dataConfiance
+                
                 );
         }
 
@@ -280,14 +283,23 @@ public class _Sc_Calendrier : MonoBehaviour
 
 
         // REBAKE SCENE
-        CallBake();
+        if(evenements[newEvent].buildingsToActivate.Count> 0 || evenements[newEvent].pnjsToDesactivate.Count> 0 || evenements[newEvent].pnjsToActivate.Count >0)
+        {
+            Debug.Log("Bake called");
+            CallBake();
+        }
+        
     }
 
     public void SetLight()
     {
         if(debugAffectLight == true)
         {
-            _light.color = lightValues[currentPlage - 1];
+            for(int i = 0; i < _light.Count; i++)
+            {
+                _light[i].color = lightValues[currentPlage - 1];
+            }
+            
         }
     }
 

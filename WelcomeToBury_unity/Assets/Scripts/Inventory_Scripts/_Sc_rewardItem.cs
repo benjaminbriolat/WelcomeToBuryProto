@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class _Sc_rewardItem : MonoBehaviour
 {
@@ -19,10 +18,12 @@ public class _Sc_rewardItem : MonoBehaviour
 
     public void GiveReward(DialogueReward _dialogueReward, float _delay)
     {
-        if(_delay == 0)
+        Debug.Log("Reward received");
+        if (_delay == 0)
         {
             for (int i = 0; i < _dialogueReward.ItemsList.Count; i++)
             {
+                Debug.Log("Reward count");
                 _sc_inventoryManager.AddItem(_dialogueReward.ItemsList[i], _dialogueReward.CountsList[i]);
             }
         }

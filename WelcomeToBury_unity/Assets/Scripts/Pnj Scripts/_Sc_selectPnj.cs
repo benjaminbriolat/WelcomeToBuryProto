@@ -27,6 +27,8 @@ public class _Sc_selectPnj : MonoBehaviour
 
     [SerializeField] bool autoDialogue = true;
 
+    _Sc_DialogueManager _dialogueManager = null;
+
     private void Awake()
     {
         Instance = this;
@@ -37,6 +39,7 @@ public class _Sc_selectPnj : MonoBehaviour
         cam = Camera.main;
         LayerPnj = LayerMask.NameToLayer("Pnj");
         _sc_fichePatientUI = _Sc_fichePatientUI.Instance;
+        _dialogueManager = _Sc_DialogueManager.instance;
     }
 
     private void Update()
@@ -60,11 +63,13 @@ public class _Sc_selectPnj : MonoBehaviour
                     {
                         currentPnjState.GetComponent<_Sc_pnjActions>().PnjDialogue(false);
                     }
+                    Debug.Log("Stop");
                 }
                 else
                 {
                     if(_Sc_movement.instance.NewCustomDestination == false)
                     {
+                        
                         _Sc_movement.instance.setClosestDestination(currentPnjState.transform);
                     }
                 }
@@ -150,6 +155,11 @@ public class _Sc_selectPnj : MonoBehaviour
             {
                 _sc_fichePatientUI.setCanvas(false);
             }
+        }
+
+        if(_dialogueManager.isOpen)
+        {
+            _dialogueManager.QuitDialogue();
         }
     }
     private void SetUnitState(Transform _pnjTransform)

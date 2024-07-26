@@ -1,0 +1,14 @@
+ID@speaker@gifts@Français@English@Español
+@0= PNJ / 1 =Elsa@Item + amount@@@
+PNJ031Name@@@Constant@Constant@Constant
+PNJ031FamilyName@@@Lesimple@Lesimple@Lesimple
+PNJ031Type@@@1@1@1
+PNJ031Group@@@Lesimple@Lesimple@Lesimple
+Constant Phase 1 (de jour X à jour Y)@@@@@
+Constant P1 normal@@@@@
+PNJ031P1E1L1@0@@Maman dit que papa a perdu la tête, mais moi j'ai l'impression qu'il va vraiment mal.@@
+PNJ031P1E1L2@@@C'est terrible il a l'air de souffrir... vous devez être très inquiet.@@
+Constant P1 malade@@@@@
+PNJ031P1E2L1@0@@@@
+Constant P1 confiance@@@@@
+PNJ031P1E3L1@0@@@@
